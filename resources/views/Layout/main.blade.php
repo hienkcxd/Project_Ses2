@@ -69,9 +69,9 @@
                     <!-- mainmenu begin -->
                     <nav>
                         <ul id="mainmenu">
-                            <li><a href="#">Giới Thiệu</a></li>
+                            <li><a href="{{ route('aboutus') }}">Giới Thiệu</a></li>
                             <li><a href="{{ route('project') }}">Dự Án</a></li>
-                            <li><a href="#">Dịch VỤ</a>
+                            <li><a href="{{ route('Service') }}">Dịch VỤ</a>
                                 <ul>
                                     <li><a href="#">Residential Design</a></li>
                                     <li><a href="#">Hospitaly Design</a></li>
@@ -79,9 +79,9 @@
                                     <li><a href="#">Commercial Design</a></li>
                                 </ul>
                             </li>
-                            <li><a href="#">Tin Tức</a></li>
-                            <li><a href="#">Thị Trường</a></li>
-                            <li><a href="#">Đăng Nhập</a></li>
+                            <li><a href="{{ route('news') }}">Tin Tức</a></li>
+                            <li><a href="{{ route('market') }}">Thị Trường</a></li>
+                            <li><a href="{{ route('login') }}">Đăng Nhập</a></li>
                         </ul>
                     </nav>
 

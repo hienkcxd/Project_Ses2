@@ -1,6 +1,11 @@
 <?php
 
+    use App\Http\Controllers\admin\login\LoginController;
+    use App\Http\Controllers\user\about\AboutController;
+    use App\Http\Controllers\user\market\MarketController;
+    use App\Http\Controllers\user\news\NewsController;
     use App\Http\Controllers\user\project\ProjectsController;
+    use App\Http\Controllers\user\service\ServiceController;
     use Illuminate\Support\Facades\Route;
 
     /*
@@ -14,12 +19,34 @@
     |
     */
 
+    //Route for user
     Route::get('/', function () {
         return view('homepage.homepage');
     })->name('homepage');
 
+    Route::prefix('AboutUs')->group(function () {
+        Route::get('/', [AboutController::class, 'index'])->name('aboutus');
+    });
 
-    Route::prefix('project')->group(function () {
+    Route::prefix('News')->group(function () {
+        Route::get('/', [NewsController::class, 'index'])->name('news');
+    });
+
+    Route::prefix('Service')->group(function () {
+        Route::get('/', [ServiceController::class, 'index'])->name('Service');
+    });
+
+    Route::prefix('Market')->group(function () {
+        Route::get('/', [MarketController::class, 'index'])->name('market');
+    });
+
+    Route::prefix('Project')->group(function () {
         Route::get('/', [ProjectsController::class, 'index'])->name('project');
         Route::get('/{name}', [ProjectsController::class, 'detail'])->name('project_detail');
+    });
+
+
+    //Route for admin
+    Route::prefix('Login')->group(function () {
+        Route::get('/', [LoginController::class, 'index'])->name('login');
     });
