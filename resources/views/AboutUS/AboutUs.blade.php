@@ -5,5 +5,5 @@
 @endsection
 
 
-@section('title','Project_Contructure')
-@section('idBody','page-projects')
+@section('title','About_Us_Contructure')
+@section('idBody','page-about')
