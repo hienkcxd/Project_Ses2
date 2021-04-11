@@ -15,4 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('homepage.homepage');
+})->name('homepage');
+
+Route::prefix('projects')->group(function(){
+    Route::get('/', 'Project.Project')->name('project');
 });

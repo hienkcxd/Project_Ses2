@@ -6,4 +6,4 @@
 
 
 @section('title','News_Contructure')
-@section('idBody','homepage')
+@section('idBody','page-News')

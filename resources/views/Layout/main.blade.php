@@ -56,7 +56,7 @@
                 <div class="col-md-12">
                     <!-- logo begin -->
                     <h1 id="logo">
-                        <a href="index-2.html">
+                        <a href="{{ route('homepage') }}">
                             <img class="logo" src="images/logo.png" alt="">
                         </a>
                     </h1>
@@ -69,20 +69,19 @@
                     <!-- mainmenu begin -->
                     <nav>
                         <ul id="mainmenu">
-                            <li><a href="index-2.html">Trang Chủ</a></li>
-                            <li><a href="projects.html">Dự Án</a></li>
-                            <li><a href="services.html">Dịch VỤ</a>
+                            <li><a href="#">Giới Thiệu</a></li>
+                            <li><a href="{{ route('project') }}">Dự Án</a></li>
+                            <li><a href="#">Dịch VỤ</a>
                                 <ul>
-                                    <li><a href="service-1.html">Residential Design</a></li>
-                                    <li><a href="service-2.html">Hospitaly Design</a></li>
-                                    <li><a href="service-3.html">Office Design</a></li>
-                                    <li><a href="service-4.html">Commercial Design</a></li>
+                                    <li><a href="#">Residential Design</a></li>
+                                    <li><a href="#">Hospitaly Design</a></li>
+                                    <li><a href="#">Office Design</a></li>
+                                    <li><a href="#">Commercial Design</a></li>
                                 </ul>
                             </li>
-                            <li><a href="about.html">Thông Tin</a></li>
-                            <li><a href="blog.html">Tin Tức</a></li>
-                            <li><a href="shop.html">Thị Trường</a></li>
-                            <li><a href="contact.html">Liên Hệ</a></li>
+                            <li><a href="#">Tin Tức</a></li>
+                            <li><a href="#">Thị Trường</a></li>
+                            <li><a href="#">Đăng Nhập</a></li>
                         </ul>
                     </nav>
 
