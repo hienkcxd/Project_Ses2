@@ -1,1 +1,9 @@
-<h2>Duy da sua</h2>
+@extends('Layout.main')
+
+@section('content')
+
+@endsection
+
+
+@section('title','News_Contructure')
+@section('idBody','homepage')
