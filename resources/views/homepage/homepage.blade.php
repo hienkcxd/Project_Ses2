@@ -12,6 +12,7 @@
     </div>
 @endsection
 
-@section('title')
-    Homepage_Contructure
-@endsection
+
+@section('title','Homepage_Contructure')
+@section('idBody','homepage')
+

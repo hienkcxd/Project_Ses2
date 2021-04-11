@@ -45,7 +45,7 @@
     <link rel="stylesheet" href="css/rev-settings.css" type="text/css">
 </head>
 
-<body id="homepage">
+<body id="@yield('idBody')">
 
 <div id="wrapper">
 
@@ -69,14 +69,7 @@
                     <!-- mainmenu begin -->
                     <nav>
                         <ul id="mainmenu">
-                            <li><a href="index-2.html">Trang Chủ</a>
-                                <ul>
-                                    <li><a href="index-video.html">Homepage Video</a></li>
-                                    <li><a href="index-parallax.html">Homepage Parallax</a></li>
-                                    <li><a href="index-2.html">Homepage Slider</a></li>
-                                    <li><a href="index-onepage.html">One Page Style</a></li>
-                                </ul>
-                            </li>
+                            <li><a href="index-2.html">Trang Chủ</a></li>
                             <li><a href="projects.html">Dự Án</a></li>
                             <li><a href="services.html">Dịch VỤ</a>
                                 <ul>
