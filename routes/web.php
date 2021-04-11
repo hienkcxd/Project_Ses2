@@ -1,6 +1,6 @@
 <?php
 
-    use App\Http\Controllers\project\ProjectsController;
+    use App\Http\Controllers\user\project\ProjectsController;
     use Illuminate\Support\Facades\Route;
 
     /*
@@ -21,4 +21,5 @@
 
     Route::prefix('project')->group(function () {
         Route::get('/', [ProjectsController::class, 'index'])->name('project');
+        Route::get('/{name}', [ProjectsController::class, 'detail'])->name('project_detail');
     });
