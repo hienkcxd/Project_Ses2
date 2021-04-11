@@ -157,5 +157,5 @@
 
 <!-- section begin -->
 <section id="view-all-projects" class="call-to-action bg-color text-center" data-speed="5" data-type="background">
-    <a href="projects.html" class="btn btn-line-black btn-big">View All Projects</a>
+    <a href="{{ route('project') }}" class="btn btn-line-black btn-big">View All Projects</a>
 </section>
