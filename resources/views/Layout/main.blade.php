@@ -4,7 +4,7 @@
 <!-- Mirrored from www.themenesia.com/themeforest/archi-light/index-parallax.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 29 Jul 2015 14:08:18 GMT -->
 <head>
     <meta charset="utf-8">
-    <title>Archi - Responsive Interior Design Template</title>
+    <title>@yield('title')</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Responsive Minimal Bootstrap Theme">
     <meta name="keywords" content="onepage,responsive,minimal,bootstrap,theme">
@@ -45,7 +45,7 @@
     <link rel="stylesheet" href="css/rev-settings.css" type="text/css">
 </head>
 
-<body id="@yield('idBody')">
+<body @yield('idBody')>
 
 <div id="wrapper">
 
@@ -93,9 +93,13 @@
     </header>
     <!-- header close -->
 
+    <!-- sub header begin -->
+    @yield('sub-header')
+    <!-- sub header close -->
+
     <!-- content begin -->
     <div id="content" class="no-bottom no-top">
-    @yield('content')
+        @yield('content')
     </div>
 
     <!-- footer begin -->
