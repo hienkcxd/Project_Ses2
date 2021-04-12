@@ -46,7 +46,7 @@
 <div id="wrapper">
 
     <!-- header begin -->
-    <header>
+    <header @yield('header-bg')>
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -218,6 +218,7 @@
 <script src="{{ asset('/js/jquery.scrollto.js') }}"></script>
 <script src="{{ asset('/js/owl.carousel.js') }}"></script>
 <script src="{{ asset('/js/jquery.countTo.js') }}"></script>
+<script src="{{ asset('/js/classie.js') }}"></script>
 <script src="{{ asset('/js/video.resize.js') }}"></script>
 <script src="{{ asset('/js/validation.js') }}"></script>
 <script src="{{ asset('/js/wow.min.js') }}"></script>

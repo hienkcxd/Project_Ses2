@@ -16,3 +16,4 @@
 
 @section('title','About_Us_Contructure')
 @section('idBody')class = "page-about"@endsection
+@section('header-bg')class = "header-bg"@endsection
