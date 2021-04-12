@@ -10,5 +10,5 @@
 
 
 @section('title','Market_Contructure')
-@section('idBody','page-Market')
+@section('idBody')class = "page-Market"@endsection
 @section('header-bg')class = "header-bg"@endsection

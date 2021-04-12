@@ -14,9 +14,9 @@ background:url(../images/background/bg-subheader.jpg)top fixed;
 .page-projects #subheader{background-image:url(../images/background/subheader-1.jpg);}
 .page-services #subheader{background-image:url(../images/background/subheader-2.jpg);}
 .page-about #subheader{background-image:url(../images/background/subheader-3.jpg);}
-.page-blog #subheader{background-image:url(../images/background/subheader-4.jpg);}
+.page-News #subheader{background-image:url(../images/background/subheader-4.jpg);}
 .page-Market #subheader{background-image:url(../images/background/subheader-5.jpg);}
-.page-contact #subheader{background-image:url(../images/background/subheader-6.jpg);}
+.page-login #subheader{background-image:url(../images/background/subheader-6.jpg);}
 
 #info-address{background:url(../images/background/bg-3.jpg) top fixed;}
 #view-all-projects, #call-to-action{padding:60px 0 60px 0;}

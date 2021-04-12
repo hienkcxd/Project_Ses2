@@ -90,8 +90,8 @@
     <!-- header close -->
 
     <!-- sub header begin -->
-@yield('sub-header')
-<!-- sub header close -->
+    @yield('sub-header')
+    <!-- sub header close -->
 
     <!-- content begin -->
     <div id="content" class="no-bottom no-top">

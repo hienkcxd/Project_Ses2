@@ -2,11 +2,11 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1>Thị Trường</h1>
+                <h1>Dịch Vụ</h1>
                 <ul class="crumb">
                     <li><a href="{{ route('homepage') }}">Home</a></li>
                     <li class="sep">/</li>
-                    <li>Thị Trường</li>
+                    <li>Dịch Vụ</li>
                 </ul>
             </div>
         </div>
