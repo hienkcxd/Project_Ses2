@@ -1,7 +1,7 @@
 @extends('Layout.main')
 
 @section('content')
-    <div style="min-height: 600px"></div>
+    
 @endsection
 
 
