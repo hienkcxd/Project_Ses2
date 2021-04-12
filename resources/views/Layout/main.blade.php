@@ -7,7 +7,7 @@
     <meta name="description" content="Responsive Minimal Bootstrap Theme">
     <meta name="keywords" content="onepage,responsive,minimal,bootstrap,theme">
     <meta name="author" content="">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 <!--[if lt IE 9]>
     <script src="{{ asset('/js/html5shiv.js') }}"></script>
     <![endif]-->
@@ -24,7 +24,7 @@
     <link href="{{ asset('/css/magnific-popup.css') }}" rel="stylesheet">
     <link href="{{ asset('/css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('/demo/demo.css') }}" rel="stylesheet">
-
+    <link href="{{ asset('/css/mark.chart.css') }}" rel="stylesheet">
     <!-- custom background -->
     <link href="{{ asset('/css/bg.css') }}" rel="stylesheet">
 
