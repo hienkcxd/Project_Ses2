@@ -7,3 +7,4 @@
 
 @section('title','Project_Contructure')
 @section('idBody','page-projects')
+@section('header-bg')class = "header-bg"@endsection

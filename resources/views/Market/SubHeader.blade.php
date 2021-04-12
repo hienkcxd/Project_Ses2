@@ -3,11 +3,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h1>About Us</h1>
+                    <h1>Market</h1>
                     <ul class="crumb">
                         <li><a href="{{ route('homepage') }}">Home</a></li>
                         <li class="sep">/</li>
-                        <li>About Us</li>
+                        <li>Market</li>
                     </ul>
                 </div>
             </div>

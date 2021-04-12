@@ -7,4 +7,4 @@
 
 @section('title','News_Contructure')
 @section('idBody','page-News')
-
+@section('header-bg')class = "header-bg"@endsection
