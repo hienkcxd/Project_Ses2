@@ -2,8 +2,8 @@
 
     <div class="row">
         <div class="col-md-8 project-images">
-            <img src="images/portfolio/view/p2_a.jpg" alt="" class="img-responsive" />
-            <img src="images/portfolio/view/p2_b.jpg" alt="" class="img-responsive" />
+            <img src="{{ asset('images/portfolio/view/p2_b.jpg') }}" alt="" class="img-responsive" />
+            <img src="{{ asset('images/portfolio/view/p2_b.jpg') }}" alt="" class="img-responsive" />
         </div>
         <div class="col-md-4">
             <div class="project-info">
