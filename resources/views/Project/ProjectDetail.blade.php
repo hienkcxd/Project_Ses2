@@ -5,6 +5,7 @@
 @endsection
 
 @section('content')
+
     <div class="container project-view">
 
         <div class="row">
@@ -56,6 +57,7 @@
             </div>
         </div>
     </div>
+
 @endsection
 
 
