@@ -6,7 +6,6 @@
             <input type="text" required>
             <label>ID</label>
         </div>
-
         <div class="field">
             <input type="password" required>
             <label>Password</label>
