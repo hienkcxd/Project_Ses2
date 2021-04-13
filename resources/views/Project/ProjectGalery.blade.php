@@ -33,7 +33,7 @@
                                     </span>
                                 </span>
                 </a>
-                <img src="images/portfolio/pf%20(1).jpg" alt="" />
+                <img src="{{ asset('images/portfolio/pf(1).jpg') }}" alt="" />
             </div>
         </div>
         <!-- close gallery item -->
@@ -49,7 +49,7 @@
                                 </span>
                 </a>
 
-                <img src="images/portfolio/pf%20(2).jpg" alt="" />
+                <img src="{{ asset('images/portfolio/pf(2).jpg') }}" alt="" />
             </div>
         </div>
         <!-- close gallery item -->
@@ -65,7 +65,7 @@
                                 </span>
                 </a>
 
-                <img src="images/portfolio/pf%20(3).jpg" alt="" />
+                <img src="{{ asset('images/portfolio/pf(3).jpg') }}" alt="" />
             </div>
         </div>
         <!-- close gallery item -->
@@ -80,7 +80,7 @@
                                     </span>
                                 </span>
                 </a>
-                <img src="images/portfolio/pf%20(4).jpg" alt="" />
+                <img src="{{ asset('images/portfolio/pf(4).jpg') }}" alt="" />
             </div>
         </div>
         <!-- close gallery item -->
@@ -95,7 +95,7 @@
                                     </span>
                                 </span>
                 </a>
-                <img src="images/portfolio/pf%20(5).jpg" alt="" />
+                <img src="{{ asset('images/portfolio/pf(5).jpg') }}" alt="" />
             </div>
         </div>
         <!-- close gallery item -->
@@ -110,7 +110,7 @@
                                     </span>
                                 </span>
                 </a>
-                <img src="images/portfolio/pf%20(6).jpg" alt="" />
+                <img src="{{ asset('images/portfolio/pf(6).jpg') }}" alt="" />
             </div>
         </div>
         <!-- close gallery item -->
@@ -126,7 +126,7 @@
                                 </span>
                 </a>
 
-                <img src="images/portfolio/pf%20(7).jpg" alt="" />
+                <img src="{{ asset('images/portfolio/pf(7).jpg') }}" alt="" />
             </div>
         </div>
         <!-- close gallery item -->
@@ -142,7 +142,7 @@
                                 </span>
                 </a>
 
-                <img src="images/portfolio/pf%20(8).jpg" alt="" />
+                <img src="{{ asset('images/portfolio/pf(8).jpg') }}" alt="" />
             </div>
         </div>
         <!-- close gallery item -->
@@ -158,7 +158,7 @@
                                 </span>
                 </a>
 
-                <img src="images/portfolio/pf%20(9).jpg" alt="" />
+                <img src="{{ asset('images/portfolio/pf(9).jpg') }}" alt="" />
             </div>
         </div>
         <!-- close gallery item -->
@@ -174,7 +174,7 @@
                                 </span>
                 </a>
 
-                <img src="images/portfolio/pf%20(10).jpg" alt="" />
+                <img src="{{ asset('images/portfolio/pf(10).jpg') }}" alt="" />
             </div>
         </div>
         <!-- close gallery item -->
@@ -190,7 +190,7 @@
                                 </span>
                 </a>
 
-                <img src="images/portfolio/pf%20(11).jpg" alt="" />
+                <img src="{{ asset('images/portfolio/pf(11).jpg') }}" alt="" />
             </div>
         </div>
         <!-- close gallery item -->
@@ -206,7 +206,7 @@
                                 </span>
                 </a>
 
-                <img src="images/portfolio/pf%20(12).jpg" alt="" />
+                <img src="{{ asset('images/portfolio/pf(12).jpg') }}" alt="" />
             </div>
         </div>
         <!-- close gallery item -->

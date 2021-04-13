@@ -41,7 +41,7 @@
     });
 
     Route::prefix('Project')->group(function () {
-        Route::get('/', [ProjectsController::class, 'index'])->name('project');
+        Route::get('/', [ProjectsController::class, 'index'])->name('pro');
         Route::get('/sp1', [ProjectsController::class, 'detail'])->name('project_detail');
     });
 

@@ -67,7 +67,7 @@
                     <nav>
                         <ul id="mainmenu">
                             <li><a href="{{ route('aboutus') }}">Giới Thiệu</a></li>
-                            <li><a href="{{ route('project') }}">Dự Án</a></li>
+                            <li><a href="{{ route('pro') }}">Dự Án</a></li>
                             <li><a href="{{ route('Service') }}">Dịch VỤ</a>
                                 <ul>
                                     <li><a href="#">Residential Design</a></li>
