@@ -3,10 +3,17 @@
         <div class="row">
             <div id="sidebar" class="col-md-3 wow fadeInUp">
                 <ul id="services-list">
+<<<<<<< HEAD
                     <li class="active"><a href="{{ asset('Service_detail') }}">Residential Design</a></li>
                     <li><a href="Hospitaly Design">Hospitaly Design</a></li>
                     <li><a href="service-3.html">Office Design</a></li>
                     <li><a href="service-4.html">Commercial Design</a></li>
+=======
+                    <li class="active"><a href="{{ route('Service_detail') }}">Residential Design</a></li>
+                    <li><a href="#">Hospitaly Design</a></li>
+                    <li><a href="#">Office Design</a></li>
+                    <li><a href="#">Commercial Design</a></li>
+>>>>>>> origin/main
                 </ul>
             </div>
 

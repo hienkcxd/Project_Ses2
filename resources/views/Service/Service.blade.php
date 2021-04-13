@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-   @include('Service.MainConten')
+   @include('Service.MainContent')
 @endsection
 
 
