@@ -70,10 +70,10 @@
                             <li><a href="{{ route('pro') }}">Dự Án</a></li>
                             <li><a href="{{ route('Service') }}">Dịch VỤ</a>
                                 <ul>
-                                    <li><a href="#">Residential Design</a></li>
-                                    <li><a href="#">Hospitaly Design</a></li>
-                                    <li><a href="#">Office Design</a></li>
-                                    <li><a href="#">Commercial Design</a></li>
+                                    <li><a href="#">Nhà Phố</a></li>
+                                    <li><a href="#">Decor Căn Hộ</a></li>
+                                    <li><a href="#">Nhà Tân Cổ</a></li>
+                                    <li><a href="#">Biệt Thự</a></li>
                                 </ul>
                             </li>
                             <li><a href="{{ route('news') }}">Tin Tức</a></li>
