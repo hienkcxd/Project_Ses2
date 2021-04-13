@@ -4,7 +4,7 @@
             <div id="sidebar" class="col-md-3 wow fadeInUp">
                 <ul id="services-list">
                     <li class="active"><a href="{{ asset('Service_detail') }}">Residential Design</a></li>
-                    <li><a href="service-2.html">Hospitaly Design</a></li>
+                    <li><a href="Hospitaly Design">Hospitaly Design</a></li>
                     <li><a href="service-3.html">Office Design</a></li>
                     <li><a href="service-4.html">Commercial Design</a></li>
                 </ul>
@@ -26,4 +26,8 @@
 
         </div>
     </div>
+
+    @section('title','Service_Detail_Contructure_Detail')
+    @section('idBody')class = "page-services"@endsection
+    @section('header-bg')class = "header-bg"@endsection
 
