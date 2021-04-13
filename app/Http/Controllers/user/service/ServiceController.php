@@ -17,6 +17,11 @@ class ServiceController extends Controller
         return view('Service.Service');
     }
 
+    public function detail()
+    {
+        return view('Service.ServiceDetail');
+    }
+
     /**
      * Show the form for creating a new resource.
      *

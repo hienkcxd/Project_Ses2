@@ -34,6 +34,7 @@
 
     Route::prefix('Service')->group(function () {
         Route::get('/', [ServiceController::class, 'index'])->name('Service');
+        Route::get('/detail', [ServiceController::class, 'detail'])->name('Service_detail');
     });
 
     Route::prefix('Market')->group(function () {
