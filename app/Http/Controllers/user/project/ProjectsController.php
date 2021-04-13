@@ -10,4 +10,8 @@ class ProjectsController extends Controller
     public function index(){
         return view('Project.Project');
     }
+
+    public function detail(){
+        return view('Project.ProjectDetail');
+    }
 }

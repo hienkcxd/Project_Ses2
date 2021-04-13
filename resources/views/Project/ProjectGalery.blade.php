@@ -26,7 +26,7 @@
         <!-- gallery item -->
         <div class="item residential">
             <div class="picframe">
-                <a class="simple-ajax-popup-align-top" href="project-details-1.html">
+                <a class="simple-ajax-popup-align-top" href="{{ route('project_detail') }}">
                                 <span class="overlay">
                                     <span class="pf_text">
                                         <span class="project-name">Eco Green Interior</span>
