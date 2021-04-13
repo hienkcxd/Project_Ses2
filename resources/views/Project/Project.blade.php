@@ -5,7 +5,8 @@
 @endsection
 
 @section('content')
-    <div style="min-height: 600px"></div>
+    @include('Project.ProjectGalery')
+    @include('Project.GoBlog')
 @endsection
 
 
