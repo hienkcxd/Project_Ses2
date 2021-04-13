@@ -1,10 +1,7 @@
-@extends('Layout.main')
 
-@section('sub-header')
-    @include('Project.SubHeader')
-@endsection
 
-@section('content')
+
+
 
     <div class="container project-view">
 
@@ -58,7 +55,6 @@
         </div>
     </div>
 
-@endsection
 
 
 @section('title','Project_Contructure_Detail')

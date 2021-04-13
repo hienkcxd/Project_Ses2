@@ -99,7 +99,7 @@
     <div id="content" class="no-bottom no-top">
         @yield('content')
     </div>
-
+        @yield('contentDetail')
     <!-- footer begin -->
     <footer>
         <div class="container">
