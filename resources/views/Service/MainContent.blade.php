@@ -7,7 +7,7 @@
                 <div class="spacer-single"></div>
                 <img src="{{ asset('images/misc/pic_3.jpg') }}" class="img-responsive" alt="">
                 <div class="spacer-single"></div>
-                <a href="{{ asset('Service_detail') }}" class="btn-line btn-fullwidth">Read More</a>
+                <a href="{{ route('Service_detail') }}" class="btn-line btn-fullwidth">Read More</a>
             </div>
 
             <div class="col-md-3">
