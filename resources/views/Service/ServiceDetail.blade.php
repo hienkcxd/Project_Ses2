@@ -1,14 +1,14 @@
 @extends('Layout.main')
 
 @section('sub-header')
-    @include('Service.SubHeader')
+    @include('Service-Detail.SubHeader')
 @endsection
 
 @section('content')
-   @include('Service.MainConten')
+    @include('Service.MainDetail')
 @endsection
 
 
-@section('title','Service_Contructure')
+@section('title','Service-Detail_Contructure')
 @section('idBody')class = "page-services"@endsection
 @section('header-bg')class = "header-bg"@endsection
