@@ -1,3 +1,4 @@
+<!-- section begin -->
 <section id="section-portfolio" class="no-top no-bottom">
     <div class="container">
 
@@ -25,7 +26,7 @@
         <!-- gallery item -->
         <div class="item residential">
             <div class="picframe">
-                <a class="simple-ajax-popup-align-top" href="project-details-1.html">
+                <a class="simple-ajax-popup-align-top" href="{{ route('project_detail') }}">
                                 <span class="overlay">
                                     <span class="pf_text">
                                         <span class="project-name">Eco Green Interior</span>
@@ -117,7 +118,7 @@
         <!-- gallery item -->
         <div class="item residential">
             <div class="picframe">
-                <a class="simple-ajax-popup-align-top" href="project-details-youtube.html">
+                <a class="simple-ajax-popup-align-top" href="project-details.html">
                                 <span class="overlay">
                                     <span class="pf_text">
                                         <span class="project-name">Summer House</span>
@@ -133,7 +134,7 @@
         <!-- gallery item -->
         <div class="item office">
             <div class="picframe">
-                <a class="simple-ajax-popup-align-top" href="project-details-vimeo.html">
+                <a class="simple-ajax-popup-align-top" href="project-details.html">
                                 <span class="overlay">
                                     <span class="pf_text">
                                         <span class="project-name">Office On Space</span>
@@ -146,16 +147,71 @@
         </div>
         <!-- close gallery item -->
 
+        <!-- gallery item -->
+        <div class="item office">
+            <div class="picframe">
+                <a class="simple-ajax-popup-align-top" href="project-details-youtube.html">
+                                <span class="overlay">
+                                    <span class="pf_text">
+                                        <span class="project-name">Luxury Living Room</span>
+                                    </span>
+                                </span>
+                </a>
+
+                <img src="{{ asset('images/portfolio/pf(9).jpg') }}" alt="" />
+            </div>
+        </div>
+        <!-- close gallery item -->
+
+        <!-- gallery item -->
+        <div class="item residential">
+            <div class="picframe">
+                <a class="simple-ajax-popup-align-top" href="project-details-vimeo.html">
+                                <span class="overlay">
+                                    <span class="pf_text">
+                                        <span class="project-name">Cozy Bedroom</span>
+                                    </span>
+                                </span>
+                </a>
+
+                <img src="{{ asset('images/portfolio/pf(10).jpg') }}" alt="" />
+            </div>
+        </div>
+        <!-- close gallery item -->
+
+        <!-- gallery item -->
+        <div class="item hospitaly">
+            <div class="picframe">
+                <a class="simple-ajax-popup-align-top" href="project-details.html">
+                                <span class="overlay">
+                                    <span class="pf_text">
+                                        <span class="project-name">Classic Furnishing</span>
+                                    </span>
+                                </span>
+                </a>
+
+                <img src="{{ asset('images/portfolio/pf(11).jpg') }}" alt="" />
+            </div>
+        </div>
+        <!-- close gallery item -->
+
+        <!-- gallery item -->
+        <div class="item commercial">
+            <div class="picframe">
+                <a class="simple-ajax-popup-align-top" href="project-details-youtube.html">
+                                <span class="overlay">
+                                    <span class="pf_text">
+                                        <span class="project-name">Restaurant In Cannes</span>
+                                    </span>
+                                </span>
+                </a>
+
+                <img src="{{ asset('images/portfolio/pf(12).jpg') }}" alt="" />
+            </div>
+        </div>
+        <!-- close gallery item -->
+
     </div>
 
-    <div id="loader-area">
-        <div class="project-load"></div>
-    </div>
 </section>
 <!-- section close -->
-
-
-<!-- section begin -->
-<section id="view-all-projects" class="call-to-action bg-color text-center" data-speed="5" data-type="background">
-    <a href="{{ route('pro') }}" class="btn btn-line-black btn-big">View All Projects</a>
-</section>

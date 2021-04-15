@@ -1,0 +1,103 @@
+
+.contentChart{
+    display: block;
+    width: 100%;
+    min-height: 600px;
+}
+.contentChart .selectContent{
+    margin-left: 210px;
+}
+ul {
+    margin: 0;
+    padding: 0;
+}
+.contentChart nav{
+    float: left;
+    position: relative;
+    left: 0px;
+    width: 200px;
+    height: 50px;
+    text-align: left;
+}
+
+.contentChart nav li .clickContent{
+    display: block;
+    height: 100%;
+    text-align: left;
+    line-height: 50px;
+    position: relative;
+    z-index: 1;
+    color: #17a2b8;
+    font-size: 17px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+.contentChart nav li .clickContent label
+{
+    display: block;
+    width: 200px;
+    text-align: center;
+    cursor: pointer;
+}
+.contentChart nav li .clickContent:hover{
+    background: rgba(23,162,184,0.3);
+}
+#home:checked ~ nav .clickContent.home,
+#blog:checked ~ nav .clickContent.blog,
+#code:checked ~ nav .clickContent.code,
+#help:checked ~ nav .clickContent.help,
+#about:checked ~ nav .clickContent.about{
+    color: #fff;
+}
+.selectContent .content{
+    display: none;
+}
+#home:checked ~ .selectContent .content-1,
+#blog:checked ~ .selectContent .content-2,
+#code:checked ~ .selectContent .content-3,
+#help:checked ~  .selectContent .content-4,
+#about:checked ~ .selectContent .content-5
+{
+    display: block;
+}
+nav div i{
+    padding-right: 7px;
+}
+
+nav .slider{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: 0;
+    border-radius: 5px;
+    background: #17a2b8;
+    transition: all 0.3s ease;
+}
+input[type="radio"]{
+    display: none;
+}
+nav ul li{
+    list-style-type: none;
+}
+#blog:checked ~ nav .slider{
+    top: 100%;
+}
+#code:checked ~ nav .slider{
+    top: 200%;
+}
+#help:checked ~ nav .slider{
+    top: 300%;
+}
+#about:checked ~ nav .slider{
+    top: 400%;
+}
+.selectContent{
+    width: 100%;
+    margin-left: 10px;
+}
+
+
+
+

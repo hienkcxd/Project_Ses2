@@ -1,63 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<!-- Mirrored from www.themenesia.com/themeforest/archi-light/index-parallax.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 29 Jul 2015 14:08:18 GMT -->
 <head>
     <meta charset="utf-8">
-    <title>Archi - Responsive Interior Design Template</title>
+    <title>@yield('title')</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Responsive Minimal Bootstrap Theme">
     <meta name="keywords" content="onepage,responsive,minimal,bootstrap,theme">
     <meta name="author" content="">
-
-
-    <!--[if lt IE 9]>
-    <script src="js/html5shiv.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+<!--[if lt IE 9]>
+    <script src="{{ asset('/js/html5shiv.js') }}"></script>
     <![endif]-->
-
 
     <!-- CSS Files
     ================================================== -->
-    <link rel="stylesheet" href="css/bootstrap.css" type="text/css">
-    <link rel="stylesheet" href="css/jpreloader.css" type="text/css">
-    <link rel="stylesheet" href="css/animate.css" type="text/css">
-    <link rel="stylesheet" href="css/plugin.css" type="text/css">
-    <link rel="stylesheet" href="css/owl.carousel.css" type="text/css">
-    <link rel="stylesheet" href="css/owl.theme.css" type="text/css">
-    <link rel="stylesheet" href="css/owl.transitions.css" type="text/css">
-    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
-    <link rel="stylesheet" href="css/style.css" type="text/css">
-    <link rel="stylesheet" href="demo/demo.css" type="text/css">
+    <link href="{{ asset('/css/mark.chart.css') }}" rel="stylesheet">
+    <link href="{{ asset('/css/bootstrap.css') }}" rel="stylesheet">
+    <link href="{{ asset('/css/jpreloader.css') }}" rel="stylesheet">
+    <link href="{{ asset('/css/animate.css') }}" rel="stylesheet">
+    <link href="{{ asset('/css/plugin.css') }}" rel="stylesheet">
+    <link href="{{ asset('/css/owl.carousel.css') }}" rel="stylesheet">
+    <link href="{{ asset('/css/owl.theme.css') }}" rel="stylesheet">
+    <link href="{{ asset('/css/owl.transitions.css') }}" rel="stylesheet">
+    <link href="{{ asset('/css/magnific-popup.css') }}" rel="stylesheet">
+    <link href="{{ asset('/css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('/css/Login.css') }}" rel="stylesheet">
+    <link href="{{ asset('/demo/demo.css') }}" rel="stylesheet">
+
 
     <!-- custom background -->
-    <link rel="stylesheet" href="css/bg.css" type="text/css">
+    <link href="{{ asset('/css/bg.css') }}" rel="stylesheet">
 
     <!-- color scheme -->
-    <link rel="stylesheet" href="css/color.css" type="text/css" id="colors">
+    <link href="{{ asset('/css/color.css') }}" type="text/css" id="colors" rel="stylesheet">
 
     <!-- load fonts -->
-    <link rel="stylesheet" href="fonts/font-awesome/css/font-awesome.css" type="text/css">
-    <link rel="stylesheet" href="fonts/elegant_font/HTML_CSS/style.css" type="text/css">
-    <link rel="stylesheet" href="fonts/et-line-font/style.css" type="text/css">
+    <link href="{{ asset('/fonts/font-awesome/css/font-awesome.css') }}" type="text/css" rel="stylesheet">
+    <link href="{{ asset('/fonts/elegant_font/HTML_CSS/style.css') }}" type="text/css" rel="stylesheet">
+    <link href="{{ asset('/fonts/et-line-font/style.css') }}" type="text/css" rel="stylesheet">
 
     <!-- revolution slider -->
-    <link rel="stylesheet" href="rs-plugin/css/settings.css" type="text/css">
-    <link rel="stylesheet" href="css/rev-settings.css" type="text/css">
-</head>
+    <link href="{{ asset('/rs-plugin/css/settings.css') }}" type="text/css" rel="stylesheet">
+    <link href="{{ asset('/css/rev-settings.css') }}" type="text/css" rel="stylesheet">
 
-<body id="homepage">
+</head>
+<body @yield('idBody') style="background-color: white">
 
 <div id="wrapper">
 
     <!-- header begin -->
-    <header>
+    <header @yield('header-bg')>
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <!-- logo begin -->
                     <h1 id="logo">
-                        <a href="index-2.html">
-                            <img class="logo" src="images/logo.png" alt="">
+                        <a href="{{ route('homepage') }}">
+                            <img class="logo" src={{ asset('images/logo.png') }} alt="">
                         </a>
                     </h1>
                     <!-- logo close -->
@@ -69,27 +68,19 @@
                     <!-- mainmenu begin -->
                     <nav>
                         <ul id="mainmenu">
-                            <li><a href="index-2.html">Trang Chủ</a>
+                            <li><a href="{{ route('aboutus') }}">Giới Thiệu</a></li>
+                            <li><a href="{{ route('pro') }}">Dự Án</a></li>
+                            <li><a href="{{ route('Service') }}">Dịch VỤ</a>
                                 <ul>
-                                    <li><a href="index-video.html">Homepage Video</a></li>
-                                    <li><a href="index-parallax.html">Homepage Parallax</a></li>
-                                    <li><a href="index-2.html">Homepage Slider</a></li>
-                                    <li><a href="index-onepage.html">One Page Style</a></li>
+                                    <li><a href="#">Nhà Phố</a></li>
+                                    <li><a href="#">Decor Căn Hộ</a></li>
+                                    <li><a href="#">Nhà Tân Cổ</a></li>
+                                    <li><a href="#">Biệt Thự</a></li>
                                 </ul>
                             </li>
-                            <li><a href="projects.html">Dự Án</a></li>
-                            <li><a href="services.html">Dịch VỤ</a>
-                                <ul>
-                                    <li><a href="service-1.html">Residential Design</a></li>
-                                    <li><a href="service-2.html">Hospitaly Design</a></li>
-                                    <li><a href="service-3.html">Office Design</a></li>
-                                    <li><a href="service-4.html">Commercial Design</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="about.html">Thông Tin</a></li>
-                            <li><a href="blog.html">Tin Tức</a></li>
-                            <li><a href="shop.html">Thị Trường</a></li>
-                            <li><a href="contact.html">Liên Hệ</a></li>
+                            <li><a href="{{ route('news') }}">Tin Tức</a></li>
+                            <li><a href="{{ route('market') }}">Thị Trường</a></li>
+                            <li><a href="{{ route('login') }}">Đăng Nhập</a></li>
                         </ul>
                     </nav>
 
@@ -101,17 +92,22 @@
     </header>
     <!-- header close -->
 
-    <!-- content begin -->
-    <div id="content" class="no-bottom no-top">
-    @yield('content')
-    </div>
+    <!-- sub header begin -->
+    @yield('sub-header')
+    <!-- sub header close -->
 
+    <!-- content begin -->
+    @yield('content-chart')
+    <div id="content" class="no-bottom no-top">
+        @yield('content')
+    </div>
+        @yield('contentDetail')
     <!-- footer begin -->
     <footer>
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
-                    <img src="images/logo.png" class="logo-small" alt=""><br>
+                    <img src={{ asset('images/logo.png') }} class="logo-small" alt=""><br>
                     We are team based on Brookylin. Our expertise on Interior Design. Sed ut perspiciatis unde omnis
                     iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
                     quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
@@ -173,8 +169,7 @@
 
 <!-- style switcher
 ================================================== -->
-<script src="js/switcher.html"></script>
-
+<script src="{{ asset('/js/switcher.html') }}"></script>
 
 <div id="switcher">
     <span class="custom-close"></span>
@@ -218,29 +213,28 @@
 
 <!-- Javascript Files
 ================================================== -->
-<script src="js/jquery.min.js"></script>
-<script src="js/jpreLoader.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/jquery.isotope.min.js"></script>
-<script src="js/easing.js"></script>
-<script src="js/jquery.flexslider-min.js"></script>
-<script src="js/jquery.scrollto.js"></script>
-<script src="js/owl.carousel.js"></script>
-<script src="js/jquery.countTo.js"></script>
-<script src="js/classie.js"></script>
-<script src="js/video.resize.js"></script>
-<script src="js/validation.js"></script>
-<script src="js/wow.min.js"></script>
-<script src="js/jquery.magnific-popup.min.js"></script>
-<script src="js/enquire.min.js"></script>
-<script src="js/designesia.js"></script>
-<script src="demo/demo.js"></script>
+<script src="{{ asset('/js/jquery.min.js') }}"></script>
+<script src="{{ asset('/js/jpreLoader.js') }}"></script>
+<script src="{{ asset('/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('/js/jquery.isotope.min.js') }}"></script>
+<script src="{{ asset('/js/easing.js') }}"></script>
+<script src="{{ asset('/js/jquery.flexslider-min.js') }}"></script>
+<script src="{{ asset('/js/jquery.scrollto.js') }}"></script>
+<script src="{{ asset('/js/owl.carousel.js') }}"></script>
+<script src="{{ asset('/js/jquery.countTo.js') }}"></script>
+<script src="{{ asset('/js/classie.js') }}"></script>
+<script src="{{ asset('/js/video.resize.js') }}"></script>
+<script src="{{ asset('/js/validation.js') }}"></script>
+<script src="{{ asset('/js/wow.min.js') }}"></script>
+<script src="{{ asset('/js/jquery.magnific-popup.min.js') }}"></script>
+<script src="{{ asset('/js/enquire.min.js') }}"></script>
+<script src="{{ asset('/js/enquire.min.js') }}"></script>
+<script src="{{ asset('/js/designesia.js') }}"></script>
+<script src="{{ asset('/demo/demo.js') }}"></script>
 
 <!-- SLIDER REVOLUTION SCRIPTS  -->
-<script type="text/javascript" src="rs-plugin/js/jquery.themepunch.plugins.min.js"></script>
-<script type="text/javascript" src="rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+<script type="text/javascript" src="{{ asset('/rs-plugin/js/jquery.themepunch.plugins.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('/rs-plugin/js/jquery.themepunch.revolution.min.js') }}"></script>
 
 </body>
-
-<!-- Mirrored from www.themenesia.com/themeforest/archi-light/index-parallax.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 29 Jul 2015 14:08:18 GMT -->
 </html>
