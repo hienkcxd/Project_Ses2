@@ -7,7 +7,7 @@
                 <!-- team member -->
                 <div class="de-team-list">
                     <div class="team-pic">
-                        <img src="images/team/team_pic_1.jpg" class="img-responsive" alt=""/>
+                        <img src="{{asset ('images/team/team_pic_1.jpg') }}" class="img-responsive" alt=""/>
                     </div>
                     <div class="team-desc col-md-12">
                         <h3>John Smith</h3>
@@ -29,7 +29,7 @@
                 <!-- team member -->
                 <div class="de-team-list">
                     <div class="team-pic">
-                        <img src="images/team/team_pic_2.jpg" class="img-responsive" alt=""/>
+                        <img src="{{asset ('images/team/team_pic_2.jpg') }}" class="img-responsive" alt=""/>
                     </div>
                     <div class="team-desc col-md-12">
                         <h3>Michael Dennis</h3>
@@ -51,7 +51,7 @@
                 <!-- team member -->
                 <div class="de-team-list">
                     <div class="team-pic">
-                        <img src="images/team/team_pic_3.jpg" class="img-responsive" alt=""/>
+                        <img src="{{asset ('images/team/team_pic_3.jpg') }}" class="img-responsive" alt=""/>
                     </div>
                     <div class="team-desc col-md-12">
                         <h3>Sarah Michelle</h3>
@@ -72,7 +72,7 @@
                 <!-- team member -->
                 <div class="de-team-list">
                     <div class="team-pic">
-                        <img src="images/team/team_pic_4.jpg" class="img-responsive" alt=""/>
+                        <img src="asset ('images/team/team_pic_4.jpg') }}" class="img-responsive" alt=""/>
                     </div>
                     <div class="team-desc col-md-12">
                         <h3>Katty Wilson</h3>
