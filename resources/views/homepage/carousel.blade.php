@@ -7,7 +7,7 @@
         </div>
         <div class="spacer-single"></div>
         <div class="text-slider border-deco">
-            <div class="text-item">Welcome To <span class="id-color">Archi</span></div>
+            <div class="text-item">Welcome To <span class="id-color">Happy House</span></div>
             <div class="text-item">Interior <span class="id-color">Design</span></div>
             <div class="text-item">Awards <span class="id-color">Winning</span></div>
         </div>
