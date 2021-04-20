@@ -31,8 +31,8 @@
                             cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                     </div>
                     <div class="col-md-6 pic-services wow fadeInUp" data-wow-delay=".6s">
-                        <img src="images/services/p1_a.jpg" class="img-responsive" alt="">
-                        <img src="images/services/p1_b.jpg" class="img-responsive" alt="">
+                        <img src="{{ asset('images/services/p1_a.jpg') }}" class="img-responsive" alt="">
+                        <img src="{{ asset('images/services/p1_b.jpg') }}" class="img-responsive" alt="">
                     </div>
                 </div>
             </div>

@@ -80,7 +80,7 @@
                             </li>
                             <li><a href="{{ route('news') }}">Tin Tức</a></li>
                             <li><a href="{{ route('market') }}">Thị Trường</a></li>
-                            <li><a href="{{ route('login') }}">Đăng Nhập</a></li>
+                            <li><a href="{{ route('login') }}">Admin</a></li>
                         </ul>
                     </nav>
 
