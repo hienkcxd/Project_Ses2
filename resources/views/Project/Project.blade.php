@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    @include('Project.ProjectGalery')
+    @include('Project.ProjectGalery', ['all_project' => $all_project])
     @include('Project.GoBlog')
 @endsection
 
