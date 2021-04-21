@@ -15,7 +15,7 @@ class DistrictList extends Seeder
     public function run()
     {
         DB::table('district_lists')->insert([
-            //mở comment trước khi update data, sau khi update khóa comment để tránh bị lỗi lần sau.
+//            mở comment trước khi update data, sau khi update khóa comment để tránh bị lỗi lần sau.
 //            ['DistrictID'=>'quan_1', 'DistrictName'=> 'Quận 1'],
 //            ['DistrictID'=>'quan_2', 'DistrictName'=> 'Quận 2'],
 //            ['DistrictID'=>'quan_3', 'DistrictName'=> 'Quận 3'],
