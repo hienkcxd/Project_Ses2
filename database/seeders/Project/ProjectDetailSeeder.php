@@ -39,23 +39,23 @@ class ProjectDetailSeeder extends Seeder
 //                'contentTop'  => 'Đây là nội dung bên trên',
 //                'contentBot'  => 'Đây là nội dung giới thiệu bên dưới' ],
 
-            [   'ProDetailID' => 'DCH05', 'ProjectID'       => 'DCH05',
-                'DateFinish'  => 'March 2021', 'Location' => 'Hai Bà Trưng, Quận 9', 'Price' => '400 triệu VND', 'Client' => 'Mr.An', 'tagName' => 'Decor Căn Hộ',
-                'imageTop'    => 'images\Project\canho\Detail\DCH_detail_top_04.jpg', 'imageBot' => 'images\Project\canho\Detail\DCH_detail_bot_04.jpg',
-                'contentTop'  => 'Đây là nội dung bên trên',
-                'contentBot'  => 'Đây là nội dung giới thiệu bên dưới' ],
-
-            [   'ProDetailID' => 'DCH06', 'ProjectID'       => 'DCH06',
-                'DateFinish'  => 'February 2021', 'Location' => 'Hoàng Hoa Thám, Quận 10', 'Price' => '700 triệu VND', 'Client' => 'Mr.Thuy', 'tagName' => 'Decor Căn Hộ',
-                'imageTop'    => 'images\Project\canho\Detail\DCH_detail_top_04.jpg', 'imageBot' => 'images\Project\canho\Detail\DCH_detail_bot_04.jpg',
-                'contentTop'  => 'Đây là nội dung bên trên',
-                'contentBot'  => 'Đây là nội dung giới thiệu bên dưới' ],
-
-            [   'ProDetailID' => 'DCH07', 'ProjectID'       => 'DCH07',
-                'DateFinish'  => 'April 2021', 'Location' => 'Lương Định Của, Quận 11', 'Price' => '300 triệu VND', 'Client' => 'Mr.Lanh', 'tagName' => 'Decor Căn Hộ',
-                'imageTop'    => 'images\Project\canho\Detail\DCH_detail_top_04.jpg', 'imageBot' => 'images\Project\canho\Detail\DCH_detail_bot_04.jpg',
-                'contentTop'  => 'Đây là nội dung bên trên',
-                'contentBot'  => 'Đây là nội dung giới thiệu bên dưới' ],
+//            [   'ProDetailID' => 'DCH05', 'ProjectID'       => 'DCH05',
+//                'DateFinish'  => 'March 2021', 'Location' => 'Hai Bà Trưng, Quận 9', 'Price' => '400 triệu VND', 'Client' => 'Mr.An', 'tagName' => 'Decor Căn Hộ',
+//                'imageTop'    => 'images\Project\canho\Detail\DCH_detail_top_04.jpg', 'imageBot' => 'images\Project\canho\Detail\DCH_detail_bot_04.jpg',
+//                'contentTop'  => 'Đây là nội dung bên trên',
+//                'contentBot'  => 'Đây là nội dung giới thiệu bên dưới' ],
+//
+//            [   'ProDetailID' => 'DCH06', 'ProjectID'       => 'DCH06',
+//                'DateFinish'  => 'February 2021', 'Location' => 'Hoàng Hoa Thám, Quận 10', 'Price' => '700 triệu VND', 'Client' => 'Mr.Thuy', 'tagName' => 'Decor Căn Hộ',
+//                'imageTop'    => 'images\Project\canho\Detail\DCH_detail_top_04.jpg', 'imageBot' => 'images\Project\canho\Detail\DCH_detail_bot_04.jpg',
+//                'contentTop'  => 'Đây là nội dung bên trên',
+//                'contentBot'  => 'Đây là nội dung giới thiệu bên dưới' ],
+//
+//            [   'ProDetailID' => 'DCH07', 'ProjectID'       => 'DCH07',
+//                'DateFinish'  => 'April 2021', 'Location' => 'Lương Định Của, Quận 11', 'Price' => '300 triệu VND', 'Client' => 'Mr.Lanh', 'tagName' => 'Decor Căn Hộ',
+//                'imageTop'    => 'images\Project\canho\Detail\DCH_detail_top_04.jpg', 'imageBot' => 'images\Project\canho\Detail\DCH_detail_bot_04.jpg',
+//                'contentTop'  => 'Đây là nội dung bên trên',
+//                'contentBot'  => 'Đây là nội dung giới thiệu bên dưới' ],
 
         ]);
     }
