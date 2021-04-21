@@ -11,32 +11,32 @@
         </li>
 
         <li>
-            <div class="clickContent home" for>
-                <label for="home" style="margin: 0px"><span ><i class="fas fa-home"></i>Home</span></label>
+            <div class="clickContent home" >
+                <label for="home" style="margin: 0px">Quận 1</label>
             </div>
         </li>
 
         <li>
-            <div class="clickContent blog" for>
-                <label for="blog" style="margin: 0px"><span ><i class="fas fa-home"></i>Home</span></label>
+            <div class="clickContent blog" >
+                <label for="blog" style="margin: 0px">Quận 2</label>
             </div>
         </li>
 
         <li>
-            <div class="clickContent code" for>
-                <label for="code" style="margin: 0px"><span ><i class="fas fa-home"></i>Home</span></label>
+            <div class="clickContent code" >
+                <label for="code" style="margin: 0px">Quận 3</label>
             </div>
         </li>
 
         <li>
-            <div class="clickContent help" for>
-                <label for="help" style="margin: 0px"><span ><i class="fas fa-home"></i>Home</span></label>
+            <div class="clickContent help" >
+                <label for="help" style="margin: 0px">Quận 4</label>
             </div>
         </li>
 
         <li>
-            <div class="clickContent about" for>
-                <label for="about" style="margin: 0px"><span ><i class="fas fa-home"></i>Home</span></label>
+            <div class="clickContent about" >
+                <label for="about" style="margin: 0px">Quận 5</label>
             </div>
         </li>
 

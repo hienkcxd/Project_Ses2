@@ -14,7 +14,7 @@
 
     <!-- CSS Files
     ================================================== -->
-        <link href="{{ asset('/css/mark.chart.css') }}" rel="stylesheet">
+    <link href="{{ asset('/css/mark.chart.css') }}" rel="stylesheet">
     <link href="{{ asset('/css/bootstrap.css') }}" rel="stylesheet">
     <link href="{{ asset('/css/jpreloader.css') }}" rel="stylesheet">
     <link href="{{ asset('/css/animate.css') }}" rel="stylesheet">
@@ -24,7 +24,9 @@
     <link href="{{ asset('/css/owl.transitions.css') }}" rel="stylesheet">
     <link href="{{ asset('/css/magnific-popup.css') }}" rel="stylesheet">
     <link href="{{ asset('/css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('/css/Login.css') }}" rel="stylesheet">
     <link href="{{ asset('/demo/demo.css') }}" rel="stylesheet">
+
 
     <!-- custom background -->
     <link href="{{ asset('/css/bg.css') }}" rel="stylesheet">
@@ -78,7 +80,7 @@
                             </li>
                             <li><a href="{{ route('news') }}">Tin Tức</a></li>
                             <li><a href="{{ route('market') }}">Thị Trường</a></li>
-                            <li><a href="{{ route('login') }}">Đăng Nhập</a></li>
+                            <li><a href="{{ route('login') }}">Admin</a></li>
                         </ul>
                     </nav>
 

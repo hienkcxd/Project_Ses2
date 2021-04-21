@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <div>Content...</div>
+    @include('Login.FormLogin')
 @endsection
 
 

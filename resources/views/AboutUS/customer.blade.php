@@ -67,6 +67,6 @@
 
 <!-- section begin -->
 <section id="view-all-projects" class="call-to-action bg-color dark text-center" data-speed="5" data-type="background">
-    <a href="contact.html" class="btn btn-line-black btn-big">Talk With Us</a>
+    <a href="{{ route('Service') }}" class="btn btn-line-black btn-big">Go To Service</a>
 </section>
 <!-- logo carousel section close -->
