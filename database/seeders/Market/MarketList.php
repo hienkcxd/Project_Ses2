@@ -1,10 +1,11 @@
 <?php
 
-namespace Database\Seeders;
+    namespace Database\Seeders\Market;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
-class Market/MarketList extends Seeder
+class MarketList extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,6 +14,8 @@ class Market/MarketList extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('market_lists')->insert([
+
+        ]);
     }
 }
