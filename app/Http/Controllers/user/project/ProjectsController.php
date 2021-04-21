@@ -13,7 +13,12 @@ class ProjectsController extends Controller
         return view('Project.Project')->with(compact('all_project'));
     }
 
-    public function detail(){
-        return view('Project.ProjectDetail');
+    public function projectDetail(Request $request){
+        $id = $request->route()->parameter('ProDetailID');
+        $detail = DB::table('project_details')
+                    ->join('project_lists','project_lists.ProjectID','=', 'project_details.ProjectID')
+                    ->select('project_details.*', 'project_lists.ProjectName')
+                    ->get()->where('ProDetailID', '=', $id);
+        return view('Project.ProjectDetail')->with(compact('detail'));
     }
 }

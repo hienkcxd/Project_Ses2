@@ -27,7 +27,7 @@
         @foreach($all_project as $p)
         <div class="item {{ $p-> TagName }}">
             <div class="picframe">
-                <a class="simple-ajax-popup-align-top" href="{{ route('project_detail') }}">
+                <a class="simple-ajax-popup-align-top" href="{{ route('project_detail', ['ProDetailID' => $p->ProjectID ]) }}">
                                 <span class="overlay">
                                     <span class="pf_text">
                                         <span class="project-name">{{ $p->ProjectName }}</span>

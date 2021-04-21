@@ -43,7 +43,7 @@
 
     Route::prefix('Project')->group(function () {
         Route::get('/', [ProjectsController::class, 'index'])->name('pro');
-        Route::get('/sp1', [ProjectsController::class, 'detail'])->name('project_detail');
+        Route::get('/{ProDetailID}', [ProjectsController::class, 'projectDetail'])->name('project_detail');
     });
 
 
