@@ -17,10 +17,10 @@ class ProjectListSeeder extends Seeder
         DB::table('project_lists')->insert([
 
             //Insert data nhà phố
-            ['ProjectID' => 'NP01', 'ProjectName' => 'Căn Hộ Vinhomes Quận 1',         'TagName' => 'DCH', 'images' => 'images\Project\canho\DCH_bg_01.jpg'],
-            ['ProjectID' => 'NP02', 'ProjectName' => 'Căn Hộ Vinhomes Quận 1',         'TagName' => 'DCH', 'images' => 'images\Project\canho\DCH_bg_01.jpg'],
-            ['ProjectID' => 'NP03', 'ProjectName' => 'Căn Hộ Vinhomes Quận 1',         'TagName' => 'DCH', 'images' => 'images\Project\canho\DCH_bg_01.jpg'],
-            ['ProjectID' => 'NP04', 'ProjectName' => 'Căn Hộ Vinhomes Quận 1',         'TagName' => 'DCH', 'images' => 'images\Project\canho\DCH_bg_01.jpg'],
+//            ['ProjectID' => 'NP01', 'ProjectName' => 'Căn Hộ Vinhomes Quận 1',         'TagName' => 'DCH', 'images' => 'images\Project\canho\DCH_bg_01.jpg'],
+//            ['ProjectID' => 'NP02', 'ProjectName' => 'Căn Hộ Vinhomes Quận 1',         'TagName' => 'DCH', 'images' => 'images\Project\canho\DCH_bg_01.jpg'],
+//            ['ProjectID' => 'NP03', 'ProjectName' => 'Căn Hộ Vinhomes Quận 1',         'TagName' => 'DCH', 'images' => 'images\Project\canho\DCH_bg_01.jpg'],
+//            ['ProjectID' => 'NP04', 'ProjectName' => 'Căn Hộ Vinhomes Quận 1',         'TagName' => 'DCH', 'images' => 'images\Project\canho\DCH_bg_01.jpg'],
 
             //Insert data decor căn hộ
 //            ['ProjectID' => 'DCH01', 'ProjectName' => 'Căn Hộ Vinhomes Quận 1',         'TagName' => 'DCH', 'images' => 'images\Project\canho\DCH_bg_01.jpg'],
@@ -30,6 +30,6 @@ class ProjectListSeeder extends Seeder
 //            ['ProjectID' => 'DCH05', 'ProjectName' => 'Căn Hộ Villa Park Quận 9',       'TagName' => 'DCH', 'images' => 'images\Project\canho\DCH_bg_05.jpg'],
 //            ['ProjectID' => 'DCH06', 'ProjectName' => 'Căn Hộ King Center Quận 10',     'TagName' => 'DCH', 'images' => 'images\Project\canho\DCH_bg_06.jpg'],
 //            ['ProjectID' => 'DCH07', 'ProjectName' => 'Căn Hộ Begenco Quận 11',         'TagName' => 'DCH', 'images' => 'images\Project\canho\DCH_bg_07.jpg'],
-//        ]);
+        ]);
     }
 }
