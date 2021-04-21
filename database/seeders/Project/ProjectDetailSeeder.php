@@ -34,13 +34,13 @@ class ProjectDetailSeeder extends Seeder
                 'contentBot'  => 'Đây là nội dung giới thiệu bên dưới' ],
 
             [   'ProDetailID' => 'DCH04', 'ProjectID'       => 'DCH04',
-                'DateFinish'  => 'October 2021', 'Location' => 'Nguyễn Thị Thập, Quận 8', 'Price' => '900 triệu VND', 'Client' => 'Mr.Minh', 'tagName' => 'Decor Căn Hộ',
+                'DateFinish'  => 'January 2021', 'Location' => 'Nguyễn Thị Thập, Quận 8', 'Price' => '900 triệu VND', 'Client' => 'Mr.Minh', 'tagName' => 'Decor Căn Hộ',
                 'imageTop'    => 'images\Project\canho\Detail\DCH_detail_top_04.jpg', 'imageBot' => 'images\Project\canho\Detail\DCH_detail_bot_04.jpg',
                 'contentTop'  => 'Đây là nội dung bên trên',
                 'contentBot'  => 'Đây là nội dung giới thiệu bên dưới' ],
 
             [   'ProDetailID' => 'DCH05', 'ProjectID'       => 'DCH05',
-                'DateFinish'  => 'September 2021', 'Location' => 'Hai Bà Trưng, Quận 9', 'Price' => '400 triệu VND', 'Client' => 'Mr.Minh', 'tagName' => 'Decor Căn Hộ',
+                'DateFinish'  => 'March 2021', 'Location' => 'Hai Bà Trưng, Quận 9', 'Price' => '400 triệu VND', 'Client' => 'Mr.Minh', 'tagName' => 'Decor Căn Hộ',
                 'imageTop'    => 'images\Project\canho\Detail\DCH_detail_top_04.jpg', 'imageBot' => 'images\Project\canho\Detail\DCH_detail_bot_04.jpg',
                 'contentTop'  => 'Đây là nội dung bên trên',
                 'contentBot'  => 'Đây là nội dung giới thiệu bên dưới' ],
@@ -52,7 +52,7 @@ class ProjectDetailSeeder extends Seeder
                 'contentBot'  => 'Đây là nội dung giới thiệu bên dưới' ],
 
             [   'ProDetailID' => 'DCH07', 'ProjectID'       => 'DCH07',
-                'DateFinish'  => 'November 2021', 'Location' => 'Lương Định Của, Quận 11', 'Price' => '300 triệu VND', 'Client' => 'Mr.Minh', 'tagName' => 'Decor Căn Hộ',
+                'DateFinish'  => 'April 2021', 'Location' => 'Lương Định Của, Quận 11', 'Price' => '300 triệu VND', 'Client' => 'Mr.Minh', 'tagName' => 'Decor Căn Hộ',
                 'imageTop'    => 'images\Project\canho\Detail\DCH_detail_top_04.jpg', 'imageBot' => 'images\Project\canho\Detail\DCH_detail_bot_04.jpg',
                 'contentTop'  => 'Đây là nội dung bên trên',
                 'contentBot'  => 'Đây là nội dung giới thiệu bên dưới' ],

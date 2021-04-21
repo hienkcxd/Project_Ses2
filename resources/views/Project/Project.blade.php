@@ -3,7 +3,7 @@
 @section('sub-header')
         @include('Project.SubHeader')
 @endsection
-s
+
 @section('content')
     @include('Project.ProjectGalery', ['all_project' => $all_project])
     @include('Project.GoBlog')
