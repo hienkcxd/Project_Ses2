@@ -17,6 +17,14 @@ class ProjectListSeeder extends Seeder
         DB::table('project_lists')->insert([
 
             //Insert data nhà phố
+<<<<<<< HEAD
+=======
+//            ['ProjectID' => 'NP01', 'ProjectName' => 'Căn Hộ Vinhomes Quận 1',         'TagName' => 'DCH', 'images' => 'images\Project\canho\DCH_bg_01.jpg'],
+//            ['ProjectID' => 'NP02', 'ProjectName' => 'Căn Hộ Vinhomes Quận 1',         'TagName' => 'DCH', 'images' => 'images\Project\canho\DCH_bg_01.jpg'],
+//            ['ProjectID' => 'NP03', 'ProjectName' => 'Căn Hộ Vinhomes Quận 1',         'TagName' => 'DCH', 'images' => 'images\Project\canho\DCH_bg_01.jpg'],
+//            ['ProjectID' => 'NP04', 'ProjectName' => 'Căn Hộ Vinhomes Quận 1',         'TagName' => 'DCH', 'images' => 'images\Project\canho\DCH_bg_01.jpg'],
+
+>>>>>>> origin/Duy
             //Insert data decor căn hộ
 //            ['ProjectID' => 'DCH01', 'ProjectName' => 'Căn Hộ Vinhomes Quận 1',         'TagName' => 'DCH', 'images' => 'images\Project\canho\DCH_bg_01.jpg'],
 //            ['ProjectID' => 'DCH02', 'ProjectName' => 'Căn Hộ Masteri Quận 2',          'TagName' => 'DCH', 'images' => 'images\Project\canho\DCH_bg_02.jpg'],
