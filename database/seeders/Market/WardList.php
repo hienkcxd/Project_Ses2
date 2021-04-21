@@ -123,9 +123,9 @@ class WardList extends Seeder
 //            ['WardID'=>'92', 'DistrictName'=> 'Quận 7', 'WardName'=>'Tân Thuận Đông'],
 //            ['WardID'=>'93', 'DistrictName'=> 'Quận 7', 'WardName'=>'Tân Thuận Tây'],
 
-            //update các phường quận 8.
-            ['WardID'=>'84', 'DistrictName'=> 'Quận 7', 'WardName'=>'Bình Thuận'],
-            ['WardID'=>'85', 'DistrictName'=> 'Quận 7', 'WardName'=>'Phú Mỹ'],
+//            //update các phường quận 8.
+//            ['WardID'=>'84', 'DistrictName'=> 'Quận 7', 'WardName'=>'Bình Thuận'],
+//            ['WardID'=>'85', 'DistrictName'=> 'Quận 7', 'WardName'=>'Phú Mỹ'],
         ]);
     }
 }
