@@ -45,6 +45,16 @@ class ProjectListSeeder extends Seeder
 //                ['ProjectID' => 'BT08', 'ProjectName' => 'Biệt Thự Hiện Đai TPHCM',          'TagName' => 'BT', 'images' => 'images\Project\bietthu\BT_bg_08.jpg'],
 
 
+//            ['ProjectID' => 'NTC01', 'ProjectName' => 'Biệt Thự Tân Cổ Hà Nội ',         'TagName' => 'NTC', 'images' => 'images\Project\tanco\NTC_bg_01.jpg'],
+//            ['ProjectID' => 'NTC02', 'ProjectName' => 'Biệt Thự Tân Cổ Hạ Long ',         'TagName' => 'NTC', 'images' => 'images\Project\tanco\NTC_bg_02.jpg'],
+//            ['ProjectID' => 'NTC03', 'ProjectName' => 'Biệt Thự Tân Cổ Thanh Hoá',         'TagName' => 'NTC', 'images' => 'images\Project\tanco\NTC_bg_03.jpg'],
+//            ['ProjectID' => 'NTC04', 'ProjectName' => 'Biệt Thự Tân Cổ Sóc Sơn ',         'TagName' => 'NTC', 'images' => 'images\Project\tanco\NTC_bg_04.jpg'],
+//            ['ProjectID' => 'NTC05', 'ProjectName' => 'Biệt Thự Tân Cổ Hội An ',         'TagName' => 'NTC', 'images' => 'images\Project\tanco\NTC_bg_05.jpg'],
+//            ['ProjectID' => 'NTC06', 'ProjectName' => 'Biệt Thự Tân Cổ Huế ',         'TagName' => 'NTC', 'images' => 'images\Project\tanco\NTC_bg_06.jpg'],
+//            ['ProjectID' => 'NTC07', 'ProjectName' => 'Biệt Thự Tân Cổ Sâm Sơn ',         'TagName' => 'NTC', 'images' => 'images\Project\tanco\NTC_bg_07.jpg'],
+//            ['ProjectID' => 'NTC08', 'ProjectName' => 'Biệt Thự Tân Cổ Bình Thuận',         'TagName' => 'NTC', 'images' => 'images\Project\tanco\NTC_bg_08.jpg'],
+
+
         ]);
     }
 }
