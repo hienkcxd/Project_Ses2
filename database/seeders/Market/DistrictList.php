@@ -24,7 +24,6 @@ class DistrictList extends Seeder
 //            ['DistrictID'=>'quan_6', 'DistrictName'=> 'Quận 6'],
 //            ['DistrictID'=>'quan_7', 'DistrictName'=> 'Quận 7'],
 //            ['DistrictID'=>'quan_8', 'DistrictName'=> 'Quận 8'],
-//            ['DistrictID'=>'quan_9', 'DistrictName'=> 'Quận 9'],
 //            ['DistrictID'=>'quan_10', 'DistrictName'=> 'Quận 10'],
 //            ['DistrictID'=>'quan_11', 'DistrictName'=> 'Quận 11'],
 //            ['DistrictID'=>'quan_12', 'DistrictName'=> 'Quận 12'],
