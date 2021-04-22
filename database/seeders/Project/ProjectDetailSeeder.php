@@ -108,6 +108,7 @@ class ProjectDetailSeeder extends Seeder
 //                'contentBot'  => 'Đây là nội dung giới thiệu bên dưới' ],
 
 
+
         ]);
     }
 }

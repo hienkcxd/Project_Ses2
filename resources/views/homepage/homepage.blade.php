@@ -6,7 +6,7 @@
         @include('homepage.carousel')
         @include('homepage.wedo')
         @include('homepage.process')
-        @include('homepage.galery')
+        @include('homepage.galery', ['gallery' => $gallery])
         @include('homepage.customer')
 
     </div>

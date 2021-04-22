@@ -9,6 +9,8 @@
 @endsection
 
 
+
 @section('title','Service_Detail_Contructure')
+
 @section('idBody')class = "page-services"@endsection
 @section('header-bg')class = "header-bg"@endsection
