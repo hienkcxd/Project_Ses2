@@ -15,7 +15,7 @@ class ProjectDetailSeeder extends Seeder
     public function run()
     {
         DB::table('project_details')->insert([
-            //Insert data decor can ho
+
 //            [   'ProDetailID' => 'DCH01', 'ProjectID'       => 'DCH01',
 //                'DateFinish'  => 'January 2020', 'Location' => 'Lê Duẩn, Quận 1', 'Price' => '500 triệu VND', 'Client' => 'Mr.Hien', 'tagName' => 'Decor Căn Hộ',
 //                'imageTop'    => 'images\Project\canho\Detail\DCH_detail_top_01.jpg', 'imageBot' => 'images\Project\canho\Detail\DCH_detail_bot_01.jpg',
@@ -58,7 +58,7 @@ class ProjectDetailSeeder extends Seeder
 //                'contentTop'  => 'Đây là nội dung bên trên',
 //                'contentBot'  => 'Đây là nội dung giới thiệu bên dưới' ],
 //
-//            Insert data nha ph
+//
 //            [   'ProDetailID' => 'NP01', 'ProjectID'       => 'NP01',
 //                'DateFinish'  => 'April 2021', 'Location' => 'Lê Duẩn, Quận 1', 'Price' => '3,4 tỷ VND', 'Client' => 'Mr.Hien', 'tagName' => 'Nhà Phố',
 //                'imageTop'    => 'images\Project\nhapho\Detail\NP_detail_top_01.jpg', 'imageBot' => 'images\Project\nhapho\Detail\NP_detail_bot_01.jpg',
@@ -108,7 +108,6 @@ class ProjectDetailSeeder extends Seeder
 //                'contentBot'  => 'Đây là nội dung giới thiệu bên dưới' ],
 
 
-              //Vương update data
             [   'ProDetailID' => 'BT01', 'ProjectID'       => 'BT01',
                 'DateFinish'  => 'February 2021', 'Location' => 'Bá Đa Lộc', 'Price' => '19 tỷ VND', 'Client' => 'Mr.Vương', 'tagName' => 'Biệt Thự',
                 'imageTop'    => 'images\Project\bietthu\Detail\Detail_BT_top_01.jpg', 'imageBot' => 'images\Project\bietthu\Detail\Detail_BT_bot_01.jpg',
