@@ -48,17 +48,26 @@
     </div>
 <<<<<<< HEAD
 
+<<<<<<< HEAD
+=======
 =======
 <<<<<<< HEAD
 >>>>>>> origin/Vuong
 
+>>>>>>> origin/Duy
     @section('title','Service_Detail_Contructure_Detail')
     @section('idBody')class = "page-services"@endsection
     @section('header-bg')class = "header-bg"@endsection
 
 <<<<<<< HEAD
 =======
+</div>
+>>>>>>> origin/Duy
+=======
+<<<<<<< HEAD
+=======
 =======
 </div>
 >>>>>>> origin/Duy
 >>>>>>> origin/Vuong
+>>>>>>> origin/Duy
