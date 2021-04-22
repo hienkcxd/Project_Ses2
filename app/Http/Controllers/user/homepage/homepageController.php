@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 class homepageController extends Controller
 {
     public function index(){
-        $arr = ['DCH01', 'DCH02', 'NP01', 'NP02', 'DCH05', 'DCH06','NP04','NP05'];
+        $arr = ['DCH01', 'DCH02', 'NP01', 'NP02'];
         $gallery = DB::table('project_lists')
                 ->whereIn('ProjectID', $arr)
                 ->get();
