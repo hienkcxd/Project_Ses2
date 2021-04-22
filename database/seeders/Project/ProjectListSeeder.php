@@ -18,12 +18,12 @@ class ProjectListSeeder extends Seeder
 //            //Insert data nhà phố
 //              ['ProjectID' => 'NP01', 'ProjectName' => 'Nhà Phố Quận 1',         'TagName' => 'NP', 'images' => 'images\Project\nhapho\NP_bg_01.jpg'],
 //              ['ProjectID' => 'NP02', 'ProjectName' => 'Nhà Phố Quận 2',         'TagName' => 'NP', 'images' => 'images\Project\nhapho\NP_bg_02.jpg'],
-//              ['ProjectID' => 'NP03', 'ProjectName' => 'Nhà Phố Quận 3',         'TagName' => 'NP', 'images' => 'images\Project\nhapho\NP_bg_03.jpg'],
-//              ['ProjectID' => 'NP04', 'ProjectName' => 'Nhà Phố Quận 4',         'TagName' => 'NP', 'images' => 'images\Project\nhapho\NP_bg_04.jpg'],
-//              ['ProjectID' => 'NP05', 'ProjectName' => 'Nhà Phố Quận 5',         'TagName' => 'NP', 'images' => 'images\Project\nhapho\NP_bg_05.jpg'],
-//              ['ProjectID' => 'NP06', 'ProjectName' => 'Nhà Phố Quận 6',         'TagName' => 'NP', 'images' => 'images\Project\nhapho\NP_bg_06.jpg'],
-//              ['ProjectID' => 'NP07', 'ProjectName' => 'Nhà Phố Quận 7',         'TagName' => 'NP', 'images' => 'images\Project\nhapho\NP_bg_07.jpg'],
-//              ['ProjectID' => 'NP08', 'ProjectName' => 'Nhà Phố Quận 8',         'TagName' => 'NP', 'images' => 'images\Project\nhapho\NP_bg_08.jpg'],
+//              ['ProjectID' => 'NP03', 'ProjectName' => 'Nhà Phố Quận 7',         'TagName' => 'NP', 'images' => 'images\Project\nhapho\NP_bg_03.jpg'],
+//              ['ProjectID' => 'NP04', 'ProjectName' => 'Nhà Phố Quận 8',         'TagName' => 'NP', 'images' => 'images\Project\nhapho\NP_bg_04.jpg'],
+//              ['ProjectID' => 'NP05', 'ProjectName' => 'Nhà Phố Quận 9',         'TagName' => 'NP', 'images' => 'images\Project\nhapho\NP_bg_05.jpg'],
+//              ['ProjectID' => 'NP06', 'ProjectName' => 'Nhà Phố Quận 10',         'TagName' => 'NP', 'images' => 'images\Project\nhapho\NP_bg_06.jpg'],
+//              ['ProjectID' => 'NP07', 'ProjectName' => 'Nhà Phố Quận 11',         'TagName' => 'NP', 'images' => 'images\Project\nhapho\NP_bg_07.jpg'],
+//              ['ProjectID' => 'NP08', 'ProjectName' => 'Nhà Phố Quận 12',         'TagName' => 'NP', 'images' => 'images\Project\nhapho\NP_bg_08.jpg'],
 
 //            //Insert data decor căn hộ
 //              ['ProjectID' => 'DCH01', 'ProjectName' => 'Căn Hộ Vinhomes Quận 1',         'TagName' => 'DCH', 'images' => 'images\Project\canho\DCH_bg_01.jpg'],
