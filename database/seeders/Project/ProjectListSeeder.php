@@ -16,9 +16,6 @@ class ProjectListSeeder extends Seeder
     {
         DB::table('project_lists')->insert([
 
-<<<<<<< HEAD
-            ]);
-=======
             //Insert data nhà phố
 //            ['ProjectID' => 'NP01', 'ProjectName' => 'Nhà Phố Quận 1',         'TagName' => 'NP', 'images' => 'images\Project\nhapho\NP_bg_01.jpg'],
 //            ['ProjectID' => 'NP02', 'ProjectName' => 'Nhà Phố Quận 2',         'TagName' => 'NP', 'images' => 'images\Project\nhapho\NP_bg_02.jpg'],
@@ -39,6 +36,5 @@ class ProjectListSeeder extends Seeder
 //            ['ProjectID' => 'DCH07', 'ProjectName' => 'Căn Hộ Begenco Quận 11',         'TagName' => 'DCH', 'images' => 'images\Project\canho\DCH_bg_07.jpg'],
 
         ]);
->>>>>>> main
     }
 }

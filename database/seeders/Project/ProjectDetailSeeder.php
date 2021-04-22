@@ -15,12 +15,7 @@ class ProjectDetailSeeder extends Seeder
     public function run()
     {
         DB::table('project_details')->insert([
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
-=======
->>>>>>> origin/Vuong
 //            [   'ProDetailID' => 'DCH01', 'ProjectID'       => 'DCH01',
 //                'DateFinish'  => 'January 2020', 'Location' => 'Lê Duẩn, Quận 1', 'Price' => '500 triệu VND', 'Client' => 'Mr.Hien', 'tagName' => 'Decor Căn Hộ',
 //                'imageTop'    => 'images\Project\canho\Detail\DCH_detail_top_01.jpg', 'imageBot' => 'images\Project\canho\Detail\DCH_detail_bot_01.jpg',
@@ -111,7 +106,7 @@ class ProjectDetailSeeder extends Seeder
 //                'imageTop'    => 'images\Project\nhapho\Detail\NP_detail_top_08.jpg', 'imageBot' => 'images\Project\nhapho\Detail\NP_detail_bot_08.jpg',
 //                'contentTop'  => 'Đây là nội dung bên trên',
 //                'contentBot'  => 'Đây là nội dung giới thiệu bên dưới' ],
->>>>>>> main
+
 
 
 
