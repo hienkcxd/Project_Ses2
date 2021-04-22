@@ -16,14 +16,7 @@ class ProjectListSeeder extends Seeder
     {
         DB::table('project_lists')->insert([
 
-<<<<<<< HEAD
-//            Insert data nhà phố
-=======
-<<<<<<< HEAD
-            ]);
-=======
-            //Insert data nhà phố
->>>>>>> origin/Vuong
+
 //            ['ProjectID' => 'NP01', 'ProjectName' => 'Nhà Phố Quận 1',         'TagName' => 'NP', 'images' => 'images\Project\nhapho\NP_bg_01.jpg'],
 //            ['ProjectID' => 'NP02', 'ProjectName' => 'Nhà Phố Quận 2',         'TagName' => 'NP', 'images' => 'images\Project\nhapho\NP_bg_02.jpg'],
 //            ['ProjectID' => 'NP03', 'ProjectName' => 'Nhà Phố Quận 3',         'TagName' => 'NP', 'images' => 'images\Project\nhapho\NP_bg_03.jpg'],
@@ -42,8 +35,6 @@ class ProjectListSeeder extends Seeder
 //            ['ProjectID' => 'DCH06', 'ProjectName' => 'Căn Hộ King Center Quận 10',     'TagName' => 'DCH', 'images' => 'images\Project\canho\DCH_bg_06.jpg'],
 //            ['ProjectID' => 'DCH07', 'ProjectName' => 'Căn Hộ Begenco Quận 11',         'TagName' => 'DCH', 'images' => 'images\Project\canho\DCH_bg_07.jpg'],
 
-
         ]);
->>>>>>> main
     }
 }
