@@ -13,7 +13,7 @@
                 <div class="de_testi">
                     <blockquote>
                         <p>I'm always impressed with the services. Lorem ipsum dolor sit amet, consectetur adipisicing
-                            elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                            elit, sed do eiusmod tempor ut labore et dolore magna aliqua. Ut enim ad minim
                             veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
                         <div class="de_testi_by">
                             John, Customer
