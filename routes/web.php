@@ -2,7 +2,8 @@
 
     use App\Http\Controllers\admin\login\LoginController;
     use App\Http\Controllers\user\about\AboutController;
-    use App\Http\Controllers\user\market\MarketController;
+use App\Http\Controllers\user\homepage\homepageController;
+use App\Http\Controllers\user\market\MarketController;
     use App\Http\Controllers\user\news\NewsController;
     use App\Http\Controllers\user\project\ProjectsController;
     use App\Http\Controllers\user\service\ServiceController;
@@ -20,9 +21,11 @@
     */
 
     //Route for user
-    Route::get('/', function () {
-        return view('homepage.homepage');
-    })->name('homepage');
+//    Route::get('/', function () {
+//        return view('homepage.homepage');
+//    });
+
+    Route::get('/', [homepageController::class, 'index'])->name('homepage');
 
     Route::prefix('AboutUs')->group(function () {
         Route::get('/', [AboutController::class, 'index'])->name('aboutus');
