@@ -37,14 +37,14 @@ class ProjectListSeeder extends Seeder
 //            ['ProjectID' => 'DCH07', 'ProjectName' => 'Căn Hộ Begenco Quận 11',         'TagName' => 'DCH', 'images' => 'images\Project\canho\DCH_bg_07.jpg'],
 //
 //        //insert data biet thu
-            ['ProjectID' => 'BT01', 'ProjectName' => 'Biệt Thự Hiện Đai Quận 1',  'TagName' => 'BT', 'images' => 'images\Project\bietthu\BT_bg_01.jpg'],
-            ['ProjectID' => 'BT02', 'ProjectName' => 'Biệt Thự Hiện Đai Quận 2',  'TagName' => 'BT', 'images' => 'images\Project\bietthu\BT_bg_02.jpg'],
-            ['ProjectID' => 'BT03', 'ProjectName' => 'Biệt Thự Hiện Đai Quận 3',  'TagName' => 'BT', 'images' => 'images\Project\bietthu\BT_bg_03.jpg'],
-            ['ProjectID' => 'BT04', 'ProjectName' => 'Biệt Thự Hiện Đai Quận 4 ', 'TagName' => 'BT', 'images' => 'images\Project\bietthu\BT_bg_04.jpg'],
-            ['ProjectID' => 'BT05', 'ProjectName' => 'Biệt Thự Hiện Đai Quận 5 ', 'TagName' => 'BT', 'images' => 'images\Project\bietthu\BT_bg_05.jpg'],
-            ['ProjectID' => 'BT06', 'ProjectName' => 'Biệt Thự Hiện Đai Quận 6 ', 'TagName' => 'BT', 'images' => 'images\Project\bietthu\BT_bg_06.jpg'],
-            ['ProjectID' => 'BT07', 'ProjectName' => 'Biệt Thự Hiện Đai Quận 7 ', 'TagName' => 'BT', 'images' => 'images\Project\bietthu\BT_bg_07.jpg'],
-            ['ProjectID' => 'BT08', 'ProjectName' => 'Biệt Thự Hiện Đai Quận 8',  'TagName' => 'BT', 'images' => 'images\Project\bietthu\BT_bg_08.jpg'],
+            ['ProjectID' => 'BT01', 'ProjectName' => 'Biệt Thự Hiện Đại Quận 1',  'TagName' => 'BT', 'images' => 'images\Project\bietthu\BT_bg_01.jpg'],
+            ['ProjectID' => 'BT02', 'ProjectName' => 'Biệt Thự Hiện Đại Quận 2',  'TagName' => 'BT', 'images' => 'images\Project\bietthu\BT_bg_02.jpg'],
+            ['ProjectID' => 'BT03', 'ProjectName' => 'Biệt Thự Hiện Đại Quận 3',  'TagName' => 'BT', 'images' => 'images\Project\bietthu\BT_bg_03.jpg'],
+            ['ProjectID' => 'BT04', 'ProjectName' => 'Biệt Thự Hiện Đại Quận 4 ', 'TagName' => 'BT', 'images' => 'images\Project\bietthu\BT_bg_04.jpg'],
+            ['ProjectID' => 'BT05', 'ProjectName' => 'Biệt Thự Hiện Đại Quận 5 ', 'TagName' => 'BT', 'images' => 'images\Project\bietthu\BT_bg_05.jpg'],
+            ['ProjectID' => 'BT06', 'ProjectName' => 'Biệt Thự Hiện Đại Quận 6 ', 'TagName' => 'BT', 'images' => 'images\Project\bietthu\BT_bg_06.jpg'],
+            ['ProjectID' => 'BT07', 'ProjectName' => 'Biệt Thự Hiện Đại Quận 7 ', 'TagName' => 'BT', 'images' => 'images\Project\bietthu\BT_bg_07.jpg'],
+            ['ProjectID' => 'BT08', 'ProjectName' => 'Biệt Thự Hiện Đại Quận 8',  'TagName' => 'BT', 'images' => 'images\Project\bietthu\BT_bg_08.jpg'],
 
 //        //insert data nhà tân cổ
             ['ProjectID' => 'NTC01', 'ProjectName' => 'Nhà Tân Cổ Quận 1 ',   'TagName' => 'NTC', 'images' => 'images\Project\tanco\NTC_bg_01.jpg'],
