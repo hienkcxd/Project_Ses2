@@ -109,7 +109,7 @@
 
 
 
-//                //Insert data biệt thự
+                  //Insert data biệt thự
 
 //                ['ProDetailID' => 'BT01', 'ProjectID' => 'BT01',
 //                    'DateFinish' => 'February 2021', 'Location' => 'Trần Hưng Đạo, Quận 1', 'Price' => '19 tỷ VND', 'Client' => 'Ms.Hoa', 'tagName' => 'Biệt Thự',
@@ -120,7 +120,7 @@
 //
 //                ['ProDetailID' => 'BT02', 'ProjectID' => 'BT02',
 //                    'DateFinish' => 'January 2021', 'Location' => 'Mai Chí Thọ, Quận 2', 'Price' => '27 tỷ VND', 'Client' => 'Mr.Phong', 'tagName' => 'Biệt Thự',
-//                    'imageTop' => 'images\Project\bietthu\Detail\Detail_BT_top_02.jpg', 'imageBot' => 'images\Project\bietthu\Detail\Detail_BT_bop_02.jpg.jpg',
+//                    'imageTop' => 'images\Project\bietthu\Detail\Detail_BT_top_02.jpg', 'imageBot' => 'images\Project\bietthu\Detail\Detail_BT_bot_02.jpg',
 //                    'contentTop' => 'Đây là nội dung bên trên',
 //                    'contentBot' => 'Đây là nội dung giới thiệu bên dưới'],
 //
@@ -135,26 +135,26 @@
 //                    'imageTop' => 'images\Project\bietthu\Detail\Detail_BT_top_04.jpg', 'imageBot' => 'images\Project\bietthu\Detail\Detail_BT_bot_04.jpg',
 //                    'contentTop' => 'Đây là nội dung bên trên',
 //                    'contentBot' => 'Đây là nội dung giới thiệu bên dưới'],
-
+//
 //                ['ProDetailID' => 'BT05', 'ProjectID' => 'BT05',
 //                    'DateFinish' => 'April 2021', 'Location' => 'Kinh Dương Vương, Quận 5', 'Price' => '40tỷ VND', 'Client' => 'Ms.Hoa', 'tagName' => 'Biệt Thự',
 //                    'imageTop' => 'images\Project\bietthu\Detail\Detail_BT_top_05.jpg', 'imageBot' => 'images\Project\bietthu\Detail\Detail_BT_bot_05.jpg',
 //                    'contentTop' => 'Đây là nội dung bên trên',
 //                    'contentBot' => 'Đây là nội dung giới thiệu bên dưới'],
-
+//
 //                ['ProDetailID' => 'BT06', 'ProjectID' => 'BT06',
 //                    'DateFinish' => 'May 2021', 'Location' => 'An Dương Vương, Quận 6', 'Price' => '45tỷ VND', 'Client' => 'Mr.Vương', 'tagName' => 'Biệt Thự',
 //                    'imageTop' => 'images\Project\bietthu\Detail\Detail_BT_top_06.jpg', 'imageBot' => 'images\Project\bietthu\Detail\Detail_BT_bot_06.jpg',
 //                    'contentTop' => 'Đây là nội dung bên trên',
 //                    'contentBot' => 'Đây là nội dung giới thiệu bên dưới'],
-
+//
 //                ['ProDetailID' => 'BT07', 'ProjectID' => 'BT07',
 //                    'DateFinish' => 'June 2021', 'Location' => 'Huỳnh Tấn Phát, Quận 7', 'Price' => '50tỷ VND', 'Client' => 'Mr.Nghĩa', 'tagName' => 'Biệt Thự',
 //                    'imageTop' => 'images\Project\bietthu\Detail\Detail_BT_top_07.jpg', 'imageBot' => 'images\Project\bietthu\Detail\Detail_BT_bot_07.jpg',
 //                    'contentTop' => 'Đây là nội dung bên trên',
 //                    'contentBot' => 'Đây là nội dung giới thiệu bên dưới'],
-
-
+//
+//
 //                ['ProDetailID' => 'BT08', 'ProjectID' => 'BT08',
 //                    'DateFinish' => 'May 2021', 'Location' => 'Nguyễn Tri Phương, Quận 8', 'Price' => '55tỷ VND', 'Client' => 'Mr.Thịnh', 'tagName' => 'Biệt Thự',
 //                    'imageTop' => 'images\Project\bietthu\Detail\Detail_BT_top_08.jpg', 'imageBot' => 'images\Project\bietthu\Detail\Detail_BT_bot_08.jpg',
@@ -162,8 +162,7 @@
 //                    'contentBot' => 'Đây là nội dung giới thiệu bên dưới'],
 
 
-
-////Insert data nhà tân cổ
+                   //Insert data nhà tân cổ
 //                ['ProDetailID' => 'NTC01', 'ProjectID' => 'NTC01',
 //                    'DateFinish' => 'June 2021', 'Location' => 'Cách Mạng Tháng 8, Quận 1', 'Price' => '27 tỷ VND', 'Client' => 'Ms.Thắm', 'tagName' => 'Nhà Tân Cổ',
 //                    'imageTop' => 'images\Project\tanco\Detail\Detail_NTC_top_01.jpg', 'imageBot' => 'images\Project\tanco\Detail\Detail_NTC_bot_01.jpg',

@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <div style="min-height: 600px"></div>
+    @include('News.ListNews', ['news' => $news])
 @endsection
 
 
