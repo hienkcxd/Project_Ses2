@@ -120,7 +120,7 @@
 //
 //                ['ProDetailID' => 'BT02', 'ProjectID' => 'BT02',
 //                    'DateFinish' => 'January 2021', 'Location' => 'Mai Chí Thọ, Quận 2', 'Price' => '27 tỷ VND', 'Client' => 'Mr.Phong', 'tagName' => 'Biệt Thự',
-//                    'imageTop' => 'images\Project\bietthu\Detail\Detail_BT_top_02.jpg', 'imageBot' => 'images\Project\bietthu\Detail\Detail_BT_bop_02.jpg.jpg',
+//                    'imageTop' => 'images\Project\bietthu\Detail\Detail_BT_top_02.jpg', 'imageBot' => 'images\Project\bietthu\Detail\Detail_BT_bot_02.jpg',
 //                    'contentTop' => 'Đây là nội dung bên trên',
 //                    'contentBot' => 'Đây là nội dung giới thiệu bên dưới'],
 //
