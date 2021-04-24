@@ -54,7 +54,6 @@ class ProjectListSeeder extends Seeder
 //            ['ProjectID' => 'NTC07', 'ProjectName' => 'Biệt Thự Tân Cổ Sâm Sơn ',         'TagName' => 'NTC', 'images' => 'images\Project\tanco\NTC_bg_07.jpg'],
 //            ['ProjectID' => 'NTC08', 'ProjectName' => 'Biệt Thự Tân Cổ Bình Thuận',         'TagName' => 'NTC', 'images' => 'images\Project\tanco\NTC_bg_08.jpg'],
 
-<<<<<<< HEAD
 
 //            //Insert data nhà phố
 //            ['ProjectID' => 'NP01', 'ProjectName' => 'Nhà Phố Quận 1',         'TagName' => 'NP', 'images' => 'images\Project\nhapho\NP_bg_01.jpg'],
@@ -73,7 +72,7 @@ class ProjectListSeeder extends Seeder
 //           ['ProjectID' => 'DCH05', 'ProjectName' => 'Căn Hộ Villa Park Quận 9',       'TagName' => 'DCH', 'images' => 'images\Project\canho\DCH_bg_05.jpg'],
 //            ['ProjectID' => 'DCH06', 'ProjectName' => 'Căn Hộ King Center Quận 10',     'TagName' => 'DCH', 'images' => 'images\Project\canho\DCH_bg_06.jpg'],
 //            ['ProjectID' => 'DCH07', 'ProjectName' => 'Căn Hộ Begenco Quận 11',         'TagName' => 'DCH', 'images' => 'images\Project\canho\DCH_bg_07.jpg'],
-//
+
 //        //insert data biet thu
 //           ['ProjectID' => 'BT01', 'ProjectName' => 'Biệt Thự Hiện Đai Đà Lạt',         'TagName' => 'BT', 'images' => 'images\Project\bietthu\BT_bg_01.jpg'],
 //            ['ProjectID' => 'BT02', 'ProjectName' => 'Biệt Thự Hiện Đai Đà Nẵng',         'TagName' => 'BT', 'images' => 'images\Project\bietthu\BT_bg_02.jpg'],
@@ -84,8 +83,6 @@ class ProjectListSeeder extends Seeder
 //            ['ProjectID' => 'BT07', 'ProjectName' => 'Biệt Thự Hiện Đai Hà Nội',         'TagName' => 'BT', 'images' => 'images\Project\bietthu\BT_bg_07.jpg'],
 //            ['ProjectID' => 'BT08', 'ProjectName' => 'Biệt Thự Hiện Đai TPHCM',         'TagName' => 'BT', 'images' => 'images\Project\bietthu\BT_bg_08.jpg'],
 
-=======
->>>>>>> origin/main
 
         ]);
     }
