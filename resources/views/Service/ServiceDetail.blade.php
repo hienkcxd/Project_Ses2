@@ -10,6 +10,11 @@
 
 
 
+
+@section('title','Service_Detail_Contructure')
+
+@section('title','Service_Contructure')
+
 @section('title','Service_Detail_Contructure')
 
 @section('idBody')class = "page-services"@endsection
