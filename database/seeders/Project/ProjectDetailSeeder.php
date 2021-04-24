@@ -21,7 +21,7 @@
 //                'imageTop'    => 'images\Project\canho\Detail\DCH_detail_top_01.jpg', 'imageBot' => 'images\Project\canho\Detail\DCH_detail_bot_01.jpg',
 //                'contentTop'  => 'Đây là nội dung bên trên',
 //                'contentBot'  => 'Đây là nội dung giới thiệu bên dưới' ],
-//
+////
 //            [   'ProDetailID' => 'DCH02', 'ProjectID'       => 'DCH02',
 //                'DateFinish'  => 'March 2020', 'Location' => 'Mai Chí Thọ, Quận 2', 'Price' => '600 triệu VND', 'Client' => 'Mr.Duy', 'tagName' => 'Decor Căn Hộ',
 //                'imageTop'    => 'images\Project\canho\Detail\DCH_detail_top_02.jpg', 'imageBot' => 'images\Project\canho\Detail\DCH_detail_bot_02.jpg',
@@ -106,9 +106,9 @@
 //                'imageTop'    => 'images\Project\nhapho\Detail\NP_detail_top_08.jpg', 'imageBot' => 'images\Project\nhapho\Detail\NP_detail_bot_08.jpg',
 //                'contentTop'  => 'Đây là nội dung bên trên',
 //                'contentBot'  => 'Đây là nội dung giới thiệu bên dưới' ],
-
-
-//                //Insert data biệt thự
+//
+//
+////                //Insert data biệt thự
 //                ['ProDetailID' => 'BT01', 'ProjectID' => 'BT01',
 //                    'DateFinish' => 'February 2021', 'Location' => 'Trần Hưng Đạo, Quận 1', 'Price' => '19 tỷ VND', 'Client' => 'Ms.Hoa', 'tagName' => 'Biệt Thự',
 //                    'imageTop' => 'images\Project\bietthu\Detail\Detail_BT_top_01.jpg', 'imageBot' => 'images\Project\bietthu\Detail\Detail_BT_bot_01.jpg',
@@ -158,9 +158,9 @@
 //                    'imageTop' => 'images\Project\bietthu\Detail\Detail_BT_top_08.jpg', 'imageBot' => 'images\Project\bietthu\Detail\Detail_BT_bot_08.jpg',
 //                    'contentTop' => 'Đây là nội dung bên trên',
 //                    'contentBot' => 'Đây là nội dung giới thiệu bên dưới'],
-//
-//
-////Insert data nhà tân cổ
+////
+////
+//////Insert data nhà tân cổ
 //                ['ProDetailID' => 'NTC01', 'ProjectID' => 'NTC01',
 //                    'DateFinish' => 'June 2021', 'Location' => 'Cách Mạng Tháng 8, Quận 1', 'Price' => '27 tỷ VND', 'Client' => 'Ms.Thắm', 'tagName' => 'Nhà Tân Cổ',
 //                    'imageTop' => 'images\Project\tanco\Detail\Detail_NTC_top_01.jpg', 'imageBot' => 'images\Project\tanco\Detail\Detail_NTC_bot_01.jpg',
