@@ -108,8 +108,12 @@
 //                'contentBot'  => 'Đây là nội dung giới thiệu bên dưới' ],
 
 
+<<<<<<< HEAD
                 //Insert data biệt thự
 <<<<<<< HEAD
+=======
+//                //Insert data biệt thự
+>>>>>>> main
 //                ['ProDetailID' => 'BT01', 'ProjectID' => 'BT01',
 //                    'DateFinish' => 'February 2021', 'Location' => 'Trần Hưng Đạo, Quận 1', 'Price' => '19 tỷ VND', 'Client' => 'Ms.Hoa', 'tagName' => 'Biệt Thự',
 //                    'imageTop' => 'images\Project\bietthu\Detail\Detail_BT_top_01.jpg', 'imageBot' => 'images\Project\bietthu\Detail\Detail_BT_bot_01.jpg',
@@ -142,26 +146,42 @@
 //                    'contentBot' => 'Đây là nội dung giới thiệu bên dưới'],
 //
 //                ['ProDetailID' => 'BT06', 'ProjectID' => 'BT06',
+<<<<<<< HEAD
 //                    'DateFinish' => 'March 2021', 'Location' => 'An Dương Vương, Quận 6', 'Price' => '45tỷ VND', 'Client' => 'Mr.Vương', 'tagName' => 'Biệt Thự',
+=======
+//                    'DateFinish' => 'May 2021', 'Location' => 'An Dương Vương, Quận 6', 'Price' => '45tỷ VND', 'Client' => 'Mr.Vương', 'tagName' => 'Biệt Thự',
+>>>>>>> main
 //                    'imageTop' => 'images\Project\bietthu\Detail\Detail_BT_top_06.jpg', 'imageBot' => 'images\Project\bietthu\Detail\Detail_BT_bot_06.jpg',
 //                    'contentTop' => 'Đây là nội dung bên trên',
 //                    'contentBot' => 'Đây là nội dung giới thiệu bên dưới'],
 //
 //                ['ProDetailID' => 'BT07', 'ProjectID' => 'BT07',
+<<<<<<< HEAD
 //                    'DateFinish' => 'May 2021', 'Location' => 'Huỳnh Tấn Phát, Quận 7', 'Price' => '50tỷ VND', 'Client' => 'Mr.Nghĩa', 'tagName' => 'Biệt Thự',
+=======
+//                    'DateFinish' => 'June 2021', 'Location' => 'Huỳnh Tấn Phát, Quận 7', 'Price' => '50tỷ VND', 'Client' => 'Mr.Nghĩa', 'tagName' => 'Biệt Thự',
+>>>>>>> main
 //                    'imageTop' => 'images\Project\bietthu\Detail\Detail_BT_top_07.jpg', 'imageBot' => 'images\Project\bietthu\Detail\Detail_BT_bot_07.jpg',
 //                    'contentTop' => 'Đây là nội dung bên trên',
 //                    'contentBot' => 'Đây là nội dung giới thiệu bên dưới'],
 //
 //
 //                ['ProDetailID' => 'BT08', 'ProjectID' => 'BT08',
+<<<<<<< HEAD
 //                    'DateFinish' => 'May 2021', 'Location' => 'Nguyễn Tri Phương, Quận 8', 'Price' => '55tỷ VND', 'Client' => 'Mr.Thịnh', 'tagName' => 'Biệt Thự',
+=======
+//                    'DateFinish' => 'June 2021', 'Location' => 'Nguyễn Tri Phương, Quận 8', 'Price' => '55tỷ VND', 'Client' => 'Mr.Thịnh', 'tagName' => 'Biệt Thự',
+>>>>>>> main
 //                    'imageTop' => 'images\Project\bietthu\Detail\Detail_BT_top_08.jpg', 'imageBot' => 'images\Project\bietthu\Detail\Detail_BT_bot_08.jpg',
 //                    'contentTop' => 'Đây là nội dung bên trên',
 //                    'contentBot' => 'Đây là nội dung giới thiệu bên dưới'],
 //
 //
+<<<<<<< HEAD
                 //Insert data nhà tân cổ
+=======
+////Insert data nhà tân cổ
+>>>>>>> main
 //                ['ProDetailID' => 'NTC01', 'ProjectID' => 'NTC01',
 //                    'DateFinish' => 'June 2021', 'Location' => 'Cách Mạng Tháng 8, Quận 1', 'Price' => '27 tỷ VND', 'Client' => 'Ms.Thắm', 'tagName' => 'Nhà Tân Cổ',
 //                    'imageTop' => 'images\Project\tanco\Detail\Detail_NTC_top_01.jpg', 'imageBot' => 'images\Project\tanco\Detail\Detail_NTC_bot_01.jpg',
@@ -214,6 +234,7 @@
 //                    'imageTop' => 'images\Project\tanco\Detail\Detail_NTC_top_08.jpg', 'imageBot' => 'images\Project\tanco\Detail\Detail_NTC_bot_08.jpg',
 //                    'contentTop' => 'Đây là nội dung bên trên',
 //                    'contentBot' => 'Đây là nội dung giới thiệu bên dưới'],
+<<<<<<< HEAD
 =======
                 ['ProDetailID' => 'BT01', 'ProjectID' => 'BT01',
                     'DateFinish' => 'February 2021', 'Location' => 'Trần Hưng Đạo, Quận 1', 'Price' => '19 tỷ VND', 'Client' => 'Ms.Hoa', 'tagName' => 'Biệt Thự',
@@ -320,6 +341,8 @@
                     'contentTop' => 'Đây là nội dung bên trên',
                     'contentBot' => 'Đây là nội dung giới thiệu bên dưới'],
 >>>>>>> origin/main
+=======
+>>>>>>> main
 
 
             ]);
