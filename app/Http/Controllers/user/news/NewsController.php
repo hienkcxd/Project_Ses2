@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 class NewsController extends Controller
 {
     public function index(){
-        $news = DB::table('news_lists')->get();
+        $news = DB::table('news_lists')->limit(3)->get();
         return view('News.News')->with(compact('news'));
     }
 

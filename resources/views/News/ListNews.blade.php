@@ -1,23 +1,22 @@
 <div id="content">
         <div class="container">
-            <div class="row">
+            <div class="row" style="width: 70%; margin: auto">
 
                     <div class="row">
                         <div class="col-md-12 text-center">
                             <ul id="filters" class="wow fadeInUp" data-wow-delay="0s">
                                 <li><a href="#" data-filter="*" class="selected">All Projects</a></li>
-                                <li><a href="#" data-filter=".NP">Nhà Phố</a></li>
-                                <li><a href="#" data-filter=".DCH">Decor Căn Hộ</a></li>
-                                <li><a href="#" data-filter=".BT">Biệt Thự</a></li>
-                                <li><a href="#" data-filter=".NTC">Nhà Tân Cổ</a></li>
+                                <li><a href="#" data-filter=".PCKT">Phong cách kiến trúc</a></li>
+                                <li><a href="#" data-filter=".NTGD">Nội thất gia đình</a></li>
                             </ul>
                         </div>
                     </div>
 {{--                @dd($news)--}}
                     @foreach($news as $p)
+                    <div class="item {{ $p->NewsTagName }}">
                     <ul class="blog-list">
                         <li>
-                            <div class="post-content">
+                            <div class="post-content ">
                                 <div class="post-image">
                                     <img src="{{ asset("$p->images") }}" alt="" />
                                 </div>
@@ -38,6 +37,7 @@
                             </div>
                         </li>
                     </ul>
+                    </div>
                 @endforeach
 
                     <div class="text-center">
