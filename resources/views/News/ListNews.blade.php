@@ -1,5 +1,5 @@
-<div id="content" >
-    <div class="container">
+<div id="content" style="padding: 45px 0 30px 0" >
+    <div class="container" >
         <div class="row" style="width: 70%; margin: auto">
 
             <div class="row">

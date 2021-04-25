@@ -16,13 +16,6 @@ class NewsListSeeder extends Seeder
     {
         DB::table('news_lists')->insert([
 
-<<<<<<< HEAD
-//            //Insert data
-//
-=======
-            //Insert data
-
->>>>>>> origin/Duy
 //            ['NewsID' => 'N01', 'NewsName' => 'Forest House - Ngôi nhà trong mơ của những người yêu thiên nhiên',
 //                'NewsTagName' => 'PCKT',
 //                'Description' => 'Với chủ đề “ngôi nhà sống động”, cabin này là dự án dự kiến cho CASA COR 2018, mọi thứ được tận dụng một cách tối đa và vô cùng thưởng thức.',
@@ -64,7 +57,7 @@ class NewsListSeeder extends Seeder
 //                'Description' => 'Với phong cách hiện đại, chúng ta được free trong việc trang trí. Hợp lý là phù hợp với phong cách và nhu cầu sử dụng của mỗi người. Đừng cố gắng ép PHẢI theo một kiểu trang trí nào đó, mỗi căn phòng được xây dựng theo kích thước, hướng khác nhau, việc đặt một khuôn mẫu chung cho tất cả căn phòng là điều dường như không thể.',
 //                'Day' => '06/05','Year' => '2020',
 //                'images' => 'images\blog\News_bg_07.jpg'],
-
+//
         ]);
     }
 }
