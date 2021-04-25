@@ -26,10 +26,10 @@
                                     <div class="month" style="font-size: 10px">{{ $p->Year }}</div>
                                 </div>
                                 <div class="post-text">
-                                    <h3><a href="#">{{ $p->NewsName }}</a></h3>
+                                    <h3>{{ $p->NewsName }}</h3>
                                     <p>{{ $p->Description }}</p>
                                 </div>
-                                <a href="#" class="btn-more">Chi tiết</a>
+                                <a href="{{ route('news_detail', ['NewsDetailID' => $p->NewsID ]) }}" class="btn-more">Chi tiết</a>
                             </div>
 
                         </li>
