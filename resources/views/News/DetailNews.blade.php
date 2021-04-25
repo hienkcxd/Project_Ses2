@@ -3,10 +3,8 @@
 <div id="content" >
     <div class="container">
         <div class="row" style="width: 70%; margin: auto">
-
-
+            @foreach($detail as $p)
                 <ul class="blog-list">
-                    @foreach($detail as $p)
                         <li class="item {{ $p->NewsTagName }}">
 
                             <div class="post-content ">
@@ -23,13 +21,23 @@
                                 <a href="{{ route('news_detail', ['NewsDetailID' => $p->NewsID ]) }}" class="btn-more">Chi tiết</a>
                             </div>
                         </li>
-                    @endforeach
                 </ul>
 
             <div>
-                <p>{{ $p->contentTop }}</p>
+                <p style="color: black;font-size: 20px">{{ $p->contentTop }}</p>
+                <img src="{{ asset("$p->image1") }}" alt="" />
+                <img src="{{ asset("$p->image2") }}" alt="" />
+                <img src="{{ asset("$p->image3") }}" alt="" />
+                <p style="color: black;font-size: 20px">{{ $p->contentMiddle }}</p>
+                <img src="{{ asset("$p->image4") }}" alt="" />
+                <img src="{{ asset("$p->image5") }}" alt="" />
+                <img src="{{ asset("$p->image6") }}" alt="" />
+                <p style="color: black;font-size: 20px">{{ $p->contentBot }}</p>
+                <img src="{{ asset("$p->image7") }}" alt="" />
+                <img src="{{ asset("$p->image8") }}" alt="" />
+                <img src="{{ asset("$p->image9") }}" alt="" />
             </div>
-
+            @endforeach
 
         </div>
     </div>
