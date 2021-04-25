@@ -16,6 +16,7 @@ class CreateNewsListsTable extends Migration
         Schema::create('news_lists', function (Blueprint $table) {
             $table->string('NewsID')->primary();
             $table->string('NewsName');
+            $table->string('NewsTagName');
             $table->text('Description');
             $table->string('Day');
             $table->string('Year');
