@@ -33,6 +33,7 @@ use App\Http\Controllers\user\market\MarketController;
 
     Route::prefix('News')->group(function () {
         Route::get('/', [NewsController::class, 'index'])->name('news');
+        Route::get('/{NewsDetailID}', [NewsController::class, 'newsDetail'])->name('news_detail');
     });
 
     Route::prefix('Service')->group(function () {
