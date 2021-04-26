@@ -36,7 +36,7 @@ class NewsDetailSeeder extends Seeder
 //                'image8' => 'images\blog\Detail\News_image8_detail_01.jpg',
 //                'image9' => 'images\blog\Detail\News_image9_detail_01.jpg',
 //            ],
-
+//
 //            [
 //                'NewsDetailID' => 'N02', 'NewsID' => 'N02', 'NewsName' => 'GỖ - Người bạn đa năng trong ngôi nhà',
 //                'NewsTagName' => 'NTGD',
