@@ -1,5 +1,5 @@
-<div id="content" style="padding: 45px 0 30px 0" >
-    <div class="container" >
+<div id="content" style="padding: 45px 0 30px 0">
+    <div class="container">
         <div class="row" style="width: 70%; margin: auto">
 
             <div class="row">
@@ -13,8 +13,8 @@
             </div>
 
             <div id="gallery" data-wow-delay=".3s">
-                    <ul class="blog-list">
-                        @foreach($news as $p)
+                <ul class="blog-list">
+                    @foreach($data as $p)
                         <li class="item {{ $p->NewsTagName }}">
 
                             <div class="post-content ">
@@ -30,27 +30,19 @@
                                     <h3>{{ $p->NewsName }}</h3>
                                     <p>{{ $p->Description }}</p>
                                 </div>
-                                <a href="{{ route('news_detail', ['NewsDetailID' => $p->NewsID ]) }}" class="btn-more">Chi tiết</a>
+                                <a href="{{ route('news_detail', ['NewsDetailID' => $p->NewsID ]) }}" class="btn-more">Chi
+                                    tiết</a>
                             </div>
 
                         </li>
-                        @endforeach
-                    </ul>
-            </div>
-
-            <div class="text-center">
-                <ul class="pagination">
-                    <li><a href="#">Trước</a></li>
-                    <li class="active"><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">Sau</a></li>
+                    @endforeach
                 </ul>
             </div>
-
+            <div style="width: 100%; text-align: center">
+            {!! $data->links() !!}
         </div>
     </div>
 </div>
+</div>
+
 

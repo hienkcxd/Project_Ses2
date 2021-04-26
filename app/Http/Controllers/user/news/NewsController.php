@@ -9,9 +9,19 @@ use Illuminate\Support\Facades\DB;
 class NewsController extends Controller
 {
     public function index(){
-        $news = DB::table('news_lists')->limit(4)->get();
-        return view('News.News')->with(compact('news'));
+        $data = DB::table('news_lists')->paginate(3);
+        return view('News.News', compact('data'));
     }
+
+    public function fetch_data(Request $request)
+    {
+        if($request->ajax())
+        {
+            $data = DB::table('news_lists')->paginate(3);
+            return view('News.ListNews', compact('data'))->render();
+        }
+    }
+
     public function newsDetail(Request $request){
         $id = $request->route()->parameter('NewsDetailID');
         $detail = DB::table('news_details')
