@@ -74,7 +74,24 @@ class NewsDetailSeeder extends Seeder
 //                'image8' => 'images\blog\Detail\News_image8_detail_03.jpg',
 //                'image9' => 'images\blog\Detail\News_image9_detail_03.jpg',
 //            ],
-
+//            [
+//                'NewsDetailID' => 'N04', 'NewsID' => 'N04', 'NewsName' => '5 cách tạo nên phòng ngủ ấm áp',
+//                'NewsTagName' => 'PCKT',
+//                'Day' => '07/07', 'Year' => '2020',
+//                'images' => 'images\blog\News_bg_04.jpg',
+//                'contentTop' => 'Phòng ngủ luôn là nơi ưa thích của mỗi người, đúng không nhỉ? Người ta thường nói “Ăn được ngủ được là tiên”, chính vì vậy mà nhiều người luôn cố gắng để trang trí, thiết kế cho mình và gia đình phòng ngủ ấm áp, mục đích cuối cùng vẫn để có được một giấc ngủ ngon và bình an. Hôm nay chúng ta cùng học cách để biến ngôi nhà của bạn thêm ấm áp và đặc biệt hơn nhé!1- GỗMột trong những mẹo để sưởi ấm không gian không chỉ là phòng ngủ mà còn được áp dụng cho phòng khách, bếp… đó chính là mang yếu tố tự nhiên vào ngôi nhà của bạn, và đặc biệt hơn hết chính là gỗ. Gỗ ngày nay được dùng nhiều trong thiết kế giường, ghế, bàn, hộc đựng…. với nhiều màu sắc đặc trưng của từng loại gỗ và kiểu dáng khác nhau. Thật là một thiếu sót nếu bạn bỏ qua mẹo này đấy nhé!',
+//                'image1' => 'images\blog\Detail\News_image1_detail_04.jpg',
+//                'image2' => 'images\blog\Detail\News_image2_detail_04.jpg',
+//                'image3' => 'images\blog\Detail\News_image3_detail_04.jpg',
+//                'contentMiddle' => '2- Cây xanhCây xanh là một trong những sinh vật quan trọng và nổi bật nhất trên trái đất nhưng chúng ta mới chỉ bắt đầu hiểu về quy mô tồn tại của chúng. Chúng chứa một lượng lớn carbon, giữ nước và tạo ra không khí trong lành cùng rất nhiều lợi ích quan trọng cho con người”, chuyên gia Thomas Crowther của Viện nghiên cứu Môi trường và Lâm nghiệp Đại học Yale cho biết - Theo Zing newsNhưng một điều đáng lưu ý là việc để quá nhiều cây xanh ở phòng ngủ kín, điều này sẽ thực sự nguy hiểm vì trong quá trình quang hợp của cây xanh vào ban đêm, cây sẽ hút khí Oxi, thải ra Cacbonic và hơi nước, khiến chúng ta ngạt thở và nguy hiểm tới tính mạng. Hãy khôn ngoan để phù hợp hóa số lượng cây xanh trong phòng ngủ của bạn nha.3- Nội thấtNếu thiếu nội thất, phòng ngủ sẽ thật trống trãi và cô đơn. Ngoài giường ngủ và cây xanh, chúng ta cũng cần có đèn ngủ, bàn đựng đồ, đồng hồ, hay thậm chí là lò sưởi ấm khi mùa đông về…. tất cả hòa quyện tạo nên không gian ấm áp và hoàn hảo cho bạn và gia đình. ',
+//                'image4' => 'images\blog\Detail\News_image4_detail_04.jpg',
+//                'image5' => 'images\blog\Detail\News_image5_detail_04.jpg',
+//                'image6' => 'images\blog\Detail\News_image6_detail_04.jpg',
+//                'contentBot' => '4- Gối ômTrang trí gối với nhiều chất liệu, họa tiết và màu sắc khác nhau giúp cho căn phòng thêm sinh động, hãy chọn những tông màu cam, đỏ, vàng để thêm tia nắng ấm áp nhé!5- Thảm Với bất cứ style phòng ngủ nào từ cổ điển, hiện đại, cho tới đương đại, bạn sẽ luôn tìm được tấm thảm bạn yêu thích, nếu bạn thật sự muốn tìm, hãy tin tôi đi. Thảm sàn như là vật dụng không thể thiếu của mỗi gia đình, không chỉ là để chống trơn trượt, chống ồn mà còn để trang trí và giữ ấm cho ngôi nhà.',
+//                'image7' => 'images\blog\Detail\News_image7_detail_04.jpg',
+//                'image8' => 'images\blog\Detail\News_image8_detail_04.jpg',
+//                'image9' => 'images\blog\Detail\News_image9_detail_04.jpg',
+//            ],
 
 
         ]);
