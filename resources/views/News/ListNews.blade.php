@@ -23,7 +23,8 @@
                                 </div>
                                 <div class="date-box">
                                     <div class="day" style="font-size: 20px">{{ $p->Day }}</div>
-                                    <div class="month" style="font-size: 10px">{{ $p->Year }}</div>
+                                    <div class="month"
+                                         style="font-size: 15px; letter-spacing: 5px; padding-left: 7px">{{ $p->Year }}</div>
                                 </div>
                                 <div class="post-text">
                                     <h3>{{ $p->NewsName }}</h3>
