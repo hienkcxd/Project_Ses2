@@ -30,8 +30,7 @@
                                     <h3>{{ $p->NewsName }}</h3>
                                     <p>{{ $p->Description }}</p>
                                 </div>
-                                <a href="{{ route('news_detail', ['NewsDetailID' => $p->NewsID ]) }}" class="btn-more">Chi
-                                    tiết</a>
+                                <a href="{{ route('news_detail', ['NewsDetailID' => $p->NewsID ]) }}" class="btn-more">Chi tiết</a>
                             </div>
 
                         </li>
