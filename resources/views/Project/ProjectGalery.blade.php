@@ -1,5 +1,5 @@
 <!-- section begin -->
-<section id="section-portfolio" class="no-top no-bottom">
+<section id="section-portfolio" class="no-top no-bottom" style="margin: auto; width: 98%">
     <div class="container">
 
         <div class="spacer-single"></div>
@@ -21,11 +21,11 @@
 
     </div>
 
-    <div id="gallery" class="gallery full-gallery de-gallery pf_full_width wow fadeInUp" data-wow-delay=".3s">
+    <div id="gallery" class="gallery full-gallery de-gallery pf_full_width wow fadeInUp" data-wow-delay=".3s" >
 
         <!-- gallery item -->
         @foreach($all_project as $p)
-        <div class="item {{ $p-> TagName }}">
+        <div class="item {{ $p-> TagName }}" style="padding: 5px;" >
             <div class="picframe">
                 <a class="simple-ajax-popup-align-top" href="{{ route('project_detail', ['ProDetailID' => $p->ProjectID ]) }}">
                                 <span class="overlay">

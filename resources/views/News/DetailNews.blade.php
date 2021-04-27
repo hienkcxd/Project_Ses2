@@ -25,8 +25,7 @@
                                 <div class="post-text">
                                     <h3 style="font-weight: bold">{{ $p->NewsName }}</h3>
                                 </div>
-                                <a href="{{ route('news_detail', ['NewsDetailID' => $p->NewsID ]) }}" class="btn-more">Chi
-                                    tiết</a>
+                                <a href="{{ route('news_detail', ['NewsDetailID' => $p->NewsID ]) }}" class="btn-more">Chi tiết</a>
                             </div>
                         </li>
                     </ul>
