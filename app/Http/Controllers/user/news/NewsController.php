@@ -4,82 +4,31 @@ namespace App\Http\Controllers\user\news;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class NewsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        return view('News.News');
+    public function index(){
+        $data = DB::table('news_lists')->paginate(3);
+        return view('News.News', compact('data'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function fetch_data(Request $request)
     {
-        //
+        if($request->ajax())
+        {
+            $data = DB::table('news_lists')->paginate(3);
+            return view('News.ListNews', compact('data'))->render();
+        }
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+    public function newsDetail(Request $request){
+        $id = $request->route()->parameter('NewsDetailID');
+        $detail = DB::table('news_details')
+            ->join('news_lists','news_lists.NewsID','=', 'news_details.NewsID')
+            ->select('news_details.*', 'news_lists.NewsName')
+            ->get()->where('NewsDetailID', '=', $id);
+        return view('News.DetailNews')->with(compact('detail'));
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }

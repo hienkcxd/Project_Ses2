@@ -8,6 +8,8 @@
     <meta name="keywords" content="onepage,responsive,minimal,bootstrap,theme">
     <meta name="author" content="">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <!--[if lt IE 9]>
     <script src="{{ asset('/js/html5shiv.js') }}"></script>
     <![endif]-->

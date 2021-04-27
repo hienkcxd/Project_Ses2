@@ -57,8 +57,8 @@
 //                'imageTop'    => 'images\Project\canho\Detail\DCH_detail_top_07.jpg', 'imageBot' => 'images\Project\canho\Detail\DCH_detail_bot_07.jpg',
 //                'contentTop'  => 'Đây là nội dung bên trên',
 //                'contentBot'  => 'Đây là nội dung giới thiệu bên dưới' ],
-//
-//
+
+
 //            [   'ProDetailID' => 'NP01', 'ProjectID'       => 'NP01',
 //                'DateFinish'  => 'April 2021', 'Location' => 'Lê Duẩn, Quận 1', 'Price' => '3,4 tỷ VND', 'Client' => 'Mr.Hien', 'tagName' => 'Nhà Phố',
 //                'imageTop'    => 'images\Project\nhapho\Detail\NP_detail_top_01.jpg', 'imageBot' => 'images\Project\nhapho\Detail\NP_detail_bot_01.jpg',
@@ -106,9 +106,17 @@
 //                'imageTop'    => 'images\Project\nhapho\Detail\NP_detail_top_08.jpg', 'imageBot' => 'images\Project\nhapho\Detail\NP_detail_bot_08.jpg',
 //                'contentTop'  => 'Đây là nội dung bên trên',
 //                'contentBot'  => 'Đây là nội dung giới thiệu bên dưới' ],
+<<<<<<< HEAD
 //
 //
 ////                //Insert data biệt thự
+=======
+
+
+
+                  //Insert data biệt thự
+
+>>>>>>> main
 //                ['ProDetailID' => 'BT01', 'ProjectID' => 'BT01',
 //                    'DateFinish' => 'February 2021', 'Location' => 'Trần Hưng Đạo, Quận 1', 'Price' => '19 tỷ VND', 'Client' => 'Ms.Hoa', 'tagName' => 'Biệt Thự',
 //                    'imageTop' => 'images\Project\bietthu\Detail\Detail_BT_top_01.jpg', 'imageBot' => 'images\Project\bietthu\Detail\Detail_BT_bot_01.jpg',
@@ -118,7 +126,7 @@
 //
 //                ['ProDetailID' => 'BT02', 'ProjectID' => 'BT02',
 //                    'DateFinish' => 'January 2021', 'Location' => 'Mai Chí Thọ, Quận 2', 'Price' => '27 tỷ VND', 'Client' => 'Mr.Phong', 'tagName' => 'Biệt Thự',
-//                    'imageTop' => 'images\Project\bietthu\Detail\Detail_BT_top_02.jpg', 'imageBot' => 'images\Project\bietthu\Detail\Detail_BT_bop_02.jpg.jpg',
+//                    'imageTop' => 'images\Project\bietthu\Detail\Detail_BT_top_02.jpg', 'imageBot' => 'images\Project\bietthu\Detail\Detail_BT_bot_02.jpg',
 //                    'contentTop' => 'Đây là nội dung bên trên',
 //                    'contentBot' => 'Đây là nội dung giới thiệu bên dưới'],
 //
@@ -154,13 +162,19 @@
 //
 //
 //                ['ProDetailID' => 'BT08', 'ProjectID' => 'BT08',
-//                    'DateFinish' => 'June 2021', 'Location' => 'Nguyễn Tri Phương, Quận 8', 'Price' => '55tỷ VND', 'Client' => 'Mr.Thịnh', 'tagName' => 'Biệt Thự',
+//                    'DateFinish' => 'May 2021', 'Location' => 'Nguyễn Tri Phương, Quận 8', 'Price' => '55tỷ VND', 'Client' => 'Mr.Thịnh', 'tagName' => 'Biệt Thự',
 //                    'imageTop' => 'images\Project\bietthu\Detail\Detail_BT_top_08.jpg', 'imageBot' => 'images\Project\bietthu\Detail\Detail_BT_bot_08.jpg',
 //                    'contentTop' => 'Đây là nội dung bên trên',
 //                    'contentBot' => 'Đây là nội dung giới thiệu bên dưới'],
+<<<<<<< HEAD
 ////
 ////
 //////Insert data nhà tân cổ
+=======
+
+
+                   //Insert data nhà tân cổ
+>>>>>>> main
 //                ['ProDetailID' => 'NTC01', 'ProjectID' => 'NTC01',
 //                    'DateFinish' => 'June 2021', 'Location' => 'Cách Mạng Tháng 8, Quận 1', 'Price' => '27 tỷ VND', 'Client' => 'Ms.Thắm', 'tagName' => 'Nhà Tân Cổ',
 //                    'imageTop' => 'images\Project\tanco\Detail\Detail_NTC_top_01.jpg', 'imageBot' => 'images\Project\tanco\Detail\Detail_NTC_bot_01.jpg',
@@ -213,8 +227,6 @@
 //                    'imageTop' => 'images\Project\tanco\Detail\Detail_NTC_top_08.jpg', 'imageBot' => 'images\Project\tanco\Detail\Detail_NTC_bot_08.jpg',
 //                    'contentTop' => 'Đây là nội dung bên trên',
 //                    'contentBot' => 'Đây là nội dung giới thiệu bên dưới'],
-
-
             ]);
         }
     }
