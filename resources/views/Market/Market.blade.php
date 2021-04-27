@@ -5,11 +5,9 @@
 @endsection
 
 @section('content')
-    <div class="contentChart">
+
         @include('Market.clickContent')
         @include('Market.contentMarket')
-    </div>
-    <div style="clear: both;"></div>
 
 @endsection
 

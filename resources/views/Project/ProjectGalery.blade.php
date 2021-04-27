@@ -1,5 +1,5 @@
 <!-- section begin -->
-<section id="section-portfolio" class="no-top no-bottom" style="margin: auto; width: 98%">
+<section id="section-portfolio" class="no-top no-bottom" style="margin: auto">
     <div class="container">
 
         <div class="spacer-single"></div>
