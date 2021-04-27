@@ -21,20 +21,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-<<<<<<< HEAD
 //        $this->call(ProjectListSeeder::class);
 //        $this->call(ProjectDetailSeeder::class);
 //        $this->call(DistrictList::class);
-//        $this->call(EmployeeList::class);
-        $this->call(EmployeeDetail::class);
 //        $this->call(WardList::class);
-=======
-        $this->call(ProjectListSeeder::class);
-        $this->call(ProjectDetailSeeder::class);
-        $this->call(DistrictList::class);
-        $this->call(WardList::class);
+//        $this->call(EmployeeList::class);
+//        $this->call(EmployeeDetail::class);
         $this->call(NewsListSeeder::class);
         $this->call(NewsDetailSeeder::class);
->>>>>>> main
     }
 }
