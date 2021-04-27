@@ -8,7 +8,7 @@
 
     <div id="content" class="no-bottom no-top">
         @include('AboutUS.introduce')
-        @include('AboutUS.Team')
+        @include('AboutUS.Team', ['emp' => $emp])
         @include('AboutUS.customer')
     </div>
 @endsection

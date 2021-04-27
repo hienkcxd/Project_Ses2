@@ -35,6 +35,7 @@
                                 </span>
                 </a>
                 <img src="{{ asset("$p->images") }}" alt="" />
+                <img src="{{ asset('') }}"    />
             </div>
         </div>
     @endforeach
