@@ -98,11 +98,12 @@
     <!-- sub header close -->
 
     <!-- content begin -->
-    @yield('content-chart')
+    <div>
+    @yield('markContent')
+    </div>
     <div id="content" class="no-bottom no-top">
         @yield('content')
     </div>
-        @yield('contentDetail')
     <!-- footer begin -->
     <footer>
         <div class="container">
