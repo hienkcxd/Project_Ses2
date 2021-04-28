@@ -16,7 +16,6 @@
 
     <!-- CSS Files
     ================================================== -->
-    <link href="{{ asset('/css/mark.chart.css') }}" rel="stylesheet">
     <link href="{{ asset('/css/bootstrap.css') }}" rel="stylesheet">
     <link href="{{ asset('/css/jpreloader.css') }}" rel="stylesheet">
     <link href="{{ asset('/css/animate.css') }}" rel="stylesheet">
