@@ -7,7 +7,6 @@
 @section('content')
    @include('Service.MainContent')
 @endsection
-//test demo sublime asdasdsadmerge
 
 @section('title','Service_Contructure')
 @section('idBody')class = "page-services"@endsection

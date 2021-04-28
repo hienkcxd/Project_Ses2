@@ -16,11 +16,8 @@
 
     <!-- CSS Files
     ================================================== -->
-<<<<<<< HEAD
-        <link href="{{ asset('/css/bootstrap.css') }}" rel="stylesheet">
-=======
+
     <link href="{{ asset('/css/bootstrap.css') }}" rel="stylesheet">
->>>>>>> origin/main
     <link href="{{ asset('/css/jpreloader.css') }}" rel="stylesheet">
     <link href="{{ asset('/css/animate.css') }}" rel="stylesheet">
     <link href="{{ asset('/css/plugin.css') }}" rel="stylesheet">

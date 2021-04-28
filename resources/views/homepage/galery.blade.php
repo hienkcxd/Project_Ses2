@@ -1,4 +1,4 @@
-<section id="section-portfolio" class="no-top no-bottom">
+<section id="section-portfolio" class="no-top no-bottom" style="margin: auto">
     <div class="container">
 
         <div class="spacer-single"></div>
@@ -24,7 +24,7 @@
 
         <!-- gallery item -->
         @foreach($gallery as $p)
-            <div class="item {{ $p-> TagName }}">
+            <div class="item {{ $p-> TagName }}" style="padding: 5px;">
                 <div class="picframe">
                     <a class="simple-ajax-popup-align-top" href="{{ route('project_detail', ['ProDetailID' => $p->ProjectID ]) }}">
                                 <span class="overlay">
