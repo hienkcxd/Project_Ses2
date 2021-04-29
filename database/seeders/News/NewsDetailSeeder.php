@@ -92,7 +92,7 @@ class NewsDetailSeeder extends Seeder
 //                'image8' => 'images\blog\Detail\News_image8_detail_04.jpg',
 //                'image9' => 'images\blog\Detail\News_image9_detail_04.jpg',
 //            ],
-
+//
 //            [
 //                'NewsDetailID' => 'N05', 'NewsID' => 'N05', 'NewsName' => 'Từng bước trang trí căn phòng Vintage mơ ước',
 //                'NewsTagName' => 'PCKT',
@@ -111,7 +111,7 @@ class NewsDetailSeeder extends Seeder
 //                'image8' => 'images\blog\Detail\News_image8_detail_05.jpg',
 //                'image9' => 'images\blog\Detail\News_image9_detail_05.jpg',
 //            ],
-
+//
 //            [
 //                'NewsDetailID' => 'N06', 'NewsID' => 'N06', 'NewsName' => 'Đặc điểm văn phòng phong cách đương đại  ',
 //                'NewsTagName' => 'PCKT',
@@ -130,25 +130,25 @@ class NewsDetailSeeder extends Seeder
 //                'image8' => 'images\blog\Detail\News_image8_detail_06.jpg',
 //                'image9' => 'images\blog\Detail\News_image9_detail_06.jpg',
 //            ],
-
-            [
-                'NewsDetailID' => 'N07', 'NewsID' => 'N07', 'NewsName' => 'Stylish phòng khách hiện đại cho mọi đối tượng',
-                'NewsTagName' => 'PCKT',
-                'Day' => '06/05', 'Year' => '2021',
-                'images' => 'images\blog\News_bg_07.jpg',
-                'contentTop' => 'Đồ nội thất như là linh hồn của một phòng khách. Không chỉ hiện hữu, trang trí mà còn toát lên tinh thần và phong cách riêng của căn phòng. Hãy nghiêm túc nghĩ về đồ nội thất mà bạn sẽ trang trí. Trong phong cách hiện đại, gỗ luôn là một trong những vật liệu được săn đón và sử dụng nhiều nhất. Từ tủ đồ, khung tranh trang trí, bàn, ghế,… gỗ đều được làm từ gỗ tự nhiên hay gỗ nhận tạo với kiểu dáng và công năng đặc biệt.',
-                'image1' => 'images\blog\Detail\News_image1_detail_07.jpg',
-                'image2' => 'images\blog\Detail\News_image2_detail_07.jpg',
-                'image3' => 'images\blog\Detail\News_image3_detail_07.jpg',
-                'contentMiddle' => 'Với phong cách hiện đại, chúng ta được free trong việc trang trí. Hợp lý là phù hợp với phong cách và nhu cầu sử dụng của mỗi người. Đừng cố gắng ép PHẢI theo một kiểu trang trí nào đó, mỗi căn phòng được xây dựng theo kích thước, hướng khác nhau, việc đặt một khuôn mẫu chung cho tất cả căn phòng là điều dường như không thể. Chỉ bạn mới hiểu rõ mình cần gì và muốn gì, vì vậy hãy đơn giản hóa vấn đề trong việc trang trí cho ngôi nhà nhé.',
-                'image4' => 'images\blog\Detail\News_image4_detail_07.jpg',
-                'image5' => 'images\blog\Detail\News_image5_detail_07.jpg',
-                'image6' => 'images\blog\Detail\News_image6_detail_07.jpg',
-                'contentBot' => 'Nếu bạn cảm thấy màu xám quá u tối hay lạnh lẽo, ngại gì mà không hướng tâm trí mình tới những màu sắc tươi đẹp khác nhỉ? Có thể màu xám không phải là thời điểm này, nhưng màu cam lại hoàn toàn khớp với vibe của bạn.Chúng ta có muôn vàn màu sắc khác nhau, tông trắng cho tủ đồ, tông xám với ghế ngồi, tông cam tăng hứng khởi hay vui nhộm nhiều màu sắc với thảm sàn. Tất cả tạo nên không gian hiện đại vô cùng tinh nghịch và năng động, kích thích bạn suy nghĩ sáng tạo một ngày mới và khích lệ tinh thần mỗi lúc đi làm về.',
-                'image7' => 'images\blog\Detail\News_image7_detail_07.jpg',
-                'image8' => 'images\blog\Detail\News_image8_detail_07.jpg',
-                'image9' => 'images\blog\Detail\News_image9_detail_07.jpg',
-            ],
+//
+//            [
+//                'NewsDetailID' => 'N07', 'NewsID' => 'N07', 'NewsName' => 'Stylish phòng khách hiện đại cho mọi đối tượng',
+//                'NewsTagName' => 'PCKT',
+//                'Day' => '06/05', 'Year' => '2021',
+//                'images' => 'images\blog\News_bg_07.jpg',
+//                'contentTop' => 'Đồ nội thất như là linh hồn của một phòng khách. Không chỉ hiện hữu, trang trí mà còn toát lên tinh thần và phong cách riêng của căn phòng. Hãy nghiêm túc nghĩ về đồ nội thất mà bạn sẽ trang trí. Trong phong cách hiện đại, gỗ luôn là một trong những vật liệu được săn đón và sử dụng nhiều nhất. Từ tủ đồ, khung tranh trang trí, bàn, ghế,… gỗ đều được làm từ gỗ tự nhiên hay gỗ nhận tạo với kiểu dáng và công năng đặc biệt.',
+//                'image1' => 'images\blog\Detail\News_image1_detail_07.jpg',
+//                'image2' => 'images\blog\Detail\News_image2_detail_07.jpg',
+//                'image3' => 'images\blog\Detail\News_image3_detail_07.jpg',
+//                'contentMiddle' => 'Với phong cách hiện đại, chúng ta được free trong việc trang trí. Hợp lý là phù hợp với phong cách và nhu cầu sử dụng của mỗi người. Đừng cố gắng ép PHẢI theo một kiểu trang trí nào đó, mỗi căn phòng được xây dựng theo kích thước, hướng khác nhau, việc đặt một khuôn mẫu chung cho tất cả căn phòng là điều dường như không thể. Chỉ bạn mới hiểu rõ mình cần gì và muốn gì, vì vậy hãy đơn giản hóa vấn đề trong việc trang trí cho ngôi nhà nhé.',
+//                'image4' => 'images\blog\Detail\News_image4_detail_07.jpg',
+//                'image5' => 'images\blog\Detail\News_image5_detail_07.jpg',
+//                'image6' => 'images\blog\Detail\News_image6_detail_07.jpg',
+//                'contentBot' => 'Nếu bạn cảm thấy màu xám quá u tối hay lạnh lẽo, ngại gì mà không hướng tâm trí mình tới những màu sắc tươi đẹp khác nhỉ? Có thể màu xám không phải là thời điểm này, nhưng màu cam lại hoàn toàn khớp với vibe của bạn.Chúng ta có muôn vàn màu sắc khác nhau, tông trắng cho tủ đồ, tông xám với ghế ngồi, tông cam tăng hứng khởi hay vui nhộm nhiều màu sắc với thảm sàn. Tất cả tạo nên không gian hiện đại vô cùng tinh nghịch và năng động, kích thích bạn suy nghĩ sáng tạo một ngày mới và khích lệ tinh thần mỗi lúc đi làm về.',
+//                'image7' => 'images\blog\Detail\News_image7_detail_07.jpg',
+//                'image8' => 'images\blog\Detail\News_image8_detail_07.jpg',
+//                'image9' => 'images\blog\Detail\News_image9_detail_07.jpg',
+//            ],
 
 
         ]);

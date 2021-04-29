@@ -19,7 +19,7 @@ class NewsListSeeder extends Seeder
 //            ['NewsID' => 'N01', 'NewsName' => 'Forest House - Ngôi nhà trong mơ của những người yêu thiên nhiên',
 //                'NewsTagName' => 'PCKT',
 //                'Description' => 'Với chủ đề “ngôi nhà sống động”, cabin này là dự án dự kiến cho CASA COR 2018, mọi thứ được tận dụng một cách tối đa và vô cùng thưởng thức.',
-//                'Day' => '25/02','Year' => '2020',
+//                'Day' => '25/02','Year' => '2021',
 //                'images' => 'images\blog\News_bg_01.jpg'],
 //
 //            ['NewsID' => 'N02', 'NewsName' => 'GỖ - Người bạn đa năng trong ngôi nhà',
