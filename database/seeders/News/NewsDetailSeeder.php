@@ -54,7 +54,7 @@ class NewsDetailSeeder extends Seeder
                 'image8' => 'images\blog\Detail\News_image8_detail_02.jpg',
                 'image9' => 'images\blog\Detail\News_image9_detail_02.jpg',
             ],
-            
+
             [
                 'NewsDetailID' => 'N03', 'NewsID' => 'N03', 'NewsName' => 'Hãy chọn ghế đúng',
                 'NewsTagName' => 'NTGD',
