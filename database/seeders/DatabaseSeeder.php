@@ -25,9 +25,9 @@ class DatabaseSeeder extends Seeder
 //        $this->call(ProjectDetailSeeder::class);
 //        $this->call(DistrictList::class);
 //        $this->call(WardList::class);
-        $this->call(EmployeeList::class);
-        $this->call(EmployeeDetail::class);
+//        $this->call(EmployeeList::class);
+//        $this->call(EmployeeDetail::class);
 //        $this->call(NewsListSeeder::class);
-//        $this->call(NewsDetailSeeder::class);
+        $this->call(NewsDetailSeeder::class);
     }
 }
