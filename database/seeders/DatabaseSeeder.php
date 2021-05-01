@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Database\Seeders\AboutUs\EmployeeDetail;
 use Database\Seeders\AboutUs\EmployeeList;
 use Database\Seeders\Market\DistrictList;
+use Database\Seeders\Market\MarketList;
 use Database\Seeders\Market\WardList;
 use Database\Seeders\News\NewsDetailSeeder;
 use Database\Seeders\News\NewsListSeeder;
@@ -29,5 +30,6 @@ class DatabaseSeeder extends Seeder
 //        $this->call(EmployeeDetail::class);
 //        $this->call(NewsListSeeder::class);
 //        $this->call(NewsDetailSeeder::class);
+        $this->call(MarketList::class);
     }
 }
