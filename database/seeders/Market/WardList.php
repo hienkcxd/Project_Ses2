@@ -66,17 +66,14 @@ class WardList extends Seeder
 //            ['WardID'=>'40', 'DistrictName'=> 'Quận 4', 'WardName'=>'Phường 04'],
 //            ['WardID'=>'41', 'DistrictName'=> 'Quận 4', 'WardName'=>'Phường 05'],
 //            ['WardID'=>'42', 'DistrictName'=> 'Quận 4', 'WardName'=>'Phường 06'],
-//            ['WardID'=>'43', 'DistrictName'=> 'Quận 4', 'WardName'=>'Phường 07'],
 //            ['WardID'=>'44', 'DistrictName'=> 'Quận 4', 'WardName'=>'Phường 08'],
 //            ['WardID'=>'45', 'DistrictName'=> 'Quận 4', 'WardName'=>'Phường 09'],
 //            ['WardID'=>'46', 'DistrictName'=> 'Quận 4', 'WardName'=>'Phường 10'],
-//            ['WardID'=>'47', 'DistrictName'=> 'Quận 4', 'WardName'=>'Phường 11'],
 //            ['WardID'=>'48', 'DistrictName'=> 'Quận 4', 'WardName'=>'Phường 12'],
 //            ['WardID'=>'49', 'DistrictName'=> 'Quận 4', 'WardName'=>'Phường 13'],
 //            ['WardID'=>'50', 'DistrictName'=> 'Quận 4', 'WardName'=>'Phường 14'],
 //            ['WardID'=>'51', 'DistrictName'=> 'Quận 4', 'WardName'=>'Phường 15'],
 //            ['WardID'=>'52', 'DistrictName'=> 'Quận 4', 'WardName'=>'Phường 16'],
-//            ['WardID'=>'53', 'DistrictName'=> 'Quận 4', 'WardName'=>'Phường 17'],
 //            ['WardID'=>'54', 'DistrictName'=> 'Quận 4', 'WardName'=>'Phường 18'],
 //
 ////            update các phường quận 5.
