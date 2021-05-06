@@ -50,6 +50,7 @@ use App\Http\Controllers\user\market\MarketController;
     //Route for market
     Route::prefix('Market')->group(function () {
         Route::get('/', [MarketController::class, 'index'])->name('market');
+        Route::get('/test', [MarketController::class, 'wardList']);
     });
     //Route for admin
     Route::prefix('Login')->group(function () {

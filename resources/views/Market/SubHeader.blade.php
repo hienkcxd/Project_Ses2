@@ -6,9 +6,11 @@
         ></i>
         <div class="card_inner">
             <p class="text-primary-p">
+                @dd($wardList)
                 <select name="districts" id="districts">
+{{--                    @foreach($districtList as $name)--}}
                     <option value="Quận 1">Quận 1</option>
-                    <option value="Quận 2">Quận 2</option>
+{{--                    @endforeach--}}
                 </select>
             </p>
         </div>
@@ -19,8 +21,9 @@
         <div class="card_inner">
             <p class="text-primary-p">
                 <select name="wards" id="wards">
-                    <option value="Bến Nghé">Phường Bến Nghé</option>
-                    <option value="Bến Thành">Phường Bến Thành</option>
+                    @foreach($wardList as $ward)
+                    <option value="{{ $ward->WardName }}">Phường {{ $ward->WardName }}</option>
+                    @endforeach
                 </select>
             </p>
         </div>

@@ -5,7 +5,7 @@
 @endsection
 
 @section('chart_content')
-        @include('Market.chart')
+        @include('Market.chart', ['districtList' => $districtList, 'wardList'=>$wardList])
 @endsection
 
 

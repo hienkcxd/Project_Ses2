@@ -4,18 +4,21 @@ namespace App\Http\Controllers\user\market;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class MarketController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
+    public function wardList(Request $request){
+        $districtName = $request->input('test');
+        $wardList = DB::table('ward_lists')->where('DistrictName', '=', $districtName)->get();
+        return view('test')->with(compact('districtName'));
+    }
     public function index()
     {
-        $districtList = 0;
-        return view('Market.index');
+        $districtList = DB::table('district_lists')->get();
+        $wardList = $this->wardList();
+        return view('Market.index')->with(compact('districtList', 'wardList'));
     }
 
     /**
