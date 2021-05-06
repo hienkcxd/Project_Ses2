@@ -68,7 +68,7 @@ class AvgWithWardChart extends BaseChart
 
         return Chartisan::build()
             ->labels($month)
-            ->dataset('Giá Trung Bình', $this->avg())
-            ->dataset('Giá Tại Phường', $this->priceWard());
+            ->dataset('Giá Quận', $this->avg())
+            ->dataset('Giá Phường', $this->priceWard());
     }
 }

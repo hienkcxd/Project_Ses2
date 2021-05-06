@@ -29,7 +29,7 @@
         </div>
         <div class="navbar__right">
             <a href="#">
-                <img width="30" src="assets/avatar.svg" alt="avata"/>
+                <img width="30" src="{{ asset('images/market/avatar.svg') }}" alt="avata"/>
                 <!-- <i class="fa fa-user-circle-o" aria-hidden="true"></i> -->
             </a>
         </div>
@@ -39,10 +39,10 @@
         <div class="main__container">
             <!-- MAIN TITLE STARTS HERE -->
             <div class="main__title">
-                <img src="assets/hello.svg" alt=""/>
+                <img src="{{ asset('images/market/hello.svg') }}" alt=""/>
                 <div class="main__greeting">
-                    <h1>Hello Codersbite</h1>
-                    <p>Welcome to your admin dashboard</p>
+                    <h1>Welcome!!!</h1>
+                    <p>Trị Trường Đất Đai TP.HCM</p>
                 </div>
             </div>
             <!-- MAIN TITLE End HERE -->

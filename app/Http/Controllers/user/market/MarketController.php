@@ -14,7 +14,7 @@ class MarketController extends Controller
      */
     public function index()
     {
-
+        $districtList = 0;
         return view('Market.index');
     }
 

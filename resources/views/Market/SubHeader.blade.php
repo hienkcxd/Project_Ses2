@@ -5,14 +5,24 @@
             aria-hidden="true"
         ></i>
         <div class="card_inner">
-            <p class="text-primary-p">Quận 1</p>
+            <p class="text-primary-p">
+                <select name="districts" id="districts">
+                    <option value="Quận 1">Quận 1</option>
+                    <option value="Quận 2">Quận 2</option>
+                </select>
+            </p>
         </div>
     </div>
 
     <div class="card">
         <i class="fa fa-calendar fa-2x text-red" aria-hidden="true"></i>
         <div class="card_inner">
-            <p class="text-primary-p">Phường 2</p>
+            <p class="text-primary-p">
+                <select name="wards" id="wards">
+                    <option value="Bến Nghé">Phường Bến Nghé</option>
+                    <option value="Bến Thành">Phường Bến Thành</option>
+                </select>
+            </p>
         </div>
     </div>
 
@@ -22,7 +32,7 @@
             aria-hidden="true"
         ></i>
         <div class="card_inner">
-            <p class="text-primary-p">Giá Trung Bình: 120tr/m2</p>
+            <p class="text-primary-p">Giá Trung Bình: 120(Triệu/m<sup>2</sup>)</p>
         </div>
     </div>
 

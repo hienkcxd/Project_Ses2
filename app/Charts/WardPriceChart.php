@@ -51,6 +51,6 @@ class WardPriceChart extends BaseChart
 
         return Chartisan::build()
             ->labels($month)
-            ->dataset('Giá Tại phường', $this->priceWard());
+            ->dataset('Giá Phường', $this->priceWard());
     }
 }

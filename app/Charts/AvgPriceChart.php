@@ -41,6 +41,6 @@ class AvgPriceChart extends BaseChart
         }
         return Chartisan::build()
             ->labels($month)
-            ->dataset('Giá Trung Bình', $this->avg());
+            ->dataset('Giá Quận', $this->avg());
     }
 }
