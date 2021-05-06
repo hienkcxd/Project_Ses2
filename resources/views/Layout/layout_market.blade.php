@@ -54,7 +54,7 @@
     <div id="sidebar">
         <div class="sidebar__title">
             <div class="sidebar__img">
-                <h1>Happy House</h1>
+                <h1 style="color: white; letter-spacing: 5px; font-size: 25px">Happy House</h1>
             </div>
             <i
                 onclick="closeSidebar()"
@@ -65,53 +65,77 @@
         </div>
 
         <div class="sidebar__menu">
-            <div class="sidebar__link active_menu_link">
+            <div class="sidebar__link">
                 <i class="fa fa-home"></i>
                 <a href="#">Thị Trường</a>
             </div>
             <div class="sidebar__link">
+                <i class="fa fa-search-minus" aria-hidden="true"></i>
+                <a href="#">Compare</a>
+            </div>
+            <div class="sidebar__link active_menu_link">
                 <i class="fa fa-user-secret" aria-hidden="true"></i>
                 <a href="#">Quận 1</a>
             </div>
             <div class="sidebar__link">
-                <i class="fa fa-building-o"></i>
+                <i class="fa fa-user-secret" aria-hidden="true"></i>
                 <a href="#">Quận 2</a>
             </div>
             <div class="sidebar__link">
-                <i class="fa fa-wrench"></i>
+                <i class="fa fa-user-secret" aria-hidden="true"></i>
                 <a href="#">Quận 3</a>
             </div>
             <div class="sidebar__link">
-                <i class="fa fa-archive"></i>
+                <i class="fa fa-user-secret" aria-hidden="true"></i>
                 <a href="#">Quận 4</a>
             </div>
             <div class="sidebar__link">
-                <i class="fa fa-handshake-o"></i>
+                <i class="fa fa-user-secret" aria-hidden="true"></i>
                 <a href="#">Quận 5</a>
             </div>
             <div class="sidebar__link">
-                <i class="fa fa-question"></i>
+                <i class="fa fa-user-secret" aria-hidden="true"></i>
                 <a href="#">Quận 6</a>
             </div>
             <div class="sidebar__link">
-                <i class="fa fa-sign-out"></i>
+                <i class="fa fa-user-secret" aria-hidden="true"></i>
                 <a href="#">Quận 7</a>
             </div>
             <div class="sidebar__link">
-                <i class="fa fa-calendar-check-o"></i>
+                <i class="fa fa-user-secret" aria-hidden="true"></i>
                 <a href="#">Quận 8</a>
             </div>
             <div class="sidebar__link">
-                <i class="fa fa-files-o"></i>
+                <i class="fa fa-user-secret" aria-hidden="true"></i>
                 <a href="#">Quận 10</a>
             </div>
             <div class="sidebar__link">
-                <i class="fa fa-money"></i>
+                <i class="fa fa-user-secret" aria-hidden="true"></i>
                 <a href="#">Quận 12</a>
             </div>
             <div class="sidebar__link">
-                <i class="fa fa-briefcase"></i>
-                <a href="#">Paygrade</a>
+                <i class="fa fa-user-secret" aria-hidden="true"></i>
+                <a href="#">Bình Tân</a>
+            </div>
+            <div class="sidebar__link">
+                <i class="fa fa-user-secret" aria-hidden="true"></i>
+                <a href="#">Bình Thạnh</a>
+            </div>
+            <div class="sidebar__link">
+                <i class="fa fa-user-secret" aria-hidden="true"></i>
+                <a href="#">Gò Vấp</a>
+            </div>
+            <div class="sidebar__link">
+                <i class="fa fa-user-secret" aria-hidden="true"></i>
+                <a href="#">Phú Nhuận</a>
+            </div>
+            <div class="sidebar__link">
+                <i class="fa fa-user-secret" aria-hidden="true"></i>
+                <a href="#">Tân Bình</a>
+            </div>
+            <div class="sidebar__link">
+                <i class="fa fa-user-secret" aria-hidden="true"></i>
+                <a href="#">Tân Phú</a>
             </div>
             <div class="sidebar__logout">
                 <i class="fa fa-power-off"></i>
@@ -119,7 +143,6 @@
             </div>
         </div>
     </div>
-
 </div>
 <script>
     var sidebarOpen = false;

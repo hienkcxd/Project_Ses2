@@ -42,16 +42,15 @@ use App\Http\Controllers\user\market\MarketController;
         Route::get('/detail', [ServiceController::class, 'detail'])->name('Service_detail');
     });
 
-    Route::prefix('Market')->group(function () {
-        Route::get('/', [MarketController::class, 'index'])->name('market');
-    });
-
     Route::prefix('Project')->group(function () {
         Route::get('/', [ProjectsController::class, 'index'])->name('pro');
         Route::get('/{ProDetailID}', [ProjectsController::class, 'projectDetail'])->name('project_detail');
     });
 
-
+    //Route for market
+    Route::prefix('Market')->group(function () {
+        Route::get('/', [MarketController::class, 'index'])->name('market');
+    });
     //Route for admin
     Route::prefix('Login')->group(function () {
         Route::get('/', [LoginController::class, 'index'])->name('login');
