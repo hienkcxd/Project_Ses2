@@ -8,27 +8,33 @@ use Chartisan\PHP\Chartisan;
 use ConsoleTVs\Charts\BaseChart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
 
 class AvgPriceChart extends BaseChart
 {
     public ?string $name = 'avgPrice';
 
-    public function avg($name, $year){
-        $key= DB::getSchemaBuilder()->getColumnListing('market_lists');
-        $month = [];
+    public function labelList(){
+        $key= schema::getColumnListing('market_lists');
+        $labelName = [];
         for ($i = 0; $i < count($key); $i++){
             if(str_contains($key[$i],'Thang')){
-                array_push($month, $key[$i]);
+                array_push($labelName, $key[$i]);
             }
         }
+        return $labelName;
+    }
+
+    public function avg($distPara, $yearPara){
+        $labelName = $this->labelList();
         $data = DB::table('market_lists');
         $priceAVG = [];
-        foreach ($month as $key){
-            $labelvalue = $data
-                ->where('DistrictName','=', $name)
-                ->where('Year', '=', $year)
+        foreach ($labelName as $key){
+            $monthPrice = $data
+                ->where('DistrictName','=', $distPara)
+                ->where('Year', '=', $yearPara)
                 ->avg($key);
-            array_push( $priceAVG, $labelvalue);
+            array_push( $priceAVG, $monthPrice);
         }
         return $priceAVG;
     }
@@ -36,18 +42,14 @@ class AvgPriceChart extends BaseChart
 
     public function handler(Request $request): Chartisan
     {
-        $name = $request->DistrictName;
-        $year = 2020;
-        $key= DB::getSchemaBuilder()->getColumnListing('market_lists');
-        $month = [];
-        for ($i = 0; $i < count($key); $i++){
-            if(str_contains($key[$i],'Thang')){
-                array_push($month, $key[$i]);
-            }
-        }
+        //Tham so dau vao
+        $distPara = $request->DistrictName;
+        $yearPara = 2020;
+        $labelName = $this->labelList();
+
         return Chartisan::build()
-            ->labels($month)
-            ->dataset('Giá Quận', $this->avg($name, $year));
+            ->labels($labelName)
+            ->dataset('Giá Quận', $this->avg($distPara, $yearPara));
     }
 
 }

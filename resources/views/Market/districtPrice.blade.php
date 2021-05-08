@@ -136,6 +136,7 @@
 
         getData(name);
         chartDistrict(Dname);
+        chartWard(Dname);
         $("#districts").change(function (e) {
             e.preventDefault();
             let Dname = $('select[name=districts] option:selected').text();
@@ -144,7 +145,17 @@
             $('#avgPrice').empty();
             chartDistrict(Dname);
 
+        })
+
+        $("#wardList").change(function (e) {
+            e.preventDefault();
+            let Dname = $('select[name=wardList] option:selected').text();
+            $('#wardPrice').empty();
+            chartWard(Dname);
         });
+
+
+
 
         function getData(name) {
             url = "/Market/getWard/" + name;
@@ -162,11 +173,11 @@
 
         function chartDistrict(Dname) {
             //Chart 1: Giá trung bình quận
-            let xurl = "@chart('avgPrice')?DistrictName=" + Dname;
+            let distUrl = "@chart('avgPrice')?DistrictName=" + Dname;
 
             const avgPrice = new Chartisan({
                 el: '#avgPrice',
-                url: xurl,
+                url: distUrl,
                 hooks: new ChartisanHooks()
                     .responsive(true)
                     .beginAtZero()
@@ -177,19 +188,23 @@
             });
         }
 
+        function chartWard(Dname){
+            //Chart 2: Giá Từng Phường
+            let wardUrl = "@chart('wardPrice')?DistrictName=" + Dname;
+            const wardPrice = new Chartisan({
+                el: '#wardPrice',
+                url: wardUrl,
+                hooks: new ChartisanHooks()
+                    .responsive(true)
+                    .beginAtZero()
+                    .colors(['#FF5722'])
+                    .legend({position: 'bottom'})
+                    .borderColors()
+                    .datasets([{type: 'line', fill: false}]),
+            });
+        }
 
-        //Chart 2: Giá Từng Phường
-        const wardPrice = new Chartisan({
-            el: '#wardPrice',
-            url: "@chart('wardPrice')",
-            hooks: new ChartisanHooks()
-                .responsive(true)
-                .beginAtZero()
-                .colors(['#FF5722'])
-                .legend({position: 'bottom'})
-                .borderColors()
-                .datasets([{type: 'line', fill: false}]),
-        });
+
 
         //Chart 3: So sánh giá trung bình quận và giá từng phường
         const AvgWithWard = new Chartisan({

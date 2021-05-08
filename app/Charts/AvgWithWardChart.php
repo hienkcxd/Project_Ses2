@@ -8,71 +8,70 @@ use Chartisan\PHP\Chartisan;
 use ConsoleTVs\Charts\BaseChart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
 
 class AvgWithWardChart extends BaseChart
 {
     public ?string $name = 'AvgWithWard';
 
-    public function avg(){
-        $key= DB::getSchemaBuilder()->getColumnListing('market_lists');
-        $month = [];
+    public function labelList(){
+        $key= schema::getColumnListing('market_lists');
+        $labelName = [];
         for ($i = 0; $i < count($key); $i++){
             if(str_contains($key[$i],'Thang')){
-                array_push($month, $key[$i]);
+                array_push($labelName, $key[$i]);
             }
         }
+        return $labelName;
+    }
+
+    public function avg($distPara, $yearPara){
+        $labelName = $this->labelList();
         $data = DB::table('market_lists');
         $priceAVG = [];
-        foreach ($month as $key){
-            $labelvalue = $data
-                ->where('DistrictName','=', 'Quận 1')
-                ->where('Year', '=', '2020')
+        foreach ($labelName as $key){
+            $monthPrice = $data
+                ->where('DistrictName','=', $distPara)
+                ->where('Year', '=', $yearPara)
                 ->avg($key);
-            array_push( $priceAVG, $labelvalue);
+            array_push( $priceAVG, $monthPrice);
         }
         return $priceAVG;
     }
 
-    public function priceWard(){
-        $key= DB::getSchemaBuilder()->getColumnListing('market_lists');
-        $month = [];
-        for ($i = 4; $i < count($key)-2; $i++){
-            array_push($month, $key[$i]);
-        }
+    public function priceWard($distPara, $wardPara, $yearPara){
+        $labelName = $this->labelList();
         //Get value with month
         $data = DB::table('market_lists');
+
         $labelvalue = $data
-            ->where('DistrictName','=', 'Quận 1')
-            ->where('WardName','=', 'Bến Nghé')
-            ->where('Year', '=', '2020')
-            ->select($month)
+            ->where('DistrictName','=', $distPara)
+            ->where('WardName','=', $wardPara)
+            ->where('Year', '=', $yearPara)
+            ->select($labelName)
             ->get()->toArray();
 
         //Put value from db to array
-        $price = [];
+        $priceMonth = [];
         foreach ($labelvalue as $key => $value) {
             foreach ($value as $k => $v) {
-                if (in_array($k, $month)) {
-                    array_push($price, $v);
+                if (in_array($k, $labelName)) {
+                    array_push($priceMonth, $v);
                 }
             }
         }
-        return $price;
+        return $priceMonth;
     }
     public function handler(Request $request): Chartisan
     {
-        //Get label name for chart
-        $key= DB::getSchemaBuilder()->getColumnListing('market_lists');
-        $month = [];
-        for ($i = 0; $i < count($key); $i++){
-            if(str_contains($key[$i],'Thang')){
-                array_push($month, $key[$i]);
-            }
-        }
+        $distPara = $request->DistrictName;
+        $yearPara = 2020;
+        $wardPara = "Bến Nghé";
+        $labelName = $this->labelList();
 
         return Chartisan::build()
-            ->labels($month)
-            ->dataset('Giá Quận', $this->avg())
-            ->dataset('Giá Phường', $this->priceWard());
+            ->labels($labelName)
+            ->dataset('Giá Quận', $this->avg($distPara, $yearPara))
+            ->dataset('Giá Phường', $this->priceWard($distPara, $wardPara, $yearPara));
     }
 }
