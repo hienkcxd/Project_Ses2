@@ -11,11 +11,11 @@ class DistrictList extends Model
 //    use HasFactory;
     protected $table = 'district_lists';
     protected $fillable = ['DistrictID','DistrictName'];
-
+    protected $primaryKey = 'DistrictID';
     public $timestamps = false;
     public function wards()
     {
-        return $this->hasMany(WardList::class);
+        return $this->hasMany(WardList::class,'DistrictID', 'DistrictID' );
     }
 }
 

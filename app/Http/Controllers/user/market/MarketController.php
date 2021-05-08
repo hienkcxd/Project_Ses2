@@ -5,6 +5,7 @@ namespace App\Http\Controllers\user\market;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
 
 class MarketController extends Controller
 {
@@ -19,6 +20,17 @@ class MarketController extends Controller
         return view('Market.index');
     }
 
+    public function test(){
+        $key= Schema::getColumnListing('market_lists');
+        $month = [];
+        for ($i = 0; $i < count($key); $i++){
+            if(str_contains($key[$i],'Thang')){
+                array_push($month, $key[$i]);
+            }
+        }
+        dd($month);
+        return view('test')->with(compact('key'));
+    }
     /**
      * Show the form for creating a new resource.
      *

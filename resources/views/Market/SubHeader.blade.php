@@ -46,30 +46,33 @@
         </div>
     </div>
 </div>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script text="javascript">
 
     $(function(){
         //load danh sach quan huyen cua thanh pho dau tien (sau khi load xong webpage)
         let name = $("#districts").val();
         getData(name);
+
         $("#districts").change(function (e) {
             e.preventDefault();
             let name = $("#districts").val();
             getData(name);
 
+
         });
 
         function getData(name){
-            url = "/Market/test/" + name;
+            url = "/Market/getWard/" + name;
             $.get(url)
                 .done(function( data ) {
-                    console.log(data);
+                    console.log("data: "+data);
                     var bodyData = '';
                     $.each(JSON.parse(data),function(index,row){
-                        bodyData+="<option value=" + row.id + ">" + row.name +"</option>"
+                        bodyData+="<option value=" + row.WardID + ">" + row.WardName +"</option>"
                     })
                     $("#wardList").empty().append(bodyData);
+
                 });
         }
 

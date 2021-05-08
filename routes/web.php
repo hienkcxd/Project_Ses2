@@ -29,7 +29,7 @@
 //    });
 
     Route::get('/', [homepageController::class, 'index'])->name('homepage');
-
+    Route::get('/test', [MarketController::class, 'test']);
     Route::prefix('AboutUs')->group(function () {
         Route::get('/', [AboutController::class, 'index'])->name('aboutus');
     });
@@ -52,19 +52,25 @@
 
     //Route for market
     Route::prefix('Market')->group(function () {
-//        Route::get('/', [MarketController::class, 'index'])->name('market');
+        Route::get('/', [MarketController::class, 'index'])->name('market');
 
-        Route::get('/', function (){
+        Route::get('/getWard/{name}', function ($name){
+
+            $wards = DistrictList::find($name)->wards;
+            \App\Charts\AvgPriceChart::class;
+            return json_encode($wards);
+        });
+
+        Route::get('/test', function (){
             $disList = DistrictList::all();
             return view('Market.index')->with(compact('disList'));
         });
-        Route::get('/test/{name}', function ($name=""){
-            $wards = DistrictList::find($name)->wards;
-            return json_encode($wards);
-        });
+
     });
 
     //Route for admin
     Route::prefix('Login')->group(function () {
         Route::get('/', [LoginController::class, 'index'])->name('login');
     });
+
+

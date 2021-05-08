@@ -17,8 +17,10 @@ class WardPriceChart extends BaseChart
     public function priceWard(){
         $key= DB::getSchemaBuilder()->getColumnListing('market_lists');
         $month = [];
-        for ($i = 4; $i < count($key)-2; $i++){
-            array_push($month, $key[$i]);
+        for ($i = 0; $i < count($key); $i++){
+            if(str_contains($key[$i],'Thang')){
+                array_push($month, $key[$i]);
+            }
         }
         //Get value with month
         $data = DB::table('market_lists');
@@ -45,8 +47,10 @@ class WardPriceChart extends BaseChart
         //Get label name for chart
         $key= DB::getSchemaBuilder()->getColumnListing('market_lists');
         $month = [];
-        for ($i = 4; $i < count($key)-2; $i++){
-            array_push($month, $key[$i]);
+        for ($i = 0; $i < count($key); $i++){
+            if(str_contains($key[$i],'Thang')){
+                array_push($month, $key[$i]);
+            }
         }
 
         return Chartisan::build()
