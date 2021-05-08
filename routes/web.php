@@ -52,20 +52,16 @@
 
     //Route for market
     Route::prefix('Market')->group(function () {
-        Route::get('/', [MarketController::class, 'index'])->name('market');
+        Route::get('/', function (){
+            $disList = DistrictList::all();
+            return view('Market.index')->with(compact('disList'));
+        })->name('market');
 
         Route::get('/getWard/{name}', function ($name){
-
             $wards = DistrictList::find($name)->wards;
             \App\Charts\AvgPriceChart::class;
             return json_encode($wards);
         });
-
-        Route::get('/test', function (){
-            $disList = DistrictList::all();
-            return view('Market.index')->with(compact('disList'));
-        });
-
     });
 
     //Route for admin

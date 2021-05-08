@@ -58,8 +58,6 @@
             e.preventDefault();
             let name = $("#districts").val();
             getData(name);
-
-
         });
 
         function getData(name){
