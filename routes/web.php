@@ -2,11 +2,14 @@
 
     use App\Http\Controllers\admin\login\LoginController;
     use App\Http\Controllers\user\about\AboutController;
-use App\Http\Controllers\user\homepage\homepageController;
-use App\Http\Controllers\user\market\MarketController;
+    use App\Http\Controllers\user\homepage\homepageController;
+    use App\Http\Controllers\user\market\MarketController;
     use App\Http\Controllers\user\news\NewsController;
     use App\Http\Controllers\user\project\ProjectsController;
     use App\Http\Controllers\user\service\ServiceController;
+    use App\Models\City;
+    use App\Models\Market\DistrictList;
+    use App\Models\Market\WardList;
     use Illuminate\Support\Facades\Route;
 
     /*
@@ -49,9 +52,18 @@ use App\Http\Controllers\user\market\MarketController;
 
     //Route for market
     Route::prefix('Market')->group(function () {
-        Route::get('/', [MarketController::class, 'index'])->name('market');
-        Route::get('/test', [MarketController::class, 'wardList']);
+//        Route::get('/', [MarketController::class, 'index'])->name('market');
+
+        Route::get('/', function (){
+            $disList = DistrictList::all();
+            return view('Market.index')->with(compact('disList'));
+        });
+        Route::get('/test/{name}', function ($name=""){
+            $wards = DistrictList::find($name)->wards;
+            return json_encode($wards);
+        });
     });
+
     //Route for admin
     Route::prefix('Login')->group(function () {
         Route::get('/', [LoginController::class, 'index'])->name('login');

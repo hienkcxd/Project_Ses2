@@ -16,8 +16,10 @@ class CreateWardListsTable extends Migration
         Schema::create('ward_lists', function (Blueprint $table) {
             $table->increments('WardID');
             $table->string('DistrictName');
+            $table->integer('DistrictID');
             $table->string('WardName');
             $table->foreign('DistrictName')->references('DistrictName')->on('district_lists');
+            $table->foreign('DistrictID')->references('DistrictID')->on('district_lists');
             $table->timestamps();
         });
     }

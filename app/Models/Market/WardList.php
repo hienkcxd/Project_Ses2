@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class WardList extends Model
 {
     use HasFactory;
+    protected $table = 'ward_lists';
+    protected $fillable = ['DistrictName','DistrictID','WardName'];
+
+    public $timestamps = false;
 }

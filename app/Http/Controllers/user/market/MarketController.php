@@ -10,15 +10,13 @@ class MarketController extends Controller
 {
 
     public function wardList(Request $request){
-        $districtName = $request->input('test');
-        $wardList = DB::table('ward_lists')->where('DistrictName', '=', $districtName)->get();
-        return view('test')->with(compact('districtName'));
+        $districtID = $request->disList;
+        $wardList = DB::table('ward_lists')->where('DistrictID', '=', $districtID)->get();
+        return view('Market.index')->with(compact('wardList'));
     }
     public function index()
     {
-        $districtList = DB::table('district_lists')->get();
-        $wardList = $this->wardList();
-        return view('Market.index')->with(compact('districtList', 'wardList'));
+        return view('Market.index');
     }
 
     /**
