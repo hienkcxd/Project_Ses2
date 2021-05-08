@@ -78,7 +78,7 @@
     //Chart 1: Giá trung bình quận
     const avgPrice = new Chartisan({
         el: '#avgPrice',
-        url: "@chart('avgPrice')",
+        url: "@chart('avgPrice')?MarketID=2",
         hooks: new ChartisanHooks()
             .responsive(true)
             .beginAtZero()
