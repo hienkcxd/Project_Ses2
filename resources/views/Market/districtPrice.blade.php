@@ -1,7 +1,7 @@
 <div class="main__cards">
 
     <div class="card">
-        <i class="fa fa-user-o fa-2x text-lightblue" aria-hidden="true"></i>
+        <i class="fa fa-user-o fa-2x text-lightblue" aria-hidden="true"> - Quận:</i>
         <div class="card_inner">
             <p class="text-primary-p">
                 <select name="districts" id="districts">
@@ -14,21 +14,16 @@
     </div>
 
     <div class="card">
-        <i class="fa fa-calendar fa-2x text-red" aria-hidden="true"></i>
+        <i class="fa fa-calendar fa-2x text-red" aria-hidden="true"> - Phường:</i>
         <div class="card_inner">
             <p class="text-primary-p">
-                <select name="wardList" id="wardList">
-
-                </select>
+                <select name="wardList" id="wardList"></select>
             </p>
         </div>
     </div>
 
     <div class="card">
-        <i
-            class="fa fa-video-camera fa-2x text-yellow"
-            aria-hidden="true"
-        ></i>
+        <i class="fa fa-video-camera fa-2x text-yellow" aria-hidden="true"> - Năm:</i>
         <div class="card_inner">
             <p class="text-primary-p">
                 <select name="Year" id="Year">
@@ -138,7 +133,7 @@
         //load danh sach quan huyen cua thanh pho dau tien (sau khi load xong webpage)
         let name = $("#districts").val();
         let Dname = $('select[name=districts] option:selected').text();
-        
+
         getData(name);
         chartDistrict(Dname);
         $("#districts").change(function (e) {
@@ -167,7 +162,7 @@
 
         function chartDistrict(Dname) {
             //Chart 1: Giá trung bình quận
-            let xurl = "@chart('avgPrice')?DistrictName=" + Dname + "?Year="+;
+            let xurl = "@chart('avgPrice')?DistrictName=" + Dname;
 
             const avgPrice = new Chartisan({
                 el: '#avgPrice',

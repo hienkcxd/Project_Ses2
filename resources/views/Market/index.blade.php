@@ -7,7 +7,7 @@
 @section('chart_content')
 {{--    @include('Market.SubHeader')--}}
 {{--    @include('Market.chart')--}}
-    @include('Market.test')
+    @include('Market.districtPrice')
 
 @endsection
 

@@ -59,7 +59,6 @@
 
         Route::get('/getWard/{name}', function ($name){
             $wards = DistrictList::find($name)->wards;
-            \App\Charts\AvgPriceChart::class;
             return json_encode($wards);
         });
     });
