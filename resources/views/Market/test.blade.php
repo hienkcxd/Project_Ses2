@@ -30,7 +30,12 @@
             aria-hidden="true"
         ></i>
         <div class="card_inner">
-            <p class="text-primary-p">Giá Trung Bình: 120(Triệu/m<sup>2</sup>)</p>
+            <p class="text-primary-p">
+                <select name="Year" id="Year">
+                    <option value="2020">2020</option>
+                    <option value="2021">2021</option>
+                </select>
+            </p>
         </div>
     </div>
 
@@ -117,7 +122,9 @@
         </div>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.1.0/echarts.min.js" integrity="sha512-W7jN6TS8p1Qwh4GSXsXh0tWSdAXN4v0MEgq9uOsYcz8A/KxzSPzBL1jDPErfgKUMb11QV2BknSzY/HltjLKPfg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.1.0/echarts.min.js"
+            integrity="sha512-W7jN6TS8p1Qwh4GSXsXh0tWSdAXN4v0MEgq9uOsYcz8A/KxzSPzBL1jDPErfgKUMb11QV2BknSzY/HltjLKPfg=="
+            crossorigin="anonymous"></script>
     <!-- Charting library -->
     <script src="https://unpkg.com/chart.js@2.9.3/dist/Chart.min.js"></script>
     <!-- Chartisan -->
@@ -127,17 +134,16 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script text="javascript">
 
-    $(function(){
+    $(function () {
         //load danh sach quan huyen cua thanh pho dau tien (sau khi load xong webpage)
         let name = $("#districts").val();
         let Dname = $('select[name=districts] option:selected').text();
+        
         getData(name);
         chartDistrict(Dname);
-        console.log(Dname);
         $("#districts").change(function (e) {
             e.preventDefault();
             let Dname = $('select[name=districts] option:selected').text();
-            console.log(Dname);
             let name = $("#districts").val();
             getData(name);
             $('#avgPrice').empty();
@@ -145,23 +151,23 @@
 
         });
 
-        function getData(name){
+        function getData(name) {
             url = "/Market/getWard/" + name;
             $.get(url)
-                .done(function( data ) {
-                    console.log("data: "+data);
+                .done(function (data) {
+                    console.log("data: " + data);
                     var bodyData = '';
-                    $.each(JSON.parse(data),function(index,row){
-                        bodyData+="<option value=" + row.WardID + ">" + row.WardName +"</option>"
+                    $.each(JSON.parse(data), function (index, row) {
+                        bodyData += "<option value=" + row.WardID + ">" + row.WardName + "</option>"
                     })
                     $("#wardList").empty().append(bodyData);
 
                 });
         }
 
-        function chartDistrict(Dname){
+        function chartDistrict(Dname) {
             //Chart 1: Giá trung bình quận
-            let xurl = "@chart('avgPrice')?DistrictName=" + Dname;
+            let xurl = "@chart('avgPrice')?DistrictName=" + Dname + "?Year="+;
 
             const avgPrice = new Chartisan({
                 el: '#avgPrice',
@@ -172,7 +178,7 @@
                     .colors(['#7B1FA2'])
                     .legend({position: 'bottom'})
                     .borderColors()
-                    .datasets([{ type: 'line', fill: false }]),
+                    .datasets([{type: 'line', fill: false}]),
             });
         }
 
@@ -187,7 +193,7 @@
                 .colors(['#FF5722'])
                 .legend({position: 'bottom'})
                 .borderColors()
-                .datasets([{ type: 'line', fill: false }]),
+                .datasets([{type: 'line', fill: false}]),
         });
 
         //Chart 3: So sánh giá trung bình quận và giá từng phường
@@ -200,7 +206,7 @@
                 .colors(['#FF5722', '#7B1FA2'])
                 .legend({position: 'bottom'})
                 .borderColors()
-                .datasets([{ type: 'line', fill: false}, { type: 'line', fill: false }]),
+                .datasets([{type: 'line', fill: false}, {type: 'line', fill: false}]),
         });
 
     });

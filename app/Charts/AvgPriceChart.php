@@ -13,7 +13,7 @@ class AvgPriceChart extends BaseChart
 {
     public ?string $name = 'avgPrice';
 
-    public function avg($name){
+    public function avg($name, $year){
         $key= DB::getSchemaBuilder()->getColumnListing('market_lists');
         $month = [];
         for ($i = 0; $i < count($key); $i++){
@@ -26,7 +26,7 @@ class AvgPriceChart extends BaseChart
         foreach ($month as $key){
             $labelvalue = $data
                 ->where('DistrictName','=', $name)
-                ->where('Year', '=', '2020')
+                ->where('Year', '=', $year)
                 ->avg($key);
             array_push( $priceAVG, $labelvalue);
         }
@@ -37,6 +37,7 @@ class AvgPriceChart extends BaseChart
     public function handler(Request $request): Chartisan
     {
         $name = $request->DistrictName;
+        $year = 2020;
         $key= DB::getSchemaBuilder()->getColumnListing('market_lists');
         $month = [];
         for ($i = 0; $i < count($key); $i++){
@@ -46,7 +47,7 @@ class AvgPriceChart extends BaseChart
         }
         return Chartisan::build()
             ->labels($month)
-            ->dataset('Giá Quận', $this->avg($name));
+            ->dataset('Giá Quận', $this->avg($name, $year));
     }
 
 }
