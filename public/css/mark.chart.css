@@ -1,5 +1,4 @@
 
-
 /*  styling scrollbars  */
 ::-webkit-scrollbar {
     width: 5px;
@@ -28,6 +27,40 @@
 body {
     box-sizing: border-box;
     font-family: "Lato", sans-serif;
+}
+select{
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: 10px;
+    padding: 5px 10px 5px 0;
+    color: #3E2723;
+}
+#Year{
+    width: 130px;
+}
+#districts{
+    width: 130px;
+}
+#distCompare_1{
+    margin-right: 15px;
+}
+#button {
+    border: none;
+    color: white;
+    width: 170px;
+    padding: 8px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: 10px;
+    cursor: pointer;
+    background-color: #3b9668;
+}
+#button:hover{
+    background-color: #ffc100;
+    color: #3E2723;
 }
 
 .text-primary-p {
@@ -59,15 +92,14 @@ body {
 .text-green {
     color: #3b9668;
 }
-
 .container {
-    display: grid;
+    display: block;
     height: 100vh;
-    grid-template-columns: 0.8fr 1fr 1fr 1fr;
-    grid-template-rows: 0.2fr 3fr;
-    grid-template-areas:
-    "sidebar nav nav nav"
-    "sidebar main main main";
+    /*grid-template-columns: 0.8fr 1fr 1fr 1fr;*/
+    /*grid-template-rows: 0.2fr 3fr;*/
+    /*grid-template-areas:*/
+    /*"sidebar nav nav nav"*/
+    /*"sidebar main main main";*/
     /* grid-gap: 0.2rem; */
 }
 

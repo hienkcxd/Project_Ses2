@@ -49,7 +49,7 @@ class AvgPriceChart extends BaseChart
 
         return Chartisan::build()
             ->labels($labelName)
-            ->dataset('Giá Quận', $this->avg($distPara, $yearPara));
+            ->dataset('Giá Đất '.$distPara, $this->avg($distPara, $yearPara));
     }
 
 }

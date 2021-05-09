@@ -72,7 +72,7 @@ class compareChart extends BaseChart
 
         return Chartisan::build()
             ->labels($labelName)
-            ->dataset('Giá Quận', $this->avg($distPara, $yearPara))
-            ->dataset('Giá Phường', $this->priceWard($distPara, $wardPara, $yearPara));
+            ->dataset('Giá Đất Quận ' .$distPara, $this->avg($distPara, $yearPara))
+            ->dataset('Giá Đất Phường '.$wardPara, $this->priceWard($distPara, $wardPara, $yearPara));
     }
 }

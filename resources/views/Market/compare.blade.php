@@ -2,10 +2,10 @@
 
 
 @section('chart_content')
-    @include('Market.indexContent')
+    @include('Market.compareContent')
 @endsection
 
 
-@section('title','Market_Contructure')
+@section('title','Market_Compare')
 
 
