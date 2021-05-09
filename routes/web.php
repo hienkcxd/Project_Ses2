@@ -30,6 +30,7 @@
 
     Route::get('/', [homepageController::class, 'index'])->name('homepage');
 
+    Route::get('/test', [MarketController::class, 'test']);
     Route::prefix('AboutUs')->group(function () {
         Route::get('/', [AboutController::class, 'index'])->name('aboutus');
     });

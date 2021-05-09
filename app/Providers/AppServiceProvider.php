@@ -30,6 +30,7 @@ class AppServiceProvider extends ServiceProvider
             \App\Charts\AvgPriceChart::class,
             \App\Charts\WardPriceChart::class,
             \App\Charts\compareChart::class,
+            \App\Charts\WardCompareChart::class,
         ]);
     }
 }

@@ -180,7 +180,7 @@ class MarketList extends Seeder
                 'Thang_5'=>153, 'Thang_6'=>155, 'Thang_7'=>147, 'Thang_8'=>159,
                 'Thang_9'=>161, 'Thang_10'=>153, 'Thang_11'=>157, 'Thang_12'=>165,
             ],
-            ['MarketID'=> 34, 'DistrictName'=> 'Quận 2', 'WardName'=>'Phường 12', 'Year'=>'2020',
+            ['MarketID'=> 34, 'DistrictName'=> 'Quận 3', 'WardName'=>'Phường 12', 'Year'=>'2020',
                 'Thang_1'=>173, 'Thang_2'=>179, 'Thang_3'=>182, 'Thang_4'=>191,
                 'Thang_5'=>195, 'Thang_6'=>178, 'Thang_7'=>173, 'Thang_8'=>162,
                 'Thang_9'=>175, 'Thang_10'=>180, 'Thang_11'=>183, 'Thang_12'=>181,

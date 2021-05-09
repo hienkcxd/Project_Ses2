@@ -9,6 +9,8 @@
         integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
         crossorigin="anonymous"
     />
+    <link href="{{ asset('/fonts/elegant_font/HTML_CSS/style.css') }}" type="text/css" rel="stylesheet">
+    <link href="{{ asset('/fonts/et-line-font/style.css') }}" type="text/css" rel="stylesheet">
     <link href="{{ asset('/css/mark.chart.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="styles.css"/>
     <title>@yield('title')</title>

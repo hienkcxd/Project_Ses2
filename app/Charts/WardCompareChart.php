@@ -10,9 +10,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
-class compareChart extends BaseChart
+class WardCompareChart extends BaseChart
 {
-    public ?string $name = 'comparePriceDistAndWard';
+    public ?string $name = 'wardCompareChart';
 
     public function labelList(){
         $key= schema::getColumnListing('market_lists');

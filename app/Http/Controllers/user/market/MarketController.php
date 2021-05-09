@@ -10,6 +10,32 @@ use Illuminate\Support\Facades\Schema;
 class MarketController extends Controller
 {
 
+    public function test(){
+        $key= schema::getColumnListing('market_lists');
+        $labelName = [];
+        for ($i = 0; $i < count($key); $i++){
+            if(str_contains($key[$i],'Thang')){
+                array_push($labelName, $key[$i]);
+            }
+        }
+        $data = DB::table('market_lists');
+        $listWard = $data
+            ->where('DistrictName', '=','Quận 2')
+            ->orderBy('MarketID', 'asc')->pluck('WardName');
+        $avg = [];
+        foreach ($listWard as $key){
+            foreach ($labelName as $month){
+                $avgValue = $data
+                    ->where('DistrictName', '=','Quận 2')
+                    ->where('WardName', '=',$key)
+                    ->get($month)->toArray();
+                    array_push( $avg, $avgValue);
+            }
+        }
+
+        return $avg;
+    }
+
     public function index()
     {
         return view('Market.index');

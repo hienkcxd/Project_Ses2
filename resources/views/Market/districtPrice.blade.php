@@ -53,7 +53,7 @@
         <div class="charts__left__title">
             <div>
                 <h1>GIÁ ĐẤT TRUNG BÌNH (Triệu/m<sup>2</sup>)</h1>
-                <p style="margin-bottom: 10px">Quận 1</p>
+                <p style="margin-bottom: 10px" id="distName"></p>
             </div>
             <i class="fa fa-usd" aria-hidden="true"></i>
         </div>
@@ -65,7 +65,7 @@
         <div class="charts__right__title">
             <div>
                 <h1>GIÁ ĐẤT PHƯỜNG(Triệu/m<sup>2</sup>)</h1>
-                <p style="margin-bottom: 10px">Bến Nghé</p>
+                <p style="margin-bottom: 10px" id="wardName"></p>
             </div>
             <i class="fa fa-usd" aria-hidden="true"></i>
         </div>
@@ -78,43 +78,24 @@
         <div class="charts__left__title">
             <div>
                 <h1>SO SÁNH GIÁ ĐẤT(Triệu/m<sup>2</sup>)</h1>
-                <p style="margin-bottom: 10px">TRUNG BÌNH QUẬN 1 VÀ PHƯỜNG BẾN NGHÉ</p>
+                <p style="margin-bottom: 10px" id="titleChartCompare"></p>
             </div>
             <i class="fa fa-usd" aria-hidden="true"></i>
         </div>
         <div id="compareChart" style="height: 300px"></div>
     </div>
 
-    {{--    Thống kê số liệu--}}
+    {{--  Chart 4: So sánh giá đất các phường--}}
     <div class="charts__right">
         <div class="charts__right__title">
             <div>
-                <h1>Thống Kê Số liệu</h1>
-                <p>Quận 1</p>
+                <h1>THỐNG KÊ PHƯỜNG(Triệu/m<sup>2</sup>)</h1>
+                <p style="margin-bottom: 10px" id="titleWardList"></p>
             </div>
             <i class="fa fa-usd" aria-hidden="true"></i>
         </div>
 
-        <div class="charts__right__cards">
-            <div class="card1">
-                <h1>Max</h1>
-                <p>$75,300</p>
-            </div>
-
-            <div class="card2">
-                <h1>min</h1>
-                <p>$24,200</p>
-            </div>
-
-            <div class="card3">
-                <h1>Ave</h1>
-                <p>3900</p>
-            </div>
-            <div class="card4">
-                <h1>Safe</h1>
-                <p>Yes</p>
-            </div>
-        </div>
+        <div id="wardCompareChart" style="height: 300px"></div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.1.0/echarts.min.js"
@@ -127,6 +108,7 @@
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
 <script text="javascript">
 
     $(function () {
@@ -135,61 +117,25 @@
         getData(name);
 
         let Dname = $('select[name=districts] option:selected').text();
+        $('#distName').append(Dname);
+        $('#titleWardList').append("Giá Đất Tại Phường - ", Dname);
         let Wname = $('select[name=wardList] option:selected').text();
         let year = $('select[name=Year] option:selected').text();
 
+        $(document).ajaxComplete(function (Wname) {
+            //insert name ward in first load district.
+            Wname = $('select[name=wardList] option:selected').text();
+            $('#wardName').empty();
+            $('#wardName').append(Wname);
+            $('#titleChartCompare').empty();
+            $('#titleChartCompare').append("Trung Bình",Dname," Và Phường ",Wname,);
+            $('#wardPrice').empty();
+            chartWard(Dname, Wname, year);
+            $('#compareChart').empty();
+            comparePrice(Dname, Wname, year);
+        });
         chartDistrict(Dname, year);
-        chartWard(Dname, Wname, year);
-        comparePrice(Dname, Wname, year);
-
-        $("#Year").change(function (e) {
-            e.preventDefault();
-            let name = $("#districts").val();
-            getData(name);
-
-            let Dname = $('select[name=districts] option:selected').text();
-            let Wname = $('select[name=wardList] option:selected').text();
-            let year = $('select[name=Year] option:selected').text();
-
-            $('#avgPrice').empty();
-            chartDistrict(Dname, year);
-            $('#wardPrice').empty();
-            chartWard(Dname, Wname, year);
-            $('#compareChart').empty();
-            comparePrice(Dname, Wname, year)
-        });
-
-        $("#districts").change(function (e) {
-            e.preventDefault();
-            let name = $("#districts").val();
-            getData(name);
-
-            let Dname = $('select[name=districts] option:selected').text();
-            let Wname = $('select[name=wardList] option:selected').text();
-            let year = $('select[name=Year] option:selected').text();
-
-            $('#avgPrice').empty();
-            chartDistrict(Dname, year);
-            $('#compareChart').empty();
-            comparePrice(Dname, Wname, year)
-        })
-
-        $("#wardList").change(function (e) {
-            e.preventDefault();
-            let name = $("#districts").val();
-            getData(name);
-
-            let Dname = $('select[name=districts] option:selected').text();
-            let Wname = $('select[name=wardList] option:selected').text();
-            let year = $('select[name=Year] option:selected').text();
-
-            $('#wardPrice').empty();
-            chartWard(Dname, Wname, year);
-            $('#compareChart').empty();
-            comparePrice(Dname, Wname, year)
-        });
-
-
+        wardComparePrice(Dname, Wname, year)
 
         function getData(name) {
             url = "/Market/getWard/" + name;
@@ -201,13 +147,75 @@
                         bodyData += "<option value=" + row.WardID + ">" + row.WardName + "</option>"
                     })
                     $("#wardList").empty().append(bodyData);
-
                 });
+            let Wname = $('select[name=wardList] option:selected').text();
         }
 
-        function chartDistrict(Dname ,year) {
+
+        $("#districts").change(function (e) {
+            e.preventDefault();
+            let name = $("#districts").val();
+            getData(name);
+
+            let Dname = $('select[name=districts] option:selected').text();
+            $('#distName').empty();
+            $('#distName').append(Dname);
+            $('#titleWardList').empty();
+            $('#titleWardList').append("Giá Đất Tại Phường - ", Dname);
+            $(document).ajaxComplete(function (Wname) {
+                //insert name ward in first load district.
+                Wname = $('select[name=wardList] option:selected').text();
+                $('#wardName').empty();
+                $('#wardName').append(Wname);
+                $('#titleChartCompare').empty();
+                $('#titleChartCompare').append("Trung Bình",Dname," Và Phường ",Wname,);
+                $('#wardPrice').empty();
+                chartWard(Dname, Wname, year);
+                $('#compareChart').empty();
+                comparePrice(Dname, Wname, year);
+            });
+
+            $('#avgPrice').empty();
+            chartDistrict(Dname, year);
+        })
+
+        $("#wardList").change(function (e) {
+            e.preventDefault();
+            let Dname = $('select[name=districts] option:selected').text();
+            let Wname = $('select[name=wardList] option:selected').text();
+            let year = $('select[name=Year] option:selected').text();
+
+            $('#wardName').empty();
+            $('#wardName').append(Wname);
+            $('#titleChartCompare').empty();
+            $('#titleChartCompare').append("Trung Bình",Dname," Và Phường ",Wname,);
+
+            $('#wardPrice').empty();
+            chartWard(Dname, Wname, year);
+            $('#compareChart').empty();
+            comparePrice(Dname, Wname, year);
+        });
+
+        $("#Year").change(function (e) {
+            e.preventDefault();
+            let Dname = $('select[name=districts] option:selected').text();
+            let Wname = $('select[name=wardList] option:selected').text();
+            let year = $('select[name=Year] option:selected').text();
+
+            $('#avgPrice').empty();
+            chartDistrict(Dname, year);
+
+            $('#wardPrice').empty();
+            chartWard(Dname, Wname, year);
+
+            $('#compareChart').empty();
+            comparePrice(Dname, Wname, year)
+        });
+
+
+        function chartDistrict(Dname, year) {
             //Chart 1: Giá trung bình quận
-            let distUrl = "@chart('avgPrice')?DistrictName=" + Dname+ "&Year=" + year;
+            let distUrl = "@chart('avgPrice')?DistrictName=" + Dname + "&Year=" + year;
 
             const avgPrice = new Chartisan({
                 el: '#avgPrice',
@@ -224,7 +232,6 @@
 
         function chartWard(Dname, Wname, year) {
             //Chart 2: Giá Từng Phường
-
             let wardUrl = "@chart('wardPrice')?DistrictName=" + Dname + "&WardName=" + Wname + "&Year=" + year;
             const wardPrice = new Chartisan({
                 el: '#wardPrice',
@@ -255,7 +262,21 @@
             });
         }
 
+        function wardComparePrice(Dname, Wname, year) {
+            //Chart 3: So sánh giá trung bình quận và giá từng phường
+            let compUrl2 = "@chart('wardCompareChart')";
+            const wardCompare = new Chartisan({
+                el: '#wardCompareChart',
+                url: compUrl2,
+                hooks: new ChartisanHooks()
+                    .responsive(true)
+                    .beginAtZero()
+                    .colors(['#FF5722', '#7B1FA2'])
+                    .legend({position: 'bottom'})
+                    .borderColors()
+                    .datasets([{type: 'bar', fill: false}, {type: 'bar', fill: false}]),
+            });
+        }
     });
-
 
 </script>
