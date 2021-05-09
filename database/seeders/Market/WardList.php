@@ -193,7 +193,7 @@ class WardList extends Seeder
             ['WardID'=>'154', 'DistrictName'=> 'Quận Bình Tân', 'DistrictID'=> 12, 'WardName'=>'Bình Hưng Hòa'],
             ['WardID'=>'155', 'DistrictName'=> 'Quận Bình Tân', 'DistrictID'=> 12, 'WardName'=>'Bình Hưng Hoà A'],
             ['WardID'=>'156', 'DistrictName'=> 'Quận Bình Tân', 'DistrictID'=> 12, 'WardName'=>'Bình Hưng Hoà B'],
-            ['WardID'=>'157', 'DistrictName'=> 'Quận Bình Tân', 'DistrictID'=> 12, 'WardName'=>'Bình Trị Đôngc'],
+            ['WardID'=>'157', 'DistrictName'=> 'Quận Bình Tân', 'DistrictID'=> 12, 'WardName'=>'Bình Trị Đông'],
             ['WardID'=>'158', 'DistrictName'=> 'Quận Bình Tân', 'DistrictID'=> 12, 'WardName'=>'Bình Trị Đông A'],
             ['WardID'=>'159', 'DistrictName'=> 'Quận Bình Tân', 'DistrictID'=> 12, 'WardName'=>'Bình Trị Đông B'],
             ['WardID'=>'160', 'DistrictName'=> 'Quận Bình Tân', 'DistrictID'=> 12, 'WardName'=>'Phường Tân Tạo'],
