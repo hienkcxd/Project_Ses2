@@ -10,9 +10,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
-class AvgWithWardChart extends BaseChart
+class compareChart extends BaseChart
 {
-    public ?string $name = 'AvgWithWard';
+    public ?string $name = 'comparePriceDistAndWard';
 
     public function labelList(){
         $key= schema::getColumnListing('market_lists');
@@ -65,8 +65,8 @@ class AvgWithWardChart extends BaseChart
     public function handler(Request $request): Chartisan
     {
         $distPara = $request->DistrictName;
-        $yearPara = 2020;
-        $wardPara = "Bến Nghé";
+        $yearPara = $request->Year;
+        $wardPara = $request->WardName;
         $labelName = $this->labelList();
 
         return Chartisan::build()

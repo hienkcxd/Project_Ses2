@@ -44,7 +44,7 @@ class AvgPriceChart extends BaseChart
     {
         //Tham so dau vao
         $distPara = $request->DistrictName;
-        $yearPara = 2020;
+        $yearPara = $request->Year;
         $labelName = $this->labelList();
 
         return Chartisan::build()

@@ -29,7 +29,7 @@ class AppServiceProvider extends ServiceProvider
         $charts->register([
             \App\Charts\AvgPriceChart::class,
             \App\Charts\WardPriceChart::class,
-            \App\Charts\AvgWithWardChart::class,
+            \App\Charts\compareChart::class,
         ]);
     }
 }

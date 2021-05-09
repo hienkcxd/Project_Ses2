@@ -82,7 +82,7 @@
             </div>
             <i class="fa fa-usd" aria-hidden="true"></i>
         </div>
-        <div id="AvgWithWard" style="height: 300px"></div>
+        <div id="compareChart" style="height: 300px"></div>
     </div>
 
     {{--    Thống kê số liệu--}}
@@ -132,28 +132,62 @@
     $(function () {
         //load danh sach quan huyen cua thanh pho dau tien (sau khi load xong webpage)
         let name = $("#districts").val();
-        let Dname = $('select[name=districts] option:selected').text();
-
         getData(name);
-        chartDistrict(Dname);
-        chartWard(Dname);
-        $("#districts").change(function (e) {
+
+        let Dname = $('select[name=districts] option:selected').text();
+        let Wname = $('select[name=wardList] option:selected').text();
+        let year = $('select[name=Year] option:selected').text();
+
+        chartDistrict(Dname, year);
+        chartWard(Dname, Wname, year);
+        comparePrice(Dname, Wname, year);
+
+        $("#Year").change(function (e) {
             e.preventDefault();
-            let Dname = $('select[name=districts] option:selected').text();
             let name = $("#districts").val();
             getData(name);
-            $('#avgPrice').empty();
-            chartDistrict(Dname);
 
+            let Dname = $('select[name=districts] option:selected').text();
+            let Wname = $('select[name=wardList] option:selected').text();
+            let year = $('select[name=Year] option:selected').text();
+
+            $('#avgPrice').empty();
+            chartDistrict(Dname, year);
+            $('#wardPrice').empty();
+            chartWard(Dname, Wname, year);
+            $('#compareChart').empty();
+            comparePrice(Dname, Wname, year)
+        });
+
+        $("#districts").change(function (e) {
+            e.preventDefault();
+            let name = $("#districts").val();
+            getData(name);
+
+            let Dname = $('select[name=districts] option:selected').text();
+            let Wname = $('select[name=wardList] option:selected').text();
+            let year = $('select[name=Year] option:selected').text();
+
+            $('#avgPrice').empty();
+            chartDistrict(Dname, year);
+            $('#compareChart').empty();
+            comparePrice(Dname, Wname, year)
         })
 
         $("#wardList").change(function (e) {
             e.preventDefault();
-            let Dname = $('select[name=wardList] option:selected').text();
-            $('#wardPrice').empty();
-            chartWard(Dname);
-        });
+            let name = $("#districts").val();
+            getData(name);
 
+            let Dname = $('select[name=districts] option:selected').text();
+            let Wname = $('select[name=wardList] option:selected').text();
+            let year = $('select[name=Year] option:selected').text();
+
+            $('#wardPrice').empty();
+            chartWard(Dname, Wname, year);
+            $('#compareChart').empty();
+            comparePrice(Dname, Wname, year)
+        });
 
 
 
@@ -171,9 +205,9 @@
                 });
         }
 
-        function chartDistrict(Dname) {
+        function chartDistrict(Dname ,year) {
             //Chart 1: Giá trung bình quận
-            let distUrl = "@chart('avgPrice')?DistrictName=" + Dname;
+            let distUrl = "@chart('avgPrice')?DistrictName=" + Dname+ "&Year=" + year;
 
             const avgPrice = new Chartisan({
                 el: '#avgPrice',
@@ -188,9 +222,10 @@
             });
         }
 
-        function chartWard(Dname){
+        function chartWard(Dname, Wname, year) {
             //Chart 2: Giá Từng Phường
-            let wardUrl = "@chart('wardPrice')?DistrictName=" + Dname;
+
+            let wardUrl = "@chart('wardPrice')?DistrictName=" + Dname + "&WardName=" + Wname + "&Year=" + year;
             const wardPrice = new Chartisan({
                 el: '#wardPrice',
                 url: wardUrl,
@@ -204,20 +239,21 @@
             });
         }
 
-
-
-        //Chart 3: So sánh giá trung bình quận và giá từng phường
-        const AvgWithWard = new Chartisan({
-            el: '#AvgWithWard',
-            url: "@chart('AvgWithWard')",
-            hooks: new ChartisanHooks()
-                .responsive(true)
-                .beginAtZero()
-                .colors(['#FF5722', '#7B1FA2'])
-                .legend({position: 'bottom'})
-                .borderColors()
-                .datasets([{type: 'line', fill: false}, {type: 'line', fill: false}]),
-        });
+        function comparePrice(Dname, Wname, year) {
+            //Chart 3: So sánh giá trung bình quận và giá từng phường
+            let compUrl = "@chart('comparePriceDistAndWard')?DistrictName=" + Dname + "&WardName=" + Wname + "&Year=" + year
+            const AvgWithWard = new Chartisan({
+                el: '#compareChart',
+                url: compUrl,
+                hooks: new ChartisanHooks()
+                    .responsive(true)
+                    .beginAtZero()
+                    .colors(['#FF5722', '#7B1FA2'])
+                    .legend({position: 'bottom'})
+                    .borderColors()
+                    .datasets([{type: 'line', fill: false}, {type: 'line', fill: false}]),
+            });
+        }
 
     });
 

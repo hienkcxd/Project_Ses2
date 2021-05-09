@@ -8,34 +8,40 @@ use Chartisan\PHP\Chartisan;
 use ConsoleTVs\Charts\BaseChart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
 
 class WardPriceChart extends BaseChart
 {
     public ?string $name = 'wardPrice';
 
-
-    public function priceWard(){
-        $key= DB::getSchemaBuilder()->getColumnListing('market_lists');
-        $month = [];
+    public function labelList(){
+        $key= schema::getColumnListing('market_lists');
+        $labelName = [];
         for ($i = 0; $i < count($key); $i++){
             if(str_contains($key[$i],'Thang')){
-                array_push($month, $key[$i]);
+                array_push($labelName, $key[$i]);
             }
         }
+        return $labelName;
+    }
+
+    public function priceWard($distPara, $wardPara, $yearPara){
+        $labelName = $this->labelList();
+
         //Get value with month
         $data = DB::table('market_lists');
-        $labelvalue = $data
-            ->where('DistrictName','=', 'Quận 1')
-            ->where('WardName','=', 'Bến Nghé')
-            ->where('Year', '=', '2020')
-            ->select($month)
+        $wardPrice = $data
+            ->where('DistrictName','=', $distPara)
+            ->where('WardName','=', $wardPara)
+            ->where('Year', '=', $yearPara)
+            ->select($labelName)
             ->get()->toArray();
 
         //Put value from db to array
         $price = [];
-        foreach ($labelvalue as $key => $value) {
+        foreach ($wardPrice as $key => $value) {
             foreach ($value as $k => $v) {
-                if (in_array($k, $month)) {
+                if (in_array($k, $labelName)) {
                     array_push($price, $v);
                 }
             }
@@ -45,16 +51,13 @@ class WardPriceChart extends BaseChart
     public function handler(Request $request): Chartisan
     {
         //Get label name for chart
-        $key= DB::getSchemaBuilder()->getColumnListing('market_lists');
-        $month = [];
-        for ($i = 0; $i < count($key); $i++){
-            if(str_contains($key[$i],'Thang')){
-                array_push($month, $key[$i]);
-            }
-        }
+        $distPara = $request->DistrictName;
+        $yearPara = $request->Year;
+        $wardPara = $request->WardName;
+        $labelName = $this->labelList();
 
         return Chartisan::build()
-            ->labels($month)
-            ->dataset('Giá Phường', $this->priceWard());
+            ->labels($labelName)
+            ->dataset('Giá Phường', $this->priceWard($distPara, $wardPara, $yearPara));
     }
 }
