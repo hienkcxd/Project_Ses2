@@ -66,6 +66,6 @@ class compWardAndWard extends BaseChart
 
         return Chartisan::build()
             ->labels($listWard)
-            ->dataset('Giá Đất',$avg);
+            ->dataset('Giá Đất Trung Bình Các Phường ' .$distPara,$avg);
     }
 }

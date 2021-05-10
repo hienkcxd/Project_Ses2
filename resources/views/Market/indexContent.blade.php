@@ -124,7 +124,7 @@
             $('#wardName').empty();
             $('#wardName').append(Wname);
             $('#titleChartCompare').empty();
-            $('#titleChartCompare').append("Trung Bình", Dname, " Và Phường ", Wname,);
+            $('#titleChartCompare').append("Trung Bình", Dname, " Và ", Wname,);
             $('#wardPrice').empty();
             chartWard(Dname, Wname, year);
             $('#compareChart').empty();
@@ -166,7 +166,7 @@
                 $('#wardName').empty();
                 $('#wardName').append(Wname);
                 $('#titleChartCompare').empty();
-                $('#titleChartCompare').append("Trung Bình", Dname, " Và Phường ", Wname,);
+                $('#titleChartCompare').append("Trung Bình", Dname, " Và ", Wname,);
 
                 $('#wardPrice').empty();
                 chartWard(Dname, Wname, year);
@@ -183,13 +183,16 @@
         $("#wardList").change(function (e) {
             e.preventDefault();
             let Dname = $('select[name=districts] option:selected').text();
-            let Wname = $('select[name=wardList] option:selected').text();
             let year = $('select[name=Year] option:selected').text();
 
-            $('#wardName').empty();
-            $('#wardName').append(Wname);
+            $(document).ajaxComplete(function (Wname) {
+                //insert name ward in first load district.
+                Wname = $('select[name=wardList] option:selected').text();
+                $('#wardName').empty();
+                $('#wardName').append(Wname);
+            });
             $('#titleChartCompare').empty();
-            $('#titleChartCompare').append("Trung Bình", Dname, " Và Phường ", Wname,);
+            $('#titleChartCompare').append("Trung Bình", Dname, " Và ", Wname,);
 
             $('#wardPrice').empty();
             chartWard(Dname, Wname, year);
@@ -211,6 +214,8 @@
 
             $('#compareChart').empty();
             comparePrice(Dname, Wname, year)
+            $('#wardCompareChart').empty();
+            compareWardAndWard(Dname, year)
         });
 
         //Chart 1: Giá đất trung bình từng quận
