@@ -26,13 +26,9 @@
         </div>
     </div>
 
-    <div class="card" style="display: none">
-        <i class="fa fa-calendar fa-2x text-red" aria-hidden="true"> - Phường:</i>
-        <div class="card_inner">
-            <p class="text-primary-p">
-                <select name="wardList" id="wardList"></select>
-            </p>
-        </div>
+    <div class="card" style="">
+                <select name="wardList_1" id="wardList_1"></select>
+                <select name="wardList_2" id="wardList_2"></select>
     </div>
 
     <div class="card">
@@ -124,8 +120,8 @@
         //load danh sach quan huyen cua thanh pho dau tien (sau khi load xong webpage)
         let distPara1 = $("#districts_para1").val();
         let distPara2 = $("#districts_para2").val();
-        getData(distPara1);
-        getData(distPara2);
+        getDataDist1(distPara1);
+        getDataDist2(distPara2);
 
         let Dname = $('select[name=districts] option:selected').text();
         $('#distName').append(Dname);
@@ -149,8 +145,8 @@
         chartDistrict(Dname, year);
         compareWardAndWard(Dname, year)
 
-        function getData(name) {
-            url = "/Market/Compare/" + name;
+        function getDataDist1(distPara1) {
+            url = "/Market/Compare/" + distPara1;
             $.get(url)
                 .done(function (data) {
                     console.log("data: " + data);
@@ -158,16 +154,36 @@
                     $.each(JSON.parse(data), function (index, row) {
                         bodyData += "<option value=" + row.WardID + ">" + row.WardName + "</option>"
                     })
-                    $("#wardList").empty().append(bodyData);
+                    $("#wardList_1").empty().append(bodyData);
                 });
-            let Wname = $('select[name=wardList] option:selected').text();
+        }
+        function getDataDist2(distPara2) {
+            url = "/Market/Compare/" + distPara2;
+            $.get(url)
+                .done(function (data) {
+                    console.log("data: " + data);
+                    var bodyData = '';
+                    $.each(JSON.parse(data), function (index, row) {
+                        bodyData += "<option value=" + row.WardID + ">" + row.WardName + "</option>"
+                    })
+                    $("#wardList_2").empty().append(bodyData);
+                });
         }
 
 
         $("#districts_para1").change(function (e) {
             e.preventDefault();
             let distPara1 = $("#districts_para1").val();
-            getData(distPara1);
+            getDataDist1(distPara1);
+            let distPara2 = $("#districts_para1").val();
+            getDataDist2(distPara2);
+        })
+        $("#districts_para2").change(function (e) {
+            e.preventDefault();
+            let distPara2 = $("#districts_para1").val();
+            getDataDist2(distPara2);
+            let distPara1 = $("#districts_para1").val();
+            getDataDist1(distPara1);
         })
 
         $("#wardList").change(function (e) {
