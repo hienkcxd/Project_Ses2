@@ -44,8 +44,8 @@
             <div class="main__title">
                 <img src="{{ asset('images/market/hello.svg') }}" alt=""/>
                 <div class="main__greeting">
-                    <h1>Welcome!!!</h1>
-                    <p>Trị Trường Đất Đai TP.HCM</p>
+                    <h1>@yield('title2')</h1>
+                    <p>@yield('title3')</p>
                 </div>
             </div>
             <!-- MAIN TITLE End HERE -->

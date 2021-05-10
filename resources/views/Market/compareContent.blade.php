@@ -4,7 +4,7 @@
         <i class="fa fa-user-o fa-2x text-lightblue" aria-hidden="true"> - Quận:</i>
         <div class="card_inner">
             <p class="text-primary-p">
-                <select name="districts" id="districts">
+                <select name="districts_para1" id="districts_para1">
                     @foreach ($disList as $item)
                     <option value="{{ $item->DistrictID }}"> {{ $item->DistrictName }} </option>
                     @endforeach
@@ -14,6 +14,19 @@
     </div>
 
     <div class="card">
+        <i class="fa fa-user-o fa-2x text-red" aria-hidden="true"> - Quận:</i>
+        <div class="card_inner">
+            <p class="text-primary-p">
+                <select name="districts_para2" id="districts_para2">
+                    @foreach ($disList as $item)
+                        <option value="{{ $item->DistrictID }}"> {{ $item->DistrictName }} </option>
+                    @endforeach
+                </select>
+            </p>
+        </div>
+    </div>
+
+    <div class="card" style="display: none">
         <i class="fa fa-calendar fa-2x text-red" aria-hidden="true"> - Phường:</i>
         <div class="card_inner">
             <p class="text-primary-p">
@@ -38,7 +51,7 @@
         <i class="fa fa-thumbs-up fa-2x text-green" aria-hidden="true"> - So Sánh: </i>
         <div class="card_inner">
             <p class="text-primary-p">
-                <a href="{{ route('compare') }}"><button id="button">Access</button></a>
+                <a href="{{ route('market') }}"><button id="button">Thị Trường</button></a>
             </p>
         </div>
     </div>
@@ -109,8 +122,10 @@
 
     $(function () {
         //load danh sach quan huyen cua thanh pho dau tien (sau khi load xong webpage)
-        let name = $("#districts").val();
-        getData(name);
+        let distPara1 = $("#districts_para1").val();
+        let distPara2 = $("#districts_para2").val();
+        getData(distPara1);
+        getData(distPara2);
 
         let Dname = $('select[name=districts] option:selected').text();
         $('#distName').append(Dname);
@@ -135,7 +150,7 @@
         compareWardAndWard(Dname, year)
 
         function getData(name) {
-            url = "/Market/" + name;
+            url = "/Market/Compare/" + name;
             $.get(url)
                 .done(function (data) {
                     console.log("data: " + data);
@@ -149,35 +164,10 @@
         }
 
 
-        $("#districts").change(function (e) {
+        $("#districts_para1").change(function (e) {
             e.preventDefault();
-            let name = $("#districts").val();
-            getData(name);
-
-            let Dname = $('select[name=districts] option:selected').text();
-            $('#distName').empty();
-            $('#distName').append(Dname);
-            $('#titleWardList').empty();
-            $('#titleWardList').append("Giá Đất Các Phường - ", Dname);
-
-            $(document).ajaxComplete(function (Wname) {
-                //insert name ward in first load district.
-                Wname = $('select[name=wardList] option:selected').text();
-                $('#wardName').empty();
-                $('#wardName').append(Wname);
-                $('#titleChartCompare').empty();
-                $('#titleChartCompare').append("Trung Bình", Dname, " Và Phường ", Wname,);
-
-                $('#wardPrice').empty();
-                chartWard(Dname, Wname, year);
-                $('#compareChart').empty();
-                comparePrice(Dname, Wname, year);
-            });
-
-            $('#avgPrice').empty();
-            chartDistrict(Dname, year);
-            $('#wardCompareChart').empty();
-            compareWardAndWard(Dname, year)
+            let distPara1 = $("#districts_para1").val();
+            getData(distPara1);
         })
 
         $("#wardList").change(function (e) {

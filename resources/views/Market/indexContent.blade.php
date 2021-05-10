@@ -184,7 +184,7 @@
             e.preventDefault();
             let Dname = $('select[name=districts] option:selected').text();
             let year = $('select[name=Year] option:selected').text();
-
+            let Wname = $('select[name=wardList] option:selected').text();
             $(document).ajaxComplete(function (Wname) {
                 //insert name ward in first load district.
                 Wname = $('select[name=wardList] option:selected').text();

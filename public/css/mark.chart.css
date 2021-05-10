@@ -28,41 +28,6 @@ body {
     box-sizing: border-box;
     font-family: "Lato", sans-serif;
 }
-select{
-    font-size: 15px;
-    font-weight: bold;
-    margin-top: 10px;
-    padding: 5px 10px 5px 0;
-    color: #3E2723;
-}
-#Year{
-    width: 130px;
-}
-#districts{
-    width: 130px;
-}
-#distCompare_1{
-    margin-right: 15px;
-}
-#button {
-    border: none;
-    color: white;
-    width: 170px;
-    padding: 8px 30px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 15px;
-    font-weight: bold;
-    margin-top: 10px;
-    cursor: pointer;
-    background-color: #3b9668;
-}
-#button:hover{
-    background-color: #ffc100;
-    color: #3E2723;
-}
-
 .text-primary-p {
     color: #a5aaad;
     font-size: 14px;
@@ -216,6 +181,45 @@ main {
 
 .card_inner > span {
     font-size: 25px;
+}
+
+select{
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: 10px;
+    padding: 5px 10px 5px 0;
+    color: #3E2723;
+}
+#Year{
+    width: 130px;
+}
+#districts{
+    width: 160px;
+}
+#wardList{
+    width: 160px;
+}
+#distCompare_1{
+    margin-right: 15px;
+}
+#button {
+    border: none;
+    color: white;
+    width: 170px;
+    padding: 8px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: 10px;
+    cursor: pointer;
+    background-color: #3b9668;
+    transition: 0.5s
+}
+#button:hover{
+    background-color: #ffc100;
+    color: #3E2723;
 }
 
 .charts {
