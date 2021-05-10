@@ -52,23 +52,23 @@
 
     //Route for market
     Route::prefix('Market')->group(function () {
-//        Route::get('/Compare', [MarketController::class, 'compare']) -> name('compare');
-        Route::get('/Compare', function (){
-            $disList = DistrictList::all();
-            return view('Market.compare')->with(compact('disList'));
-        })-> name('compare');
 
-        Route::get('/Compare/{name}', function ($name){
-            $wards = DistrictList::find($name)->wards;
-            return json_encode($wards);
-        });
-
+        //Route for index market page
         Route::get('/', function (){
             $disList = DistrictList::all();
             return view('Market.index')->with(compact('disList'));
         })->name('market');
-
         Route::get('/{name}', function ($name){
+            $wards = DistrictList::find($name)->wards;
+            return json_encode($wards);
+        });
+
+        //Route for compare market page
+        Route::get('/Compare', function (){
+            $disList = DistrictList::all();
+            return view('Market.compare')->with(compact('disList'));
+        })-> name('compare');
+        Route::get('/Compare/{name}', function ($name){
             $wards = DistrictList::find($name)->wards;
             return json_encode($wards);
         });
