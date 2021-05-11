@@ -3,13 +3,11 @@
     use App\Http\Controllers\admin\login\LoginController;
     use App\Http\Controllers\user\about\AboutController;
     use App\Http\Controllers\user\homepage\homepageController;
-    use App\Http\Controllers\user\market\MarketController;
     use App\Http\Controllers\user\news\NewsController;
     use App\Http\Controllers\user\project\ProjectsController;
     use App\Http\Controllers\user\service\ServiceController;
     use App\Models\City;
     use App\Models\Market\DistrictList;
-    use App\Models\Market\WardList;
     use Illuminate\Support\Facades\Route;
 
     /*
@@ -29,7 +27,7 @@
 //    });
 
     Route::get('/', [homepageController::class, 'index'])->name('homepage');
-    Route::get('/test', function (){
+    Route::get('/test', function () {
         return view('test');
     });
 
@@ -55,26 +53,26 @@
 
     //Route for market
     Route::prefix('Market')->group(function () {
-
+    //Route for compare market page
+        Route::get('/Compare', function () {
+            $disList = DistrictList::all();
+            return view('Market.compare')->with(compact('disList'));
+        })->name('compare');
+        Route::get('/Compare/{name}', function ($name) {
+            $wards = DistrictList::find($name)->wards;
+            return json_encode($wards);
+        });
         //Route for index market page
-        Route::get('/', function (){
+        Route::get('/', function () {
             $disList = DistrictList::all();
             return view('Market.index')->with(compact('disList'));
         })->name('market');
-        Route::get('/{name}', function ($name){
+        Route::get('/{name}', function ($name) {
             $wards = DistrictList::find($name)->wards;
             return json_encode($wards);
         });
 
-        //Route for compare market page
-        Route::get('/Compare', function (){
-            $disList = DistrictList::all();
-            return view('Market.compare')->with(compact('disList'));
-        })-> name('compare');
-        Route::get('/Compare/{name}', function ($name){
-            $wards = DistrictList::find($name)->wards;
-            return json_encode($wards);
-        });
+
     });
 
     //Route for admin

@@ -1,127 +1,133 @@
+<div class="container">
 
-<div class="main__cards">
-    <div class="card">
-        <i class="fa fa-user-o fa-2x text-lightblue" aria-hidden="true"> - Quận:</i>
-        <div class="card_inner">
-            <p class="text-primary-p">
-                <select name="districts_para1" id="districts_para1">
-                    @foreach ($disList as $item)
-                    <option value="{{ $item->DistrictID }}"> {{ $item->DistrictName }} </option>
-                    @endforeach
-                </select>
-            </p>
+    <div class="main__container">
+        <!-- MAIN TITLE STARTS HERE -->
+        <div class="main__title">
+            <img src="{{ asset('/images/market/hello.svg') }}" alt=""/>
+            <div class="main__greeting">
+                <h1>Hello Codersbite</h1>
+                <p>Welcome to your admin dashboard</p>
+            </div>
         </div>
-    </div>
+        <!-- MAIN TITLE ENDS HERE -->
 
-    <div class="card">
-        <i class="fa fa-user-o fa-2x text-red" aria-hidden="true"> - Quận:</i>
-        <div class="card_inner">
-            <p class="text-primary-p">
-                <select name="districts_para2" id="districts_para2">
-                    @foreach ($disList as $item)
-                        <option value="{{ $item->DistrictID }}"> {{ $item->DistrictName }} </option>
-                    @endforeach
-                </select>
-            </p>
+        <div class="main__cards">
+            <div class="card">
+                <i class="fa fa-home fa-2x text-lightblue" aria-hidden="true"> - Quận:</i>
+                <div class="card_inner">
+                    <p class="text-primary-p">
+                        <select name="districts" id="districts">
+                            @foreach ($disList as $item)
+                                <option value="{{ $item->DistrictID }}"> {{ $item->DistrictName }} </option>
+                            @endforeach
+                        </select>
+                    </p>
+                </div>
+            </div>
+
+            <div class="card">
+                <i class="fa fa-archive fa-2x text-red" aria-hidden="true"> - Phường:</i>
+                <div class="card_inner">
+                    <p class="text-primary-p">
+                        <select name="wardList" id="wardList"></select>
+                    </p>
+                </div>
+            </div>
+
+            <div class="card">
+                <i class="fa fa-calendar fa-2x text-yellow" aria-hidden="true"> - Năm:</i>
+                <div class="card_inner">
+                    <p class="text-primary-p">
+                        <select name="Year" id="Year">
+                            <option value="2020">2020</option>
+                            <option value="2021">2021</option>
+                        </select>
+                    </p>
+                </div>
+            </div>
+
+            <div class="card">
+                <i class="fa fa-search fa-2x text-green" aria-hidden="true"> - So Sánh: </i>
+                <div class="card_inner">
+                    <p class="text-primary-p">
+                        <a href="{{ route('compare') }}">
+                            <button id="button">Access</button>
+                        </a>
+                    </p>
+                </div>
+            </div>
         </div>
-    </div>
 
-    <div class="card" style="">
-                <select name="wardList_1" id="wardList_1"></select>
-                <select name="wardList_2" id="wardList_2"></select>
-    </div>
+        <div class="charts">
+            {{--    Chart 1: Giá trung bình quận--}}
+            <div class="charts__left">
+                <div class="charts__left__title">
+                    <div>
+                        <h1>GIÁ ĐẤT TRUNG BÌNH (Triệu/m<sup>2</sup>)</h1>
+                        <p style="margin-bottom: 10px" id="distName"></p>
+                    </div>
+                    <i class="fa fa-usd" aria-hidden="true"></i>
+                </div>
+                <div id="avgPrice" style="height: 300px"></div>
+            </div>
 
-    <div class="card">
-        <i class="fa fa-video-camera fa-2x text-yellow" aria-hidden="true"> - Năm:</i>
-        <div class="card_inner">
-            <p class="text-primary-p">
-                <select name="Year" id="Year">
-                    <option value="2020">2020</option>
-                    <option value="2021">2021</option>
-                </select>
-            </p>
+            {{--    Chart 2: Giá Từng Phường--}}
+            <div class="charts__right">
+                <div class="charts__right__title">
+                    <div>
+                        <h1>GIÁ ĐẤT PHƯỜNG(Triệu/m<sup>2</sup>)</h1>
+                        <p style="margin-bottom: 10px" id="wardName"></p>
+                    </div>
+                    <i class="fa fa-usd" aria-hidden="true"></i>
+                </div>
+
+                <div id="wardPrice" style="height: 300px"></div>
+            </div>
+
+            {{--    Chart 3: So sánh giá trung bình quận và giá từng phường--}}
+            <div class="charts__left">
+                <div class="charts__left__title">
+                    <div>
+                        <h1>SO SÁNH GIÁ ĐẤT(Triệu/m<sup>2</sup>)</h1>
+                        <p style="margin-bottom: 10px" id="titleChartCompare"></p>
+                    </div>
+                    <i class="fa fa-usd" aria-hidden="true"></i>
+                </div>
+                <div id="compareChart" style="height: 300px"></div>
+            </div>
+
+            {{--  Chart 4: So sánh giá đất các phường--}}
+            <div class="charts__right">
+                <div class="charts__right__title">
+                    <div>
+                        <h1>THỐNG KÊ PHƯỜNG(Triệu/m<sup>2</sup>)</h1>
+                        <p style="margin-bottom: 10px" id="titleWardList"></p>
+                    </div>
+                    <i class="fa fa-usd" aria-hidden="true"></i>
+                </div>
+
+                <div id="wardCompareChart" style="height: 300px"></div>
+            </div>
+
+
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.1.0/echarts.min.js"></script>
+            <!-- Charting library -->
+            <script src="https://unpkg.com/chart.js@2.9.3/dist/Chart.min.js"></script>
+            <!-- Chartisan -->
+            <script src="https://unpkg.com/@chartisan/chartjs@^2.1.0/dist/chartisan_chartjs.umd.js"></script>
         </div>
+
     </div>
 
-    <div class="card">
-        <i class="fa fa-thumbs-up fa-2x text-green" aria-hidden="true"> - So Sánh: </i>
-        <div class="card_inner">
-            <p class="text-primary-p">
-                <a href="{{ route('market') }}"><button id="button">Thị Trường</button></a>
-            </p>
-        </div>
-    </div>
 </div>
-
-<div class="charts">
-    {{--    Chart 1: Giá trung bình quận--}}
-    <div class="charts__left">
-        <div class="charts__left__title">
-            <div>
-                <h1>GIÁ ĐẤT TRUNG BÌNH (Triệu/m<sup>2</sup>)</h1>
-                <p style="margin-bottom: 10px" id="distName"></p>
-            </div>
-            <i class="fa fa-usd" aria-hidden="true"></i>
-        </div>
-        <div id="avgPrice" style="height: 300px"></div>
-    </div>
-
-    {{--    Chart 2: Giá Từng Phường--}}
-    <div class="charts__right">
-        <div class="charts__right__title">
-            <div>
-                <h1>GIÁ ĐẤT PHƯỜNG(Triệu/m<sup>2</sup>)</h1>
-                <p style="margin-bottom: 10px" id="wardName"></p>
-            </div>
-            <i class="fa fa-usd" aria-hidden="true"></i>
-        </div>
-
-        <div id="wardPrice" style="height: 300px"></div>
-    </div>
-
-    {{--    Chart 3: So sánh giá trung bình quận và giá từng phường--}}
-    <div class="charts__left">
-        <div class="charts__left__title">
-            <div>
-                <h1>SO SÁNH GIÁ ĐẤT(Triệu/m<sup>2</sup>)</h1>
-                <p style="margin-bottom: 10px" id="titleChartCompare"></p>
-            </div>
-            <i class="fa fa-usd" aria-hidden="true"></i>
-        </div>
-        <div id="compareChart" style="height: 300px"></div>
-    </div>
-
-    {{--  Chart 4: So sánh giá đất các phường--}}
-    <div class="charts__right">
-        <div class="charts__right__title">
-            <div>
-                <h1>THỐNG KÊ PHƯỜNG(Triệu/m<sup>2</sup>)</h1>
-                <p style="margin-bottom: 10px" id="titleWardList"></p>
-            </div>
-            <i class="fa fa-usd" aria-hidden="true"></i>
-        </div>
-
-        <div id="wardCompareChart" style="height: 300px"></div>
-    </div>
-
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.1.0/echarts.min.js"></script>
-    <!-- Charting library -->
-    <script src="https://unpkg.com/chart.js@2.9.3/dist/Chart.min.js"></script>
-    <!-- Chartisan -->
-    <script src="https://unpkg.com/@chartisan/chartjs@^2.1.0/dist/chartisan_chartjs.umd.js"></script>
-</div>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 {{--<script src="{{ asset('/js/chart.js') }}"></script>--}}
-<script >
+<script>
 
     $(function () {
         //load danh sach quan huyen cua thanh pho dau tien (sau khi load xong webpage)
-        let distPara1 = $("#districts_para1").val();
-        let distPara2 = $("#districts_para2").val();
-        getDataDist1(distPara1);
-        getDataDist2(distPara2);
+        let name = $("#districts").val();
+        getData(name);
 
         let Dname = $('select[name=districts] option:selected').text();
         $('#distName').append(Dname);
@@ -135,7 +141,7 @@
             $('#wardName').empty();
             $('#wardName').append(Wname);
             $('#titleChartCompare').empty();
-            $('#titleChartCompare').append("Trung Bình", Dname, " Và Phường ", Wname,);
+            $('#titleChartCompare').append("Trung Bình", Dname, " Và ", Wname,);
             $('#wardPrice').empty();
             chartWard(Dname, Wname, year);
             $('#compareChart').empty();
@@ -145,8 +151,8 @@
         chartDistrict(Dname, year);
         compareWardAndWard(Dname, year)
 
-        function getDataDist1(distPara1) {
-            url = "/Market/Compare/" + distPara1;
+        function getData(name) {
+            url = "/Market/" + name;
             $.get(url)
                 .done(function (data) {
                     console.log("data: " + data);
@@ -154,48 +160,56 @@
                     $.each(JSON.parse(data), function (index, row) {
                         bodyData += "<option value=" + row.WardID + ">" + row.WardName + "</option>"
                     })
-                    $("#wardList_1").empty().append(bodyData);
+                    $("#wardList").empty().append(bodyData);
                 });
-        }
-        function getDataDist2(distPara2) {
-            url = "/Market/Compare/" + distPara2;
-            $.get(url)
-                .done(function (data) {
-                    console.log("data: " + data);
-                    var bodyData = '';
-                    $.each(JSON.parse(data), function (index, row) {
-                        bodyData += "<option value=" + row.WardID + ">" + row.WardName + "</option>"
-                    })
-                    $("#wardList_2").empty().append(bodyData);
-                });
+            let Wname = $('select[name=wardList] option:selected').text();
         }
 
 
-        $("#districts_para1").change(function (e) {
+        $("#districts").change(function (e) {
             e.preventDefault();
-            let distPara1 = $("#districts_para1").val();
-            getDataDist1(distPara1);
-            let distPara2 = $("#districts_para1").val();
-            getDataDist2(distPara2);
-        })
-        $("#districts_para2").change(function (e) {
-            e.preventDefault();
-            let distPara2 = $("#districts_para1").val();
-            getDataDist2(distPara2);
-            let distPara1 = $("#districts_para1").val();
-            getDataDist1(distPara1);
+            let name = $("#districts").val();
+            getData(name);
+
+            let Dname = $('select[name=districts] option:selected').text();
+            $('#distName').empty();
+            $('#distName').append(Dname);
+            $('#titleWardList').empty();
+            $('#titleWardList').append("Giá Đất Các Phường - ", Dname);
+
+            $(document).ajaxComplete(function (Wname) {
+                //insert name ward in first load district.
+                Wname = $('select[name=wardList] option:selected').text();
+                $('#wardName').empty();
+                $('#wardName').append(Wname);
+                $('#titleChartCompare').empty();
+                $('#titleChartCompare').append("Trung Bình", Dname, " Và ", Wname,);
+
+                $('#wardPrice').empty();
+                chartWard(Dname, Wname, year);
+                $('#compareChart').empty();
+                comparePrice(Dname, Wname, year);
+            });
+
+            $('#avgPrice').empty();
+            chartDistrict(Dname, year);
+            $('#wardCompareChart').empty();
+            compareWardAndWard(Dname, year)
         })
 
         $("#wardList").change(function (e) {
             e.preventDefault();
             let Dname = $('select[name=districts] option:selected').text();
-            let Wname = $('select[name=wardList] option:selected').text();
             let year = $('select[name=Year] option:selected').text();
-
-            $('#wardName').empty();
-            $('#wardName').append(Wname);
+            let Wname = $('select[name=wardList] option:selected').text();
+            $(document).ajaxComplete(function (Wname) {
+                //insert name ward in first load district.
+                Wname = $('select[name=wardList] option:selected').text();
+                $('#wardName').empty();
+                $('#wardName').append(Wname);
+            });
             $('#titleChartCompare').empty();
-            $('#titleChartCompare').append("Trung Bình", Dname, " Và Phường ", Wname,);
+            $('#titleChartCompare').append("Trung Bình", Dname, " Và ", Wname,);
 
             $('#wardPrice').empty();
             chartWard(Dname, Wname, year);
@@ -217,6 +231,8 @@
 
             $('#compareChart').empty();
             comparePrice(Dname, Wname, year)
+            $('#wardCompareChart').empty();
+            compareWardAndWard(Dname, year)
         });
 
         //Chart 1: Giá đất trung bình từng quận
@@ -499,7 +515,7 @@
                             'rgba(245,0,87 ,0.3)',
                             'rgba(244,81,30 ,0.3)',
                         ],
-                        hoverBackgroundColor:[
+                        hoverBackgroundColor: [
                             'rgba(255, 99, 132, 0.7)',
                             'rgba(255, 159, 64, 0.7)',
                             'rgba(255, 205, 86, 0.7)',

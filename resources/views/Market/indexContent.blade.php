@@ -13,7 +13,7 @@
 
         <div class="main__cards">
             <div class="card">
-                <i class="fa fa-user-o fa-2x text-lightblue" aria-hidden="true"> - Quận:</i>
+                <i class="fa fa-home fa-2x text-lightblue" aria-hidden="true"> - Quận:</i>
                 <div class="card_inner">
                     <p class="text-primary-p">
                         <select name="districts" id="districts">
@@ -26,7 +26,7 @@
             </div>
 
             <div class="card">
-                <i class="fa fa-calendar fa-2x text-red" aria-hidden="true"> - Phường:</i>
+                <i class="fa fa-archive fa-2x text-red" aria-hidden="true"> - Phường:</i>
                 <div class="card_inner">
                     <p class="text-primary-p">
                         <select name="wardList" id="wardList"></select>
@@ -35,7 +35,7 @@
             </div>
 
             <div class="card">
-                <i class="fa fa-video-camera fa-2x text-yellow" aria-hidden="true"> - Năm:</i>
+                <i class="fa fa-calendar fa-2x text-yellow" aria-hidden="true"> - Năm:</i>
                 <div class="card_inner">
                     <p class="text-primary-p">
                         <select name="Year" id="Year">
@@ -47,7 +47,7 @@
             </div>
 
             <div class="card">
-                <i class="fa fa-thumbs-up fa-2x text-green" aria-hidden="true"> - So Sánh: </i>
+                <i class="fa fa-search fa-2x text-green" aria-hidden="true"> - So Sánh: </i>
                 <div class="card_inner">
                     <p class="text-primary-p">
                         <a href="{{ route('compare') }}">

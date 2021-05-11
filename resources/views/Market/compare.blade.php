@@ -1,7 +1,7 @@
 @extends('Layout.layout_market')
 
 
-@section('chart_content')
+@section('content')
     @include('Market.compareContent')
 @endsection
 
