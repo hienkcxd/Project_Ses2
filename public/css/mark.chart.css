@@ -2,24 +2,7 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300,500,600,700,900,400);
 @import url(http://fonts.googleapis.com/css?family=Dosis:400,200,300,500,600,700,800);
 /*  styling scrollbars  */
-::-webkit-scrollbar {
-    width: 5px;
-    height: 6px;
-}
 
-::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px #a5aaad;
-    border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb {
-    background: #3ea175;
-    border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: #a5aaad;
-}
 
 * {
     margin: 0;
@@ -51,7 +34,6 @@
 .text-yellow {
     color: #a98921;
 }
-
 .text-green {
     color: #3b9668;
 }

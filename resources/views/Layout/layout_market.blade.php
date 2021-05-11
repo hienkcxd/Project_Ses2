@@ -19,7 +19,8 @@
     <link href="{{ asset('/fonts/font-awesome/css/font-awesome.css') }}" type="text/css" rel="stylesheet">
     <link href="{{ asset('/fonts/elegant_font/HTML_CSS/style.css') }}" type="text/css" rel="stylesheet">
     <link href="{{ asset('/fonts/et-line-font/style.css') }}" type="text/css" rel="stylesheet">
-
+    <!-- color scheme -->
+    <link href="{{ asset('/css/color.css') }}" type="text/css" id="colors" rel="stylesheet">
 
 </head>
 
