@@ -24,10 +24,6 @@
     padding: 0;
 }
 
-body {
-    box-sizing: border-box;
-    font-family: "Lato", sans-serif;
-}
 .text-primary-p {
     color: #a5aaad;
     font-size: 14px;
@@ -59,13 +55,7 @@ body {
 }
 .container {
     display: block;
-    height: 100vh;
-    /*grid-template-columns: 0.8fr 1fr 1fr 1fr;*/
-    /*grid-template-rows: 0.2fr 3fr;*/
-    /*grid-template-areas:*/
-    /*"sidebar nav nav nav"*/
-    /*"sidebar main main main";*/
-    /* grid-gap: 0.2rem; */
+    width: 100%;
 }
 
 .navbar {
@@ -445,6 +435,9 @@ select{
 }
 
 @media only screen and (max-width: 978px) {
+    .blank{
+        display: none;
+    }
     .container {
         grid-template-columns: 1fr;
         /* grid-template-rows: 0.2fr 2.2fr; */

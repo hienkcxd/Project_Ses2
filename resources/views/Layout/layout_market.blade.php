@@ -1,171 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8"/>
-{{--    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>--}}
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link
-        rel="stylesheet"
-        href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
-        crossorigin="anonymous"
-    />
+    <meta charset="utf-8">
+    <title>Archi - Responsive Interior Design Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Responsive Minimal Bootstrap Theme">
+    <meta name="keywords" content="onepage,responsive,minimal,bootstrap,theme">
+    <meta name="author" content="">
+
+    <!-- CSS Files
+    ================================================== -->
+    <link href="{{ asset('/css/bootstrap.css') }}" rel="stylesheet">
+    <link href="{{ asset('/css/jpreloader.css') }}" rel="stylesheet">
+    <link href="{{ asset('/css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('/css/mark.chart.css') }}" rel="stylesheet">
+    <!-- load fonts -->
+    <link href="{{ asset('/fonts/font-awesome/css/font-awesome.css') }}" type="text/css" rel="stylesheet">
     <link href="{{ asset('/fonts/elegant_font/HTML_CSS/style.css') }}" type="text/css" rel="stylesheet">
     <link href="{{ asset('/fonts/et-line-font/style.css') }}" type="text/css" rel="stylesheet">
-    <link href="{{ asset('/css/mark.chart.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css"/>
-    <title>@yield('title')</title>
-    <style>
 
-    </style>
 </head>
-<body id="body" >
 
-<div class="container">
+<body id="homepage">
 
-    <nav class="navbar">
-        <div class="nav_icon" onclick="toggleSidebar()">
-            <i class="fa fa-bars" aria-hidden="true"></i>
-        </div>
-        <div class="navbar__left">
-            <a href="{{ route('homepage') }}"><img src={{ asset('images/logo.png') }} alt="logo"></a>
-        </div>
-        <div class="navbar__right">
-            <a href="{{ route('market') }}">
-                <img width="30" src="{{ asset('images/market/avatar.svg') }}" alt="avata"/>
-                <!-- <i class="fa fa-user-circle-o" aria-hidden="true"></i> -->
-            </a>
-        </div>
-    </nav>
+<!-- header begin -->
+<header>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- logo begin -->
+                <h1 id="logo">
+                    <a href="{{ route('homepage') }}">
+                        <img class="logo" src={{ asset('images/logo.png') }} alt="">
+                    </a>
+                </h1>
+                <!-- logo close -->
 
-    <main>
-        <div class="main__container">
-            <!-- MAIN TITLE STARTS HERE -->
-            <div class="main__title">
-                <img src="{{ asset('images/market/hello.svg') }}" alt=""/>
-                <div class="main__greeting">
-                    <h1>@yield('title2')</h1>
-                    <p>@yield('title3')</p>
+                <!-- small button begin -->
+                <span id="menu-btn"></span>
+                <!-- small button close -->
+
+                <!-- mainmenu begin -->
+                <nav>
+                    <ul id="mainmenu">
+                        <li><a href="{{ route('aboutus') }}">Giới Thiệu</a></li>
+                        <li><a href="{{ route('pro') }}">Dự Án</a></li>
+                        <li><a href="{{ route('Service') }}">Dịch VỤ</a>
+                            <ul>
+                                <li><a href="#">Nhà Phố</a></li>
+                                <li><a href="#">Decor Căn Hộ</a></li>
+                                <li><a href="#">Nhà Tân Cổ</a></li>
+                                <li><a href="#">Biệt Thự</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="{{ route('news') }}">Tin Tức</a></li>
+                        <li><a href="{{ route('market') }}">Thị Trường</a></li>
+                        <li><a href="{{ route('login') }}">Admin</a></li>
+                    </ul>
+                </nav>
+
+            </div>
+            <!-- mainmenu close -->
+
+        </div>
+    </div>
+
+</header>
+<!-- header close -->
+<div class="blank" style="height: 80px"></div>
+
+<div>@yield('content')</div>
+
+
+<!-- content begin -->
+<div id="content" class="no-bottom no-top">
+
+    <!-- footer begin -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <img src={{ asset('images/logo.png') }} class="logo-small" alt=""><br>
+                    We are team based on Brookylin. Our expertise on Interior Design. Sed ut perspiciatis unde omnis
+                    iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
+                    quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+                </div>
+
+                <div class="col-md-4">
+                    <div class="widget widget_recent_post">
+                        <h3>Latest News</h3>
+                        <ul>
+                            <li><a href="#">5 Things That Take a Room from Good to Great</a></li>
+                            <li><a href="#">Functional and Stylish Wall-to-Wall Shelves</a></li>
+                            <li><a href="#">9 Unique and Unusual Ways to Display Your TV</a></li>
+                            <li><a href="#">The 5 Secrets to Pulling Off Simple, Minimal Design</a></li>
+                            <li><a href="#">How to Make a Huge Impact With Multiples</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <h3>Contact Us</h3>
+                    <div class="widget widget-address">
+                        <address>
+                            <span>100 Mainstreet Center, Sydney</span>
+                            <span><strong>Phone:</strong>(208) 333 9296</span>
+                            <span><strong>Fax:</strong>(208) 333 9298</span>
+                            <span><strong>Email:</strong><a href="mailto:contact@archi-interior.com">contact@archi-interior.com</a></span>
+                            <span><strong>Web:</strong><a href="#">http://archi-interior.com</a></span>
+                        </address>
+                    </div>
                 </div>
             </div>
-            <!-- MAIN TITLE End HERE -->
-            @yield('sub_infor')
-            @yield('chart_content')
         </div>
-    </main>
 
-{{--    <div id="sidebar">--}}
-{{--        <div class="sidebar__title">--}}
-{{--            <div class="sidebar__img">--}}
-{{--                <h1 style="color: white; letter-spacing: 5px; font-size: 25px">Happy House</h1>--}}
-{{--            </div>--}}
-{{--            <i--}}
-{{--                onclick="closeSidebar()"--}}
-{{--                class="fa fa-times"--}}
-{{--                id="sidebarIcon"--}}
-{{--                aria-hidden="true"--}}
-{{--            ></i>--}}
-{{--        </div>--}}
+        <div class="subfooter">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        &copy; Copyright 2015 - Archi by Designesia
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <div class="social-icons">
+                            <a href="#"><i class="fa fa-facebook fa-lg"></i></a>
+                            <a href="#"><i class="fa fa-twitter fa-lg"></i></a>
+                            <a href="#"><i class="fa fa-rss fa-lg"></i></a>
+                            <a href="#"><i class="fa fa-google-plus fa-lg"></i></a>
+                            <a href="#"><i class="fa fa-skype fa-lg"></i></a>
+                            <a href="#"><i class="fa fa-dribbble fa-lg"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-{{--        <div class="sidebar__menu">--}}
-{{--            <div class="sidebar__link">--}}
-{{--                <i class="fa fa-home"></i>--}}
-{{--                <a href="#">Thị Trường</a>--}}
-{{--            </div>--}}
-{{--            <div class="sidebar__link">--}}
-{{--                <i class="fa fa-search-minus" aria-hidden="true"></i>--}}
-{{--                <a href="#">Compare</a>--}}
-{{--            </div>--}}
-{{--            <div class="sidebar__link active_menu_link">--}}
-{{--                <i class="fa fa-user-secret" aria-hidden="true"></i>--}}
-{{--                <a href="#">Quận 1</a>--}}
-{{--            </div>--}}
-{{--            <div class="sidebar__link">--}}
-{{--                <i class="fa fa-user-secret" aria-hidden="true"></i>--}}
-{{--                <a href="#">Quận 2</a>--}}
-{{--            </div>--}}
-{{--            <div class="sidebar__link">--}}
-{{--                <i class="fa fa-user-secret" aria-hidden="true"></i>--}}
-{{--                <a href="#">Quận 3</a>--}}
-{{--            </div>--}}
-{{--            <div class="sidebar__link">--}}
-{{--                <i class="fa fa-user-secret" aria-hidden="true"></i>--}}
-{{--                <a href="#">Quận 4</a>--}}
-{{--            </div>--}}
-{{--            <div class="sidebar__link">--}}
-{{--                <i class="fa fa-user-secret" aria-hidden="true"></i>--}}
-{{--                <a href="#">Quận 5</a>--}}
-{{--            </div>--}}
-{{--            <div class="sidebar__link">--}}
-{{--                <i class="fa fa-user-secret" aria-hidden="true"></i>--}}
-{{--                <a href="#">Quận 6</a>--}}
-{{--            </div>--}}
-{{--            <div class="sidebar__link">--}}
-{{--                <i class="fa fa-user-secret" aria-hidden="true"></i>--}}
-{{--                <a href="#">Quận 7</a>--}}
-{{--            </div>--}}
-{{--            <div class="sidebar__link">--}}
-{{--                <i class="fa fa-user-secret" aria-hidden="true"></i>--}}
-{{--                <a href="#">Quận 8</a>--}}
-{{--            </div>--}}
-{{--            <div class="sidebar__link">--}}
-{{--                <i class="fa fa-user-secret" aria-hidden="true"></i>--}}
-{{--                <a href="#">Quận 10</a>--}}
-{{--            </div>--}}
-{{--            <div class="sidebar__link">--}}
-{{--                <i class="fa fa-user-secret" aria-hidden="true"></i>--}}
-{{--                <a href="#">Quận 12</a>--}}
-{{--            </div>--}}
-{{--            <div class="sidebar__link">--}}
-{{--                <i class="fa fa-user-secret" aria-hidden="true"></i>--}}
-{{--                <a href="#">Bình Tân</a>--}}
-{{--            </div>--}}
-{{--            <div class="sidebar__link">--}}
-{{--                <i class="fa fa-user-secret" aria-hidden="true"></i>--}}
-{{--                <a href="#">Bình Thạnh</a>--}}
-{{--            </div>--}}
-{{--            <div class="sidebar__link">--}}
-{{--                <i class="fa fa-user-secret" aria-hidden="true"></i>--}}
-{{--                <a href="#">Gò Vấp</a>--}}
-{{--            </div>--}}
-{{--            <div class="sidebar__link">--}}
-{{--                <i class="fa fa-user-secret" aria-hidden="true"></i>--}}
-{{--                <a href="#">Phú Nhuận</a>--}}
-{{--            </div>--}}
-{{--            <div class="sidebar__link">--}}
-{{--                <i class="fa fa-user-secret" aria-hidden="true"></i>--}}
-{{--                <a href="#">Tân Bình</a>--}}
-{{--            </div>--}}
-{{--            <div class="sidebar__link">--}}
-{{--                <i class="fa fa-user-secret" aria-hidden="true"></i>--}}
-{{--                <a href="#">Tân Phú</a>--}}
-{{--            </div>--}}
-{{--            <div class="sidebar__logout">--}}
-{{--                <i class="fa fa-power-off"></i>--}}
-{{--                <a href={{ route('homepage') }}>Go Homepage</a>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-    </div>
+    </footer>
+    <!-- footer close -->
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
-<script>
-    var sidebarOpen = false;
-    var sidebar = document.getElementById("sidebar");
-    var sidebarCloseIcon = document.getElementById("sidebarIcon");
+</div>
 
-    function toggleSidebar() {
-        if (!sidebarOpen) {
-            sidebar.classList.add("sidebar_responsive");
-            sidebarOpen = true;
-        }
-    }
+<!-- Javascript Files
+================================================== -->
+<script src="{{ asset('/js/jquery.min.js') }}"></script>
+<script src="{{ asset('/js/jpreLoader.js') }}"></script>
+<script src="{{ asset('/js/jquery.isotope.min.js') }}"></script>
+<script src="{{ asset('/js/owl.carousel.js') }}"></script>
+<script src="{{ asset('/js/validation.js') }}"></script>
+<script src="{{ asset('/js/wow.min.js') }}"></script>
+<script src="{{ asset('/js/jquery.magnific-popup.min.js') }}"></script>
+<script src="{{ asset('/js/enquire.min.js') }}"></script>
+<script src="{{ asset('/js/designesia.js') }}"></script>
 
-    function closeSidebar() {
-        if (sidebarOpen) {
-            sidebar.classList.remove("sidebar_responsive");
-            sidebarOpen = false;
-        }
-    }
-</script>
+<!-- SLIDER REVOLUTION SCRIPTS  -->
+<script type="text/javascript" src="{{ asset('/rs-plugin/js/jquery.themepunch.plugins.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('/rs-plugin/js/jquery.themepunch.revolution.min.js') }}"></script>
+
 </body>
 </html>

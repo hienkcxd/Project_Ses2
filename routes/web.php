@@ -29,6 +29,9 @@
 //    });
 
     Route::get('/', [homepageController::class, 'index'])->name('homepage');
+    Route::get('/test', function (){
+        return view('test');
+    });
 
     Route::prefix('AboutUs')->group(function () {
         Route::get('/', [AboutController::class, 'index'])->name('aboutus');

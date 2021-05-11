@@ -1,111 +1,128 @@
+<div class="container">
 
-<div class="main__cards">
-    <div class="card">
-        <i class="fa fa-user-o fa-2x text-lightblue" aria-hidden="true"> - Quận:</i>
-        <div class="card_inner">
-            <p class="text-primary-p">
-                <select name="districts" id="districts">
-                    @foreach ($disList as $item)
-                        <option value="{{ $item->DistrictID }}"> {{ $item->DistrictName }} </option>
-                    @endforeach
-                </select>
-            </p>
+    <div class="main__container">
+        <!-- MAIN TITLE STARTS HERE -->
+        <div class="main__title">
+            <img src="{{ asset('/images/market/hello.svg') }}" alt=""/>
+            <div class="main__greeting">
+                <h1>Hello Codersbite</h1>
+                <p>Welcome to your admin dashboard</p>
+            </div>
         </div>
+        <!-- MAIN TITLE ENDS HERE -->
+
+        <div class="main__cards">
+            <div class="card">
+                <i class="fa fa-user-o fa-2x text-lightblue" aria-hidden="true"> - Quận:</i>
+                <div class="card_inner">
+                    <p class="text-primary-p">
+                        <select name="districts" id="districts">
+                            @foreach ($disList as $item)
+                                <option value="{{ $item->DistrictID }}"> {{ $item->DistrictName }} </option>
+                            @endforeach
+                        </select>
+                    </p>
+                </div>
+            </div>
+
+            <div class="card">
+                <i class="fa fa-calendar fa-2x text-red" aria-hidden="true"> - Phường:</i>
+                <div class="card_inner">
+                    <p class="text-primary-p">
+                        <select name="wardList" id="wardList"></select>
+                    </p>
+                </div>
+            </div>
+
+            <div class="card">
+                <i class="fa fa-video-camera fa-2x text-yellow" aria-hidden="true"> - Năm:</i>
+                <div class="card_inner">
+                    <p class="text-primary-p">
+                        <select name="Year" id="Year">
+                            <option value="2020">2020</option>
+                            <option value="2021">2021</option>
+                        </select>
+                    </p>
+                </div>
+            </div>
+
+            <div class="card">
+                <i class="fa fa-thumbs-up fa-2x text-green" aria-hidden="true"> - So Sánh: </i>
+                <div class="card_inner">
+                    <p class="text-primary-p">
+                        <a href="{{ route('compare') }}">
+                            <button id="button">Access</button>
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="charts">
+            {{--    Chart 1: Giá trung bình quận--}}
+            <div class="charts__left">
+                <div class="charts__left__title">
+                    <div>
+                        <h1>GIÁ ĐẤT TRUNG BÌNH (Triệu/m<sup>2</sup>)</h1>
+                        <p style="margin-bottom: 10px" id="distName"></p>
+                    </div>
+                    <i class="fa fa-usd" aria-hidden="true"></i>
+                </div>
+                <div id="avgPrice" style="height: 300px"></div>
+            </div>
+
+            {{--    Chart 2: Giá Từng Phường--}}
+            <div class="charts__right">
+                <div class="charts__right__title">
+                    <div>
+                        <h1>GIÁ ĐẤT PHƯỜNG(Triệu/m<sup>2</sup>)</h1>
+                        <p style="margin-bottom: 10px" id="wardName"></p>
+                    </div>
+                    <i class="fa fa-usd" aria-hidden="true"></i>
+                </div>
+
+                <div id="wardPrice" style="height: 300px"></div>
+            </div>
+
+            {{--    Chart 3: So sánh giá trung bình quận và giá từng phường--}}
+            <div class="charts__left">
+                <div class="charts__left__title">
+                    <div>
+                        <h1>SO SÁNH GIÁ ĐẤT(Triệu/m<sup>2</sup>)</h1>
+                        <p style="margin-bottom: 10px" id="titleChartCompare"></p>
+                    </div>
+                    <i class="fa fa-usd" aria-hidden="true"></i>
+                </div>
+                <div id="compareChart" style="height: 300px"></div>
+            </div>
+
+            {{--  Chart 4: So sánh giá đất các phường--}}
+            <div class="charts__right">
+                <div class="charts__right__title">
+                    <div>
+                        <h1>THỐNG KÊ PHƯỜNG(Triệu/m<sup>2</sup>)</h1>
+                        <p style="margin-bottom: 10px" id="titleWardList"></p>
+                    </div>
+                    <i class="fa fa-usd" aria-hidden="true"></i>
+                </div>
+
+                <div id="wardCompareChart" style="height: 300px"></div>
+            </div>
+
+
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.1.0/echarts.min.js"></script>
+            <!-- Charting library -->
+            <script src="https://unpkg.com/chart.js@2.9.3/dist/Chart.min.js"></script>
+            <!-- Chartisan -->
+            <script src="https://unpkg.com/@chartisan/chartjs@^2.1.0/dist/chartisan_chartjs.umd.js"></script>
+        </div>
+
     </div>
 
-    <div class="card">
-        <i class="fa fa-calendar fa-2x text-red" aria-hidden="true"> - Phường:</i>
-        <div class="card_inner">
-            <p class="text-primary-p">
-                <select name="wardList" id="wardList"></select>
-            </p>
-        </div>
-    </div>
-
-    <div class="card">
-        <i class="fa fa-video-camera fa-2x text-yellow" aria-hidden="true"> - Năm:</i>
-        <div class="card_inner">
-            <p class="text-primary-p">
-                <select name="Year" id="Year">
-                    <option value="2020">2020</option>
-                    <option value="2021">2021</option>
-                </select>
-            </p>
-        </div>
-    </div>
-
-    <div class="card">
-        <i class="fa fa-thumbs-up fa-2x text-green" aria-hidden="true"> - So Sánh: </i>
-        <div class="card_inner">
-            <p class="text-primary-p">
-                <a href="{{ route('compare') }}"><button id="button">Access</button></a>
-            </p>
-        </div>
-    </div>
 </div>
-
-<div class="charts">
-    {{--    Chart 1: Giá trung bình quận--}}
-    <div class="charts__left">
-        <div class="charts__left__title">
-            <div>
-                <h1>GIÁ ĐẤT TRUNG BÌNH (Triệu/m<sup>2</sup>)</h1>
-                <p style="margin-bottom: 10px" id="distName"></p>
-            </div>
-            <i class="fa fa-usd" aria-hidden="true"></i>
-        </div>
-        <div id="avgPrice" style="height: 300px"></div>
-    </div>
-
-    {{--    Chart 2: Giá Từng Phường--}}
-    <div class="charts__right">
-        <div class="charts__right__title">
-            <div>
-                <h1>GIÁ ĐẤT PHƯỜNG(Triệu/m<sup>2</sup>)</h1>
-                <p style="margin-bottom: 10px" id="wardName"></p>
-            </div>
-            <i class="fa fa-usd" aria-hidden="true"></i>
-        </div>
-
-        <div id="wardPrice" style="height: 300px"></div>
-    </div>
-
-    {{--    Chart 3: So sánh giá trung bình quận và giá từng phường--}}
-    <div class="charts__left">
-        <div class="charts__left__title">
-            <div>
-                <h1>SO SÁNH GIÁ ĐẤT(Triệu/m<sup>2</sup>)</h1>
-                <p style="margin-bottom: 10px" id="titleChartCompare"></p>
-            </div>
-            <i class="fa fa-usd" aria-hidden="true"></i>
-        </div>
-        <div id="compareChart" style="height: 300px"></div>
-    </div>
-
-    {{--  Chart 4: So sánh giá đất các phường--}}
-    <div class="charts__right">
-        <div class="charts__right__title">
-            <div>
-                <h1>THỐNG KÊ PHƯỜNG(Triệu/m<sup>2</sup>)</h1>
-                <p style="margin-bottom: 10px" id="titleWardList"></p>
-            </div>
-            <i class="fa fa-usd" aria-hidden="true"></i>
-        </div>
-
-        <div id="wardCompareChart" style="height: 300px"></div>
-    </div>
-
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.1.0/echarts.min.js"></script>
-    <!-- Charting library -->
-    <script src="https://unpkg.com/chart.js@2.9.3/dist/Chart.min.js"></script>
-    <!-- Chartisan -->
-    <script src="https://unpkg.com/@chartisan/chartjs@^2.1.0/dist/chartisan_chartjs.umd.js"></script>
-</div>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 {{--<script src="{{ asset('/js/chart.js') }}"></script>--}}
-<script >
+<script>
 
     $(function () {
         //load danh sach quan huyen cua thanh pho dau tien (sau khi load xong webpage)
@@ -403,53 +420,53 @@
                             'rgba(244,81,30 ,1)',
                         ],
                     },
-                    {
-                        type: 'line',
-                        fill: false,
-                        borderColor: '#4A148C',
-                        backgroundColor: '#81D4FA',
-                        borderWidth: 1,
-                        tension: 0,
-                        //point trên đường chart
-                        pointBorderColor: [
-                            'rgba(255, 99, 132, 0.7)',
-                            'rgba(255, 159, 64, 0.7)',
-                            'rgba(255, 205, 86, 0.7)',
-                            'rgba(75, 192, 192, 0.7)',
-                            'rgba(54, 162, 235, 0.7)',
-                            'rgba(153, 102, 255, 0.7)',
-                            'rgba(230,74,25 ,0.7)',
-                            'rgba(85,139,47 ,0.7)',
-                            'rgba(0,151,167 ,0.7)',
-                            'rgba(26,35,126 ,0.7)',
-                            'rgba(255,61,0 ,0.7)',
-                            'rgba(61,90,254 ,0.7)',
-                            'rgba(245,0,87 ,0.7)',
-                            'rgba(244,81,30 ,0.7)',
-                        ],
-                        pointBackgroundColor: 'white',
-                        pointBorderWidth: 1,
-                        pointRadius: 3.5,
-                        //hover
-                        pointHoverRadius: 4,
-                        pointHoverBorderWidth: 2,
-                        pointHoverBackgroundColor: [
-                            'rgba(255, 99, 132, 1)',
-                            'rgba(255, 159, 64, 1)',
-                            'rgba(255, 205, 86, 1)',
-                            'rgba(75, 192, 192, 1)',
-                            'rgba(54, 162, 235, 1)',
-                            'rgba(153, 102, 255, 1)',
-                            'rgba(230,74,25 ,1)',
-                            'rgba(85,139,47 ,1)',
-                            'rgba(0,151,167 ,1)',
-                            'rgba(26,35,126 ,1)',
-                            'rgba(255,61,0 ,1)',
-                            'rgba(61,90,254 ,1)',
-                            'rgba(245,0,87 ,1)',
-                            'rgba(244,81,30 ,1)',
-                        ],
-                    }]),
+                        {
+                            type: 'line',
+                            fill: false,
+                            borderColor: '#4A148C',
+                            backgroundColor: '#81D4FA',
+                            borderWidth: 1,
+                            tension: 0,
+                            //point trên đường chart
+                            pointBorderColor: [
+                                'rgba(255, 99, 132, 0.7)',
+                                'rgba(255, 159, 64, 0.7)',
+                                'rgba(255, 205, 86, 0.7)',
+                                'rgba(75, 192, 192, 0.7)',
+                                'rgba(54, 162, 235, 0.7)',
+                                'rgba(153, 102, 255, 0.7)',
+                                'rgba(230,74,25 ,0.7)',
+                                'rgba(85,139,47 ,0.7)',
+                                'rgba(0,151,167 ,0.7)',
+                                'rgba(26,35,126 ,0.7)',
+                                'rgba(255,61,0 ,0.7)',
+                                'rgba(61,90,254 ,0.7)',
+                                'rgba(245,0,87 ,0.7)',
+                                'rgba(244,81,30 ,0.7)',
+                            ],
+                            pointBackgroundColor: 'white',
+                            pointBorderWidth: 1,
+                            pointRadius: 3.5,
+                            //hover
+                            pointHoverRadius: 4,
+                            pointHoverBorderWidth: 2,
+                            pointHoverBackgroundColor: [
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(255, 159, 64, 1)',
+                                'rgba(255, 205, 86, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(230,74,25 ,1)',
+                                'rgba(85,139,47 ,1)',
+                                'rgba(0,151,167 ,1)',
+                                'rgba(26,35,126 ,1)',
+                                'rgba(255,61,0 ,1)',
+                                'rgba(61,90,254 ,1)',
+                                'rgba(245,0,87 ,1)',
+                                'rgba(244,81,30 ,1)',
+                            ],
+                        }]),
             });
         }
 
@@ -498,7 +515,7 @@
                             'rgba(245,0,87 ,0.3)',
                             'rgba(244,81,30 ,0.3)',
                         ],
-                        hoverBackgroundColor:[
+                        hoverBackgroundColor: [
                             'rgba(255, 99, 132, 0.7)',
                             'rgba(255, 159, 64, 0.7)',
                             'rgba(255, 205, 86, 0.7)',
