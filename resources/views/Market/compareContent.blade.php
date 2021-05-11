@@ -5,8 +5,8 @@
         <div class="main__title">
             <img src="{{ asset('/images/market/hello.svg') }}" alt=""/>
             <div class="main__greeting">
-                <h1>Hello Codersbite</h1>
-                <p>Welcome to your admin dashboard</p>
+                <h1 STYLE="font-weight: bold">SO SÁNH!!!</h1>
+                <p>THỊ TRƯỜNG ĐẤT ĐAI TP.HCM</p>
             </div>
         </div>
         <!-- MAIN TITLE ENDS HERE -->
@@ -47,11 +47,11 @@
             </div>
 
             <div class="card">
-                <i class="fa fa-search fa-2x text-green" aria-hidden="true"> - So Sánh: </i>
+                <i class="fa fa-search fa-2x text-green" aria-hidden="true"> - Thị Trường: </i>
                 <div class="card_inner">
                     <p class="text-primary-p">
-                        <a href="{{ route('compare') }}">
-                            <button id="button">Access</button>
+                        <a href="{{ route('market') }}">
+                            <button id="button">Go Back</button>
                         </a>
                     </p>
                 </div>

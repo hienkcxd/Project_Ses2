@@ -5,8 +5,8 @@
         <div class="main__title">
             <img src="{{ asset('/images/market/hello.svg') }}" alt=""/>
             <div class="main__greeting">
-                <h1>Hello Codersbite</h1>
-                <p>Welcome to your admin dashboard</p>
+                <h1 style="font-weight: bold">Wellcome!!!</h1>
+                <p>THỊ TRƯỜNG ĐẤT ĐAI TP.HCM</p>
             </div>
         </div>
         <!-- MAIN TITLE ENDS HERE -->

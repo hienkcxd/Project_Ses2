@@ -20,13 +20,14 @@
     <link href="{{ asset('/fonts/elegant_font/HTML_CSS/style.css') }}" type="text/css" rel="stylesheet">
     <link href="{{ asset('/fonts/et-line-font/style.css') }}" type="text/css" rel="stylesheet">
 
+
 </head>
 
 <body id="homepage">
 
 <!-- header begin -->
 <header>
-    <div class="container">
+    <div class="container" style="width: 90%">
         <div class="row">
             <div class="col-md-12">
                 <!-- logo begin -->
