@@ -15,12 +15,15 @@
     <link href="{{ asset('/css/jpreloader.css') }}" rel="stylesheet">
     <link href="{{ asset('/css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('/css/mark.chart.css') }}" rel="stylesheet">
+
     <!-- load fonts -->
     <link href="{{ asset('/fonts/font-awesome/css/font-awesome.css') }}" type="text/css" rel="stylesheet">
     <link href="{{ asset('/fonts/elegant_font/HTML_CSS/style.css') }}" type="text/css" rel="stylesheet">
     <link href="{{ asset('/fonts/et-line-font/style.css') }}" type="text/css" rel="stylesheet">
-    <!-- color scheme -->
-    <link href="{{ asset('/css/color.css') }}" type="text/css" id="colors" rel="stylesheet">
+
+    <!-- revolution slider -->
+    <link href="{{ asset('/rs-plugin/css/settings.css') }}" type="text/css" rel="stylesheet">
+    <link href="{{ asset('/css/rev-settings.css') }}" type="text/css" rel="stylesheet">
 
 </head>
 
@@ -80,7 +83,7 @@
 
     <!-- footer begin -->
     <footer>
-        <div class="container">
+        <div class="container" style="width: 90%">
             <div class="row">
                 <div class="col-md-4">
                     <img src={{ asset('images/logo.png') }} class="logo-small" alt=""><br>
@@ -107,10 +110,10 @@
                     <div class="widget widget-address">
                         <address>
                             <span>100 Mainstreet Center, Sydney</span>
-                            <span><strong>Phone:</strong>(208) 333 9296</span>
-                            <span><strong>Fax:</strong>(208) 333 9298</span>
-                            <span><strong>Email:</strong><a href="mailto:contact@archi-interior.com">contact@archi-interior.com</a></span>
-                            <span><strong>Web:</strong><a href="#">http://archi-interior.com</a></span>
+                            <span><strong style="color: #FAB702">Phone:</strong>(208) 333 9296</span>
+                            <span><strong style="color: #FAB702">Fax:</strong>(208) 333 9298</span>
+                            <span><strong style="color: #FAB702">Email:</strong><a href="mailto:contact@archi-interior.com">contact@archi-interior.com</a></span>
+                            <span><strong style="color: #FAB702">Web:</strong><a href="#">http://archi-interior.com</a></span>
                         </address>
                     </div>
                 </div>
