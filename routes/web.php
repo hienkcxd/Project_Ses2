@@ -1,6 +1,8 @@
 <?php
 
-    use App\Http\Controllers\admin\login\LoginController;
+    use App\Http\Controllers\admin\EmployeeController;
+    use App\Http\Controllers\admin\loginController;
+    use App\Http\Controllers\admin\owensController;
     use App\Http\Controllers\user\about\AboutController;
     use App\Http\Controllers\user\homepage\homepageController;
     use App\Http\Controllers\user\news\NewsController;
@@ -76,8 +78,10 @@
     });
 
     //Route for admin
-    Route::prefix('Login')->group(function () {
-        Route::get('/', [LoginController::class, 'index'])->name('login');
+    Route::prefix('Admin')->group(function () {
+        Route::get('/', [loginController::class, 'index'])->name('login');
+        Route::get('/owens', [owensController::class, 'index']);
+        Route::get('/employee', [EmployeeController::class, 'index']);
     });
 
 
