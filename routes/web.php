@@ -53,10 +53,10 @@
         Route::get('/{ProDetailID}', [ProjectsController::class, 'projectDetail'])->name('project_detail');
     });
 
-    //Route for market
+    //Route for market compare
     Route::prefix('Market')->group(function () {
     //Route for compare market page
-        Route::get('/Compare', function () {
+        Route::get('/Compare', function (){
             $disList = DistrictList::all();
             return view('Market.compare')->with(compact('disList'));
         })->name('compare');
@@ -64,6 +64,7 @@
             $wards = DistrictList::find($name)->wards;
             return json_encode($wards);
         });
+
         //Route for index market page
         Route::get('/', function () {
             $disList = DistrictList::all();

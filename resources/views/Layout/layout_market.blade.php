@@ -120,8 +120,8 @@
             </div>
         </div>
 
-        <div class="subfooter">
-            <div class="container">
+        <div class="subfooter" >
+            <div class="container" style="width: 90%">
                 <div class="row">
                     <div class="col-md-6">
                         &copy; Copyright 2015 - Archi by Designesia
