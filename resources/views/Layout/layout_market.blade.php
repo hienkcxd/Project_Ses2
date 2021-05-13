@@ -15,7 +15,7 @@
     <link href="{{ asset('/css/jpreloader.css') }}" rel="stylesheet">
     <link href="{{ asset('/css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('/css/mark.chart.css') }}" rel="stylesheet">
-
+    <link href="{{ asset('/css/font-style-2.css') }}" rel="stylesheet">
     <!-- load fonts -->
     <link href="{{ asset('/fonts/font-awesome/css/font-awesome.css') }}" type="text/css" rel="stylesheet">
     <link href="{{ asset('/fonts/elegant_font/HTML_CSS/style.css') }}" type="text/css" rel="stylesheet">
