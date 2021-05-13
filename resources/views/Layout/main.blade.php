@@ -7,7 +7,7 @@
     <meta name="description" content="Responsive Minimal Bootstrap Theme">
     <meta name="keywords" content="onepage,responsive,minimal,bootstrap,theme">
     <meta name="author" content="">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <!--[if lt IE 9]>
@@ -95,12 +95,12 @@
     <!-- header close -->
 
     <!-- sub header begin -->
-    @yield('sub-header')
-    <!-- sub header close -->
+@yield('sub-header')
+<!-- sub header close -->
 
     <!-- content begin -->
     <div>
-    @yield('markContent')
+        @yield('markContent')
     </div>
     <div id="content" class="no-bottom no-top">
         @yield('content')
@@ -111,20 +111,19 @@
             <div class="row">
                 <div class="col-md-4">
                     <img src={{ asset('images/logo.png') }} class="logo-small" alt=""><br>
-                    We are team based on Brookylin. Our expertise on Interior Design. Sed ut perspiciatis unde omnis
-                    iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-                    quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+                    Chúng tôi là công ty TƯ VẤN - THIẾT KẾ - XÂY DỰNG HAPPY HOUSE, với đội ngũ nhân viên tận tâm và
+                    nhiều kinh nghiệm, chúng tôi sẽ mang đến cho bạn trải nghiệm tuyệt vời nhất, những sản phẩm chất
+                    lượng nhất.
                 </div>
 
                 <div class="col-md-4">
                     <div class="widget widget_recent_post">
-                        <h3>Latest News</h3>
+                        <h3>Latest Project</h3>
                         <ul>
-                            <li><a href="#">5 Things That Take a Room from Good to Great</a></li>
-                            <li><a href="#">Functional and Stylish Wall-to-Wall Shelves</a></li>
-                            <li><a href="#">9 Unique and Unusual Ways to Display Your TV</a></li>
-                            <li><a href="#">The 5 Secrets to Pulling Off Simple, Minimal Design</a></li>
-                            <li><a href="#">How to Make a Huge Impact With Multiples</a></li>
+                            <?php $name = \Illuminate\Support\Facades\DB::table('project_lists')->get()?>
+                            @for ($i = 0; $i < 4; $i++)
+                            <li><a class="simple-ajax-popup-align-top" href="{{ route('project_detail', ['ProDetailID' => $name[$i]->ProjectID ]) }}">{{ $name[$i]->ProjectName }}</a></li>
+                            @endfor
                         </ul>
                     </div>
                 </div>
@@ -133,11 +132,10 @@
                     <h3>Contact Us</h3>
                     <div class="widget widget-address">
                         <address>
-                            <span>100 Mainstreet Center, Sydney</span>
-                            <span><strong>Phone:</strong>(208) 333 9296</span>
-                            <span><strong>Fax:</strong>(208) 333 9298</span>
-                            <span><strong>Email:</strong><a href="mailto:contact@archi-interior.com">contact@archi-interior.com</a></span>
-                            <span><strong>Web:</strong><a href="#">http://archi-interior.com</a></span>
+                            <span>590 CÁCH MẠNG THÁNG 8, QUẬN 3</span>
+                            <span><strong>Phone:</strong>0981815414</span>
+                            <span><strong>Email:</strong><a href="mailto:hien03kc@gmail.com">hien03kc@gmail.com</a></span>
+                            <span><strong>Web:</strong><a href="{{ route('homepage') }}">http://Happy_House.com</a></span>
                         </address>
                     </div>
                 </div>
@@ -148,16 +146,13 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
-                        &copy; Copyright 2015 - Archi by Designesia
+                        &copy; Contruction Company 2010 - Happy House
                     </div>
                     <div class="col-md-6 text-right">
                         <div class="social-icons">
                             <a href="#"><i class="fa fa-facebook fa-lg"></i></a>
-                            <a href="#"><i class="fa fa-twitter fa-lg"></i></a>
-                            <a href="#"><i class="fa fa-rss fa-lg"></i></a>
-                            <a href="#"><i class="fa fa-google-plus fa-lg"></i></a>
-                            <a href="#"><i class="fa fa-skype fa-lg"></i></a>
-                            <a href="#"><i class="fa fa-dribbble fa-lg"></i></a>
+                            <a href="#"><i class="fa fa-zalo fa-lg"></i></a>
+                            <a href="mailto:hien03kc@gmail.com"><i class="fa fa-google-plus fa-lg"></i></a>
                         </div>
                     </div>
                 </div>

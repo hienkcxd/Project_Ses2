@@ -24,4 +24,5 @@ class homepageController extends Controller
             ->get()->where('ProDetailID', '=', $id);
         return view('Project.ProjectDetail')->with(compact('detail'));
     }
+
 }

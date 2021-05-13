@@ -8,8 +8,8 @@
     use App\Http\Controllers\user\news\NewsController;
     use App\Http\Controllers\user\project\ProjectsController;
     use App\Http\Controllers\user\service\ServiceController;
-    use App\Models\City;
     use App\Models\Market\DistrictList;
+    use Illuminate\Support\Facades\DB;
     use Illuminate\Support\Facades\Route;
 
     /*
@@ -29,6 +29,10 @@
 //    });
 
     Route::get('/', [homepageController::class, 'index'])->name('homepage');
+//    Route::get('/', function (){
+//       $gallery = DB::table('project_lists')->get();
+//       return view('Layout.main')->with(compact($gallery));
+//    });
     Route::get('/test', function () {
         return view('test');
     });
