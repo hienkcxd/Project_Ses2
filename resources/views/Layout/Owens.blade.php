@@ -29,7 +29,7 @@
                 <i class="fa fa-bars"></i>
             </button>
             <a class="navbar-brand" href="./"><img src="" alt="Logo"></a>
-            <a class="navbar-brand hidden" href="./"><img src="" alt="Logo"></a>
+            <a class="navbar-brand hidden" href="./"><img src="" alt="">Hall</a>
         </div>
 
         <div id="main-menu" class="main-menu collapse navbar-collapse">
@@ -262,7 +262,7 @@
     <script src="{{ asset('/js/admin_js/jquery/dist/jquery.min.js') }} "></script>
     <script src="{{ asset('/js/admin_js/popper.js/dist/umd/popper.min.js') }}"></script>
     <script src="{{ asset('/js/admin_js/bootstrap/dist/js/bootstrap.min.js') }}"></script>
-
+    <script src="{{ asset('/js/admin_js/main.js') }}"></script>
     <script>
         (function ($) {
             "use strict";
