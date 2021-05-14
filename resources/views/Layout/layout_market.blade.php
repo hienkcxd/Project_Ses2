@@ -129,7 +129,7 @@
                     <div class="col-md-6 text-right">
                         <div class="social-icons">
                             <a href="#"><i class="fa fa-facebook fa-lg"></i></a>
-                            <a href="#"><i class="fa fa-zalo fa-lg"></i></a>
+                            <a href="#"><i class="fa fa-phone fa-lg"></i></a>
                             <a href="mailto:hien03kc@gmail.com"><i class="fa fa-google-plus fa-lg"></i></a>
                         </div>
                     </div>
