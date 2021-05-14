@@ -110,7 +110,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
-                    <img src={{ asset('images/logo.png') }} class="logo-small" alt=""><br>
+                    <img src= {{ asset('images/logo.png') }} class="logo-small" alt=""><br>
                     Chúng tôi là công ty TƯ VẤN - THIẾT KẾ - XÂY DỰNG HAPPY HOUSE, với đội ngũ nhân viên tận tâm và
                     nhiều kinh nghiệm, chúng tôi sẽ mang đến cho bạn trải nghiệm tuyệt vời nhất, những sản phẩm chất
                     lượng nhất.

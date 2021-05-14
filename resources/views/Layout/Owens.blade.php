@@ -28,98 +28,66 @@
                     aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fa fa-bars"></i>
             </button>
-            <a class="navbar-brand" href="./"><img src="" alt="Logo"></a>
-            <a class="navbar-brand hidden" href="./"><img src="" alt="">Hall</a>
+            <a class="navbar-brand" href="{{ route('homepage') }}"><img src="{{ asset('images/logo.png') }}" alt="Logo"></a>
+            <a class="navbar-brand hidden" href="./"><img src="" alt="">H</a>
         </div>
 
         <div id="main-menu" class="main-menu collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li class="active">
-                    <a href=""> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
-                </li>
-                <h3 class="menu-title">UI elements</h3>
-                <li class="menu-item-has-children dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                       aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Components</a>
-                    <ul class="sub-menu children dropdown-menu">
-                        <li><i class="fa fa-puzzle-piece"></i><a href="">Buttons</a></li>
-                        <li><i class="fa fa-id-badge"></i><a href="">Badges</a></li>
-                        <li><i class="fa fa-bars"></i><a href="">Tabs</a></li>
-                        <li><i class="fa fa-share-square-o"></i><a href="">Social Buttons</a>
-                        </li>
-                        <li><i class="fa fa-id-card-o"></i><a href="">Cards</a></li>
-                        <li><i class="fa fa-exclamation-triangle"></i><a href="">Alerts</a></li>
-                        <li><i class="fa fa-spinner"></i><a href="">Progress Bars</a></li>
-                        <li><i class="fa fa-fire"></i><a href="">Modals</a></li>
-                        <li><i class="fa fa-book"></i><a href="">Switches</a></li>
-                        <li><i class="fa fa-th"></i><a href="">Grids</a></li>
-                        <li><i class="fa fa-file-word-o"></i><a href="">Typography</a></li>
-                    </ul>
-                </li>
-                <li class="menu-item-has-children dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                       aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Tables</a>
-                    <ul class="sub-menu children dropdown-menu">
-                        <li><i class="fa fa-table"></i><a href="">Basic Table</a></li>
-                        <li><i class="fa fa-table"></i><a href="">Data Table</a></li>
-                    </ul>
-                </li>
-                <li class="menu-item-has-children dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                       aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Forms</a>
-                    <ul class="sub-menu children dropdown-menu">
-                        <li><i class="menu-icon fa fa-th"></i><a href="">Basic Form</a></li>
-                        <li><i class="menu-icon fa fa-th"></i><a href="">Advanced Form</a></li>
-                    </ul>
+                    <a href=""> <i class="menu-icon fa fa-dashboard"></i>Quản Lý</a>
                 </li>
 
-                <h3 class="menu-title">Icons</h3>
+                {{--                Bắt đầu phần dự án--}}
+                <h3 class="menu-title" style="color: #FAB702">Dự Án</h3>
+                <li class="menu-item-has-children dropdown">
+                    <a href="#"> <i class="menu-icon fa fa-product-hunt" style="color: #FAB702"></i>Danh Sách Dự Án</a>
+                </li>
+                {{--                Kết thúc phần dự án--}}
 
+                {{--                Bắt đầu phần Tin Tức--}}
+                <h3 class="menu-title" style="color: #FAB702">Tin Tức</h3>
                 <li class="menu-item-has-children dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                       aria-expanded="false"> <i class="menu-icon fa fa-tasks"></i>Icons</a>
-                    <ul class="sub-menu children dropdown-menu">
-                        <li><i class="menu-icon fa fa-fort-awesome"></i><a href="">Font
-                                Awesome</a></li>
-                        <li><i class="menu-icon ti-themify-logo"></i><a href="">Themefy Icons</a>
-                        </li>
-                    </ul>
+                    <a href="#"> <i class="menu-icon fa fa-newspaper-o" style="color: #FAB702"></i>Danh Sách Tin Tức</a>
                 </li>
-                <li>
-                    <a href=""> <i class="menu-icon ti-email"></i>Widgets </a>
-                </li>
-                <li class="menu-item-has-children dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                       aria-expanded="false"> <i class="menu-icon fa fa-bar-chart"></i>Charts</a>
-                    <ul class="sub-menu children dropdown-menu">
-                        <li><i class="menu-icon fa fa-line-chart"></i><a href="">Chart JS</a>
-                        </li>
-                        <li><i class="menu-icon fa fa-area-chart"></i><a href="">Flot Chart</a></li>
-                        <li><i class="menu-icon fa fa-pie-chart"></i><a href="">Peity Chart</a>
-                        </li>
-                    </ul>
-                </li>
+                {{--                Kết thúc phần Tin Tức--}}
 
+                {{--                Bắt đầu phần Khách Hàng--}}
+                <h3 class="menu-title" style="color: #FAB702">Khách Hàng</h3>
                 <li class="menu-item-has-children dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                       aria-expanded="false"> <i class="menu-icon fa fa-area-chart"></i>Maps</a>
-                    <ul class="sub-menu children dropdown-menu">
-                        <li><i class="menu-icon fa fa-map-o"></i><a href="">Google Maps</a></li>
-                        <li><i class="menu-icon fa fa-street-view"></i><a href="">Vector Maps</a>
-                        </li>
-                    </ul>
+                    <a href="#"> <i class="menu-icon fa fa-users" style="color: #FAB702"></i>Danh Sách Khách Hàng</a>
                 </li>
-                <h3 class="menu-title">Extras</h3>
                 <li class="menu-item-has-children dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                       aria-expanded="false"> <i class="menu-icon fa fa-glass"></i>Pages</a>
-                    <ul class="sub-menu children dropdown-menu">
-                        <li><i class="menu-icon fa fa-sign-in"></i><a href="">Login</a></li>
-                        <li><i class="menu-icon fa fa-sign-in"></i><a href="">Register</a></li>
-                        <li><i class="menu-icon fa fa-paper-plane"></i><a href="">Forget Pass</a>
-                        </li>
-                    </ul>
+                    <a href="#"> <i class="menu-icon fa fa-exclamation-triangle" style="color: #FAB702"></i>Black List</a>
                 </li>
+                {{--                Kết thúc phần Khách Hàng--}}
+
+                {{--                Bắt đầu phần Công Việc--}}
+                <h3 class="menu-title" style="color: #FAB702">Công Việc</h3>
+                <li class="menu-item-has-children dropdown">
+                    <a href="#"> <i class="menu-icon fa fa-clipboard" style="color: #FAB702"></i>Danh Sách Công Việc</a>
+                </li>
+                <li class="menu-item-has-children dropdown">
+                    <a href="#"> <i class="menu-icon fa fa-bar-chart" style="color: #FAB702"></i>Tiến Độ Công Việc</a>
+                </li>
+                {{--                Kết thúc phần công việc--}}
+
+                {{--                Bắt đầu phần Thị Trường--}}
+                <h3 class="menu-title" style="color: #FAB702">Thị Trường</h3>
+                <li class="menu-item-has-children dropdown">
+                    <a href="#"> <i class="menu-icon fa fa-line-chart" style="color: #FAB702"></i>Số Liệu Thị Trường</a>
+                </li>
+                {{--                Kết thúc phần công việc--}}
+
+                {{--                Bắt đầu phần Nhân Viên--}}
+                <h3 class="menu-title" style="color: #FAB702">Nhân Viên</h3>
+                <li class="menu-item-has-children dropdown">
+                    <a href="#"> <i class="menu-icon fa fa-address-card" style="color: #FAB702"></i>Danh Sách Nhân Viên</a>
+                </li>
+                <li class="menu-item-has-children dropdown">
+                    <a href="#"> <i class="menu-icon fa fa-user-secret" style="color: #FAB702"></i>Tài Khoản Nhân Viên</a>
+                </li>
+                {{--                Kết thúc phần công việc--}}
             </ul>
         </div>
     </nav>
@@ -137,7 +105,9 @@
             <div class="col-sm-7">
                 <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-tasks"></i></a>
                 <div class="header-left">
-                    <button class="search-trigger"><i class="fa fa-search"></i></button>
+
+                    {{--                    Search Icon--}}
+                    <button class="search-trigger" ><i class="fa fa-search-plus"></i></button>
                     <div class="form-inline">
                         <form class="search-form">
                             <input class="form-control mr-sm-2" type="text" placeholder="Search ..."
@@ -146,37 +116,34 @@
                         </form>
                     </div>
 
+                    {{-- Bell icon--}}
                     <div class="dropdown for-notification">
                         <button class="btn btn-secondary dropdown-toggle" type="button" id="notification"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fa fa-bell"></i>
-                            <span class="count bg-danger">5</span>
+                            <span class="count bg-danger">1</span>
                         </button>
                         <div class="dropdown-menu" aria-labelledby="notification">
                             <p class="red">You have 3 Notification</p>
+
                             <a class="dropdown-item media bg-flat-color-1" href="#">
                                 <i class="fa fa-check"></i>
                                 <p>Server #1 overloaded.</p>
                             </a>
-                            <a class="dropdown-item media bg-flat-color-4" href="#">
-                                <i class="fa fa-info"></i>
-                                <p>Server #2 overloaded.</p>
-                            </a>
-                            <a class="dropdown-item media bg-flat-color-5" href="#">
-                                <i class="fa fa-warning"></i>
-                                <p>Server #3 overloaded.</p>
-                            </a>
+
                         </div>
                     </div>
 
+                    {{-- Messeage icon --}}
                     <div class="dropdown for-message">
                         <button class="btn btn-secondary dropdown-toggle" type="button" id="message"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="ti-email"></i>
-                            <span class="count bg-primary">9</span>
+                            <span class="count bg-primary">1</span>
                         </button>
                         <div class="dropdown-menu" aria-labelledby="message">
                             <p class="red">You have 4 Mails</p>
+
                             <a class="dropdown-item media bg-flat-color-1" href="#">
                                 <span class="photo media-left"><img alt="avatar" src=""></span>
                                 <span class="message media-body">
@@ -185,30 +152,7 @@
                                         <p>Hello, this is an example msg</p>
                                     </span>
                             </a>
-                            <a class="dropdown-item media bg-flat-color-4" href="#">
-                                <span class="photo media-left"><img alt="avatar" src=""></span>
-                                <span class="message media-body">
-                                        <span class="name float-left">Jack Sanders</span>
-                                        <span class="time float-right">5 minutes ago</span>
-                                        <p>Lorem ipsum dolor sit amet, consectetur</p>
-                                    </span>
-                            </a>
-                            <a class="dropdown-item media bg-flat-color-5" href="#">
-                                <span class="photo media-left"><img alt="avatar" src=""></span>
-                                <span class="message media-body">
-                                        <span class="name float-left">Cheryl Wheeler</span>
-                                        <span class="time float-right">10 minutes ago</span>
-                                        <p>Hello, this is an example msg</p>
-                                    </span>
-                            </a>
-                            <a class="dropdown-item media bg-flat-color-3" href="#">
-                                <span class="photo media-left"><img alt="avatar" src=""></span>
-                                <span class="message media-body">
-                                        <span class="name float-left">Rachel Santos</span>
-                                        <span class="time float-right">15 minutes ago</span>
-                                        <p>Lorem ipsum dolor sit amet, consectetur</p>
-                                    </span>
-                            </a>
+
                         </div>
                     </div>
                 </div>
@@ -218,69 +162,48 @@
                 <div class="user-area dropdown float-right">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                        aria-expanded="false">
-                        <img class="user-avatar rounded-circle" src="" alt="">
+                        <img class="user-avatar rounded-circle" src="{{ asset('/css/admin_css/images/admin.jpg') }}" alt="a">
                     </a>
 
                     <div class="user-menu dropdown-menu">
-                        <a class="nav-link" href="#"><i class="fa fa-user"></i> My Profile</a>
+                        <a class="nav-link" href="#"><i class="fa fa-user"></i> Tài Khoản</a>
 
-                        <a class="nav-link" href="#"><i class="fa fa-user"></i> Notifications <span
-                                class="count">13</span></a>
-
-                        <a class="nav-link" href="#"><i class="fa fa-cog"></i> Settings</a>
+                        <a class="nav-link" href="#"><i class="fa fa-comment-o"></i> Thông Báo <span
+                                class="count">1</span></a>
 
                         <a class="nav-link" href="#"><i class="fa fa-power-off"></i> Logout</a>
-                    </div>
-                </div>
-
-                <div class="language-select dropdown" id="language-select">
-                    <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="language" aria-haspopup="true"
-                       aria-expanded="true">
-                        <i class="flag-icon flag-icon-us"></i>
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="language">
-                        <div class="dropdown-item">
-                            <span class="flag-icon flag-icon-fr"></span>
-                        </div>
-                        <div class="dropdown-item">
-                            <i class="flag-icon flag-icon-es"></i>
-                        </div>
-                        <div class="dropdown-item">
-                            <i class="flag-icon flag-icon-us"></i>
-                        </div>
-                        <div class="dropdown-item">
-                            <i class="flag-icon flag-icon-it"></i>
-                        </div>
                     </div>
                 </div>
 
             </div>
         </div>
     </header>
-
+    <div class="dashContainer">
+        @yield('content')
+    </div>
 </div>
-    <script src="{{ asset('/js/admin_js/jquery/dist/jquery.min.js') }} "></script>
-    <script src="{{ asset('/js/admin_js/popper.js/dist/umd/popper.min.js') }}"></script>
-    <script src="{{ asset('/js/admin_js/bootstrap/dist/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('/js/admin_js/main.js') }}"></script>
-    <script>
-        (function ($) {
-            "use strict";
+<script src="{{ asset('/js/admin_js/jquery/dist/jquery.min.js') }} "></script>
+<script src="{{ asset('/js/admin_js/popper.js/dist/umd/popper.min.js') }}"></script>
+<script src="{{ asset('/js/admin_js/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('/js/admin_js/main.js') }}"></script>
+<script>
+    (function ($) {
+        "use strict";
 
-            jQuery('#vmap').vectorMap({
-                map: 'world_en',
-                backgroundColor: null,
-                color: '#ffffff',
-                hoverOpacity: 0.7,
-                selectedColor: '#1de9b6',
-                enableZoom: true,
-                showTooltip: true,
-                values: sample_data,
-                scaleColors: ['#1de9b6', '#03a9f5'],
-                normalizeFunction: 'polynomial'
-            });
-        })(jQuery);
-    </script>
+        jQuery('#vmap').vectorMap({
+            map: 'world_en',
+            backgroundColor: null,
+            color: '#ffffff',
+            hoverOpacity: 0.7,
+            selectedColor: '#1de9b6',
+            enableZoom: true,
+            showTooltip: true,
+            values: sample_data,
+            scaleColors: ['#1de9b6', '#03a9f5'],
+            normalizeFunction: 'polynomial'
+        });
+    })(jQuery);
+</script>
 
 
 </body>
