@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Happy House</title>
+    <title>@yield('title')</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="{{ asset('/css/admin_css/bootstrap/dist/css/bootstrap.min.css') }} ">
@@ -163,6 +163,9 @@
         </div>
     </header>
 
+    <div class="dashContainer">
+        @yield('content')
+    </div>
 </div>
 <script src="{{ asset('/js/admin_js/jquery/dist/jquery.min.js') }} "></script>
 <script src="{{ asset('/js/admin_js/popper.js/dist/umd/popper.min.js') }}"></script>
