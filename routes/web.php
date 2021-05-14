@@ -86,6 +86,8 @@
     Route::prefix('Admin')->group(function () {
         Route::get('/', [loginController::class, 'index'])->name('login');
         Route::get('/owens', [owensController::class, 'index']);
+        Route::get('/owens/market', [owensController::class, 'market'])->name('admin_market');
+        Route::get('/owens/market/{marketID}', [owensController::class, 'market'])->name('admin_market_id');
         Route::get('/employee', [EmployeeController::class, 'index']);
     });
 

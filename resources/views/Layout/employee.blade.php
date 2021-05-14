@@ -9,10 +9,17 @@
     <link rel="stylesheet" href="{{ asset('/css/admin_css/bootstrap/dist/css/bootstrap.min.css') }} ">
     <link rel="stylesheet" href="{{ asset('/css/admin_css/font-awesome/css/font-awesome.min.css') }}">
     <link rel="stylesheet" href="{{ asset('/css/admin_css/themify-icons/css/themify-icons.css') }}">
-
-
     <link rel="stylesheet" href="{{ asset('/css/admin_css/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('/css//css/table.css') }}">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!------ datatable CDN---------->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script language="JavaScript" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js" ></script>
+    <script language="JavaScript" src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js" ></script>
+    <link rel="stylesheet"  href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.2/css/uikit.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.uikit.min.css">
 </head>
 
 <body>
@@ -39,21 +46,21 @@
                 </li>
 
                 {{--                Bắt đầu phần dự án--}}
-                <h3 class="menu-title" style="color: #FAB702">Dự Án</h3>
+                <h3 class="menu-title" style="color: #FAB702; margin-top: 0px">Dự Án</h3>
                 <li class="menu-item-has-children dropdown">
                     <a href="#"> <i class="menu-icon fa fa-product-hunt" style="color: #FAB702"></i>Danh Sách Dự Án</a>
                 </li>
                 {{--                Kết thúc phần dự án--}}
 
                 {{--                Bắt đầu phần Tin Tức--}}
-                <h3 class="menu-title" style="color: #FAB702">Tin Tức</h3>
+                <h3 class="menu-title" style="color: #FAB702; margin-top: 0px">Tin Tức</h3>
                 <li class="menu-item-has-children dropdown">
                     <a href="#"> <i class="menu-icon fa fa-newspaper-o" style="color: #FAB702"></i>Danh Sách Tin Tức</a>
                 </li>
                 {{--                Kết thúc phần Tin Tức--}}
 
                 {{--                Bắt đầu phần Khách Hàng--}}
-                <h3 class="menu-title" style="color: #FAB702">Khách Hàng</h3>
+                <h3 class="menu-title" style="color: #FAB702; margin-top: 0px">Khách Hàng</h3>
                 <li class="menu-item-has-children dropdown">
                     <a href="#"> <i class="menu-icon fa fa-users" style="color: #FAB702"></i>Danh Sách Khách Hàng</a>
                 </li>
@@ -63,7 +70,7 @@
                 {{--                Kết thúc phần Khách Hàng--}}
 
                 {{--                Bắt đầu phần Công Việc--}}
-                <h3 class="menu-title" style="color: #FAB702">Công Việc</h3>
+                <h3 class="menu-title" style="color: #FAB702; margin-top: 0px">Công Việc</h3>
                 <li class="menu-item-has-children dropdown">
                     <a href="#"> <i class="menu-icon fa fa-clipboard" style="color: #FAB702"></i>Danh Sách Công Việc</a>
                 </li>
@@ -87,7 +94,6 @@
         <div class="header-menu">
 
             <div class="col-sm-7">
-                <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-tasks"></i></a>
                 <div class="header-left">
 
                     {{--                    Search Icon--}}
