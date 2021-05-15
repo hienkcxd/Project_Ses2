@@ -6,7 +6,7 @@
         font-size: 0.8rem;
     }
 </style>
-
+<div>
 <table id="" class="display nowrap uk-table uk-table-hover uk-table-striped table-bordered" style="width:100%">
     <caption style="caption-side: top; font-size: 1.5rem; font-weight: bold; color: #039BE5">DỮ LIỆU GIÁ ĐẤT ĐAI TP.HỒ CHÍ MINH</caption>
     <thead>
@@ -52,4 +52,5 @@
     @endforeach
     </tbody>
 </table>
+</div>
 
