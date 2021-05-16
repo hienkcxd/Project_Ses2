@@ -1,5 +1,5 @@
-
-<table id="" class="display nowrap uk-table uk-table-hover uk-table-striped table-bordered" style="width:100%">
+<div id="rs"></div>
+<table id="marketTable" class="display nowrap uk-table uk-table-hover uk-table-striped table-bordered" style="width:100%">
     <caption style="caption-side: top; font-size: 1.5rem; font-weight: bold; color: #039BE5">DỮ LIỆU GIÁ ĐẤT ĐAI TP.HỒ
         CHÍ MINH - (Triệu/m<sup>2</sup>)
     </caption>
@@ -21,6 +21,7 @@
         <th>Tháng 10</th>
         <th>Tháng 11</th>
         <th>Tháng 12</th>
+        <th>Action</th>
     </tr>
     </thead>
     <tbody>
@@ -29,34 +30,48 @@
 <script type="text/javascript">
     $(document).ready(function () {
         // DataTable
-        $('.uk-table').DataTable({
+      var table =  $('#marketTable').DataTable({
             columnDefs: [
                 {orderable: false, targets: "_all"},
-                {visible: false, targets: [ 0 ]},
+                {visible: false, targets: 0}
             ],
             "scrollX": true,
             processing: true,
             serverSide: true,
             ajax: "{{route('admin_market.getMarket')}}",
             columns: [
-                {data: 'MarketID'},
-                {data: 'DistrictName'},
-                {data: 'WardName'},
-                {data: 'Year'},
-                {data: 'Thang_01'},
-                {data: 'Thang_02'},
-                {data: 'Thang_03'},
-                {data: 'Thang_04'},
-                {data: 'Thang_05'},
-                {data: 'Thang_06'},
-                {data: 'Thang_07'},
-                {data: 'Thang_08'},
-                {data: 'Thang_09'},
-                {data: 'Thang_10'},
-                {data: 'Thang_11'},
-                {data: 'Thang_12'},
-            ]
+                    {data: 'MarketID', name: 'MarketID'},
+                    {data: 'DistrictName', name: 'DistrictName'},
+                    {data: 'WardName', name: 'DistrictName'},
+                    {data: 'Year'},
+                    {data: 'Thang_01'},
+                    {data: 'Thang_02'},
+                    {data: 'Thang_03'},
+                    {data: 'Thang_04'},
+                    {data: 'Thang_05'},
+                    {data: 'Thang_06'},
+                    {data: 'Thang_07'},
+                    {data: 'Thang_08'},
+                    {data: 'Thang_09'},
+                    {data: 'Thang_10'},
+                    {data: 'Thang_11'},
+                    {data: 'Thang_12'},
+                    {data: null, defaultContent: '<a id="edit"  class="btn btn-outline-info" href="#">Edit</a> <a id="delete" class="btn btn-outline-danger" href="#">Delete</a>'},
+                ]
+        //    <a class="btn btn-outline-primary" " href="{{ route('login') }}">Detail</a>
         });
+        $('#marketTable tbody').on( 'click', '#edit', function getID() {
+            var $MarketID = table.row( $(this).parents('tr') ).data();
+            alert( $MarketID['MarketID']);
+        } );
+
+        $('#marketTable tbody').on( 'click', '#delete', function getID() {
+            var $MarketID = table.row( $(this).parents('tr') ).data();
+            alert('Ban co muon xoa du lieu ID:' + $MarketID['MarketID']);
+        } );
     });
 
+
+
 </script>
+

@@ -1,7 +1,7 @@
 
 div.dataTables_wrapper {
-    max-width: 1200px;
-    width: 95%;
+    max-width: 100rem;
+    width: 98%;
     border-radius: 15px;
     padding: 10px;
     background-color: white;
@@ -18,12 +18,10 @@ div.dataTables_wrapper {
 .uk-table-hover tbody .odd:hover td {
     transition: 0.2s;
     background-color: #4FC3F7;
-    color: white;
 }
 .uk-table-hover tbody .even:hover td {
     transition: 0.2s;
     background-color: #F48FB1;
-    color: white;
 }
 .uk-table tr th{
     color: black;

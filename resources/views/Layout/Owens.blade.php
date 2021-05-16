@@ -21,7 +21,6 @@
     <link rel="stylesheet" charset="utf8" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.2/css/uikit.min.css">
     <link rel="stylesheet" charset="utf8" href="https://cdn.datatables.net/1.10.24/css/dataTables.uikit.min.css">
 
-
 </head>
 
 <body>
