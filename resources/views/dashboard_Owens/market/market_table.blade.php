@@ -1,15 +1,11 @@
-{{--<style>--}}
-{{--    .uk-table tr th{--}}
-{{--        font-size: 0.8rem;--}}
-{{--    }--}}
-{{--    .uk-table tr td{--}}
-{{--        font-size: 0.8rem;--}}
-{{--    }--}}
-{{--</style>--}}
+
 <table id="" class="display nowrap uk-table uk-table-hover uk-table-striped table-bordered" style="width:100%">
-    <caption style="caption-side: top; font-size: 1.5rem; font-weight: bold; color: #039BE5">DỮ LIỆU GIÁ ĐẤT ĐAI TP.HỒ CHÍ MINH</caption>
+    <caption style="caption-side: top; font-size: 1.5rem; font-weight: bold; color: #039BE5">DỮ LIỆU GIÁ ĐẤT ĐAI TP.HỒ
+        CHÍ MINH - (Triệu/m<sup>2</sup>)
+    </caption>
     <thead>
     <tr>
+        <th>id</th>
         <th>Quận</th>
         <th>Phường</th>
         <th>Năm</th>
@@ -31,31 +27,36 @@
     </tbody>
 </table>
 <script type="text/javascript">
-    $(document).ready(function(){
+    $(document).ready(function () {
         // DataTable
         $('.uk-table').DataTable({
-            "soft":false,
+            columnDefs: [
+                {orderable: false, targets: "_all"},
+                {visible: false, targets: [ 0 ]},
+            ],
             "scrollX": true,
             processing: true,
             serverSide: true,
             ajax: "{{route('admin_market.getMarket')}}",
             columns: [
-                { data: 'DistrictName' },
-                { data: 'WardName' },
-                { data: 'Year' },
-                { data: 'Thang_01' },
-                { data: 'Thang_02' },
-                { data: 'Thang_03' },
-                { data: 'Thang_04' },
-                { data: 'Thang_05' },
-                { data: 'Thang_06' },
-                { data: 'Thang_07' },
-                { data: 'Thang_08' },
-                { data: 'Thang_09' },
-                { data: 'Thang_10' },
-                { data: 'Thang_11' },
-                { data: 'Thang_12' },
+                {data: 'MarketID'},
+                {data: 'DistrictName'},
+                {data: 'WardName'},
+                {data: 'Year'},
+                {data: 'Thang_01'},
+                {data: 'Thang_02'},
+                {data: 'Thang_03'},
+                {data: 'Thang_04'},
+                {data: 'Thang_05'},
+                {data: 'Thang_06'},
+                {data: 'Thang_07'},
+                {data: 'Thang_08'},
+                {data: 'Thang_09'},
+                {data: 'Thang_10'},
+                {data: 'Thang_11'},
+                {data: 'Thang_12'},
             ]
         });
     });
+
 </script>

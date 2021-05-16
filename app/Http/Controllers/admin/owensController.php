@@ -54,6 +54,7 @@
             $data_arr = array();
 
             foreach($records as $record){
+                $MarketID = $record->MarketID;
                 $DistrictName = $record->DistrictName;
                 $WardName = $record->WardName;
                 $Year = $record->Year;
@@ -71,6 +72,7 @@
                 $Thang_12 = $record->Thang_12;
 
                 $data_arr[] = array(
+                    "MarketID" => $MarketID,
                     "DistrictName" => $DistrictName,
                     "WardName" => $WardName,
                     "Year" => $Year,
