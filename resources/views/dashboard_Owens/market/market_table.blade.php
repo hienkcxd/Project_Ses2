@@ -1,12 +1,11 @@
-<style>
-    .uk-table tr th{
-        font-size: 0.8rem;
-    }
-    .uk-table tr td{
-        font-size: 0.8rem;
-    }
-</style>
-<div>
+{{--<style>--}}
+{{--    .uk-table tr th{--}}
+{{--        font-size: 0.8rem;--}}
+{{--    }--}}
+{{--    .uk-table tr td{--}}
+{{--        font-size: 0.8rem;--}}
+{{--    }--}}
+{{--</style>--}}
 <table id="" class="display nowrap uk-table uk-table-hover uk-table-striped table-bordered" style="width:100%">
     <caption style="caption-side: top; font-size: 1.5rem; font-weight: bold; color: #039BE5">DỮ LIỆU GIÁ ĐẤT ĐAI TP.HỒ CHÍ MINH</caption>
     <thead>
@@ -26,31 +25,37 @@
         <th>Tháng 10</th>
         <th>Tháng 11</th>
         <th>Tháng 12</th>
-        <th>Action</th>
     </tr>
     </thead>
     <tbody>
-    @foreach($data as $value)
-        <tr>
-            <td>{{ $value->DistrictName }}</td>
-            <td>{{ $value->WardName }}</td>
-            <td>{{ $value->Year }}</td>
-            <td>{{ $value->Thang_01 }}</td>
-            <td>{{ $value->Thang_02 }}</td>
-            <td>{{ $value->Thang_03 }}</td>
-            <td>{{ $value->Thang_04 }}</td>
-            <td>{{ $value->Thang_05 }}</td>
-            <td>{{ $value->Thang_06 }}</td>
-            <td>{{ $value->Thang_07 }}</td>
-            <td>{{ $value->Thang_08 }}</td>
-            <td>{{ $value->Thang_09 }}</td>
-            <td>{{ $value->Thang_10 }}</td>
-            <td>{{ $value->Thang_11 }}</td>
-            <td>{{ $value->Thang_12 }}</td>
-            <td><a class="btn btn-sm btn-outline-primary" href="{{ route('admin_market_id', ['marketID' => $value->MarketID]) }}">Detail</a></td>
-        </tr>
-    @endforeach
     </tbody>
 </table>
-</div>
-
+<script type="text/javascript">
+    $(document).ready(function(){
+        // DataTable
+        $('.uk-table').DataTable({
+            "soft":false,
+            "scrollX": true,
+            processing: true,
+            serverSide: true,
+            ajax: "{{route('admin_market.getMarket')}}",
+            columns: [
+                { data: 'DistrictName' },
+                { data: 'WardName' },
+                { data: 'Year' },
+                { data: 'Thang_01' },
+                { data: 'Thang_02' },
+                { data: 'Thang_03' },
+                { data: 'Thang_04' },
+                { data: 'Thang_05' },
+                { data: 'Thang_06' },
+                { data: 'Thang_07' },
+                { data: 'Thang_08' },
+                { data: 'Thang_09' },
+                { data: 'Thang_10' },
+                { data: 'Thang_11' },
+                { data: 'Thang_12' },
+            ]
+        });
+    });
+</script>
