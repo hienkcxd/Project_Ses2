@@ -20,6 +20,15 @@
             return view('dashboard_Owens.market.detail_Form')->with(compact('id'));
         }
 
+        public function delete(Request $request){
+            $id = $request->route()->parameter('MarketID');
+            return view('test')->with(compact('id'));
+        }
+
+        public function create(){
+            return view('dashboard_Owens.market.insert_Form');
+        }
+
         public function market(){
             return view('dashboard_Owens.market.admin_market');
         }

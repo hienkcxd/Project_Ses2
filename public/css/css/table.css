@@ -9,6 +9,12 @@ div.dataTables_wrapper {
     margin: 0 auto;
     margin-top: 15px;
 }
+caption .btn-insert {
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 3px 25px;
+    font-size: 1.2rem;
+}
 .dataTables_paginate .pagination li a:focus{
     box-shadow: none;
 }

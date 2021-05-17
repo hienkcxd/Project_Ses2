@@ -1,7 +1,7 @@
 <div id="rs"></div>
 <table id="marketTable" class="display nowrap uk-table uk-table-hover uk-table-striped table-bordered" style="width:100%">
     <caption style="caption-side: top; font-size: 1.5rem; font-weight: bold; color: #039BE5">DỮ LIỆU GIÁ ĐẤT ĐAI TP.HỒ
-        CHÍ MINH - (Triệu/m<sup>2</sup>)
+        CHÍ MINH - (Triệu/m<sup>2</sup>) - <a  class="btn-insert btn btn-outline-info" href="{{ route('admin_market.create') }}">Insert</a>
     </caption>
     <thead>
     <tr>
@@ -59,7 +59,8 @@
                     {data: 'Thang_10'},
                     {data: 'Thang_11'},
                     {data: 'Thang_12'},
-                    {data: null, defaultContent: '<a id="edit" name="edit"  class="edit btn btn-outline-info" href="">Edit</a> <a id="delete" name="delete" class="btn btn-outline-danger" href="#">Delete</a>'},
+                    {data: null, defaultContent: '<a id="edit" name="edit"  class="edit btn btn-outline-info" href="">Edit</a> ' +
+                            '                     <a id="delete" name="delete" class="delete btn btn-outline-danger" href="">Delete</a>'},
                 ]
         //    <a class="btn btn-outline-primary" " href="{{ route('login') }}">Detail</a>
         });
@@ -68,14 +69,16 @@
             var $MarketID = table.row( $(this).parents('tr') ).data();
             document.location = ""
             $('.edit').attr('href', function() {
-                return document.location + "/Detail_"+$MarketID['MarketID'];
+                return document.location + "/detail_"+$MarketID['MarketID'];
             });
 
             });
 
         $('#marketTable tbody').on( 'click', '#delete', function getID() {
             var $MarketID = table.row( $(this).parents('tr') ).data();
-            alert('Ban co muon xoa du lieu ID:' + $MarketID['MarketID']);
+            $('.delete').attr('href', function() {
+                return document.location + "/delete_"+$MarketID['MarketID'];
+            });
         } );
     });
 
