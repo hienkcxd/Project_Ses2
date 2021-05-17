@@ -12,7 +12,12 @@
     {
 
         public function index(){
-            return view('dashboard_Owens.index');
+            return view('test');
+        }
+
+        public function edit(Request $request){
+            $id = $request->route()->parameter('MarketID');
+            return view('dashboard_Owens.market.detail_Form')->with(compact('id'));
         }
 
         public function market(){

@@ -90,7 +90,7 @@
         Route::get('/owens', [owensController::class, 'index']);
         Route::get('/owens/market', [owensController::class, 'market'])->name('admin_market');
         Route::get('/owens/market/getMarket', [owensController::class, 'getMarket'])->name('admin_market.getMarket');
-        Route::get('/owens/market/{MarketID}', [owensController::class, 'market'])->name('admin_market_id');
+        Route::get('/owens/market/Detail_{MarketID}', [owensController::class, 'edit']);
 
         //Route for employee
         Route::get('/employee', [EmployeeController::class, 'index']);

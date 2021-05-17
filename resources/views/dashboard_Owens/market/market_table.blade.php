@@ -38,7 +38,10 @@
             "scrollX": true,
             processing: true,
             serverSide: true,
-            ajax: "{{route('admin_market.getMarket')}}",
+            ajax: {
+                url: "{{route('admin_market.getMarket')}}",
+                type: "GET",
+                },
             columns: [
                     {data: 'MarketID', name: 'MarketID'},
                     {data: 'DistrictName', name: 'DistrictName'},
@@ -56,21 +59,25 @@
                     {data: 'Thang_10'},
                     {data: 'Thang_11'},
                     {data: 'Thang_12'},
-                    {data: null, defaultContent: '<a id="edit"  class="btn btn-outline-info" href="#">Edit</a> <a id="delete" class="btn btn-outline-danger" href="#">Delete</a>'},
+                    {data: null, defaultContent: '<a id="edit" name="edit"  class="edit btn btn-outline-info" href="">Edit</a> <a id="delete" name="delete" class="btn btn-outline-danger" href="#">Delete</a>'},
                 ]
         //    <a class="btn btn-outline-primary" " href="{{ route('login') }}">Detail</a>
         });
+
         $('#marketTable tbody').on( 'click', '#edit', function getID() {
             var $MarketID = table.row( $(this).parents('tr') ).data();
-            alert( $MarketID['MarketID']);
-        } );
+            document.location = ""
+            $('.edit').attr('href', function() {
+                return document.location + "/Detail_"+$MarketID['MarketID'];
+            });
+
+            });
 
         $('#marketTable tbody').on( 'click', '#delete', function getID() {
             var $MarketID = table.row( $(this).parents('tr') ).data();
             alert('Ban co muon xoa du lieu ID:' + $MarketID['MarketID']);
         } );
     });
-
 
 
 </script>
