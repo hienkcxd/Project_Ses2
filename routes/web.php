@@ -90,11 +90,22 @@
         Route::get('/owens', [owensController::class, 'index']);
         Route::get('/owens/market', [owensController::class, 'market'])->name('admin_market');
         Route::get('/owens/market/getMarket', [owensController::class, 'getMarket'])->name('admin_market.getMarket');
+
         Route::get('/owens/market/insert', [owensController::class, 'create'])->name('admin_market.create');
         Route::get('/owens/market/detail_{MarketID}', [owensController::class, 'edit']);
         Route::get('/owens/market/delete_{MarketID}', [owensController::class, 'delete']);
         //Route for employee
         Route::get('/employee', [EmployeeController::class, 'index']);
+
+
+//        Route::get('/owens/market/detail_{MarketID}', function () {
+//            $disList = DistrictList::all();
+//            return view('dashboard_Owens.market.detail_Form')->with(compact('disList'));
+//        })->name('market');
+//        Route::get('/owens/market/detail_{MarketID}/{name}', function ($name) {
+//            $wards = DistrictList::find($name)->wards;
+//            return json_encode($wards);
+//        });
     });
 
 

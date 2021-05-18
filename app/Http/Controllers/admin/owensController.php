@@ -3,37 +3,59 @@
     namespace App\Http\Controllers\admin;
 
     use App\Http\Controllers\Controller;
+    use App\Models\Market\DistrictList;
     use App\Models\Market\MarketList;
     use Illuminate\Http\Request;
-    use Illuminate\Support\Facades\Schema;
     use Illuminate\Support\Facades\DB;
 
     class owensController extends Controller
     {
 
-        public function index(){
-            return view('test');
+        public function index()
+        {
+            return view('dashboard_Owens.index');
         }
 
-        public function edit(Request $request){
+
+        public function edit(Request $request)
+        {
             $id = $request->route()->parameter('MarketID');
-            return view('dashboard_Owens.market.detail_Form')->with(compact('id'));
+            $value = DB::table('market_lists')
+                ->where('MarketID', '=', $id)
+                ->first();
+            $disList = DistrictList::all();
+            $getwardList = DB::table('ward_lists')
+                ->where('DistrictName', '=', $value->DistrictName)
+                ->get();
+            $wardList = json_encode($getwardList);
+//            $wards = DistrictList::find($value->DistrictName);
+//            $wardList = json_encode($wards);
+            return view('dashboard_Owens.market.detail_Form')
+                ->with(compact(
+                    'value',
+                    'disList',
+                    'wardList',
+                ));
         }
 
-        public function delete(Request $request){
+        public function delete(Request $request)
+        {
             $id = $request->route()->parameter('MarketID');
             return view('test')->with(compact('id'));
         }
 
-        public function create(){
+        public function create()
+        {
             return view('dashboard_Owens.market.insert_Form');
         }
 
-        public function market(){
+        public function market()
+        {
             return view('dashboard_Owens.market.admin_market');
         }
 
-        public function getMarket(Request $request){
+        public function getMarket(Request $request)
+        {
             ## Read value
             $draw = $request->get('draw');
             $start = $request->get("start");
@@ -52,14 +74,14 @@
             // Total records
             $totalRecords = MarketList::select('count(*) as allcount')->count();
             $totalRecordswithFilter = MarketList::select('count(*) as allcount')
-                ->where('DistrictName', 'like', '%' .$searchValue . '%')
-                ->orWhere('market_lists.WardName', 'like', '%' .$searchValue . '%')
+                ->where('DistrictName', 'like', '%' . $searchValue . '%')
+                ->orWhere('market_lists.WardName', 'like', '%' . $searchValue . '%')
                 ->count();
 
             // Fetch records: lấy data
-            $records = MarketList::orderBy($columnName,$columnSortOrder)
-                ->where('market_lists.DistrictName', 'like', '%' .$searchValue . '%')
-                ->orWhere('market_lists.WardName', 'like', '%' .$searchValue . '%')
+            $records = MarketList::orderBy($columnName, $columnSortOrder)
+                ->where('market_lists.DistrictName', 'like', '%' . $searchValue . '%')
+                ->orWhere('market_lists.WardName', 'like', '%' . $searchValue . '%')
                 ->select('market_lists.*')
                 ->skip($start)
                 ->take($rowperpage)
@@ -67,7 +89,7 @@
 
             $data_arr = array();
 
-            foreach($records as $record){
+            foreach ($records as $record) {
                 $MarketID = $record->MarketID;
                 $DistrictName = $record->DistrictName;
                 $WardName = $record->WardName;
