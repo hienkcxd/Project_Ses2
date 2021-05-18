@@ -19,25 +19,36 @@
 
         public function edit(Request $request)
         {
-            $id = $request->route()->parameter('MarketID');
-            $value = DB::table('market_lists')
-                ->where('MarketID', '=', $id)
+            //Get ID from ward, dist and market
+            $id_Market = $request->route()->parameter('MarketID');
+            $id_Ward = $request->route()->parameter('WardID');
+            $id_Dist = $request->route()->parameter('DistrictID');
+
+            $wardDetail = DB::table('ward_lists')
+                ->where('WardID', '=', $id_Ward)
+                ->first();
+            $distDetail = DB::table('ward_lists')
+                ->where('WardID', '=', $id_Dist)
+                ->first();
+
+            $marketDetail = DB::table('market_lists')
+                ->where('MarketID', '=', $id_Market)
                 ->first();
 
             $disList = DistrictList::all();
-            $getwardList = DB::table('ward_lists')
-                ->where('DistrictName', '=', $value->DistrictName)
-                ->get();
-            $wardList = json_encode($getwardList);
-//            $wards = DistrictList::find($value->DistrictName);
-//            $wardList = json_encode($wards);
-            return view('dashboard_Owens.market.detail_Form')
+//            $getwardList = DB::table('ward_lists')
+//                ->where('DistrictName', '=', $marketDetail->DistrictName)
+//                ->get();
+//            $wardList = json_encode($getwardList);
+            return view('dashboard_Owens.market.Detail_Market_Form')
                 ->with(compact(
-                    'value',
+                    'marketDetail',
+                    'wardDetail',
+                    'distDetail',
                     'disList',
-                    'wardList',
                 ));
         }
+
 
         public function delete(Request $request)
         {
@@ -52,7 +63,12 @@
 
         public function market()
         {
-            return view('dashboard_Owens.market.admin_market');
+            $distList = DB::table('district_lists')->get();
+            $wardList = DB::table('ward_lists')->get();
+            return view('dashboard_Owens.market.admin_market')->with(compact(
+                'distList',
+                'wardList',
+            ));
         }
 
         public function getMarket(Request $request)
@@ -138,4 +154,6 @@
             echo json_encode($response);
             exit;
         }
+
+
     }

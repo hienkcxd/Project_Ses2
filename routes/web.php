@@ -79,8 +79,10 @@
             return json_encode($wards);
         });
 
-
     });
+
+    //Route for employee
+    Route::get('/employee', [EmployeeController::class, 'index']);
 
     //Route for admin
     Route::prefix('Admin')->group(function () {
@@ -91,21 +93,24 @@
         Route::get('/owens/market', [owensController::class, 'market'])->name('admin_market');
         Route::get('/owens/market/getMarket', [owensController::class, 'getMarket'])->name('admin_market.getMarket');
 
+        //Route insert:
         Route::get('/owens/market/insert', [owensController::class, 'create'])->name('admin_market.create');
-        Route::get('/owens/market/detail_{MarketID}', [owensController::class, 'edit'])->name('admin_market.detail');
-        Route::get('/owens/market/delete_{MarketID}', [owensController::class, 'delete']);
-        //Route for employee
-        Route::get('/employee', [EmployeeController::class, 'index']);
+
+        //Route edit:
+        Route::prefix('/owens/market/edit')->group(function () {
+            Route::get('/MarketID_{MarketID}', [owensController::class, 'edit'])->name('admin_market.detail_Market');
+            Route::get('/WardID_{WardID}', [owensController::class, 'edit'])->name('admin_market.detail_Ward');
+            Route::get('/DistrictID_{DistrictID}', [owensController::class, 'edit'])->name('admin_market.detail_District');
+        });
+
+        //Route delete:
+        Route::prefix('/owens/market/delete')->group(function () {
+            Route::get('/MarketID_{MarketID}', [owensController::class, 'delete'])->name('admin_market.delete_Market');
+            Route::get('/WardID_{WardID}', [owensController::class, 'delete'])->name('admin_market.delete_Ward');
+            Route::get('/DistrictID_{DistrictID}', [owensController::class, 'delete'])->name('admin_market.delete_District');
+        });
 
 
-//        Route::get('/owens/market/detail_{MarketID}', function () {
-//            $disList = DistrictList::all();
-//            return view('dashboard_Owens.market.detail_Form')->with(compact('disList'));
-//        })->name('market');
-//        Route::get('/owens/market/detail_{MarketID}/{name}', function ($name) {
-//            $wards = DistrictList::find($name)->wards;
-//            return json_encode($wards);
-//        });
     });
 
 
