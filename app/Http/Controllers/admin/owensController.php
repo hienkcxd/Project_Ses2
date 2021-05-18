@@ -23,6 +23,7 @@
             $value = DB::table('market_lists')
                 ->where('MarketID', '=', $id)
                 ->first();
+
             $disList = DistrictList::all();
             $getwardList = DB::table('ward_lists')
                 ->where('DistrictName', '=', $value->DistrictName)
