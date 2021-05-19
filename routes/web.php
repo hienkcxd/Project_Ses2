@@ -1,8 +1,10 @@
 <?php
 
+    use App\Http\Controllers\admin\adminNewsController;
     use App\Http\Controllers\admin\EmployeeController;
     use App\Http\Controllers\admin\loginController;
     use App\Http\Controllers\admin\owensController;
+    use App\Http\Controllers\admin\projectController;
     use App\Http\Controllers\user\about\AboutController;
     use App\Http\Controllers\user\homepage\homepageController;
     use App\Http\Controllers\user\news\NewsController;
@@ -81,20 +83,40 @@
 
     });
 
-    //Route for employee
-    Route::get('/employee', [EmployeeController::class, 'index']);
 
-    //Route for admin
+
+    //---------------Route for admin-------------------
+    //--------------------------------------------------
     Route::prefix('Admin')->group(function () {
         Route::get('/', [loginController::class, 'index'])->name('login');
-
-        //Route for owens
+        //Route index admin.
         Route::get('/owens', [owensController::class, 'index']);
+        Route::get('/employee', [EmployeeController::class, 'index']);
+
+        //Route for admin project:
+        Route::get('/owens/project', [projectController::class, 'index'])->name('owens_project');
+        Route::get('/owens/project/getProject', [projectController::class, 'getProject'])->name('admin.allProject');
+        Route::get('/employee/project', function (){
+            return view('dashboard_Employee.project.index_View');
+        })->name('emp.project');
+        //end Route for admin project:
+
+        //Route for admin news:
+        Route::get('/owens/news', [adminNewsController::class, 'index'])->name('owens.news');
+        Route::get('/owens/news/getNews', [adminNewsController::class, 'getNews'])->name('admin.allNews');
+        Route::get('/employee/news', function (){
+            return view('dashboard_Employee.news.index_View');
+        })->name('emp.news');
+        //end Route for admin news:
+
+        //Route for admin market: only for owens:
         Route::get('/owens/market', [owensController::class, 'market'])->name('admin_market');
         Route::get('/owens/market/getMarket', [owensController::class, 'getMarket'])->name('admin_market.getMarket');
+        //end Route for admin market: only for owens:
 
         //Route insert:
         Route::get('/owens/market/insert', [owensController::class, 'create'])->name('admin_market.create');
+        //end Route insert:
 
         //Route edit:
         Route::prefix('/owens/market/edit')->group(function () {
@@ -102,6 +124,16 @@
             Route::get('/WardID_{WardID}', [owensController::class, 'edit'])->name('admin_market.detail_Ward');
             Route::get('/DistrictID_{DistrictID}', [owensController::class, 'edit'])->name('admin_market.detail_District');
         });
+        Route::get('/owens/news/edit/NewsID_{NewsID}', [adminNewsController::class, 'edit']);
+        Route::get('/employee/news/edit/NewsID_{NewsID}', function ($NewsID){
+            return view('dashboard_Employee.news.form_View')->with(compact('NewsID'));
+        });
+
+        Route::get('/owens/project/edit/ProjectID_{ProjectID}', [projectController::class, 'edit']);
+        Route::get('/employee/project/edit/ProjectID_{ProjectID}', function ($ProjectID){
+            return view('dashboard_Employee.project.form_View')->with(compact('ProjectID'));
+        });
+        //end Route edit:
 
         //Route delete:
         Route::prefix('/owens/market/delete')->group(function () {
@@ -109,6 +141,7 @@
             Route::get('/WardID_{WardID}', [owensController::class, 'delete'])->name('admin_market.delete_Ward');
             Route::get('/DistrictID_{DistrictID}', [owensController::class, 'delete'])->name('admin_market.delete_District');
         });
+        //end Route delete:
 
 
     });

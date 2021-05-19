@@ -7,5 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class NewsList extends Model
 {
-    use HasFactory;
+    protected $fillable = [
+        'NewsID','NewsName', 'NewsTagName','Description','Day', 'Year', 'images',
+    ];
 }

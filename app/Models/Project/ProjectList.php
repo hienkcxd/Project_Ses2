@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class ProjectList extends Model
 {
-    use HasFactory;
+
 }

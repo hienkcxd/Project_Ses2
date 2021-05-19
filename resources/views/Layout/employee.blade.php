@@ -48,21 +48,21 @@
                 {{--                Bắt đầu phần dự án--}}
                 <h3 class="menu-title" style="color: #FAB702; margin-top: 0px">Dự Án</h3>
                 <li class="menu-item-has-children dropdown">
-                    <a href="#"> <i class="menu-icon fa fa-product-hunt" style="color: #FAB702"></i>Danh Sách Dự Án</a>
+                    <a href="{{ route('emp.project') }}"> <i class="menu-icon fa fa-product-hunt" style="color: #FAB702"></i>Danh Sách</a>
                 </li>
                 {{--                Kết thúc phần dự án--}}
 
                 {{--                Bắt đầu phần Tin Tức--}}
                 <h3 class="menu-title" style="color: #FAB702; margin-top: 0px">Tin Tức</h3>
                 <li class="menu-item-has-children dropdown">
-                    <a href="#"> <i class="menu-icon fa fa-newspaper-o" style="color: #FAB702"></i>Danh Sách Tin Tức</a>
+                    <a href="{{ route('emp.news') }}"> <i class="menu-icon fa fa-newspaper-o" style="color: #FAB702"></i>Danh Sách</a>
                 </li>
                 {{--                Kết thúc phần Tin Tức--}}
 
                 {{--                Bắt đầu phần Khách Hàng--}}
                 <h3 class="menu-title" style="color: #FAB702; margin-top: 0px">Khách Hàng</h3>
                 <li class="menu-item-has-children dropdown">
-                    <a href="#"> <i class="menu-icon fa fa-users" style="color: #FAB702"></i>Danh Sách Khách Hàng</a>
+                    <a href="#"> <i class="menu-icon fa fa-users" style="color: #FAB702"></i>Danh Sách</a>
                 </li>
                 <li class="menu-item-has-children dropdown">
                     <a href="#"> <i class="menu-icon fa fa-exclamation-triangle" style="color: #FAB702"></i>Black List</a>
@@ -72,10 +72,10 @@
                 {{--                Bắt đầu phần Công Việc--}}
                 <h3 class="menu-title" style="color: #FAB702; margin-top: 0px">Công Việc</h3>
                 <li class="menu-item-has-children dropdown">
-                    <a href="#"> <i class="menu-icon fa fa-clipboard" style="color: #FAB702"></i>Danh Sách Công Việc</a>
+                    <a href="#"> <i class="menu-icon fa fa-clipboard" style="color: #FAB702"></i>Danh Sách</a>
                 </li>
                 <li class="menu-item-has-children dropdown">
-                    <a href="#"> <i class="menu-icon fa fa-bar-chart" style="color: #FAB702"></i>Tiến Độ Công Việc</a>
+                    <a href="#"> <i class="menu-icon fa fa-bar-chart" style="color: #FAB702"></i>Tiến Độ</a>
                 </li>
                 {{--                Kết thúc phần công việc--}}
 

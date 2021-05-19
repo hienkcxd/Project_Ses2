@@ -50,14 +50,14 @@
                 {{--                Bắt đầu phần dự án--}}
                 <h3 class="menu-title" style="color: #FAB702; margin-top: 0px">Dự Án</h3>
                 <li class="menu-item-has-children dropdown">
-                    <a href="#"> <i class="menu-icon fa fa-product-hunt" style="color: #FAB702"></i>Danh Sách</a>
+                    <a href="{{ route('owens_project') }}"> <i class="menu-icon fa fa-product-hunt" style="color: #FAB702"></i>Danh Sách</a>
                 </li>
                 {{--                Kết thúc phần dự án--}}
 
                 {{--                Bắt đầu phần Tin Tức--}}
                 <h3 class="menu-title" style="color: #FAB702; margin-top: 0px">Tin Tức</h3>
                 <li class="menu-item-has-children dropdown">
-                    <a href="#"> <i class="menu-icon fa fa-newspaper-o" style="color: #FAB702; margin-top: 0px"></i>Danh Sách</a>
+                    <a href="{{ route('owens.news') }}"> <i class="menu-icon fa fa-newspaper-o" style="color: #FAB702; margin-top: 0px"></i>Danh Sách</a>
                 </li>
                 {{--                Kết thúc phần Tin Tức--}}
 

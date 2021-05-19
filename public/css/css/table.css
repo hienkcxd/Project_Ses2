@@ -9,6 +9,9 @@
     margin: 0 auto;
     margin-top: 15px;
 }
+#newsTable tr td{
+    text-align: left !important;
+}
 .marketContainer {
     max-width: 75rem;
     width: 98%;
