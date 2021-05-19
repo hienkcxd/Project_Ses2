@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{{ asset('/css/admin_css/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('/css//css/table.css') }}">
     <link rel="stylesheet" href="{{ asset('/css/admin_css/css/form.css') }} ">
+    <link rel="stylesheet" href="{{ asset('/css/admin_css/css/detail_News_form.css') }} ">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
 
     <!------ datatable CDN---------->

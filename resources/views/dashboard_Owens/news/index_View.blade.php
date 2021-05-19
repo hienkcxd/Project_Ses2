@@ -1,12 +1,10 @@
 @extends('Layout.Owens')
 @section('content')
-<h2>Trang index news</h2>
-
 <div class="marketContainer">
     <table id="newsTable" class="display nowrap uk-table uk-table-hover uk-table-striped table-bordered"
            style="width:100%">
         <caption style="caption-side: top; font-size: 1.5rem; font-weight: bold; color: #039BE5">
-            DANH SÁCH DỰ ÁN HOÀN THÀNH
+            DANH SÁCH BAÌ VIẾT TRÊN TRANG
             <a class="btn-insert btn btn-outline-info" href="#">Insert</a>
         </caption>
         <thead>
@@ -31,7 +29,6 @@
         var table = $('#newsTable').DataTable({
             columnDefs: [
                 {orderable: false, targets: "_all"},
-                {visible: false, targets: 0},
             ],
             "scrollX": true,
             lengthMenu: [6, 15, 25, 50],

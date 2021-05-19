@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\News\NewsList;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class adminNewsController extends Controller
 {
@@ -14,7 +15,8 @@ class adminNewsController extends Controller
 
     public function edit(Request $request){
         $NewsID = $request->route()->parameter('NewsID');
-        return view('dashboard_Owens.news.form_View')->with(compact('NewsID'));
+        $dataNews = DB::table('news_lists')->where('NewsID', '=', $NewsID)->first();
+        return view('dashboard_Owens.news.form_View')->with(compact('dataNews'));
     }
 
     public function getNews(Request $request)

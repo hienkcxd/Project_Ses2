@@ -1,0 +1,125 @@
+
+.newDetail{
+    margin: 15px auto;
+    text-align: center;
+}
+.formBlock{
+    position: relative;
+    margin: 0 auto;
+    padding: 25px;
+    max-width: 50rem;
+    border-radius: 15px;
+    background-color: white;
+    box-shadow: 0 0 20px 0 rgba(72,94,116,0.7);
+}
+
+.contentDetail{
+    font-family: 'Montserrat',Arial, Helvetica, sans-serif;
+    position: relative;
+    float: left;
+    width: 100%;
+    padding-bottom: 125px;
+}
+.contentDetail a{
+    right: 0;
+    top: 110px;
+    position: absolute;
+}
+.contentDetail #images{
+    width: 25rem;
+    left: 80px;
+    top: 110px;
+    position: absolute;
+    border: none;
+    border-bottom: 1px solid;
+}
+
+.contentDetail #tagName{
+    width: 8rem;
+    padding: 3.5px 0;
+    right: 120px;
+    top: 110px;
+    position: absolute;
+    border: none;
+    border-bottom: 1px solid;
+}
+.contentDetail #dayInp{
+    background-color: #FAB702;
+    border: none;
+    text-align: center;
+    width: 4rem;
+    height: 80px;
+    left: 0;
+    top: 0;
+    position: absolute;
+}
+
+.contentDetail #yearInp{
+    text-align: center;
+    width: 4rem;
+    left: 0;
+    top: 80px;
+    position: absolute;
+    border: none;
+    border-bottom: 5px solid #E0E0E0;
+}
+.contentDetail #dayInp:focus{
+    background-color: #B3E5FC;
+}
+.contentDetail #yearInp:focus{
+    background-color: #B3E5FC;
+}
+input:focus{
+    background-color: #B3E5FC;
+}
+.contentDetail #describe{
+    text-align: left;
+    position: absolute;
+    width: 42rem;
+    height: 50px;
+    font-size: 13px;
+    left: 80px;
+    top: 60px;
+    border: none;
+    border-bottom: 1px solid;
+}
+.contentDetail #titleNews
+{
+    text-align: left;
+    position: absolute;
+    width: 42rem;
+    height: 50px;
+    font-size: 22px;
+    left: 80px;
+    top: 0px;
+    border: none;
+    border-bottom: 1px solid;
+}
+.post-image img {
+    border-bottom: 5px solid #FAB702;
+    width: 798px;
+    height: 535px;
+}
+.formBlock .btn-more {
+    padding: 3px 25px 3px 25px;
+    color: #111;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 700;
+    float: right;
+    background-color: #FAB702;
+}
+.formBlock .btn-detail button{
+    margin-top: 35px;
+}
+.formBlock .btn-outline-success{
+    margin-right: 0.5rem;
+    padding: 5px 25px 5px 25px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+.formBlock .btn-outline-info{
+    padding: 5px 25px 5px 25px;
+    border-radius: 10px;
+    font-weight: bold;
+}
