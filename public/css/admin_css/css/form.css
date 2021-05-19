@@ -3,7 +3,8 @@
     max-width:75rem;
     margin-left: auto;
     margin-right: auto;
-    padding: 1em;
+    margin-top: 20px;
+    background-color: white;
 }
 
 ul{
@@ -20,6 +21,8 @@ ul{
 
 .wrapper{
     box-shadow: 0 0 20px 0 rgba(72,94,116,0.7);
+    padding: 1rem;
+    border-radius: 15px;
 }
 
 .wrapper >*{
@@ -29,6 +32,7 @@ ul{
 .company-info{
     background: #c9e6ff;
     text-align: center;
+    border-radius: 15px 0 0 15px;
 }
 
 .company-info h3, .company-info ul{
@@ -38,6 +42,7 @@ ul{
 
 .contact{
     background: #f9feff;
+    border-radius: 0 15px 15px 0;
 }
 
 /* FORM CONTACTS

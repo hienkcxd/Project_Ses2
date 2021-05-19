@@ -114,6 +114,8 @@
         Route::get('/owens/market/getMarket', [owensController::class, 'getMarket'])->name('admin_market.getMarket');
         //end Route for admin market: only for owens:
 
+
+        //---------------------Route for CRUD Admin---------------------
         //Route insert:
         Route::get('/owens/market/insert', [owensController::class, 'create'])->name('admin_market.create');
         //end Route insert:
@@ -124,6 +126,7 @@
             Route::get('/WardID_{WardID}', [owensController::class, 'edit'])->name('admin_market.detail_Ward');
             Route::get('/DistrictID_{DistrictID}', [owensController::class, 'edit'])->name('admin_market.detail_District');
         });
+
         Route::get('/owens/news/edit/NewsID_{NewsID}', [adminNewsController::class, 'edit']);
         Route::get('/employee/news/edit/NewsID_{NewsID}', function ($NewsID){
             return view('dashboard_Employee.news.form_View')->with(compact('NewsID'));

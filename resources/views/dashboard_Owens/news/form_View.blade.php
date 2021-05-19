@@ -1,6 +1,6 @@
 @extends('Layout.Owens')
 @section('content')
-    <h2>Trang index edit news_Owens</h2>
+    <h2>Trang edit news_Owens</h2>
 @include('dashboard_Owens.news.detail_Form')
 @endsection
 

@@ -2,7 +2,7 @@
 
 @section('content')
     @if($marketDetail != null)
-        <div class='container'>
+        <div class='container' >
             <div class='wrapper animated bounceInLeft'>
                 <div class='company-info'>
                     để logo
@@ -120,6 +120,7 @@
                     </form>
                 </div>
             </div>
+
             <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
             <script>
                 $(function () {
@@ -142,7 +143,7 @@
                 });
 
             </script>
-
+        </div>
             @elseif($wardDetail != null)
                 <div class='container'>
                     <div class='wrapper animated bounceInLeft'>
