@@ -45,7 +45,7 @@
         <div id="main-menu" class="main-menu collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li class="active">
-                    <a href=""> <i class="menu-icon fa fa-dashboard"></i>Quản Lý</a>
+                    <a href="{{ route('index.admin_owens') }}"> <i class="menu-icon fa fa-dashboard"></i>Quản Lý</a>
                 </li>
 
                 {{--                Bắt đầu phần dự án--}}

@@ -90,8 +90,8 @@
     Route::prefix('Admin')->group(function () {
         Route::get('/', [loginController::class, 'index'])->name('login');
         //Route index admin.
-        Route::get('/owens', [owensController::class, 'index']);
-        Route::get('/employee', [EmployeeController::class, 'index']);
+        Route::get('/owens', [owensController::class, 'index'])->name('index.admin_owens');
+        Route::get('/employee', [EmployeeController::class, 'index'])->name('index.admin_employee');
 
         //Route for admin project:
         Route::get('/owens/project', [projectController::class, 'index'])->name('owens_project');
@@ -124,6 +124,7 @@
         Route::prefix('/owens/market/edit')->group(function () {
             Route::get('/MarketID_{MarketID}', [owensController::class, 'viewDetail'])->name('admin_market.detail_Market');
             Route::post('/MarketID_{MarketID}', [owensController::class, 'update'])->name('admin_market.update_market');
+            Route::get('/MarketDetail/{DistrictName}',[owensController::class, 'getWard'])->name('admin_getWard');
 
             Route::get('/WardID_{WardID}', [owensController::class, 'viewDetail'])->name('admin_market.detail_Ward');
             Route::get('/DistrictID_{DistrictID}', [owensController::class, 'viewDetail'])->name('admin_market.detail_District');

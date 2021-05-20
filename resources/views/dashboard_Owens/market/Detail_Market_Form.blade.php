@@ -18,7 +18,7 @@
                                         --- {{ $marketDetail->DistrictName }} ---
                                     </option>
                                     @foreach ($disList as $item)
-                                        <option value="{{ $item->DistrictName }}"> {{ $item->DistrictName }} </option>
+                                        <option value="{{ $item->DistrictName }}">{{ $item->DistrictName }}</option>
                                     @endforeach
                                 </select>
                             </p>
@@ -26,14 +26,14 @@
                             <p>
                                 <label>Phường:</label>
                                 <select name="wardList" id="wardList">
-                                    <option>--- {{ $marketDetail->WardName }} ---</option>
+                                    <option value="{{ $marketDetail->WardName }}">---{{ $marketDetail->WardName }}---</option>
                                 </select>
                             </p>
 
                             <p>
                                 <label>Năm:</label>
                                 <select name="Year" id="Year">
-                                    <option value="{{ $marketDetail->Year }}">--- {{ $marketDetail->Year }} ---</option>
+                                    <option value="{{ $marketDetail->Year }}">---{{ $marketDetail->Year }}---</option>
                                     <option value="2020"> 2020</option>
                                     <option value="2021"> 2021</option>
                                 </select>
@@ -92,6 +92,7 @@
                             </p>
 
                         </div>
+
                         <div class="secondRow">
 
                             <p>
@@ -124,21 +125,29 @@
             <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
             <script>
                 $(function () {
-                    let name = $("#districts").val();
-                    let Wname = $("#wardList").val();
-                    let Dname = $('select[name=districts] option:selected').text();
 
-                    $("#districts").change(function (e) {
-                        e.preventDefault();
-                        $(document).ajaxComplete(function (Wname) {
-                            Wname = $("#wardList").val();
-                            ;
+                        function getData(name) {
+                            url ='MarketDetail/'+name;
+                            $.get(url)
+                                .done(function (data) {
+                                    console.log("data: " + data);
+                                    var bodyData = '';
+                                    $.each(JSON.parse(data), function (index, row) {
+                                        bodyData += `<option value= "${row.WardName}" >${row.WardName}</option><br>`
+                                    })
+                                    $("#wardList").empty().append(bodyData);
+                                });
+                        }
+
+                        $("#districts").change(function (e) {
+                            e.preventDefault();
+                            let name = $("#districts").val();
+                            getData(name);
+                            $(document).ajaxComplete(function (Wname) {
+                                Wname = $('select[name=wardList] option:selected').val();
+                                console.log(Wname);
+                            });
                         });
-                        name = $("#districts").val();
-                        Dname = $('select[name=districts] option:selected').text();
-                        console.log(Dname + Wname)
-                    });
-
 
                 });
 

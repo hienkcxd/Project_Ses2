@@ -16,6 +16,13 @@
             return view('dashboard_Owens.index');
         }
 
+        public function getWard(Request $request){
+            $Name_Dist = $request->route()->parameter('DistrictName');
+            $wardList = DB::table('ward_lists')
+                        ->where('DistrictName', '=', $Name_Dist)
+                        ->get();
+            echo json_encode($wardList);
+        }
 
         public function viewDetail(Request $request)
         {
@@ -36,10 +43,7 @@
                 ->first();
 
             $disList = DistrictList::all();
-//            $getwardList = DB::table('ward_lists')
-//                ->where('DistrictName', '=', $marketDetail->DistrictName)
-//                ->get();
-//            $wardList = json_encode($getwardList);
+
             return view('dashboard_Owens.market.Detail_Market_Form')
                 ->with(compact(
                     'marketDetail',
@@ -53,6 +57,9 @@
             $id_Market = $request->route()->parameter('MarketID');
             $data = $request->all();
             $MarketLists = MarketList::find($id_Market);
+            $MarketLists->DistrictName = $data['districts'];
+            $MarketLists->WardName=$data['wardList'];
+            $MarketLists->Year = $data['Year'];
             $MarketLists->Thang_01 = $data['Thang_01'];
             $MarketLists->Thang_02 = $data['Thang_02'];
             $MarketLists->Thang_03 = $data['Thang_03'];
