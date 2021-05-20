@@ -23,8 +23,8 @@ class CreateProjectDetailsTable extends Migration
             $table->string('tagName');
             $table->string('imageTop');
             $table->string('imageBot');
-            $table->string('contentTop');
-            $table->string('contentBot');
+            $table->text('contentTop');
+            $table->text('contentBot');
             $table->foreign('ProjectID')->references('ProjectID')->on('project_lists');
             $table->timestamps();
         });

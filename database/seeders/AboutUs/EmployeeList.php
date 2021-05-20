@@ -15,10 +15,14 @@ class EmployeeList extends Seeder
     public function run()
     {
         DB::table('employee_lists')->insert([
-            ['EmployeeID'=>'A01','EmpName'=>'Aden','Position'=>'Manager'],
-            ['EmployeeID'=>'A02','EmpName'=>'Ben','Position'=>'Directer'],
-            ['EmployeeID'=>'A03','EmpName'=>'Chris','Position'=>'Senior Adviser'],
-            ['EmployeeID'=>'A04','EmpName'=>'David','Position'=>'Vice President']
+            ['EmployeeID'=>'A01','EmpName'=>'Đặng Thế Hiển','Position'=>'Tư Vấn Kết Cấu'],
+            ['EmployeeID'=>'A02','EmpName'=>'Lưu Mộng Thúy','Position'=>'Tư Vấn Kiến Trức'],
+            ['EmployeeID'=>'A03','EmpName'=>'Nguyễn Hùng Vương','Position'=>'Tư Vấn Kết Cấu'],
+            ['EmployeeID'=>'A04','EmpName'=>'Nguyễn Hoàng Duy','Position'=>'Tư Vấn Kiến Trức'],
+            ['EmployeeID'=>'A05','EmpName'=>'Phan Tấn Phát','Position'=>'Kỹ Sư Hiện Trường'],
+            ['EmployeeID'=>'A06','EmpName'=>'Nguyễn Minh Huân','Position'=>'Kỹ Sư Hiện Trường'],
+            ['EmployeeID'=>'A07','EmpName'=>'Võ Nhật Huy','Position'=>'Kỹ Sư Hiện Trường'],
+            ['EmployeeID'=>'A08','EmpName'=>'Trương Tam Phong','Position'=>'Kỹ Sư Hiện Trường'],
         ]);
     }
 }

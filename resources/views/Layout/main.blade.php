@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>@yield('title')</title>
+    <link rel="shortcut icon" href="{{ asset('images/title_logo.jpg') }}" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Responsive Minimal Bootstrap Theme">
     <meta name="keywords" content="onepage,responsive,minimal,bootstrap,theme">

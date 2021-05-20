@@ -15,7 +15,7 @@ class AboutController extends Controller
      */
     public function index()
     {
-        $emp = DB::table('employee_details')->get();
+        $emp = DB::table('employee_details')->limit(4)->get();
         return view('AboutUs.AboutUs')->with(compact('emp'));
     }
 

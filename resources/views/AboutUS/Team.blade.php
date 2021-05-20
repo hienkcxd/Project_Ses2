@@ -17,10 +17,9 @@
                         <p>{{ $e->describe }}</p>
 
                         <div class="social">
-                            <a href="#"><i class="fa fa-facebook fa-lg"></i></a>
-                            <a href="#"><i class="fa fa-twitter fa-lg"></i></a>
-                            <a href="#"><i class="fa fa-google-plus fa-lg"></i></a>
-                            <a href="#"><i class="fa fa-skype fa-lg"></i></a>
+                            <a href="{{ $e->facebook }}"><i class="fa fa-facebook fa-lg"></i></a>
+                            <a href="mailto:{{ $e->email }}"><i class="fa fa-google-plus fa-lg"></i></a>
+                            <a href="tel:{{ $e->phone }}"><i class="fa fa-phone-square fa-lg"> - {{ $e->phone }}</i></a>
                         </div>
                     </div>
                 </div>

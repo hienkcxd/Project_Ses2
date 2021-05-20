@@ -2,7 +2,7 @@
     <table id="marketTable" class="display nowrap uk-table uk-table-hover uk-table-striped table-bordered"
            style="width:100%">
         <caption style="caption-side: top; font-size: 1.5rem; font-weight: bold; color: #039BE5">
-            DỮ LIỆU GIÁ ĐẤT ĐAI TP.HỒ CHÍ MINH - (Triệu/m<sup>2</sup>) - <a class="btn-insert btn btn-outline-info" href="{{ route('admin_market.create') }}">Insert</a>
+            DỮ LIỆU GIÁ ĐẤT ĐAI TP.HỒ CHÍ MINH - (Triệu/m<sup>2</sup>) - <a class="btn-insert btn btn-outline-info" href="{{ route('admin_market.create') }}">Create New</a>
         </caption>
         <thead>
         <tr>

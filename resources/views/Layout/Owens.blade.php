@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>@yield('title')</title>
+    <link rel="shortcut icon" href="{{ asset('images/title_logo.jpg') }}" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="{{ asset('/css/admin_css/bootstrap/dist/css/bootstrap.min.css') }} ">
@@ -58,7 +59,7 @@
                 {{--                Bắt đầu phần Tin Tức--}}
                 <h3 class="menu-title" style="color: #FAB702; margin-top: 0px">Tin Tức</h3>
                 <li class="menu-item-has-children dropdown">
-                    <a href="{{ route('owens.news') }}"> <i class="menu-icon fa fa-newspaper-o" style="color: #FAB702; margin-top: 0px"></i>Danh Sách</a>
+                    <a href="{{ route('owens.news') }}"> <i class="menu-icon fa fa-newspaper-o" style="color: #FAB702"></i>Danh Sách</a>
                 </li>
                 {{--                Kết thúc phần Tin Tức--}}
 
@@ -92,7 +93,7 @@
                 {{--                Bắt đầu phần Nhân Viên--}}
                 <h3 class="menu-title" style="color: #FAB702; margin-top: 0px">Nhân Viên</h3>
                 <li class="menu-item-has-children dropdown">
-                    <a href="#"> <i class="menu-icon fa fa-address-card" style="color: #FAB702"></i>Danh Sách</a>
+                    <a href="{{ route('owens_Emp') }}"> <i class="menu-icon fa fa-address-card" style="color: #FAB702"></i>Danh Sách</a>
                 </li>
                 <li class="menu-item-has-children dropdown">
                     <a href="#"> <i class="menu-icon fa fa-user-secret" style="color: #FAB702"></i>Tài Khoản</a>

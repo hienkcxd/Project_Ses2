@@ -1,19 +1,23 @@
 .tableInLine {
-    max-width: 75rem;
+    max-width: 65rem;
     width: 98%;
     display: grid;
-    grid-template-columns: 45% 54%;
+    grid-template-columns: 49% 50%;
     grid-gap: 1%;
     border-radius: 15px;
     padding: 0;
     margin: 0 auto;
     margin-top: 15px;
 }
+div.dataTables_wrapper div.dataTables_info {
+    padding-top: 8px;
+    word-wrap: break-word;
+}
 #newsTable tr td{
     text-align: left !important;
 }
 .marketContainer {
-    max-width: 75rem;
+    max-width: 65rem;
     width: 98%;
     display: grid;
     grid-template-columns: 100%;
@@ -99,3 +103,15 @@ caption .btn-insert {
     font-weight: bold;
     color: #fff;
 }
+
+@media(min-width:1700px){
+    .tableInLine {
+        max-width: 120rem;
+        width: 98%;
+    }
+    .marketContainer {
+        max-width: 120rem;
+        width: 98%;
+    }
+}
+
