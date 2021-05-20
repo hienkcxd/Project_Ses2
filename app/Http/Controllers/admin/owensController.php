@@ -17,7 +17,7 @@
         }
 
 
-        public function edit(Request $request)
+        public function viewDetail(Request $request)
         {
             //Get ID from ward, dist and market
             $id_Market = $request->route()->parameter('MarketID');
@@ -49,6 +49,25 @@
                 ));
         }
 
+        public function update(Request $request){
+            $id_Market = $request->route()->parameter('MarketID');
+            $data = $request->all();
+            $MarketLists = MarketList::find($id_Market);
+            $MarketLists->Thang_01 = $data['Thang_01'];
+            $MarketLists->Thang_02 = $data['Thang_02'];
+            $MarketLists->Thang_03 = $data['Thang_03'];
+            $MarketLists->Thang_04 = $data['Thang_04'];
+            $MarketLists->Thang_05 = $data['Thang_05'];
+            $MarketLists->Thang_06 = $data['Thang_06'];
+            $MarketLists->Thang_07 = $data['Thang_07'];
+            $MarketLists->Thang_08 = $data['Thang_08'];
+            $MarketLists->Thang_09 = $data['Thang_09'];
+            $MarketLists->Thang_10 = $data['Thang_10'];
+            $MarketLists->Thang_11 = $data['Thang_11'];
+            $MarketLists->Thang_12 = $data['Thang_12'];
+            $MarketLists->save();
+            return redirect(route('admin_market'));
+        }
 
         public function delete(Request $request)
         {

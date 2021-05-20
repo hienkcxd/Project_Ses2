@@ -8,7 +8,7 @@
                     để logo
                 </div>
                 <div class='contact'>
-                    <form method="POST" action=" {{ route('admin_market') }}">
+                    <form method="POST" action="{{ route('admin_market.update_market',['MarketID'=>$marketDetail->MarketID]) }}">
                         @csrf
                         <div class="firstRow">
                             <p>
@@ -42,17 +42,17 @@
 
                         <div class="secondRow">
                             <p>
-                                <label>Tháng 1</label><input type="number" name='Thang_1' min="0"
+                                <label>Tháng 1</label><input type="number" name='Thang_01' min="0"
                                                              value="{{ $marketDetail->Thang_01 }}">
                             </p>
 
                             <p>
-                                <label>Tháng 2</label><input type="number" name='Thang_2' min="0"
+                                <label>Tháng 2</label><input type="number" name='Thang_02' min="0"
                                                              value="{{ $marketDetail->Thang_02 }}">
                             </p>
 
                             <p>
-                                <label>Tháng 3</label><input type="number" name='Thang_3' min="0"
+                                <label>Tháng 3</label><input type="number" name='Thang_03' min="0"
                                                              value="{{ $marketDetail->Thang_03 }}">
                             </p>
 
@@ -60,34 +60,34 @@
 
                         <div class="secondRow">
                             <p>
-                                <label>Tháng 4</label><input type="number" name='Thang_4' min="0"
+                                <label>Tháng 4</label><input type="number" name='Thang_04' min="0"
                                                              value="{{ $marketDetail->Thang_04 }}">
                             </p>
 
                             <p>
-                                <label>Tháng 5</label><input type="number" name='Thang_5' min="0"
+                                <label>Tháng 5</label><input type="number" name='Thang_05' min="0"
                                                              value="{{ $marketDetail->Thang_05 }}">
                             </p>
 
                             <p>
-                                <label>Tháng 6</label><input type="number" name='Thang_6' min="0"
+                                <label>Tháng 6</label><input type="number" name='Thang_06' min="0"
                                                              value="{{ $marketDetail->Thang_06 }}">
                             </p>
                         </div>
 
                         <div class="secondRow">
                             <p>
-                                <label>Tháng 7</label><input type="number" name='Thang_7' min="0"
+                                <label>Tháng 7</label><input type="number" name='Thang_07' min="0"
                                                              value="{{ $marketDetail->Thang_07 }}">
                             </p>
 
                             <p>
-                                <label>Tháng 8</label><input type="number" name='Thang_8' min="0"
+                                <label>Tháng 8</label><input type="number" name='Thang_08' min="0"
                                                              value="{{ $marketDetail->Thang_08 }}">
                             </p>
 
                             <p>
-                                <label>Tháng 9</label><input type="number" name='Thang_9' min="0"
+                                <label>Tháng 9</label><input type="number" name='Thang_09' min="0"
                                                              value="{{ $marketDetail->Thang_09 }}">
                             </p>
 
@@ -151,7 +151,7 @@
                             để logo
                         </div>
                         <div class='contact'>
-                            <form method="POST" action=" {{ route('admin_market') }}">
+                            <form method="POST">
                                 @csrf
                                 <div class="firstRow">
                                     <p>
@@ -193,7 +193,7 @@
                                     để logo
                                 </div>
                                 <div class='contact'>
-                                    <form method="POST" action=" {{ route('admin_market') }}">
+                                    <form method="POST">
                                         @csrf
                                         <div class="firstRow" style="grid-template-columns: 1fr 1fr;">
                                             <p>

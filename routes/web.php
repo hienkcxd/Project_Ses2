@@ -122,9 +122,11 @@
 
         //Route edit:
         Route::prefix('/owens/market/edit')->group(function () {
-            Route::get('/MarketID_{MarketID}', [owensController::class, 'edit'])->name('admin_market.detail_Market');
-            Route::get('/WardID_{WardID}', [owensController::class, 'edit'])->name('admin_market.detail_Ward');
-            Route::get('/DistrictID_{DistrictID}', [owensController::class, 'edit'])->name('admin_market.detail_District');
+            Route::get('/MarketID_{MarketID}', [owensController::class, 'viewDetail'])->name('admin_market.detail_Market');
+            Route::post('/MarketID_{MarketID}', [owensController::class, 'update'])->name('admin_market.update_market');
+
+            Route::get('/WardID_{WardID}', [owensController::class, 'viewDetail'])->name('admin_market.detail_Ward');
+            Route::get('/DistrictID_{DistrictID}', [owensController::class, 'viewDetail'])->name('admin_market.detail_District');
         });
 
         Route::get('/owens/news/edit/NewsID_{NewsID}', [adminNewsController::class, 'edit']);

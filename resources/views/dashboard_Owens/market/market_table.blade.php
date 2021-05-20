@@ -43,7 +43,7 @@
             serverSide: true,
             ajax: {
                 url: "{{route('admin_market.getMarket')}}",
-                type: "GET",
+                type: "get",
             },
             columns: [
                 {data: 'MarketID', name: 'MarketID'},
