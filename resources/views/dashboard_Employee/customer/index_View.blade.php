@@ -1,11 +1,12 @@
-@extends('Layout.Owens')
-
+@extends('Layout.employee')
+@section('content')
+    @extends('Layout.Owens')
 @section('content')
     <div class="marketContainer">
-        <table id="empTable" class="display nowrap uk-table uk-table-hover uk-table-striped table-bordered"
+        <table id="cusTable" class="display nowrap uk-table uk-table-hover uk-table-striped table-bordered"
                style="width:100%">
             <caption style="caption-side: top; font-size: 1.5rem; font-weight: bold; color: #039BE5">
-                DANH SÁCH NHÂN VIÊN
+                DANH SÁCH DỰ ÁN HOÀN THÀNH
                 <a class="btn-insert btn btn-outline-info" href="#">Insert</a>
             </caption>
             <thead>
@@ -23,7 +24,7 @@
     <script type="text/javascript">
         $(document).ready(function () {
             // DataTable
-            var table = $('#empTable').DataTable({
+            var table = $('#cusTable').DataTable({
                 columnDefs: [
                     {orderable: false, targets: "_all"},
                 ],
@@ -42,28 +43,32 @@
                     {
                         data: null,
                         defaultContent: '<a id="edit" name="edit"  class="edit btn btn-outline-info" href="">Edit</a> ' +
-                                        '<a id="delete" name="delete" class="delete btn btn-outline-danger" href="">Delete</a>'
+                            '                     <a id="delete" name="delete" class="delete btn btn-outline-danger" href="">Delete</a>'
                     },
                 ]
             });
 
-            $('#empTable tbody').on('click', '#edit', function getID() {
-                var $EmployeeID = table.row($(this).parents('tr')).data();
+            $('#cusTable tbody').on('click', '#edit', function getID() {
+                var $employeeID = table.row($(this).parents('tr')).data();
                 document.location = ""
                 $('.edit').attr('href', function () {
-                    return document.location + "/edit/Employee_" + $EmployeeID['EmployeeID'];
+                    return document.location + "/edit/employeeID_" + $employeeID['EmployeeID'];
                 });
             });
 
-            $('#empTable tbody').on('click', '#delete', function getID() {
-                var $EmployeeID = table.row($(this).parents('tr')).data();
+            $('#cusTable tbody').on('click', '#delete', function getID() {
+                var $ProjectID = table.row($(this).parents('tr')).data();
                 $('.delete').attr('href', function () {
-                    return document.location + "/edit/Employee_" + $EmployeeID['EmployeeID'];
+                    return document.location + "/delete/employeeID_" + $employeeID['EmployeeID'];
                 });
             });
-
         });
+
     </script>
 @endsection
 
-@section('title', 'Owens_Dashboard_Employee')
+@section('title', 'Owens_Dashboard_Customer')
+
+@endsection
+
+@section('title', 'Employee_Dashboard_Customer')

@@ -65,7 +65,7 @@
                 {{--                Bắt đầu phần Khách Hàng--}}
                 <h3 class="menu-title" style="color: #FAB702; margin-top: 0px">Khách Hàng</h3>
                 <li class="menu-item-has-children dropdown">
-                    <a href="#"> <i class="menu-icon fa fa-users" style="color: #FAB702"></i>Danh Sách</a>
+                    <a href="{{ route('emp.customer') }}"> <i class="menu-icon fa fa-users" style="color: #FAB702"></i>Danh Sách</a>
                 </li>
                 <li class="menu-item-has-children dropdown">
                     <a href="#"> <i class="menu-icon fa fa-exclamation-triangle" style="color: #FAB702"></i>Black List</a>
