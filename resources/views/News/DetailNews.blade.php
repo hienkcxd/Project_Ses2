@@ -31,8 +31,7 @@
                     </ul>
 
                     <div style="margin-top: 50px; text-align: center; width: 100%">
-                        <span
-                            style="font-size: 35px">&harrw;&harrw;&harrw;&harrw;&harrw;&harrw;&harrw;&harrw;&harrw;</span>
+                        <span style="font-size: 35px">&harrw;&harrw;&harrw;&harrw;&harrw;&harrw;&harrw;&harrw;&harrw;</span>
                     </div>
 
                     {{--                    //content news--}}

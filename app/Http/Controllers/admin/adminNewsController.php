@@ -16,7 +16,56 @@ class adminNewsController extends Controller
     public function edit(Request $request){
         $NewsID = $request->route()->parameter('NewsID');
         $dataNews = DB::table('news_lists')->where('NewsID', '=', $NewsID)->first();
-        return view('dashboard_Owens.news.form_View')->with(compact('dataNews'));
+        $newsDetail = DB::table('news_details')->where('NewsID', '=', $NewsID)->first();
+        return view('dashboard_Owens.news.form_View')->with(compact('dataNews', 'newsDetail'));
+    }
+
+    public  function update(Request $request){
+        $id_News = $request->route()->parameter('NewsID');
+        $data = $request->all();
+        $thongbao = "";
+
+        $upd_NewsDetail = DB::table('news_details')
+            ->where('NewsID', '=', $id_News)
+            ->update(
+                [   'NewsName' => $data['NewsName'],
+                    'NewsTagName' => $data['NewsTagName'],
+                    'Day' => $data['Day'],
+                    'Year' => $data['Year'],
+                    'images' => $data['images'],
+                    'contentTop' => $data['contentTop'],
+                    'image1' => $data['image1'],
+                    'image2' => $data['image2'],
+                    'image3' => $data['image3'],
+                    'contentMiddle' => $data['contentMiddle'],
+                    'image4' => $data['image4'],
+                    'image5' => $data['image5'],
+                    'image6' => $data['image6'],
+                    'contentBot' => $data['contentBot'],
+                    'image7' => $data['image7'],
+                    'image8' => $data['image8'],
+                    'image9' => $data['image9'],
+                ],
+            );
+        $upd_NewsList = DB::table('news_lists')
+                    ->where('NewsID', '=', $id_News)
+                    ->update(
+                [   'NewsName' => $data['NewsName'],
+                    'NewsTagName' => $data['NewsTagName'],
+                    'Description' => $data['Description'],
+                    'Day' => $data['Day'],
+                    'Year' => $data['Year'],
+                    'images' => $data['images'],
+                ],
+            );
+        if(isset($upd_NewsDetail, $upd_NewsList)){
+            $thongbao = "Update Thành Công!!!";
+            return redirect(route('owens.news'))->with(compact('thongbao'));
+        }
+        else{
+            $thongbao = "Update Thất Bại!!!";
+            return redirect(route('owens.news'))->with(compact('thongbao'));
+        }
     }
 
     public function getNews(Request $request)

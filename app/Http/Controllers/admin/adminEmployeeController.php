@@ -53,20 +53,6 @@ class adminEmployeeController extends Controller
             $thongbao = 'Update Thất Bại!!!';
             return redirect(route('owens_Emp'))->with(compact('thongbao'));
         }
-        //Update table empList:
-//        $empList->empName = $data['empName'];
-//        $empList->Position = $data['position'];
-
-        //Update table emp_Detail:
-//        $empDetail->empName = $data['empName'];
-//        $empDetail->position = $data['position'];
-//        $empDetail->describe = $data['describe'];
-//        $empDetail->email = $data['email'];
-//        $empDetail->phone = $data['phone'];
-//        $empDetail->facebook = $data['facebook'];
-//        $empDetail->zalo = $data['zalo'];
-
-//        $empDetail->images = $data['empName'];
     }
 
     public function getEmployee(Request $request)

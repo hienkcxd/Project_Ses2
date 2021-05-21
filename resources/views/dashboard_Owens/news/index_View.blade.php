@@ -1,5 +1,6 @@
 @extends('Layout.Owens')
 @section('content')
+    <h2> {{ session('thongbao') }} </h2>
 <div class="marketContainer">
     <table id="newsTable" class="display nowrap uk-table uk-table-hover uk-table-striped table-bordered"
            style="width:100%">

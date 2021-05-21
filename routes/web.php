@@ -166,7 +166,7 @@
         })->name('emp.news');
 
         Route::get('/owens/news/edit/NewsID_{NewsID}', [adminNewsController::class, 'edit']);
-
+        Route::post('/NewsID_{NewsID}', [adminNewsController::class, 'update'])->name('admin.update_News');
 //        End Route Project
 //----------------------------
 
