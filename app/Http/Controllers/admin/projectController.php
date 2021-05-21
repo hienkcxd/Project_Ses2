@@ -13,6 +13,41 @@ class projectController extends Controller
         return view('dashboard_Owens.project.index_View');
     }
 
+    public function update(Request $request){
+        $id_Project = $request->route()->parameter('ProjectID');
+        $data =$request->all();
+        $thongbao = "Update Thành Công!!!";
+
+        $upd_ProList = DB::table('project_lists')
+            ->where('ProjectID','=', $id_Project)
+            ->update([
+                'ProjectName'=>$data['ProjectName'],
+                'TagName'    =>$data['TagName'],
+                'images'     =>$data['images'],
+            ]);
+
+        $upd_ProDetail = DB::table('project_details')
+            ->where('ProjectID','=', $id_Project)
+            ->update([
+                'DateFinish'=>$data['DateFinish'],
+                'Location'  =>$data['Location'],
+                'Price'     =>$data['Price'],
+                'Client'    =>$data['Client'],
+                'tagName'   =>$data['tagName'],
+                'imageTop'  =>$data['imageTop'],
+                'imageBot'  =>$data['imageBot'],
+                'contentTop'=>$data['contentTop'],
+                'contentBot'=>$data['contentBot'],
+            ]);
+        if(isset($upd_ProList, $upd_ProDetail)){
+            return redirect(route('owens_project'))->with(compact('thongbao'));
+        }
+        else{
+            $thongbao = "Update Thất Bại!!!";
+            return redirect(route('owens_project'))->with(compact('thongbao'));
+        }
+    }
+
     public function edit(Request $request){
         $ProjectID = $request->route()->parameter('ProjectID');
         $projectList = DB::table('project_lists')

@@ -26,6 +26,16 @@ div.dataTables_wrapper div.dataTables_info {
     margin: 0 auto;
     margin-top: 15px;
 }
+.projectContainer {
+    max-width: 65rem;
+    width: 98%;
+    display: grid;
+    grid-template-columns: 100%;
+    border-radius: 15px;
+    padding: 0;
+    margin: 0 auto;
+    margin-top: 15px;
+}
 div.col-sm-12{
     margin: 0;
 }
@@ -111,6 +121,10 @@ caption .btn-insert {
     }
     .marketContainer {
         max-width: 120rem;
+        width: 98%;
+    }
+    .projectContainer {
+        max-width: 100rem;
         width: 98%;
     }
 }

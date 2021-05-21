@@ -9,7 +9,7 @@
             </caption>
             <thead>
             <tr>
-                <th>CusID</th>
+                <th>Cus_ID</th>
                 <th>Tên Khách Hàng</th>
                 <th>ĐT Khách Hàng</th>
                 <th>Công Việc</th>

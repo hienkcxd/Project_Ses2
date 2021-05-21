@@ -2,7 +2,8 @@
 <div class="container">
 
     <div class="projectForm">
-        <form action="#">
+        <form method="POST" action="{{ route('admin.update_Project', ['ProjectID'=>$projectDetail->	ProjectID]) }}">
+            @csrf
             <div class="title">Thông Tin Dự Án:</div>
             <div class="project-infor">
                 <div class="input-box">
@@ -41,7 +42,7 @@
                 </div>
                 <div class="input-box">
                     <span class="details">Category:</span>
-                    <input type="text" name="category" id="category" value="{{ $projectDetail->tagName }}">
+                    <input type="text" name="tagName" id="category" value="{{ $projectDetail->tagName }}">
                 </div>
             </div>
 
@@ -49,23 +50,23 @@
             <div class="project-content">
                 <div class="input-box">
                     <span class="details">Image Background:</span>
-                    <input type="text"  name="ProjectID" value="{{ $projectList->images }}">
+                    <input type="text"  name="images" value="{{ $projectList->images }}">
                 </div>
                 <div class="input-box">
                     <span class="details">Image Top:</span>
-                    <input type="text"  name="ProjectID" value="{{ $projectDetail->imageTop }}">
+                    <input type="text"  name="imageTop" value="{{ $projectDetail->imageTop }}">
                 </div>
                 <div class="input-box">
                     <span class="details">Image Bot:</span>
-                    <input type="text" name="ProjectName" value="{{ $projectDetail->imageBot }}">
+                    <input type="text" name="imageBot" value="{{ $projectDetail->imageBot }}">
                 </div>
                 <div class="input-box">
                     <span class="details">Content Top:</span>
-                    <input type="text" name="Client" value="{{ $projectDetail->contentTop }}">
+                    <input type="text" name="contentTop" value="{{ $projectDetail->contentTop }}">
                 </div>
                 <div class="input-box">
                     <span class="details">Content Bot:</span>
-                    <input type="text" name="Location" value="{{ $projectDetail->contentBot }}">
+                    <input type="text" name="contentBot" value="{{ $projectDetail->contentBot }}">
                 </div>
             </div>
             <div class="button">
