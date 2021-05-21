@@ -11,8 +11,8 @@
         <thead>
         <tr>
             <th>ID_News</th>
-            <th>Tên Bài</th>
             <th>Action</th>
+            <th>Tên Bài</th>
             <th>Thể Loại</th>
             <th>Mô Tả</th>
             <th>Ngày Viết</th>
@@ -42,12 +42,12 @@
             },
             columns: [
                 {data: 'NewsID'},
-                {data: 'NewsName'},
                 {
                     data: null,
                     defaultContent: '<a id="edit" name="edit"  class="edit btn btn-outline-info" href="">Edit</a> ' +
                         '                     <a id="delete" name="delete" class="delete btn btn-outline-danger" href="">Delete</a>'
                 },
+                {data: 'NewsName'},
                 {data: 'NewsTagName'},
                 {data: 'Description'},
                 {data: 'Day'},

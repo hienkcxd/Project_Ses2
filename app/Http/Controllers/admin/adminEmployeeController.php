@@ -14,6 +14,7 @@ class adminEmployeeController extends Controller
         return view('dashboard_Owens.employee.index_View');
     }
 
+
     public function edit(Request $request){
         $EmpID = $request->route()->parameter('EmployeeID');
         $empDetail = DB::table('employee_details')
@@ -21,6 +22,7 @@ class adminEmployeeController extends Controller
                     ->first();
         return view('dashboard_Owens.employee.form_View')->with(compact('empDetail'));
     }
+
 
     public function update(Request $request){
         $id_Emp= $request->route()->parameter('EmployeeID');

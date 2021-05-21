@@ -12,4 +12,34 @@ class adminCustomerController extends Controller
         $cusList = DB::table('customers')->get();
         return view('dashboard_Owens.customer.index_View')->with(compact('cusList'));
     }
+
+    public function indexEmp(){
+        $cusList = DB::table('customers')->get();
+        return view('dashboard_Employee.customer.index_View')->with(compact('cusList'));
+    }
+
+    public function edit(Request $request){
+        $CusID = $request->route()->parameter('customerID');
+        $CusDetail = DB::table('customers')
+                ->where('CusID', '=', $CusID)
+                ->first();
+        return view('dashboard_Owens.customer.form_View')->with(compact('CusDetail'));
+    }
+
+    public function editEmp(Request $request){
+        $CusID = $request->route()->parameter('customerID');
+        $CusDetail = DB::table('customers')
+            ->where('CusID', '=', $CusID)
+            ->first();
+        return view('dashboard_Employee.customer.form_View')->with(compact('CusDetail'));
+    }
+
+    public function update(Request $request){
+        $CusID = $request->route()->parameter('customerID');
+        $data = $request->all();
+        $CusDetail = DB::table('customers')
+            ->where('CusID', '=', $CusID)
+            ->first();
+        return view('dashboard_Owens.customer.form_View')->with(compact('CusDetail'));
+    }
 }

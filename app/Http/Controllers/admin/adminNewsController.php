@@ -20,6 +20,13 @@ class adminNewsController extends Controller
         return view('dashboard_Owens.news.form_View')->with(compact('dataNews', 'newsDetail'));
     }
 
+    public function editEmp(Request $request){
+        $NewsID = $request->route()->parameter('NewsID');
+        $dataNews = DB::table('news_lists')->where('NewsID', '=', $NewsID)->first();
+        $newsDetail = DB::table('news_details')->where('NewsID', '=', $NewsID)->first();
+        return view('dashboard_Employee.news.form_View')->with(compact('dataNews', 'newsDetail'));
+    }
+
     public  function update(Request $request){
         $id_News = $request->route()->parameter('NewsID');
         $data = $request->all();

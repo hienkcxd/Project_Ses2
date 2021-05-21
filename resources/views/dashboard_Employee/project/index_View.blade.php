@@ -1,7 +1,7 @@
 @extends('Layout.employee')
 
 @section('content')
-    <div class="marketContainer">
+    <div class="projectContainer">
         <table id="projectTable" class="display nowrap uk-table uk-table-hover uk-table-striped table-bordered"
                style="width:100%">
             <caption style="caption-side: top; font-size: 1.5rem; font-weight: bold; color: #039BE5">
@@ -12,6 +12,7 @@
             <tr>
                 <th>ID</th>
                 <th>Project ID</th>
+                <th>Action</th>
                 <th>Ngày Hoàn Thành</th>
                 <th>Location</th>
                 <th>Price</th>
@@ -21,7 +22,6 @@
                 <th>Nội Dung 2</th>
                 <th>Hình 1</th>
                 <th>Hình 2</th>
-                <th>Action</th>
             </tr>
             </thead>
             <tbody>
@@ -47,6 +47,11 @@
                 columns: [
                     {data: 'ProDetailID'},
                     {data: 'ProjectID'},
+                    {
+                        data: null,
+                        defaultContent: '<a id="edit" name="edit"  class="edit btn btn-outline-info" href="">Edit</a> ' +
+                            '                     <a id="delete" name="delete" class="delete btn btn-outline-danger" href="">Delete</a>'
+                    },
                     {data: 'DateFinish'},
                     {data: 'Location'},
                     {data: 'Price'},
@@ -56,11 +61,6 @@
                     {data: 'contentBot'},
                     {data: 'imageTop'},
                     {data: 'imageBot'},
-                    {
-                        data: null,
-                        defaultContent: '<a id="edit" name="edit"  class="edit btn btn-outline-info" href="">Edit</a> ' +
-                            '                     <a id="delete" name="delete" class="delete btn btn-outline-danger" href="">Delete</a>'
-                    },
                 ]
             });
 

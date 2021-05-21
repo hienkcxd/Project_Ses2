@@ -2,7 +2,7 @@
 @section('content')
     <h2>Trang index news</h2>
 
-    <div class="marketContainer">
+    <div class="projectContainer">
         <table id="newsTable" class="display nowrap uk-table uk-table-hover uk-table-striped table-bordered"
                style="width:100%; text-align: left">
             <caption style="caption-side: top; font-size: 1.5rem; font-weight: bold; color: #039BE5">
@@ -12,13 +12,14 @@
             <thead>
             <tr>
                 <th>ID_News</th>
+                <th>Action</th>
                 <th>Tên Bài</th>
                 <th>Thể Loại</th>
                 <th>Mô Tả</th>
                 <th>Ngày Viết</th>
                 <th>Năm</th>
                 <th>Background</th>
-                <th>Action</th>
+
             </tr>
             </thead>
             <tbody>
@@ -31,7 +32,6 @@
             var table = $('#newsTable').DataTable({
                 columnDefs: [
                     {orderable: false, targets: "_all"},
-                    {visible: false, targets: 0},
                 ],
                 "scrollX": true,
                 lengthMenu: [6, 15, 25, 50],
@@ -43,17 +43,17 @@
                 },
                 columns: [
                     {data: 'NewsID'},
+                    {
+                        data: null,
+                        defaultContent: '<a id="edit" name="edit"  class="edit btn btn-outline-info" href="">Edit</a> ' +
+                            '                     <a id="delete" name="delete" class="delete btn btn-outline-danger" href="">Delete</a>'
+                    },
                     {data: 'NewsName'},
                     {data: 'NewsTagName'},
                     {data: 'Description'},
                     {data: 'Day'},
                     {data: 'Year'},
                     {data: 'images'},
-                    {
-                        data: null,
-                        defaultContent: '<a id="edit" name="edit"  class="edit btn btn-outline-info" href="">Edit</a> ' +
-                            '                     <a id="delete" name="delete" class="delete btn btn-outline-danger" href="">Delete</a>'
-                    },
                 ]
             });
 

@@ -59,6 +59,17 @@ class projectController extends Controller
         return view('dashboard_Owens.project.form_View')->with(compact('projectList', 'projectDetail'));
     }
 
+    public function editEmp(Request $request){
+        $ProjectID = $request->route()->parameter('ProjectID');
+        $projectList = DB::table('project_lists')
+            ->where('ProjectID','=', $ProjectID)
+            ->first();
+        $projectDetail = DB::table('project_details')
+            ->where('ProjectID','=', $ProjectID)
+            ->first();
+        return view('dashboard_Employee.project.form_View')->with(compact('projectList', 'projectDetail'));
+    }
+
     public function getProject(Request $request)
     {
         ## Read value

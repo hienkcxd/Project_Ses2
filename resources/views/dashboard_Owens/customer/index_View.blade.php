@@ -10,6 +10,7 @@
             <thead>
             <tr>
                 <th>Cus_ID</th>
+                <th>Action</th>
                 <th>Tên Khách Hàng</th>
                 <th>ĐT Khách Hàng</th>
                 <th>Công Việc</th>
@@ -18,13 +19,16 @@
                 <th>Tên Nhân Viên</th>
                 <th>ĐT Nhân Viên</th>
                 <th>Giá Hợp Đồng</th>
-                <th>Action</th>
             </tr>
             </thead>
             <tbody>
             @foreach($cusList as $cus)
                 <tr>
                     <td>{{ $cus->CusID }}</td>
+                    <td>
+                        <a id="edit" name="edit" class="edit btn btn-outline-info" href="{{ route('owens.customer_edit', ['customerID'=>$cus->CusID]) }}">Detail</a>
+                        <a id="delete" name="delete" class="delete btn btn-outline-danger" href="{{ route('owens.customer_delete', ['customerID'=>$cus->CusID]) }}">Delete</a>
+                    </td>
                     <td>{{ $cus->CusName }}</td>
                     <td>{{ $cus->CusPhone }}</td>
                     <td>{{ $cus->WorkName }}</td>
@@ -33,34 +37,17 @@
                     <td>{{ $cus->EmpName }}</td>
                     <td>{{ $cus->EmpPhone }}</td>
                     <td>{{ $cus->Price }}</td>
-                    <td>
-                        <a id="edit" name="edit" class="edit btn btn-outline-info" href="">Detail</a>
-                        <a id="delete" name="delete" class="delete btn btn-outline-danger" href="">Delete</a>
-                    </td>
                 </tr>
             @endforeach
             </tbody>
         </table>
     </div>
     <script type="text/javascript">
+
         var tableEmp = $('#cusTable').DataTable({
             "scrollX": true,
             "lengthMenu": [5, 10, 20, 50],
             "sort": false,
-        });
-        $('#cusTable tbody').on('click', '#edit', function getID() {
-            var $customerID = table.row($(this).parents('tr')).data();
-            document.location = ""
-            $('.edit').attr('href', function () {
-                return document.location + "/edit/customerID_" + $customerID['CusID'];
-            });
-        });
-
-        $('#cusTable tbody').on('click', '#delete', function getID() {
-            var $customerID = table.row($(this).parents('tr')).data();
-            $('.delete').attr('href', function () {
-                return document.location + "/delete/customerID_" + $customerID['CusID'];
-            });
         });
 
     </script>

@@ -10,6 +10,7 @@
             <th>Quận</th>
             <th>Phường</th>
             <th>Năm</th>
+            <th>Action</th>
             <th>Tháng 1</th>
             <th>Tháng 2</th>
             <th>Tháng 3</th>
@@ -22,7 +23,7 @@
             <th>Tháng 10</th>
             <th>Tháng 11</th>
             <th>Tháng 12</th>
-            <th>Action</th>
+
         </tr>
         </thead>
         <tbody>
@@ -50,6 +51,11 @@
                 {data: 'DistrictName', name: 'DistrictName'},
                 {data: 'WardName', name: 'DistrictName'},
                 {data: 'Year'},
+                {
+                    data: null,
+                    defaultContent: '<a id="edit" name="edit"  class="edit btn btn-outline-info" href="">Edit</a> ' +
+                        '                     <a id="delete" name="delete" class="delete btn btn-outline-danger" href="">Delete</a>'
+                },
                 {data: 'Thang_01'},
                 {data: 'Thang_02'},
                 {data: 'Thang_03'},
@@ -62,11 +68,7 @@
                 {data: 'Thang_10'},
                 {data: 'Thang_11'},
                 {data: 'Thang_12'},
-                {
-                    data: null,
-                    defaultContent: '<a id="edit" name="edit"  class="edit btn btn-outline-info" href="">Edit</a> ' +
-                        '                     <a id="delete" name="delete" class="delete btn btn-outline-danger" href="">Delete</a>'
-                },
+
             ]
             //    <a class="btn btn-outline-primary" " href="{{ route('login') }}">Detail</a>
         });

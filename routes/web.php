@@ -3,7 +3,6 @@
     use App\Http\Controllers\admin\adminCustomerController;
     use App\Http\Controllers\admin\adminEmployeeController;
     use App\Http\Controllers\admin\adminNewsController;
-    use App\Http\Controllers\admin\EmployeeController;
     use App\Http\Controllers\admin\loginController;
     use App\Http\Controllers\admin\owensController;
     use App\Http\Controllers\admin\projectController;
@@ -88,7 +87,8 @@
         Route::get('/', [loginController::class, 'index'])->name('login');
         //Route index admin.
         Route::get('/owens', [owensController::class, 'index'])->name('index.admin_owens');
-        Route::get('/employee', [EmployeeController::class, 'index'])->name('index.admin_employee');
+        Route::get('/employee', [owensController::class, 'indexEmp'])->name('index.admin_employee');
+
 
 //        End Route index admin
 //----------------------------
@@ -117,9 +117,8 @@
 //----------------------------
 
 //        Route Employee: only owens
-        Route::get('/owens/Employee/getEmployee', [adminEmployeeController::class, 'getEmployee'])->name('admin.allEmployee');
-
         Route::get('/owens/Employee', [adminEmployeeController::class, 'index'])->name('owens_Emp');
+        Route::get('/owens/Employee/getEmployee', [adminEmployeeController::class, 'getEmployee'])->name('admin.allEmployee');
 
         Route::get('/owens/Employee/edit/Employee_{EmployeeID}', [adminEmployeeController::class, 'edit']);
         Route::post('/Employee_{EmployeeID}', [adminEmployeeController::class, 'update'])->name('owens.update_emp');
@@ -129,12 +128,14 @@
 //        Route Customer
 
         Route::get('/owens/customer', [adminCustomerController::class, 'index'])->name('owens.customer');
-        Route::get('/employee/customer', function (){
-            return view('dashboard_Employee.customer.index_View');
-        })->name('emp.customer');
+        Route::get('/employee/customer', [adminCustomerController::class, 'indexEmp'])->name('emp.customer');
 
-        Route::get('/owens/customer/edit/customerID_{customerID}', [adminCustomerController::class, 'edit']);
 
+        Route::get('/owens/customer/edit/customerID_{customerID}', [adminCustomerController::class, 'edit'])->name('owens.customer_edit');
+        Route::get('/employee/customer/edit/customerID_{customerID}', [adminCustomerController::class, 'editEmp'])->name('emp.customer_edit');
+
+        Route::post('/customerID_{customerID}', [adminCustomerController::class, 'update'])->name('owens.customer_update');
+        Route::get('/owens/customer/delete/customerID_{customerID}', [adminCustomerController::class, ''])->name('owens.customer_delete');
 
 //        End Route Customer
 //----------------------------
@@ -148,9 +149,8 @@
         })->name('emp.project');
 
         Route::get('/owens/project/edit/ProjectID_{ProjectID}', [projectController::class, 'edit']);
-        Route::get('/employee/project/edit/ProjectID_{ProjectID}', function ($ProjectID){
-            return view('dashboard_Employee.project.form_View')->with(compact('ProjectID'));
-        });
+        Route::get('/employee/project/edit/ProjectID_{ProjectID}', [projectController::class, 'editemp']);
+
         Route::post('/ProjectID_{ProjectID}', [projectController::class, 'update'])->name('admin.update_Project');
 
 //        End Route Project
@@ -166,6 +166,8 @@
         })->name('emp.news');
 
         Route::get('/owens/news/edit/NewsID_{NewsID}', [adminNewsController::class, 'edit']);
+        Route::get('/employee/news/edit/NewsID_{NewsID}', [adminNewsController::class, 'editEmp']);
+
         Route::post('/NewsID_{NewsID}', [adminNewsController::class, 'update'])->name('admin.update_News');
 //        End Route Project
 //----------------------------
