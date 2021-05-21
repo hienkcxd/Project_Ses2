@@ -122,6 +122,7 @@
         Route::get('/owens/Employee', [adminEmployeeController::class, 'index'])->name('owens_Emp');
 
         Route::get('/owens/Employee/edit/Employee_{EmployeeID}', [adminEmployeeController::class, 'edit']);
+        Route::post('/Employee_{EmployeeID}', [adminEmployeeController::class, 'update'])->name('owens.update_emp');
 //        End Route Employee
 //----------------------------
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\AboutUs\EmployeeDetail;
 use App\Models\AboutUs\EmployeeList;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -14,8 +15,58 @@ class adminEmployeeController extends Controller
     }
 
     public function edit(Request $request){
-        $EmployeeID = $request->route()->parameter('EmployeeID');
-        return view('dashboard_Owens.employee.form_View')->with(compact('EmployeeID'));
+        $EmpID = $request->route()->parameter('EmployeeID');
+        $empDetail = DB::table('employee_details')
+                    ->where('EmployeeID', '=', $EmpID)
+                    ->first();
+        return view('dashboard_Owens.employee.form_View')->with(compact('empDetail'));
+    }
+
+    public function update(Request $request){
+        $id_Emp= $request->route()->parameter('EmployeeID');
+        $data = $request->all();
+        $thongbao = "";
+        $upd_empLists = DB::table('employee_lists')
+                        ->where('EmployeeID', '=', $id_Emp)
+                        ->update(
+                            ['empName' => $data['empName'],
+                             'Position' => $data['position'],
+                            ],
+                        );
+        $upd_empDetail = DB::table('employee_details')
+            ->where('EmployeeID', '=', $id_Emp)
+            ->update(
+                [   'empName' => $data['empName'],
+                    'Position' => $data['position'],
+                    'describe' => $data['describe'],
+                    'email' => $data['email'],
+                    'phone' => $data['phone'],
+                    'facebook' => $data['facebook'],
+                    'zalo' => $data['zalo'],
+                ],
+            );
+        if(isset($upd_empDetail, $upd_empLists)){
+            $thongbao = 'Update Thành Công!!!';
+            return redirect(route('owens_Emp'))->with(compact('thongbao'));
+        }
+        else{
+            $thongbao = 'Update Thất Bại!!!';
+            return redirect(route('owens_Emp'))->with(compact('thongbao'));
+        }
+        //Update table empList:
+//        $empList->empName = $data['empName'];
+//        $empList->Position = $data['position'];
+
+        //Update table emp_Detail:
+//        $empDetail->empName = $data['empName'];
+//        $empDetail->position = $data['position'];
+//        $empDetail->describe = $data['describe'];
+//        $empDetail->email = $data['email'];
+//        $empDetail->phone = $data['phone'];
+//        $empDetail->facebook = $data['facebook'];
+//        $empDetail->zalo = $data['zalo'];
+
+//        $empDetail->images = $data['empName'];
     }
 
     public function getEmployee(Request $request)

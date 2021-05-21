@@ -54,6 +54,7 @@
         }
 
         public function update(Request $request){
+            $thongbao ="";
             $id_Market = $request->route()->parameter('MarketID');
             $data = $request->all();
             $MarketLists = MarketList::find($id_Market);
@@ -73,7 +74,15 @@
             $MarketLists->Thang_11 = $data['Thang_11'];
             $MarketLists->Thang_12 = $data['Thang_12'];
             $MarketLists->save();
-            return redirect(route('admin_market'));
+            if(isset($MarketLists)){
+                $thongbao = "Update Thành Công!!!";
+                return redirect(route('admin_market'))->with(compact('thongbao'));
+            }
+            else{
+                $thongbao = "Update Thất Bại!!!";
+                return redirect(route('admin_market'))->with(compact('thongbao'));
+            }
+
         }
 
         public function delete(Request $request)

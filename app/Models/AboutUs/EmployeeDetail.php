@@ -7,5 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class EmployeeDetail extends Model
 {
-    use HasFactory;
+    protected $fillable = [
+        'EmployeeID','empName', 'position', 'describe','email', 'phone', 'facebook', 'zalo', 'images',
+    ];
 }
