@@ -151,6 +151,7 @@
         Route::get('/employee/project/edit/ProjectID_{ProjectID}', function ($ProjectID){
             return view('dashboard_Employee.project.form_View')->with(compact('ProjectID'));
         });
+        Route::post('/ProjectID_{ProjectID}', [projectController::class, 'update'])->name('admin.update_Project');
 
 //        End Route Project
 //----------------------------

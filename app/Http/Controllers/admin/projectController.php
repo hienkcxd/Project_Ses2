@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\Project\ProjectDetail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class projectController extends Controller
 {
@@ -14,8 +15,15 @@ class projectController extends Controller
 
     public function edit(Request $request){
         $ProjectID = $request->route()->parameter('ProjectID');
-        return view('dashboard_Owens.project.form_View')->with(compact('ProjectID'));
+        $projectList = DB::table('project_lists')
+                ->where('ProjectID','=', $ProjectID)
+                ->first();
+        $projectDetail = DB::table('project_details')
+            ->where('ProjectID','=', $ProjectID)
+            ->first();
+        return view('dashboard_Owens.project.form_View')->with(compact('projectList', 'projectDetail'));
     }
+
     public function getProject(Request $request)
     {
         ## Read value

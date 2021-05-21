@@ -11,12 +11,13 @@
         <tr>
             <th>ID_News</th>
             <th>Tên Bài</th>
+            <th>Action</th>
             <th>Thể Loại</th>
             <th>Mô Tả</th>
             <th>Ngày Viết</th>
             <th>Năm</th>
             <th>Background</th>
-            <th>Action</th>
+
         </tr>
         </thead>
         <tbody>
@@ -41,16 +42,17 @@
             columns: [
                 {data: 'NewsID'},
                 {data: 'NewsName'},
-                {data: 'NewsTagName'},
-                {data: 'Description'},
-                {data: 'Day'},
-                {data: 'Year'},
-                {data: 'images'},
                 {
                     data: null,
                     defaultContent: '<a id="edit" name="edit"  class="edit btn btn-outline-info" href="">Edit</a> ' +
                         '                     <a id="delete" name="delete" class="delete btn btn-outline-danger" href="">Delete</a>'
                 },
+                {data: 'NewsTagName'},
+                {data: 'Description'},
+                {data: 'Day'},
+                {data: 'Year'},
+                {data: 'images'},
+
             ]
         });
 
