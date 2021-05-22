@@ -3,6 +3,7 @@
     use App\Http\Controllers\admin\adminCustomerController;
     use App\Http\Controllers\admin\adminEmployeeController;
     use App\Http\Controllers\admin\adminNewsController;
+    use App\Http\Controllers\admin\adminWorkController;
     use App\Http\Controllers\admin\loginController;
     use App\Http\Controllers\admin\owensController;
     use App\Http\Controllers\admin\projectController;
@@ -128,16 +129,29 @@
 //        Route Customer
 
         Route::get('/owens/customer', [adminCustomerController::class, 'index'])->name('owens.customer');
+        Route::get('/owens/black_list', [adminCustomerController::class, 'blacklist'])->name('owens.black_lists');
         Route::get('/employee/customer', [adminCustomerController::class, 'indexEmp'])->name('emp.customer');
 
-
         Route::get('/owens/customer/edit/customerID_{customerID}', [adminCustomerController::class, 'edit'])->name('owens.customer_edit');
+        Route::get('/owens/black_list/edit/BlackCusID_{BlackCusID}', [adminCustomerController::class, 'edit'])->name('owens.blackList_edit');
+
         Route::get('/employee/customer/edit/customerID_{customerID}', [adminCustomerController::class, 'editEmp'])->name('emp.customer_edit');
 
         Route::post('/customerID_{customerID}', [adminCustomerController::class, 'update'])->name('owens.customer_update');
         Route::get('/owens/customer/delete/customerID_{customerID}', [adminCustomerController::class, ''])->name('owens.customer_delete');
 
 //        End Route Customer
+//----------------------------
+
+        //        Route work
+
+        Route::get('/owens/work_list', [adminWorkController::class, 'index'])->name('owens.work');
+
+        Route::get('/owens/work_list/edit/WorkID_{WorkID}', [adminWorkController::class, 'index'])->name('owens.work_detail');
+        Route::post('/WorkID_{WorkID}', [adminWorkController::class, 'update'])->name('admin.update_work');
+
+
+//        End Route work
 //----------------------------
 
 //        Route Project
@@ -171,6 +185,8 @@
         Route::post('/NewsID_{NewsID}', [adminNewsController::class, 'update'])->name('admin.update_News');
 //        End Route Project
 //----------------------------
+
+
 
 });
 

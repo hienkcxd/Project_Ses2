@@ -71,14 +71,14 @@
                     <a href="{{ route('owens.customer') }}"> <i class="menu-icon fa fa-users" style="color: #FAB702"></i>Danh Sách</a>
                 </li>
                 <li class="menu-item-has-children dropdown">
-                    <a href="#"> <i class="menu-icon fa fa-exclamation-triangle" style="color: #FAB702"></i>Black List</a>
+                    <a href="{{ route('owens.black_lists') }}"> <i class="menu-icon fa fa-exclamation-triangle" style="color: #FAB702"></i>Black List</a>
                 </li>
                 {{--                Kết thúc phần Khách Hàng--}}
 
                 {{--                Bắt đầu phần Công Việc--}}
                 <h3 class="menu-title" style="color: #FAB702; margin-top: 0px">Công Việc</h3>
                 <li class="menu-item-has-children dropdown">
-                    <a href="#"> <i class="menu-icon fa fa-clipboard" style="color: #FAB702; margin-top: 0px"></i>Danh Sách</a>
+                    <a href="{{ route('owens.work') }}"> <i class="menu-icon fa fa-clipboard" style="color: #FAB702; margin-top: 0px"></i>Danh Sách</a>
                 </li>
                 <li class="menu-item-has-children dropdown">
                     <a href="#"> <i class="menu-icon fa fa-bar-chart" style="color: #FAB702; margin-top: 0px"></i>Tiến Độ</a>

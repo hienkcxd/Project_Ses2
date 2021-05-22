@@ -12,7 +12,9 @@
     margin-right: auto;
     margin-top: 20px;
 }
-
+.blackList_Background{
+    background-color: #272c33 ;
+}
 .contact form .title h2{
     font-weight: bold;
     color: white;
