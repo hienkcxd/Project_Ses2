@@ -21,10 +21,16 @@ class adminWorkController extends Controller
 
     public function edit(Request $request){
         $WorkID = $request->route()->parameter('WorkID');
+        $workList = DB::table('work_lists')
+            ->where('WorkID', '=', $WorkID)
+            ->first();
         $workDetail = DB::table('work_details')
                 ->where('WorkID', '=', $WorkID)
                 ->first();
-        return view('dashboard_Owens.work.form_View')->with(compact('workDetail'));
+        $customer = DB::table('customers')
+            ->where('CusID', '=', $workList->CusID )
+            ->first();
+        return view('dashboard_Owens.work.form_View')->with(compact('workDetail', 'workList','customer'));
     }
 
 }
