@@ -40,7 +40,7 @@ class customerSeeder extends Seeder
             ['CusID' => 'CS08', 'CusName' => 'Ms.Châu','CusPhone' => '013293212', 'WorkName'=>'Decor Căn Hộ',
                 'Address'=>'Căn hộ 505 - Everich Quận 5','EmpID'=>'A05', 'EmpName'=>'Phan Tấn Phát', 'EmpPhone'=>'0908476321', 'Price'=>'700 Triệu'],
 
-            ['CusID' => 'CS09', 'CusName' => 'Mr.Vũ','CusPhone' => '132132112', 'WorkName'=>'Xây Dựng Nhà Phố',
+            ['CusID' => 'CS09', 'CusName' => 'Mr.Vũ','CusPhone' => '132132112', 'WorkName'=>'Thi Công Nhà Phố',
                 'Address'=>'35 Hoàng Hoa Thám - Quận Tân Bình','EmpID'=>'A06', 'EmpName'=>'Nguyễn Minh Huân', 'EmpPhone'=>'0977654311', 'Price'=>'1.5 tỷ '],
 
             ['CusID' => 'CS10', 'CusName' => 'Mr.Công','CusPhone' => '901321432', 'WorkName'=>'Decor Căn Hộ',

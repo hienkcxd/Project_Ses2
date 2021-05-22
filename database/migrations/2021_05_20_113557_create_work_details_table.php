@@ -14,11 +14,12 @@ class CreateWorkDetailsTable extends Migration
     public function up()
     {
         Schema::create('work_details', function (Blueprint $table) {
-            $table->String('WorkDetail_ID')->primary();
+            $table->increments('WorkDetail_ID');
             $table->String('WorkID');
             $table->String('CusID');
+            $table->String('CusPhone');
             $table->String('Address');
-            $table->string('Price');
+            $table->integer('Price_Int');
             $table->String('EmpName');
             $table->String('EmpPhone');
             $table->string('registration');

@@ -15,12 +15,10 @@ class CreateWorkListsTable extends Migration
     {
         Schema::create('work_lists', function (Blueprint $table) {
             $table->String('WorkID')->primary();
-            $table->String('WorkName')->unique();
+            $table->String('WorkName');
             $table->String('Address');
             $table->String('CusID');
-            $table->string('Price');
             $table->String('EmpID');
-            $table->String('EmpName');
             $table->string('WorkDesc');
             $table->foreign('CusID')->references('CusID')->on('customers');
             $table->foreign('Address')->references('Address')->on('customers');
