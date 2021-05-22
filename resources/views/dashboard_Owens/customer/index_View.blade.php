@@ -53,4 +53,4 @@
     </script>
 @endsection
 
-@section('title', 'Owens_Dashboard_Customer')
+@section('title', 'Owens_Customer')

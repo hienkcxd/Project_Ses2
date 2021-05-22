@@ -43,4 +43,4 @@
     </script>
 @endsection
 
-@section('title', 'Owens_Dashboard_BlackLíst')
+@section('title', 'Owens_BlackLíst')

@@ -76,4 +76,4 @@
     </script>
 @endsection
 
-@section('title', 'Employee_Dashboard_News')
+@section('title', 'Employee_News')

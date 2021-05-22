@@ -82,4 +82,4 @@
 
     </script>
 @endsection
-@section('title', 'Employee_Dashboard_Project')
+@section('title', 'Employee_Project')

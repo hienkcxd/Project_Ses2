@@ -19,4 +19,12 @@ class adminWorkController extends Controller
         return view('dashboard_Owens.work.index_View')->with(compact('workProgress', 'workList'));
     }
 
+    public function edit(Request $request){
+        $WorkID = $request->route()->parameter('WorkID');
+        $workDetail = DB::table('work_details')
+                ->where('WorkID', '=', $WorkID)
+                ->first();
+        return view('dashboard_Owens.work.form_View')->with(compact('workDetail'));
+    }
+
 }

@@ -76,4 +76,4 @@
 </script>
 @endsection
 
-@section('title', 'Owens_Dashboard_News')
+@section('title', 'Owens_News')

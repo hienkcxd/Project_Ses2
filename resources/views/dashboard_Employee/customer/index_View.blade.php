@@ -54,4 +54,4 @@
 
 @endsection
 
-@section('title', 'Employee_Dashboard_Customer')
+@section('title', 'Employee_Customer')

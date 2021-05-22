@@ -24,8 +24,8 @@
                 <tr>
                     <td>{{ $wk->WorkID  }}</td>
                     <td>
-                        <a id="edit" name="edit" class="edit btn btn-outline-info" href="">Detail</a>
-                        <a id="delete" name="delete" class="delete btn btn-outline-danger" href="">Delete</a>
+                        <a id="edit" name="edit" class="edit btn btn-outline-info" href="{{ route('owens.work_detail',['WorkID'=>$wk->WorkID])}}">Detail</a>
+                        <a id="delete" name="delete" class="delete btn btn-outline-danger" href="{{ route('owens.work_detail',['WorkID'=>$wk->WorkID])}}">Delete</a>
                     </td>
                     <td>{{ $wk->WorkName }}</td>
                     <td>{{ $wk->Address }}</td>
@@ -75,8 +75,8 @@
                     <tr>
                         <td>{{ $wk->WorkID  }}</td>
                         <td>
-                            <a id="edit" name="edit" class="edit btn btn-outline-info" href="">Detail</a>
-                            <a id="delete" name="delete" class="delete btn btn-outline-danger" href="">Delete</a>
+                            <a id="edit" name="edit" class="edit btn btn-outline-info" href="{{ route('owens.work_detail',['WorkID'=>$wk->WorkID])}}">Detail</a>
+                            <a id="delete" name="delete" class="delete btn btn-outline-danger" href="{{ route('owens.work_detail',['WorkID'=>$wk->WorkID])}}">Delete</a>
                         </td>
                         <td>{{ $wk->Address }}</td>
                         <td>{{ $wk->Price_Int * 1000000}}</td>
@@ -104,4 +104,4 @@
     @endif
 @endsection
 
-@section('title', 'Owens_Dashboard_work')
+@section('title', 'Owens_work')
