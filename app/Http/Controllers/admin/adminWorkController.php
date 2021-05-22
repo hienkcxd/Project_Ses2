@@ -30,6 +30,7 @@ class adminWorkController extends Controller
         $customer = DB::table('customers')
             ->where('CusID', '=', $workList->CusID )
             ->first();
+
         $Emp = DB::table('employee_lists')
             ->where('EmployeeID', '=', $customer->EmpID )
             ->first();
@@ -53,14 +54,15 @@ class adminWorkController extends Controller
         $WorkID = $request->route()->parameter('WorkID');
         $data = $request->all();
         $thongbao = "Update Thành Công!!!";
+
+
+        //Update work lists
         $upd_workLists = DB::table('work_lists')
             ->where('WorkID', '=', $WorkID)
             ->update(
                 [
                     'WorkName' => $data['WorkName'],
                     'Address' => $data['Address'],
-                    'CusID' => $data['CusID'],
-                    'EmpID' => $data['EmpID'],
                     'WorkDesc' => $data['WorkDesc'],
                 ],
             );
@@ -70,10 +72,10 @@ class adminWorkController extends Controller
             ->update(
                 [
                     'CusPhone' => $data['CusPhone'],
+                    'EmpPhone' => $data['EmpPhone'],
+                    'EmpName' => $data['EmpName'],
                     'Address' => $data['Address'],
                     'Price_Int' => $data['Price_Int'],
-                    'EmpName' => $data['EmpName'],
-                    'EmpPhone' => $data['EmpPhone'],
                     'registration' => $data['registration'],
                     'construction' => $data['construction'],
                     'Architecture' => $data['Architecture'],
@@ -81,26 +83,27 @@ class adminWorkController extends Controller
                 ],
             );
 
+        //update customer
         $upd_custDetail = DB::table('customers')
             ->where('CusID', '=', $data['CusID'])
             ->update(
                 [
                     'CusName' => $data['CusName'],
                     'CusPhone' => $data['CusPhone'],
-                    'WorkName' => $data['WorkName'],
-                    'Address' => $data['Address'],
-                    'EmpID' => $data['EmpID'],
                     'EmpName' => $data['EmpName'],
                     'EmpPhone' => $data['EmpPhone'],
+                    'WorkName' => $data['WorkName'],
+                    'Address' => $data['Address'],
                     'Price' => $data['Price'],
                 ],
             );
-        if(isset($upd_custDetail, $upd_workDetail, $upd_workLists)){
+
+        if(isset($upd_custDetail, $upd_workDetail, $upd_workLists, $upd_empDetail, $upd_empPhoneDetail, $upd_cusPhoneDetail)){
             return redirect(route('owens.work'))->with(compact('thongbao'));
         }
         else{
             $thongbao = "Update Thất Bại!!!";
-            return redirect(route('owens.work'))->with(compact('thongbao'));
+            return redirect(route('owens.work_progress'))->with(compact('thongbao'));
         }
     }
 

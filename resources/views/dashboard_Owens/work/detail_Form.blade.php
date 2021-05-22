@@ -1,6 +1,6 @@
 <div class="containerWork">
     <div class="projectForm">
-        <form method="POST" action="admin.update_work">
+        <form method="POST" action="{{ route('admin.update_work', ['WorkID'=>$workList->WorkID]) }}">
             @csrf
 
             <div class="row">
@@ -25,7 +25,7 @@
 
                         <div class="input-box">
                             <span class="details">Thành Tiền:</span>
-                            <input type="number" name="Price_Int" value="{{ $workDetail->Price_Int * 1000000 }}">
+                            <input type="number" name="Price_Int" value="{{ $workDetail->Price_Int }}">
                         </div>
 
                         <div class="input-box">
@@ -46,15 +46,15 @@
                         </div>
                         <div class="input-box">
                             <span class="details">Tên Khách Hàng:</span>
-                            <input type="text" name="CusName" value="{{ $customer->CusName  }}">
+                            <input type="text" name="CusName" value="{{ $customer->CusName }}">
                         </div>
                         <div class="input-box">
                             <span class="details">SĐT Khách Hàng:</span>
-                            <input type="text" name="CusPhone" value="{{ $customer->CusPhone }}">
+                            <input type="text" name="CusPhone" value="{{ $customer->CusPhone}}">
                         </div>
                         <div class="input-box">
                             <span class="details">Số Dự Án:</span>
-                            <input type="text" name="CusPhone" value="{{ $count }}" readonly>
+                            <input type="text" value="{{ $count }}" readonly>
                         </div>
                     </div>
                 </div>
@@ -134,8 +134,13 @@
                     </div>
 
                 </div>
-
+                <div class="thirdRow">
+                    <p class='full'>
+                        <button class="btn btn-warning">Submit</button>
+                    </p>
+                </div>
             </div>
+
         </form>
     </div>
 </div>

@@ -29,7 +29,7 @@ class customerSeeder extends Seeder
                 'Address'=>'Căn hộ 313 - Lê Duẫn Quận 1','EmpID'=>'A07', 'EmpName'=>'Võ Nhật Huy', 'EmpPhone'=>'0999132441', 'Price'=>'500 Triệu'],
 
             ['CusID' => 'CS05', 'CusName' => 'Ms.Trường','CusPhone' => '345123122', 'WorkName'=>'Bảo Hành Nhà Phố',
-                'Address'=>'101 Nguyễn Văn Đậu - Quận Bình Thạnh','EmpID'=>'A08', 'EmpName'=>'Trương Tam Phong', 'EmpPhone'=>'0132234132', 'Price'=>'Khấu Trừ 30% phí hợp đồng'],
+                'Address'=>'101 Nguyễn Văn Đậu - Quận Bình Thạnh','EmpID'=>'A08', 'EmpName'=>'Trương Tam Phong', 'EmpPhone'=>'0988138322', 'Price'=>'50 Triệu'],
 
             ['CusID' => 'CS06', 'CusName' => 'Mr.Toàn','CusPhone' => '659812342', 'WorkName'=>'Thiết Kế Kiến Trúc Biệt Thự',
                 'Address'=>'390 Cách Mạng Tháng 8 - Quận 3','EmpID'=>'A08', 'EmpName'=>'Trương Tam Phong', 'EmpPhone'=>'0132234132', 'Price'=>'80 Triệu'],

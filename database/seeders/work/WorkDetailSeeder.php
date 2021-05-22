@@ -33,7 +33,7 @@ class WorkDetailSeeder extends Seeder
                 'registration'=>'x', 'construction'=>'100%', 'Architecture'=>'80%','Progress'=>'90%'],
 
             ['WorkDetail_ID' => 5, 'WorkID' => 'BH-NP01','CusID' => 'CS05', 'CusPhone' => '345123122',
-                'Address'=>'101 Nguyễn Văn Đậu - Quận Bình Thạnh', 'Price_Int'=>300,'EmpName'=>'Trương Tam Phong', 'EmpPhone'=>'0132234132',
+                'Address'=>'101 Nguyễn Văn Đậu - Quận Bình Thạnh', 'Price_Int'=>50,'EmpName'=>'Trương Tam Phong', 'EmpPhone'=>'0132234132',
                 'registration'=>'x', 'construction'=>'90%', 'Architecture'=>'100%','Progress'=>'90%'],
 
             ['WorkDetail_ID' => 6, 'WorkID' => 'TK-BT01','CusID' => 'CS06', 'CusPhone' => '659812342',

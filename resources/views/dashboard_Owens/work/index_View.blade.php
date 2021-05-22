@@ -52,7 +52,7 @@
             <table id="workTable" class="display nowrap uk-table uk-table-hover uk-table-striped table-bordered"
                    style="width:100%">
                 <caption style="caption-side: top; font-size: 1.5rem; font-weight: bold; color: #039BE5">
-                    Tiến Độ DỰ ÁN ĐANG THỰC HIỆN
+                    TIẾN ĐỘ DỰ ÁN ĐANG THỰC HIỆN
                     <a class="btn-insert btn btn-outline-info" href="#">CREATE NEW</a>
                 </caption>
                 <thead>
@@ -60,7 +60,7 @@
                     <th>Work_ID</th>
                     <th>Action</th>
                     <th>Địa Chỉ</th>
-                    <th>Giá Dự Án</th>
+                    <th>Giá Dự Án (Triệu)</th>
                     <th>ID Khách Hàng</th>
                     <th>SĐT Khách Hàng</th>
                     <th>Tên Nhân Viên</th>
@@ -80,7 +80,7 @@
                             <a id="delete" name="delete" class="delete btn btn-outline-danger" href="{{ route('owens.work_detail',['WorkID'=>$wk->WorkID])}}">Delete</a>
                         </td>
                         <td>{{ $wk->Address }}</td>
-                        <td>{{ $wk->Price_Int * 1000000}}</td>
+                        <td>{{ $wk->Price_Int}}</td>
                         <td>{{ $wk->CusID }}</td>
                         <td>{{ $wk->CusPhone }}</td>
                         <td>{{ $wk->EmpName }}</td>
