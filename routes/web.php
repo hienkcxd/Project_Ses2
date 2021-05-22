@@ -146,6 +146,7 @@
         //        Route work
 
         Route::get('/owens/work_list', [adminWorkController::class, 'index'])->name('owens.work');
+        Route::get('/owens/work_progress', [adminWorkController::class, 'progress'])->name('owens.work_progress');
 
         Route::get('/owens/work_list/edit/WorkID_{WorkID}', [adminWorkController::class, 'index'])->name('owens.work_detail');
         Route::post('/WorkID_{WorkID}', [adminWorkController::class, 'update'])->name('admin.update_work');
