@@ -1,5 +1,6 @@
 @extends('Layout.Owens')
 @section('content')
+    <h2> {{ session('thongbao') }} </h2>
     @if($workList != null)
     <div class="projectContainer">
         <table id="workTable" class="display nowrap uk-table uk-table-hover uk-table-striped table-bordered"

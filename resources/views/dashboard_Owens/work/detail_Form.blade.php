@@ -1,6 +1,6 @@
 <div class="containerWork">
     <div class="projectForm">
-        <form method="POST" action="#">
+        <form method="POST" action="admin.update_work">
             @csrf
 
             <div class="row">
@@ -10,7 +10,7 @@
                     <div class="project-infor">
                         <div class="input-box">
                             <span class="details">Tên Công Việc:</span>
-                            <input type="text" name="WorkName" value="{{ $workList->WorkName }}" readonly>
+                            <input type="text" name="WorkName" value="{{ $workList->WorkName }}">
                         </div>
 
                         <div class="input-box">
@@ -25,12 +25,13 @@
 
                         <div class="input-box">
                             <span class="details">Thành Tiền:</span>
-                            <input type="text" name="Price_Int" value="{{ $workDetail->Price_Int * 1000000 }}">
+                            <input type="number" name="Price_Int" value="{{ $workDetail->Price_Int * 1000000 }}">
                         </div>
 
                         <div class="input-box">
                             <span class="details">Mô tả:</span>
-                            <input type="text" name="WorkDesc" value="{{ $workDetail->WorkDesc }}">
+                            <textarea name="WorkDesc" id="WorkDesc" style="resize: none;" cols="60" rows="3">{{ $workList->WorkDesc }}</textarea>
+{{--                            <input type="text" name="WorkDesc" value="{{ $workList->WorkDesc }}">--}}
                         </div>
 
                     </div>
@@ -40,62 +41,45 @@
                     <div class="title">Thông Tin Khách Hàng:</div>
                     <div class="project-infor">
                         <div class="input-box">
-                            <span class="details">Project ID:</span>
-                            <input type="text" name="ProjectID" value="{{ $workDetail->WorkID }}" readonly>
+                            <span class="details">Cust_ID:</span>
+                            <input type="text" name="CusID" value="{{ $customer->CusID }}" readonly>
                         </div>
                         <div class="input-box">
-                            <span class="details">Project Name:</span>
-                            <input type="text" name="ProjectName" value="{{ $workDetail->WorkID }}">
+                            <span class="details">Tên Khách Hàng:</span>
+                            <input type="text" name="CusName" value="{{ $customer->CusName  }}">
                         </div>
                         <div class="input-box">
-                            <span class="details">Khách Hàng:</span>
-                            <input type="text" name="Client" value="{{ $workDetail->WorkID }}">
+                            <span class="details">SĐT Khách Hàng:</span>
+                            <input type="text" name="CusPhone" value="{{ $customer->CusPhone }}">
                         </div>
                         <div class="input-box">
-                            <span class="details">Location:</span>
-                            <input type="text" name="Location" value="{{ $workDetail->WorkID }}">
-                        </div>
-                        <div class="input-box">
-                            <span class="details">Ngày Hoàn Thành:</span>
-                            <input type="text" name="DateFinish" value="{{ $workDetail->WorkID }}">
-                        </div>
-                        <div class="input-box">
-                            <span class="details">Giá:</span>
-                            <input type="text" name="Price" value="{{ $workDetail->WorkID }}">
+                            <span class="details">Số Dự Án:</span>
+                            <input type="text" name="CusPhone" value="{{ $count }}" readonly>
                         </div>
                     </div>
                 </div>
 
             </div>
-
             <div class="row">
 
                 <div class="block_3">
                     <div class="title">Nhân Viên Phụ Trách:</div>
                     <div class="project-infor">
                         <div class="input-box">
-                            <span class="details">Project ID:</span>
-                            <input type="text" name="ProjectID" value="{{ $workDetail->WorkID }}" readonly>
+                            <span class="details">Emp_ID:</span>
+                            <input type="text" name="EmpID" value="{{ $customer->EmpID }}" readonly>
                         </div>
                         <div class="input-box">
-                            <span class="details">Project Name:</span>
-                            <input type="text" name="ProjectName" value="{{ $workDetail->WorkID }}">
+                            <span class="details">Tên Nhân Viên:</span>
+                            <input type="text" name="EmpName" value="{{ $customer->EmpName }}">
                         </div>
                         <div class="input-box">
-                            <span class="details">Khách Hàng:</span>
-                            <input type="text" name="Client" value="{{ $workDetail->WorkID }}">
+                            <span class="details">Số Điện Thoại:</span>
+                            <input type="text" name="EmpPhone" value="{{ $customer->EmpPhone }}">
                         </div>
                         <div class="input-box">
-                            <span class="details">Location:</span>
-                            <input type="text" name="Location" value="{{ $workDetail->WorkID }}">
-                        </div>
-                        <div class="input-box">
-                            <span class="details">Ngày Hoàn Thành:</span>
-                            <input type="text" name="DateFinish" value="{{ $workDetail->WorkID }}">
-                        </div>
-                        <div class="input-box">
-                            <span class="details">Giá:</span>
-                            <input type="text" name="Price" value="{{ $workDetail->WorkID }}">
+                            <span class="details">Chức Vụ:</span>
+                            <input type="text" name="Position" value="{{ $Emp->Position }}">
                         </div>
                     </div>
                 </div>
@@ -103,37 +87,56 @@
                 <div class="block_4">
                     <div class="title">Tiến Độ Hoàn Thành:</div>
                     <div class="project-infor">
+
                         <div class="input-box">
-                            <span class="details">Project ID:</span>
-                            <input type="text" name="ProjectID" value="{{ $workDetail->WorkID }}" readonly>
+                            <span class="details">Giấy Phép - Thiết Kế:</span>
+                            <input type="text" name="registration" value="{{ $workDetail->registration }}">
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated" id="registration"
+                                     role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: {{ $workDetail->registration }}">
+                                    {{ $workDetail->registration == 'x' ? '':('Completed: '.$workDetail->registration) }}
+                                </div>
+                            </div>
                         </div>
+
                         <div class="input-box">
-                            <span class="details">Project Name:</span>
-                            <input type="text" name="ProjectName" value="{{ $workDetail->WorkID }}">
+                            <span class="details">Thi Công Thô:</span>
+                            <input type="text" name="construction" value="{{ $workDetail->construction }}">
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated" id="construction"
+                                     role="progressbar" aria-valuemax="100" style="width: {{ $workDetail->construction }};">
+                                    {{ ($workDetail->construction == 'x') ? '': ('Completed: '.$workDetail->construction) }}
+                                </div>
+                            </div>
                         </div>
+
                         <div class="input-box">
-                            <span class="details">Khách Hàng:</span>
-                            <input type="text" name="Client" value="{{ $workDetail->WorkID }}">
+                            <span class="details">Thi Công Nội Thất:</span>
+                            <input type="text" name="Architecture" value="{{ $workDetail->Architecture }}">
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated" id="Architecture"
+                                     role="progressbar" aria-valuemax="100" style="width: {{ $workDetail->Architecture }}">
+                                    {{ ($workDetail->Architecture == 'x') ? '': ('Completed: '.$workDetail->Architecture) }}
+                                </div>
+                            </div>
                         </div>
+
                         <div class="input-box">
-                            <span class="details">Location:</span>
-                            <input type="text" name="Location" value="{{ $workDetail->WorkID }}">
-                        </div>
-                        <div class="input-box">
-                            <span class="details">Ngày Hoàn Thành:</span>
-                            <input type="text" name="DateFinish" value="{{ $workDetail->WorkID }}">
-                        </div>
-                        <div class="input-box">
-                            <span class="details">Giá:</span>
-                            <input type="text" name="Price" value="{{ $workDetail->WorkID }}">
+                            <span class="details">Tổng Tiến Độ:</span>
+                            <input type="text" name="Progress" value="{{ $workDetail->Progress }}">
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" id="Progress"
+                                     role="progressbar" aria-valuemax="100" style="width: {{ $workDetail->Progress }}">
+                                    {{ ($workDetail->Progress == 'x') ? '': ('Completed: '.$workDetail->Progress) }}
+                                </div>
+                            </div>
                         </div>
                     </div>
+
                 </div>
 
             </div>
-
-
+        </form>
     </div>
-    </form>
 </div>
-</div>
+

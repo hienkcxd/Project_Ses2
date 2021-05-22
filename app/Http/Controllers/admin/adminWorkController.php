@@ -30,7 +30,78 @@ class adminWorkController extends Controller
         $customer = DB::table('customers')
             ->where('CusID', '=', $workList->CusID )
             ->first();
-        return view('dashboard_Owens.work.form_View')->with(compact('workDetail', 'workList','customer'));
+        $Emp = DB::table('employee_lists')
+            ->where('EmployeeID', '=', $customer->EmpID )
+            ->first();
+
+        $count = DB::table('customers')
+            ->where('CusPhone', '=', $workDetail->CusPhone )
+            ->count();
+
+        return view('dashboard_Owens.work.form_View')
+            ->with(compact(
+                'workDetail',
+                 'workList',
+                            'customer',
+                            'Emp',
+                            'count',
+            ));
+
+    }
+
+    public function update(Request $request){
+        $WorkID = $request->route()->parameter('WorkID');
+        $data = $request->all();
+        $thongbao = "Update Thành Công!!!";
+        $upd_workLists = DB::table('work_lists')
+            ->where('WorkID', '=', $WorkID)
+            ->update(
+                [
+                    'WorkName' => $data['WorkName'],
+                    'Address' => $data['Address'],
+                    'CusID' => $data['CusID'],
+                    'EmpID' => $data['EmpID'],
+                    'WorkDesc' => $data['WorkDesc'],
+                ],
+            );
+
+        $upd_workDetail = DB::table('work_details')
+            ->where('WorkID', '=', $WorkID)
+            ->update(
+                [
+                    'CusPhone' => $data['CusPhone'],
+                    'Address' => $data['Address'],
+                    'Price_Int' => $data['Price_Int'],
+                    'EmpName' => $data['EmpName'],
+                    'EmpPhone' => $data['EmpPhone'],
+                    'registration' => $data['registration'],
+                    'construction' => $data['construction'],
+                    'Architecture' => $data['Architecture'],
+                    'Progress' => $data['Progress'],
+                ],
+            );
+
+        $upd_custDetail = DB::table('customers')
+            ->where('CusID', '=', $data['CusID'])
+            ->update(
+                [
+                    'CusName' => $data['CusName'],
+                    'CusPhone' => $data['CusPhone'],
+                    'WorkName' => $data['WorkName'],
+                    'Address' => $data['Address'],
+                    'EmpID' => $data['EmpID'],
+                    'EmpName' => $data['EmpName'],
+                    'EmpPhone' => $data['EmpPhone'],
+                    'Price' => $data['Price'],
+                ],
+            );
+        if(isset($upd_custDetail, $upd_workDetail, $upd_workLists)){
+            return redirect(route('owens.work'))->with(compact('thongbao'));
+        }
+        else{
+            $thongbao = "Update Thất Bại!!!";
+            return redirect(route('owens.work'))->with(compact('thongbao'));
+        }
     }
 
 }

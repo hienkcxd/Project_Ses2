@@ -3,10 +3,7 @@
     grid-template-columns: 1fr 1fr;
     grid-gap: 3rem;
 }
-.projectForm form .row .block_1{
-    display: grid;
-    grid-template-columns: 1fr;
-}
+
 .containerWork{
     max-width:60rem;
     margin-left: auto;
@@ -38,6 +35,40 @@
 .projectForm form .project-infor .input-box{
     margin-bottom: 15px;
 }
+
 .projectForm form .block_1 .input-box{
     width: 100%;
+}
+.projectForm form .block_1 .input-box:nth-child(3){
+    width: 49%;
+}
+.projectForm form .block_1 .input-box:nth-child(4){
+    width: 49%;
+}
+
+.projectForm form .block_2 .input-box{
+    width: 100%;
+}
+.projectForm form .block_3 .input-box{
+    width: 100%;
+}
+.projectForm form .block_4 .input-box{
+    width: 100%;
+}
+.projectForm form .block_4 .input-box input{
+    height: 30px;
+    border: none ;
+    border-radius: 5px 5px 0 0 ;
+    width: 100%;
+}
+.projectForm form .block_4 .input-box .progress{
+    width: 100%;
+    border-radius: 0 0 5px 5px;
+    height: 15px;
+    color: black;
+}
+.projectForm form .block_4 .input-box .progress .progress-bar{
+    color: #880E4F;
+    font-weight: bold;
+    font-size: 14px;
 }
