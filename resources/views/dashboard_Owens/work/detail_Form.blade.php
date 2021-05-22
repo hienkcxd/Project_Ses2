@@ -7,12 +7,11 @@
 
                 <div class="block_1">
                     <div class="title">Thông Tin Công Việc:</div>
-                    <div class="input-box">
-                        <span class="details">Tên Công Việc:</span>
-                        <input type="text" name="WorkName" value="{{ $workList->WorkName }}" readonly>
-                    </div>
                     <div class="project-infor">
-
+                        <div class="input-box">
+                            <span class="details">Tên Công Việc:</span>
+                            <input type="text" name="WorkName" value="{{ $workList->WorkName }}" readonly>
+                        </div>
 
                         <div class="input-box">
                             <span class="details">Địa Chỉ:</span>
@@ -21,23 +20,19 @@
 
                         <div class="input-box">
                             <span class="details">Giá Dự Án:</span>
-                            <input type="text" name="Client" value="{{ $customer->Price }}">
+                            <input type="text" name="Price" value="{{ $customer->Price }}">
                         </div>
 
                         <div class="input-box">
                             <span class="details">Thành Tiền:</span>
-                            <input type="text" name="Location" value="{{ $workDetail->Price_Int * 1000000 }}">
+                            <input type="text" name="Price_Int" value="{{ $workDetail->Price_Int * 1000000 }}">
                         </div>
 
                         <div class="input-box">
-                            <span class="details">Ngày Hoàn Thành:</span>
-                            <input type="text" name="DateFinish" value="{{ $workDetail->WorkID }}">
+                            <span class="details">Mô tả:</span>
+                            <input type="text" name="WorkDesc" value="{{ $workDetail->WorkDesc }}">
                         </div>
 
-                        <div class="input-box">
-                            <span class="details">Giá:</span>
-                            <input type="text" name="Price" value="{{ $workDetail->WorkID }}">
-                        </div>
                     </div>
                 </div>
 
