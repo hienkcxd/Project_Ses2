@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 use Database\Seeders\AboutUs\EmployeeDetail;
 use Database\Seeders\AboutUs\EmployeeList;
+use Database\Seeders\account\accountSeeder;
+use Database\Seeders\account\roleSeeder;
 use Database\Seeders\customer\blackListsSeeder;
 use Database\Seeders\Customer\customerSeeder;
 use Database\Seeders\Market\DistrictList;
@@ -39,5 +41,7 @@ class DatabaseSeeder extends Seeder
         $this->call(blackListsSeeder::class);
         $this->call(WorkListSeeder::class);
         $this->call(WorkDetailSeeder::class);
+        $this->call(roleSeeder::class);
+        $this->call(accountSeeder::class);
     }
 }
