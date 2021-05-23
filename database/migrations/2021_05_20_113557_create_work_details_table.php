@@ -18,8 +18,9 @@ class CreateWorkDetailsTable extends Migration
             $table->String('WorkID');
             $table->String('CusID');
             $table->String('CusPhone');
-            $table->String('Address');
+            $table->String('Address')->unique();
             $table->integer('Price_Int');
+            $table->String('EmpID');
             $table->String('EmpName');
             $table->String('EmpPhone');
             $table->string('registration');
@@ -27,7 +28,7 @@ class CreateWorkDetailsTable extends Migration
             $table->string('Architecture');
             $table->string('Progress');
             $table->foreign('CusID')->references('CusID')->on('customers');
-            $table->foreign('Address')->references('Address')->on('customers');
+            $table->foreign('EmpID')->references('EmployeeID')->on('employee_lists');
             $table->foreign('WorkID')->references('WorkID')->on('work_lists');
             $table->timestamps();
         });

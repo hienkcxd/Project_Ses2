@@ -71,15 +71,15 @@
                         </div>
                         <div class="input-box">
                             <span class="details">Tên Nhân Viên:</span>
-                            <input type="text" name="EmpName" value="{{ $customer->EmpName }}">
+                            <input type="text" name="EmpName" value="{{ $workDetail->EmpName }}" readonly>
                         </div>
                         <div class="input-box">
                             <span class="details">Số Điện Thoại:</span>
-                            <input type="text" name="EmpPhone" value="{{ $customer->EmpPhone }}">
+                            <input type="text" name="EmpPhone" value="{{ $customer->EmpPhone }}" readonly>
                         </div>
                         <div class="input-box">
                             <span class="details">Chức Vụ:</span>
-                            <input type="text" name="Position" value="{{ $Emp->Position }}">
+                            <input type="text" name="Position" value="{{ $Emp->Position }}" readonly>
                         </div>
                     </div>
                 </div>

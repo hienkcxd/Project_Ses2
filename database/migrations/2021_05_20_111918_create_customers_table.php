@@ -22,7 +22,7 @@ class CreateCustomersTable extends Migration
             $table->String('EmpID');
             $table->String('EmpName');
             $table->String('EmpPhone');
-            $table->string('Price');
+            $table->integer('Price');
             $table->timestamps();
         });
     }

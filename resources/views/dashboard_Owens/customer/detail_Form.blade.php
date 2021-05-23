@@ -53,16 +53,16 @@
                     <div class="emp2ndRow">
                         <p>
                             <label>ID Nhân Viên:</label>
-                            <input type="text" name='EmpID' min="0" value="{{ $CusDetail->EmpID }}">
+                            <input type="text" name='EmpID' min="0" value="{{ $CusDetail->EmpID }}" readonly>
                         </p>
 
                         <p>
                             <label>Tên Nhân Viên:</label>
-                            <input type="text" name='EmpName' value="{{ $CusDetail->EmpName }}">
+                            <input type="text" name='EmpName' value="{{ $CusDetail->EmpName }}" readonly>
                         </p>
                         <p>
                             <label>Facebook:</label>
-                            <input type="text" name='EmpPhone' min="0" value="{{ $CusDetail->EmpPhone }}">
+                            <input type="text" name='EmpPhone' min="0" value="{{ $CusDetail->EmpPhone }}" readonly>
                         </p>
 
                     </div>

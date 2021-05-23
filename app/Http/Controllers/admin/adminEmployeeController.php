@@ -35,6 +35,7 @@ class adminEmployeeController extends Controller
                              'Position' => $data['position'],
                             ],
                         );
+
         $upd_empDetail = DB::table('employee_details')
             ->where('EmployeeID', '=', $id_Emp)
             ->update(
@@ -47,7 +48,27 @@ class adminEmployeeController extends Controller
                     'zalo' => $data['zalo'],
                 ],
             );
-        if(isset($upd_empDetail, $upd_empLists)){
+
+         $upd_empForworkDetail = DB::table('work_details')
+            ->where('EmpID', '=', $id_Emp)
+            ->update(
+                [   'EmpName' => $data['empName'],
+                    'EmpPhone' => $data['phone'],
+                ],
+            );
+
+        $upd_empForCustomer = DB::table('customers')
+            ->where('EmpID', '=', $id_Emp)
+            ->update(
+                [   'EmpName' => $data['empName'],
+                    'EmpPhone' => $data['phone'],
+                ],
+            );
+
+
+
+
+        if(isset($upd_empDetail, $upd_empLists, $upd_empForCustomer, $upd_empForworkDetail )){
             $thongbao = 'Update Thành Công!!!';
             return redirect(route('owens_Emp'))->with(compact('thongbao'));
         }

@@ -98,7 +98,7 @@ class adminWorkController extends Controller
                 ],
             );
 
-        if(isset($upd_custDetail, $upd_workDetail, $upd_workLists, $upd_empDetail, $upd_empPhoneDetail, $upd_cusPhoneDetail)){
+        if(isset($upd_custDetail, $upd_workDetail, $upd_workLists)){
             return redirect(route('owens.work'))->with(compact('thongbao'));
         }
         else{
