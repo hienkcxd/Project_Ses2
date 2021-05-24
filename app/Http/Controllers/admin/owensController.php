@@ -11,14 +11,6 @@
     class owensController extends Controller
     {
 
-        public function index()
-        {
-            return view('dashboard_Owens.index');
-        }
-        public function indexEmp()
-        {
-            return view('dashboard_Employee.index');
-        }
 
         public function getWard(Request $request){
             $Name_Dist = $request->route()->parameter('DistrictName');

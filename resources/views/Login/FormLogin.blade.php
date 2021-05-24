@@ -2,17 +2,25 @@
 <div class="loginContent">
     <div class="title">Login</div>
 
-    <form action="#">
+    <form action="{{ route('auth.check') }}" method="post">
+        @if(Session::get('fail'))
+            <div class="alert alert-danger">
+                {{ Session::get('fail') }}
+            </div>
+        @endif
+        @csrf
         <div class="field">
-            <input type="text" required style="padding-left: 15px" name="id">
-            <label>ID</label>
+            <input type="text"  style="padding-left: 15px" name="Account" value="{{ old('Account') }}">
+            <span class="text-danger">@error('Account') {{ $message }} @enderror</span>
+            <label>Account</label>
         </div>
-        <div class="field">
-            <input type="password" required style="padding-left: 15px" name="pass">
+        <div class="field" style="margin-top: 35px">
+            <input type="password"  style="padding-left: 15px" name="Password" value="{{ old('Password') }}">
+            <span class="text-danger"> @error('Password'){{ $message }} @enderror </span>
             <label>Password</label>
         </div>
 
-        <div class="content">
+        <div class="content" style="margin-top: 25px">
             <div class="checkbox" style="padding-left: 0px" >
                 <input type="checkbox" id="remember-me" style="margin: 0px; padding-left: 0px">
                 <label for="remember-me" style="margin: 0">Remember me</label>

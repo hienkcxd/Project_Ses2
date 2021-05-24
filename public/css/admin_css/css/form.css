@@ -125,6 +125,61 @@ ul{
     outline:0;
     transition: all 0.3s;
 }
+/*register form*/
+
+ .regisContainer{
+     margin-top: 30px;
+     margin-left: auto;
+     margin-right: auto;
+     display: block;
+     background-color: #FAB702;
+     border-radius: 15px;
+     width: 30rem;
+     min-width: 30%;
+ }
+.regisContainer form{
+    padding: 15px 25px 15px 25px;
+}
+.regisContainer form button{
+    padding: 10px 0 10px 0;
+    font-size: 20px;
+    border-radius: 15px;
+}
+.regisContainer form button:hover{
+    background-color: white;
+    color: #2979FF;
+    font-weight: bold;
+}
+.regisContainer form .form-group a{
+    font-size: 17px;
+    margin-top: 15px;
+    color: white;
+    font-weight: bold;
+    text-decoration: underline double;
+    text-underline-offset: 1px;
+}
+.regisContainer form .form-group a:hover{
+    color: #2979FF;
+    font-weight: bold;
+    text-decoration: underline double;
+    text-underline-offset: 1px;
+}
+.regisContainer h4{
+    font-size: 25px;
+    color: white;
+    font-weight: bold;
+}
+.regisContainer .form-group input{
+    height: 40px;
+    border-radius: 10px;
+}
+.regisContainer .form-group label{
+    text-decoration-line: underline;
+    text-underline-offset: 2px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+}
 
 /* LARGE SCREENS */
 @media(min-width:700px){
