@@ -17,8 +17,8 @@ class AuthenticationController extends Controller
         $request->validate([
             'EmployeeID'=>'required|unique:accounts',
             'Account'=>'required|unique:accounts',
-            'Email'=>'required|email',
-            'Password'=>'required|min:2|max:12',
+            'Email'=>'required|email|unique:accounts',
+            'Password'=>'required|min:4|max:12',
             'Role'=>'required',
         ]);
 
