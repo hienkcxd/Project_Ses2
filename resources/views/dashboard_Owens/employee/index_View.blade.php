@@ -1,7 +1,11 @@
 @extends('Layout.Owens')
 
 @section('content')
-    <h2> {{ session('thongbao') }} </h2>
+    @if(Session::get('thongbao'))
+        <div class="alert alert-info">
+            {{ Session::get('thongbao') }}
+        </div>
+    @endif
     <div class="marketContainer">
         <table id="empTable" class="display nowrap uk-table uk-table-hover uk-table-striped table-bordered"
                style="width:100%">

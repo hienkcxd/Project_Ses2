@@ -5,12 +5,14 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\AboutUs\EmployeeDetail;
 use App\Models\AboutUs\EmployeeList;
+use App\Models\admin\account;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class adminEmployeeController extends Controller
 {
     public function index(){
+
         return view('dashboard_Owens.employee.index_View');
     }
 

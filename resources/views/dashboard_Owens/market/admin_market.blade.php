@@ -1,7 +1,11 @@
 @extends('Layout.Owens')
 
 @section('content')
-    <h2>{{ session('thongbao') }}</h2>
+    @if(Session::get('thongbao'))
+        <div class="alert alert-info">
+            {{ Session::get('thongbao') }}
+        </div>
+    @endif
     @include('dashboard_Owens.market.distAndWard_table')
     @include('dashboard_Owens.market.market_table')
 @endsection

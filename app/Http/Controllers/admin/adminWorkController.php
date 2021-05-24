@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\admin\account;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -12,6 +13,31 @@ class adminWorkController extends Controller
         $workProgress = null;
         $workList = DB::table('work_lists')->get();
         return view('dashboard_Owens.work.index_View')->with(compact( 'workList', 'workProgress'));
+    }
+
+    function index_owens(){
+        $workProgress = null;
+        $workList = DB::table('work_lists')->get();
+        $role = account::where('id','=', session('LoggedAdmin'))->first()->Role;
+        if($role == '1'){
+            return redirect(route('emp.work'));
+        }
+        elseif($role == '2'){
+            return view('dashboard_Owens.work.index_View')->with(compact( 'workList', 'workProgress'));
+        }
+    }
+
+    function index_Emp()
+    {
+        $workProgress = null;
+        $workList = DB::table('work_lists')->get();
+        $role = account::where('id','=', session('LoggedAdmin'))->first()->Role;
+        if($role == '1'){
+            return view('dashboard_Employee.work.index_View')->with(compact( 'workList', 'workProgress'));
+        }
+        elseif($role == '2'){
+            return redirect(route('owens.work'));
+        }
     }
     public function progress(){
         $workList = null;

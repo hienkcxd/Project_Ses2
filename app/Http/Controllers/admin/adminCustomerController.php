@@ -3,14 +3,34 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\admin\account;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class adminCustomerController extends Controller
 {
-    public function index(){
+
+    function index_owens(){
         $cusList = DB::table('customers')->get();
-        return view('dashboard_Owens.customer.index_View')->with(compact('cusList'));
+        $role = account::where('id','=', session('LoggedAdmin'))->first()->Role;
+        if($role == '1'){
+            return redirect(route('emp.customer'));
+        }
+        elseif($role == '2'){
+            return view('dashboard_Owens.customer.index_View')->with(compact('cusList'));
+        }
+    }
+
+    function index_Emp()
+    {
+        $cusList = DB::table('customers')->get();
+        $role = account::where('id','=', session('LoggedAdmin'))->first()->Role;
+        if($role == '1'){
+            return view('dashboard_Employee.customer.index_View')->with(compact('cusList'));
+        }
+        elseif($role == '2'){
+            return redirect(route('owens.customer'));
+        }
     }
 
     public function blacklist(){
@@ -18,10 +38,7 @@ class adminCustomerController extends Controller
         return view('dashboard_Owens.customer.blackList_View')->with(compact('blackList'));
     }
 
-    public function indexEmp(){
-        $cusList = DB::table('customers')->get();
-        return view('dashboard_Employee.customer.index_View')->with(compact('cusList'));
-    }
+
 
     public function edit(Request $request){
         $CusID = $request->route()->parameter('customerID');

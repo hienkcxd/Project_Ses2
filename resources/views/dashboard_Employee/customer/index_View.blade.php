@@ -1,5 +1,15 @@
 @extends('Layout.employee')
 @section('content')
+    @if(Session::get('fail'))
+        <div class="alert alert-danger">
+            {{ Session::get('fail') }}
+        </div>
+    @endif
+    @if(Session::get('thongbao'))
+        <div class="alert alert-info">
+            {{ Session::get('thongbao') }}
+        </div>
+    @endif
     <div class="marketContainer">
         <table id="cusTable" class="display nowrap uk-table uk-table-hover uk-table-striped table-bordered"
                style="width:100%">

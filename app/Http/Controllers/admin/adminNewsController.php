@@ -3,28 +3,59 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\admin\account;
 use App\Models\News\NewsList;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class adminNewsController extends Controller
 {
-    public function index(){
-        return view('dashboard_Owens.news.index_View');
+
+    function index_owens(){
+        $role = account::where('id','=', session('LoggedAdmin'))->first()->Role;
+        if($role == '1'){
+            return redirect(route('emp.news'))->with('fail', 'Bạn Không thể truy cập vào trang giám đốc!!!');
+        }
+        elseif($role == '2'){
+            return view('dashboard_Owens.news.index_View');
+        }
     }
 
-    public function edit(Request $request){
+    function index_Emp()
+    {
+        $role = account::where('id','=', session('LoggedAdmin'))->first()->Role;
+        if($role == '1'){
+            return view('dashboard_Employee.news.index_View');
+        }
+        elseif($role == '2'){
+            return redirect(route('owens.news'))->with('fail', 'Bạn Không thể truy cập vào trang nhân viên!!!');
+        }
+    }
+
+    public function edit_owens(Request $request){
+        $role = account::where('id','=', session('LoggedAdmin'))->first()->Role;
         $NewsID = $request->route()->parameter('NewsID');
         $dataNews = DB::table('news_lists')->where('NewsID', '=', $NewsID)->first();
         $newsDetail = DB::table('news_details')->where('NewsID', '=', $NewsID)->first();
-        return view('dashboard_Owens.news.form_View')->with(compact('dataNews', 'newsDetail'));
+        if($role == '1'){
+            return back()->with('fail', 'Bạn Không thể truy cập vào trang giám đốc!!!');
+        }
+        elseif($role == '2'){
+            return view('dashboard_Owens.news.form_View')->with(compact('dataNews', 'newsDetail'));
+        }
     }
 
-    public function editEmp(Request $request){
+    public function edit_emp(Request $request){
+        $role = account::where('id','=', session('LoggedAdmin'))->first()->Role;
         $NewsID = $request->route()->parameter('NewsID');
         $dataNews = DB::table('news_lists')->where('NewsID', '=', $NewsID)->first();
         $newsDetail = DB::table('news_details')->where('NewsID', '=', $NewsID)->first();
-        return view('dashboard_Employee.news.form_View')->with(compact('dataNews', 'newsDetail'));
+        if($role == '1'){
+            return view('dashboard_Employee.news.form_View')->with(compact('dataNews', 'newsDetail'));
+        }
+        elseif($role == '2'){
+            return back()->with('fail', 'Bạn Không thể truy cập vào trang nhân viên!!!');
+        }
     }
 
     public  function update(Request $request){

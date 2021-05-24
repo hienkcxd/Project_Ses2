@@ -1,6 +1,15 @@
 @extends('Layout.Owens')
 @section('content')
-    <h2> {{ session('thongbao') }} </h2>
+    @if(Session::get('fail'))
+        <div class="alert alert-danger">
+            {{ Session::get('fail') }}
+        </div>
+    @endif
+    @if(Session::get('thongbao'))
+        <div class="alert alert-info">
+            {{ Session::get('thongbao') }}
+        </div>
+    @endif
 <div class="projectContainer">
     <table id="newsTable" class="display nowrap uk-table uk-table-hover uk-table-striped table-bordered"
            style="width:100%">

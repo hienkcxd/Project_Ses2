@@ -36,6 +36,7 @@ class AuthenticationController extends Controller
             return back()->with('fail', 'Something were wrong, try again later...');
         }
     }
+
     function check(Request $request){
         //validate request
         $request->validate([
@@ -66,14 +67,21 @@ class AuthenticationController extends Controller
         if($role == '1'){
             return redirect(route('index.admin_employee'));
         }
-        else{
+        elseif($role == '2'){
             return view('dashboard_Owens.index', $data);
         }
     }
-    public function dashboard_Emp()
+
+    function dashboard_Emp()
     {
+        $role = account::where('id','=', session('LoggedAdmin'))->first()->Role;
         $data = ['LoggedAdminInfo'=>account::where('id','=', session('LoggedAdmin'))->first()];
-        return view('dashboard_Employee.index', $data);
+        if($role == '1'){
+            return view('dashboard_Employee.index', $data);
+        }
+        elseif($role == '2'){
+            return redirect(route('index.admin_owens'));
+        }
     }
 
     function logout(){

@@ -94,26 +94,35 @@
             Route::get('/', [loginController::class, 'index'])->name('login');
             Route::get('/owens/Employee/Register', [AuthenticationController::class, 'register'])->name('owens_register');
 
-            //  Begin Route index admin.
-
             Route::get('/employee', [AuthenticationController::class, 'dashboard_Emp'])->name('index.admin_employee');
-            Route::get('/owens', [AuthenticationController::class, 'dashboard_owens'])->name('index.admin_owens');
+            Route::get('/owens', [AuthenticationController::class, 'dashboard_Owens'])->name('index.admin_owens');
 
             //  End Route index admin
             // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
             //  Begin Route Employee: only owens
+            Route::get('/owens/Employee/getEmployee', [adminEmployeeController::class, 'getEmployee'])->name('admin.allEmployee');
 
             Route::get('/owens/Employee', [adminEmployeeController::class, 'index'])->name('owens_Emp');
-            Route::get('/owens/Employee/getEmployee', [adminEmployeeController::class, 'getEmployee'])->name('admin.allEmployee');
-            Route::get('/owens/Employee/edit/Employee_{EmployeeID}', [adminEmployeeController::class, 'edit']);
+            Route::get('/{any?}/Employee', function ($any = null) {
+                return redirect(route('owens_Emp'));
+            })->where('any', '.*');;
+
+            Route::get('/owens/Employee/edit/Employee_{EmployeeID}', [adminEmployeeController::class, 'edit'])->name('emp_edit');
+            Route::get('/{any?}/Employee/edit/Employee_{EmployeeID}', function ($any = null) {
+                return redirect(route('emp_edit'));
+            })->where('any', '.*');;
+
             Route::post('/Employee_{EmployeeID}', [adminEmployeeController::class, 'update'])->name('owens.update_emp');
 
             //  End Route Employee
             // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
             //  Begin Route market
             Route::get('/owens/market', [owensController::class, 'market'])->name('admin_market');
-            Route::get('/owens/market/getMarket', [owensController::class, 'getMarket'])->name('admin_market.getMarket');
+            Route::get('/{any?}/market/', function ($any = null) {
+                return redirect(route('admin_market'));
+            })->where('any', '.*');;
 
+            Route::get('/owens/market/getMarket', [owensController::class, 'getMarket'])->name('admin_market.getMarket');
             Route::get('/owens/market/insert', [owensController::class, 'create'])->name('admin_market.create');
 
             Route::prefix('/owens/market/edit')->group(function () {
@@ -123,6 +132,10 @@
                 Route::get('/WardID_{WardID}', [owensController::class, 'viewDetail'])->name('admin_market.detail_Ward');
                 Route::get('/DistrictID_{DistrictID}', [owensController::class, 'viewDetail'])->name('admin_market.detail_District');
             });
+            Route::get('/{any?}/market/edit/{any2}', function ($any = null) {
+                return redirect(route('admin_market'));
+            })->where(['any', '.*'],['any2', '.*'] );
+
 
             Route::prefix('/owens/market/delete')->group(function () {
                 Route::get('/MarketID_{MarketID}', [owensController::class, 'delete'])->name('admin_market.delete_Market');
@@ -134,9 +147,10 @@
             // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
             //  Begin Route Customer
 
-            Route::get('/owens/customer', [adminCustomerController::class, 'index'])->name('owens.customer');
+            Route::get('/owens/customer', [adminCustomerController::class, 'index_owens'])->name('owens.customer');
             Route::get('/owens/black_list', [adminCustomerController::class, 'blacklist'])->name('owens.black_lists');
-            Route::get('/employee/customer', [adminCustomerController::class, 'indexEmp'])->name('emp.customer');
+            Route::get('/employee/customer', [adminCustomerController::class, 'index_Emp'])->name('emp.customer');
+//            Route::get('/owens/black_list', [adminCustomerController::class, 'blacklist'])->name('owens.black_lists');
 
             Route::get('/owens/customer/edit/customerID_{customerID}', [adminCustomerController::class, 'edit'])->name('owens.customer_edit');
             Route::get('/owens/black_list/edit/BlackCusID_{BlackCusID}', [adminCustomerController::class, 'edit'])->name('owens.blackList_edit');
@@ -150,8 +164,11 @@
             // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
             //  Begin Route work
 
-            Route::get('/owens/work_list', [adminWorkController::class, 'index'])->name('owens.work');
+            Route::get('/owens/work_list', [adminWorkController::class, 'index_owens'])->name('owens.work');
+            Route::get('/employee/work_list', [adminWorkController::class, 'index_Emp'])->name('emp.work');
+
             Route::get('/owens/work_progress', [adminWorkController::class, 'progress'])->name('owens.work_progress');
+            Route::get('/employee/work_progress', [adminWorkController::class, 'progress'])->name('emp.work_progress');
 
             Route::get('/owens/work_list/edit/WorkID_{WorkID}', [adminWorkController::class, 'edit'])->name('owens.work_detail');
             Route::post('/WorkID_{WorkID}', [adminWorkController::class, 'update'])->name('admin.update_work');
@@ -161,14 +178,13 @@
             // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
             //  Begin Route Project
 
-            Route::get('/owens/project', [projectController::class, 'index'])->name('owens_project');
+            Route::get('/owens/project', [projectController::class, 'index_owens'])->name('owens_project');
+            Route::get('/employee/project', [projectController::class, 'index_Emp'])->name('emp.project');
             Route::get('/owens/project/getProject', [projectController::class, 'getProject'])->name('admin.allProject');//Datatable serverside
-            Route::get('/employee/project', function (){
-                return view('dashboard_Employee.project.index_View');
-            })->name('emp.project');
 
-            Route::get('/owens/project/edit/ProjectID_{ProjectID}', [projectController::class, 'edit']);
-            Route::get('/employee/project/edit/ProjectID_{ProjectID}', [projectController::class, 'editemp']);
+
+            Route::get('/owens/project/edit/ProjectID_{ProjectID}', [projectController::class, 'edit_owens'])->name('editProject_owens');
+            Route::get('/employee/project/edit/ProjectID_{ProjectID}', [projectController::class, 'edit_emp'])->name('editProject_emp');
 
             Route::post('/ProjectID_{ProjectID}', [projectController::class, 'update'])->name('admin.update_Project');
 
@@ -176,19 +192,17 @@
             // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
             //  Begin Route News
 
-            Route::get('/owens/news', [adminNewsController::class, 'index'])->name('owens.news');
+            Route::get('/owens/news', [adminNewsController::class, 'index_owens'])->name('owens.news');
+            Route::get('/employee/news', [adminNewsController::class, 'index_Emp'])->name('emp.news');
             Route::get('/owens/news/getNews', [adminNewsController::class, 'getNews'])->name('admin.allNews');//Datatable serverside
-            Route::get('/employee/news', function (){
-                return view('dashboard_Employee.news.index_View');
-            })->name('emp.news');
 
-            Route::get('/owens/news/edit/NewsID_{NewsID}', [adminNewsController::class, 'edit']);
-            Route::get('/employee/news/edit/NewsID_{NewsID}', [adminNewsController::class, 'editEmp']);
+
+            Route::get('/owens/news/edit/NewsID_{NewsID}', [adminNewsController::class, 'edit_owens'])->name('owens.editNews');
+            Route::get('/employee/news/edit/NewsID_{NewsID}', [adminNewsController::class, 'edit_emp'])->name('emp.editNews');
 
             Route::post('/NewsID_{NewsID}', [adminNewsController::class, 'update'])->name('admin.update_News');
 
             //        End Route Project
-
 
         });
 

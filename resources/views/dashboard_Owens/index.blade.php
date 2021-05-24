@@ -20,7 +20,7 @@
                         <td>{{ $LoggedAdminInfo['Account'] }}</td>
                         <td>{{ $LoggedAdminInfo['Email'] }}</td>
                         <td>{{ $LoggedAdminInfo['Password'] }}</td>
-{{--                        <td>{{ $LoggedAdminInfo['Role'] }}</td>--}}
+                        <td>{{ $LoggedAdminInfo['Role'] }}</td>
                         <td><a href="{{ route('auth.logout') }}">Logout</a></td>
                     </tr>
                     </tbody>
