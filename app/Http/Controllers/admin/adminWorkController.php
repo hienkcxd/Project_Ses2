@@ -9,18 +9,13 @@ use Illuminate\Support\Facades\DB;
 
 class adminWorkController extends Controller
 {
-    public function index(){
-        $workProgress = null;
-        $workList = DB::table('work_lists')->get();
-        return view('dashboard_Owens.work.index_View')->with(compact( 'workList', 'workProgress'));
-    }
 
     function index_owens(){
         $workProgress = null;
         $workList = DB::table('work_lists')->get();
         $role = account::where('id','=', session('LoggedAdmin'))->first()->Role;
         if($role == '1'){
-            return redirect(route('emp.work'));
+            return redirect(route('emp.work'))->with('fail', 'Bạn không thể truy cập vào trang giám đốc!!!');;
         }
         elseif($role == '2'){
             return view('dashboard_Owens.work.index_View')->with(compact( 'workList', 'workProgress'));
@@ -36,16 +31,36 @@ class adminWorkController extends Controller
             return view('dashboard_Employee.work.index_View')->with(compact( 'workList', 'workProgress'));
         }
         elseif($role == '2'){
-            return redirect(route('owens.work'));
+            return redirect(route('owens.work'))->with('fail', 'Bạn không thể truy cập vào trang nhân viên!!!');
         }
     }
-    public function progress(){
+
+    public function progress_owens(){
+        $role = account::where('id','=', session('LoggedAdmin'))->first()->Role;
         $workList = null;
         $workProgress = DB::table('work_details')->get();
-        return view('dashboard_Owens.work.index_View')->with(compact('workProgress', 'workList'));
+        if($role == '1'){
+            return redirect(route('emp.work_progress'))->with('fail', 'Bạn không thể truy cập vào trang giám đốc!!!');;
+        }
+        elseif($role == '2'){
+            return view('dashboard_Owens.work.index_View')->with(compact('workProgress', 'workList'));
+        }
     }
 
-    public function edit(Request $request){
+    public function progress_emp(){
+        $role = account::where('id','=', session('LoggedAdmin'))->first()->Role;
+        $workList = null;
+        $workProgress = DB::table('work_details')->get();
+        if($role == '1'){
+            return view('dashboard_Employee.work.index_View')->with(compact('workProgress', 'workList'));
+        }
+        elseif($role == '2'){
+            return redirect(route('owens.work_progress'))->with('fail', 'Bạn không thể truy cập vào trang nhân viên!!!');
+        }
+    }
+
+    public function edit_owens(Request $request){
+        $role = account::where('id','=', session('LoggedAdmin'))->first()->Role;
         $WorkID = $request->route()->parameter('WorkID');
         $workList = DB::table('work_lists')
             ->where('WorkID', '=', $WorkID)
@@ -65,17 +80,59 @@ class adminWorkController extends Controller
             ->where('CusPhone', '=', $workDetail->CusPhone )
             ->count();
 
-        return view('dashboard_Owens.work.form_View')
-            ->with(compact(
-                'workDetail',
-                 'workList',
-                            'customer',
-                            'Emp',
-                            'count',
-            ));
+
+        if($role == '1'){
+            return back()->with('fail', 'Bạn không thể truy cập vào trang giám đốc!!!');;
+        }
+        elseif($role == '2'){
+            return view('dashboard_Owens.work.form_View')
+                ->with(compact(
+                    'workDetail',
+                    'workList',
+                    'customer',
+                    'Emp',
+                    'count',
+                ));
+        }
 
     }
 
+    public function edit_emp(Request $request){
+        $role = account::where('id','=', session('LoggedAdmin'))->first()->Role;
+        $WorkID = $request->route()->parameter('WorkID');
+        $workList = DB::table('work_lists')
+            ->where('WorkID', '=', $WorkID)
+            ->first();
+        $workDetail = DB::table('work_details')
+            ->where('WorkID', '=', $WorkID)
+            ->first();
+        $customer = DB::table('customers')
+            ->where('CusID', '=', $workList->CusID )
+            ->first();
+
+        $Emp = DB::table('employee_lists')
+            ->where('EmployeeID', '=', $customer->EmpID )
+            ->first();
+
+        $count = DB::table('customers')
+            ->where('CusPhone', '=', $workDetail->CusPhone )
+            ->count();
+
+
+        if($role == '1'){
+            return view('dashboard_Employee.work.form_View')
+                ->with(compact(
+                    'workDetail',
+                    'workList',
+                    'customer',
+                    'Emp',
+                    'count',
+                ));
+        }
+        elseif($role == '2'){
+            return back()->with('fail', 'Bạn không thể truy cập vào trang nhân viên!!!');;
+        }
+    }
     public function update(Request $request){
         $WorkID = $request->route()->parameter('WorkID');
         $data = $request->all();

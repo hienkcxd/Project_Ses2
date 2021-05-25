@@ -1,6 +1,15 @@
 @extends('Layout.employee')
 @section('content')
-    <h2> {{ session('thongbao') }} </h2>
+    @if(Session::get('fail'))
+        <div class="alert alert-danger">
+            {{ Session::get('fail') }}
+        </div>
+    @endif
+    @if(Session::get('thongbao'))
+        <div class="alert alert-info">
+            {{ Session::get('thongbao') }}
+        </div>
+    @endif
     @if($workList != null)
     <div class="projectContainer">
         <table id="workTable" class="display nowrap uk-table uk-table-hover uk-table-striped table-bordered"
@@ -25,8 +34,8 @@
                 <tr>
                     <td>{{ $wk->WorkID  }}</td>
                     <td>
-                        <a id="edit" name="edit" class="edit btn btn-outline-info" href="{{ route('owens.work_detail',['WorkID'=>$wk->WorkID])}}">Detail</a>
-                        <a id="delete" name="delete" class="delete btn btn-outline-danger" href="{{ route('owens.work_detail',['WorkID'=>$wk->WorkID])}}">Delete</a>
+                        <a id="edit" name="edit" class="edit btn btn-outline-info" href="{{ route('emp.work_detail',['WorkID'=>$wk->WorkID])}}">Detail</a>
+                        <a id="delete" name="delete" class="delete btn btn-outline-danger" href="{{ route('emp.work_detail',['WorkID'=>$wk->WorkID])}}">Delete</a>
                     </td>
                     <td>{{ $wk->WorkName }}</td>
                     <td>{{ $wk->Address }}</td>

@@ -104,12 +104,12 @@
 
             Route::get('/owens/Employee', [adminEmployeeController::class, 'index'])->name('owens_Emp');
             Route::get('/{any?}/Employee', function ($any = null) {
-                return redirect(route('owens_Emp'));
+                return redirect(route('owens_Emp'))->with('fail', 'Trang yêu cầu không tồn tại!!!');;
             })->where('any', '.*');;
 
             Route::get('/owens/Employee/edit/Employee_{EmployeeID}', [adminEmployeeController::class, 'edit'])->name('emp_edit');
             Route::get('/{any?}/Employee/edit/Employee_{EmployeeID}', function ($any = null) {
-                return redirect(route('emp_edit'));
+                return back()->with('fail', 'Trang yêu cầu không tồn tại!!!');;;
             })->where('any', '.*');;
 
             Route::post('/Employee_{EmployeeID}', [adminEmployeeController::class, 'update'])->name('owens.update_emp');
@@ -119,7 +119,7 @@
             //  Begin Route market
             Route::get('/owens/market', [owensController::class, 'market'])->name('admin_market');
             Route::get('/{any?}/market/', function ($any = null) {
-                return redirect(route('admin_market'));
+                return redirect(route('admin_market'))->with('fail', 'Trang yêu cầu không tồn tại!!!');
             })->where('any', '.*');;
 
             Route::get('/owens/market/getMarket', [owensController::class, 'getMarket'])->name('admin_market.getMarket');
@@ -133,7 +133,7 @@
                 Route::get('/DistrictID_{DistrictID}', [owensController::class, 'viewDetail'])->name('admin_market.detail_District');
             });
             Route::get('/{any?}/market/edit/{any2}', function ($any = null) {
-                return redirect(route('admin_market'));
+                return redirect(route('admin_market'))->with('fail', 'Trang yêu cầu không tồn tại!!!');;
             })->where(['any', '.*'],['any2', '.*'] );
 
 
@@ -169,10 +169,11 @@
             Route::get('/owens/work_list', [adminWorkController::class, 'index_owens'])->name('owens.work');
             Route::get('/employee/work_list', [adminWorkController::class, 'index_Emp'])->name('emp.work');
 
-            Route::get('/owens/work_progress', [adminWorkController::class, 'progress'])->name('owens.work_progress');
-            Route::get('/employee/work_progress', [adminWorkController::class, 'progress'])->name('emp.work_progress');
+            Route::get('/owens/work_progress', [adminWorkController::class, 'progress_owens'])->name('owens.work_progress');
+            Route::get('/employee/work_progress', [adminWorkController::class, 'progress_emp'])->name('emp.work_progress');
 
-            Route::get('/owens/work_list/edit/WorkID_{WorkID}', [adminWorkController::class, 'edit'])->name('owens.work_detail');
+            Route::get('/owens/work_list/edit/WorkID_{WorkID}', [adminWorkController::class, 'edit_owens'])->name('owens.work_detail');
+            Route::get('/employee/work_list/edit/WorkID_{WorkID}', [adminWorkController::class, 'edit_emp'])->name('emp.work_detail');
             Route::post('/WorkID_{WorkID}', [adminWorkController::class, 'update'])->name('admin.update_work');
 
 

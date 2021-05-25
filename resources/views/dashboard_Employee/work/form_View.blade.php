@@ -1,6 +1,11 @@
 @extends('Layout.employee')
 @section('content')
-   @include('dashboard_Owens.work.detail_Form')
+    @if(Session::get('fail'))
+        <div class="alert alert-danger">
+            {{ Session::get('fail') }}
+        </div>
+    @endif
+   @include('dashboard_Employee.work.detail_Form')
 @endsection
 
 @section('title', 'Employee_DetailWork')
