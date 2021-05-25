@@ -18,6 +18,7 @@
                                 <input title="Năm viết bài" type="text" name="Year" id="yearInp" value="{{ $dataNews->Year }}">
                             </div>
 
+
                             <input type="text" title="Tên bài viết" name="NewsName" id="titleNews" value="{{ $dataNews->NewsName }}">
                             <input type="text" title="Mô tả bài viết" name="Description" id="describe" value="{{ $dataNews->Description }}">
                             <input type="text" title="Link background bài viết" name="images" id="images" value="{{ $dataNews->images }}">
@@ -28,7 +29,6 @@
                                 <option value="NTGD">NTGD</option>
                             </select>
                             <a class="btn-more">Chi tiết</a>
-
                             <div style="margin-top: 175px; text-align: center; width: 100%">
                                 <span style="font-size: 35px">&harrw;&harrw;&harrw;&harrw;&harrw;&harrw;&harrw;&harrw;&harrw;</span>
                             </div>
@@ -36,7 +36,7 @@
 
 {{--                Detail News--}}
 
-                        <div class="imageContent" style="margin-top: 75px">
+                        <div class="imageContent" style="margin-top: 190px">
                             <p style="text-align: left;color: #fab702; text-decoration-line: underline; font-size: 1.2rem ">+Nội dung đầu bài viết:</p>
                             <span>Nội dung:</span>
                             <input type="text" title="Link hình ảnh bài viết" name="contentTop" id="images" value="{{ $newsDetail->contentTop }}">

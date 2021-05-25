@@ -1,4 +1,4 @@
-@extends('Layout.Owens')
+@extends('Layout.employee')
 @section('content')
     @if(Session::get('fail'))
         <div class="alert alert-danger">
@@ -33,8 +33,8 @@
                     <td>{{ $cus->BlackCusPhone }}</td>
                     <td>{{ $cus->BlackCusDesc }}</td>
                     <td>
-                        <a id="edit" name="edit" class="edit btn btn-outline-info" href="{{ route('owens.blackList_edit', ['BlackCusID'=>$cus->BlackCusID ]) }}">Detail</a>
-                        <a id="delete" name="delete" class="delete btn btn-outline-danger" href="{{ route('owens.blackList_edit', ['BlackCusID'=>$cus->BlackCusID ]) }}">Delete</a>
+                        <a id="edit" name="edit" class="edit btn btn-outline-info" href="{{ route('emp.blackList_edit', ['BlackCusID'=>$cus->BlackCusID ]) }}">Detail</a>
+                        <a id="delete" name="delete" class="delete btn btn-outline-danger" href="{{ route('emp.blackList_edit', ['BlackCusID'=>$cus->BlackCusID ]) }}">Delete</a>
                     </td>
 
                 </tr>
@@ -53,4 +53,4 @@
     </script>
 @endsection
 
-@section('title', 'Owens_BlackLíst')
+@section('title', 'Employee_BlackLíst')

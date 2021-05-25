@@ -5,7 +5,7 @@
             {{ Session::get('fail') }}
         </div>
     @endif
-    @include('dashboard_Owens.customer.detail_Form')
+    @include('dashboard_Employee.customer.detail_form')
 @endsection
 
 @section('title', 'Employee_Dashboard_CustomerDetail')

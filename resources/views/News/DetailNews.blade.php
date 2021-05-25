@@ -9,7 +9,6 @@
             <div class="row" style="width: 70%; margin: auto">
                 @foreach($detail as $p)
 
-                    {{--                    // title news--}}
                     <ul class="blog-list">
                         <li class="item {{ $p->NewsTagName }}">
 

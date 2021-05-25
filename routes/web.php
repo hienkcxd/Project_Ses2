@@ -148,17 +148,18 @@
             //  Begin Route Customer
 
             Route::get('/owens/customer', [adminCustomerController::class, 'index_owens'])->name('owens.customer');
-            Route::get('/owens/black_list', [adminCustomerController::class, 'blacklist'])->name('owens.black_lists');
             Route::get('/employee/customer', [adminCustomerController::class, 'index_Emp'])->name('emp.customer');
-//            Route::get('/owens/black_list', [adminCustomerController::class, 'blacklist'])->name('owens.black_lists');
+            Route::get('/owens/black_list', [adminCustomerController::class, 'bList_owens'])->name('owens.black_lists');
+            Route::get('/employee/black_list', [adminCustomerController::class, 'bList_emp'])->name('emp.black_lists');
 
-            Route::get('/owens/customer/edit/customerID_{customerID}', [adminCustomerController::class, 'edit'])->name('owens.customer_edit');
-            Route::get('/owens/black_list/edit/BlackCusID_{BlackCusID}', [adminCustomerController::class, 'edit'])->name('owens.blackList_edit');
+            Route::get('/owens/customer/edit/customerID_{customerID}', [adminCustomerController::class, 'editCus_owens'])->name('owens.customer_edit');
+            Route::get('/employee/customer/edit/customerID_{customerID}', [adminCustomerController::class, 'editCus_emp'])->name('emp.customer_edit');
+            Route::get('/owens/black_list/edit/BlackCusID_{BlackCusID}', [adminCustomerController::class, 'editBCust_owens'])->name('owens.blackList_edit');
+            Route::get('/employee/black_list/edit/BlackCusID_{BlackCusID}', [adminCustomerController::class, 'editBCust_emp'])->name('emp.blackList_edit');
 
-            Route::get('/employee/customer/edit/customerID_{customerID}', [adminCustomerController::class, 'editEmp'])->name('emp.customer_edit');
 
             Route::post('/customerID_{customerID}', [adminCustomerController::class, 'update'])->name('owens.customer_update');
-            Route::get('/owens/customer/delete/customerID_{customerID}', [adminCustomerController::class, ''])->name('owens.customer_delete');
+            Route::get('/delete/customerID_{customerID}', [adminCustomerController::class, ''])->name('owens.customer_delete');
 
             //  End Route Customer
             // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

@@ -1,4 +1,4 @@
-@extends('Layout.Owens')
+@extends('Layout.employee')
 @section('content')
     @if(Session::get('fail'))
         <div class="alert alert-danger">
@@ -53,4 +53,4 @@
     </script>
 @endsection
 
-@section('title', 'Owens_BlackLíst')
+@section('title', 'Employee_BlackLíst')

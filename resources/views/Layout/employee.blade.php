@@ -71,7 +71,7 @@
                     <a href="{{ route('emp.customer') }}"> <i class="menu-icon fa fa-users" style="color: #FAB702"></i>Danh Sách</a>
                 </li>
                 <li class="menu-item-has-children dropdown">
-                    <a href="#"> <i class="menu-icon fa fa-exclamation-triangle" style="color: #FAB702"></i>Black List</a>
+                    <a href="{{ route('emp.black_lists') }}"> <i class="menu-icon fa fa-exclamation-triangle" style="color: #FAB702"></i>Black List</a>
                 </li>
                 {{--                Kết thúc phần Khách Hàng--}}
 
