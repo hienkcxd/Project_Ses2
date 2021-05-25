@@ -7,6 +7,7 @@
     <link rel="shortcut icon" href="{{ asset('images/title_logo.jpg') }}" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
     <link rel="stylesheet" href="{{ asset('/css/admin_css/bootstrap/dist/css/bootstrap.min.css') }} ">
     <link rel="stylesheet" href="{{ asset('/css/admin_css/font-awesome/css/font-awesome.min.css') }}">
     <link rel="stylesheet" href="{{ asset('/css/admin_css/themify-icons/css/themify-icons.css') }}">
@@ -17,6 +18,7 @@
     <link rel="stylesheet" href="{{ asset('/css/admin_css/css/detail_employee_form.css') }} ">
     <link rel="stylesheet" href="{{ asset('/css/admin_css/css/detail_project_form.css') }} ">
     <link rel="stylesheet" href="{{ asset('/css/admin_css/css/detail_work_form.css') }} ">
+    <link rel="stylesheet" href="{{ asset('/css/admin_css/css/index.css') }} ">
     <link href="{{ asset('/css/Login.css') }}" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
 
@@ -30,7 +32,8 @@
 
 </head>
 
-<body>
+<body style="background-image: url({{ asset('images/bg.jpg') }});  background-repeat: no-repeat;
+    background-attachment: fixed;background-size: 100%;">
 
 
 <!-- Left Panel -->
@@ -180,12 +183,10 @@
                     </a>
 
                     <div class="user-menu dropdown-menu">
-                        <a class="nav-link" href="#"><i class="fa fa-user"></i> Tài Khoản</a>
 
-                        <a class="nav-link" href="#"><i class="fa fa-comment-o"></i> Thông Báo <span
-                                class="count">1</span></a>
+                        <a class="nav-link" href="{{ route('index.admin_owens') }}"><i class="fa fa-user"></i> Tài Khoản</a>
+                        <a class="nav-link" href="{{ route('auth.logout') }}"><i class="fa fa-power-off"></i> Logout</a>
 
-                        <a class="nav-link" href="#"><i class="fa fa-power-off"></i> Logout</a>
                     </div>
                 </div>
 

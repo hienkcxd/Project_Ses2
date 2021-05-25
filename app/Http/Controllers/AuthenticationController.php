@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\admin\account;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class AuthenticationController extends Controller
@@ -63,21 +64,48 @@ class AuthenticationController extends Controller
 
     function dashboard_owens(){
         $role = account::where('id','=', session('LoggedAdmin'))->first()->Role;
-        $data = ['LoggedAdminInfo'=>account::where('id','=', session('LoggedAdmin'))->first()];
+        $account = account::where('id','=', session('LoggedAdmin'))->first();
+        $name = DB::table('employee_lists')
+                        ->where('EmployeeID', '=', $account ->EmployeeID)
+                        ->first();
+        $empList = DB::table('work_details')
+                    ->selectRaw("	EmpID, EmpName, EmpPhone, COUNT(EmpName) as total_Work")
+                    ->groupBy('EmpID','EmpName', 'EmpPhone')
+                    ->get();
+
+        $cusList = DB::table('customers')
+                ->selectRaw("CusName,CusPhone, SUM(Price) as total_Price")
+                ->selectRaw("CusName,CusPhone, COUNT(CusPhone) as total_CusPhone")
+                ->groupBy('CusName', 'CusPhone')
+                ->get();
+
         if($role == '1'){
             return redirect(route('index.admin_employee'));
         }
         elseif($role == '2'){
-            return view('dashboard_Owens.index', $data);
+            return view('dashboard_Owens.index')->with(compact('empList', 'cusList','account', 'name'));
         }
     }
 
     function dashboard_Emp()
     {
+        $account = account::where('id','=', session('LoggedAdmin'))->first();
         $role = account::where('id','=', session('LoggedAdmin'))->first()->Role;
-        $data = ['LoggedAdminInfo'=>account::where('id','=', session('LoggedAdmin'))->first()];
+        $name = DB::table('employee_lists')
+            ->where('EmployeeID', '=', $account ->EmployeeID)
+            ->first();
+
+        $workList = DB::table('work_details')
+            ->where('EmpID','=', $account->EmployeeID )
+            ->get();
+
+        $cusList = DB::table('customers')
+            ->where('EmpID','=', $account->EmployeeID )
+            ->selectRaw("CusName,CusPhone, COUNT(CusPhone) as total_CusPhone")
+            ->groupBy('CusName', 'CusPhone')
+            ->get();
         if($role == '1'){
-            return view('dashboard_Employee.index', $data);
+            return view('dashboard_Employee.index')->with(compact('cusList','account', 'name', 'workList'));
         }
         elseif($role == '2'){
             return redirect(route('index.admin_owens'));
