@@ -134,11 +134,13 @@
                     </div>
 
                 </div>
-                <div class="thirdRow">
-                    <p class='full'>
-                        <button class="btn btn-warning">Submit</button>
-                    </p>
+                <div class="button">
+                    <button class="btn btn-warning" style="background-color: #00ACC1">Submit</button>
                 </div>
+                <div class="button">
+                    <button class="btn btn-warning" style="background-color: #00ACC1">Get Back</button>
+                </div>
+
             </div>
 
         </form>

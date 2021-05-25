@@ -24,9 +24,13 @@ class adminWorkController extends Controller
 
     function index_Emp()
     {
-        $workProgress = null;
-        $workList = DB::table('work_lists')->get();
+        $empID = account::where('id','=', session('LoggedAdmin'))->first()->EmployeeID ;
         $role = account::where('id','=', session('LoggedAdmin'))->first()->Role;
+
+        $workProgress = null;
+        $workList = DB::table('work_lists')
+            ->where('EmpID','=',$empID)
+            ->get();
         if($role == '1'){
             return view('dashboard_Employee.work.index_View')->with(compact( 'workList', 'workProgress'));
         }
@@ -48,9 +52,13 @@ class adminWorkController extends Controller
     }
 
     public function progress_emp(){
+        $empID = account::where('id','=', session('LoggedAdmin'))->first()->EmployeeID ;
         $role = account::where('id','=', session('LoggedAdmin'))->first()->Role;
+
         $workList = null;
-        $workProgress = DB::table('work_details')->get();
+        $workProgress = DB::table('work_details')
+            ->where('EmpID','=',$empID)
+            ->get();
         if($role == '1'){
             return view('dashboard_Employee.work.index_View')->with(compact('workProgress', 'workList'));
         }

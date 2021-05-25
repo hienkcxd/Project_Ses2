@@ -23,8 +23,11 @@ class adminCustomerController extends Controller
 
     function index_Emp()
     {
-        $cusList = DB::table('customers')->get();
+        $empID = account::where('id','=', session('LoggedAdmin'))->first()->EmployeeID ;
         $role = account::where('id','=', session('LoggedAdmin'))->first()->Role;
+        $cusList = DB::table('customers')
+                    ->where('EmpID', '=', $empID)
+                    ->get();
         if($role == '1'){
             return view('dashboard_Employee.customer.index_View')->with(compact('cusList'));
         }

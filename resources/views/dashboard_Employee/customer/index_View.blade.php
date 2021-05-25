@@ -14,8 +14,7 @@
         <table id="cusTable" class="display nowrap uk-table uk-table-hover uk-table-striped table-bordered"
                style="width:100%">
             <caption style="caption-side: top; font-size: 1.5rem; font-weight: bold; color: #039BE5">
-                DANH SÁCH KHÁCH HÀNG
-                <a class="btn-insert btn btn-outline-info" href="#">CREATE NEW</a>
+                DANH SÁCH KHÁCH HÀNG PHỤ TRÁCH
             </caption>
             <thead>
             <tr>
@@ -37,7 +36,6 @@
                     <td>{{ $cus->CusID }}</td>
                     <td>
                         <a id="edit" name="edit" class="edit btn btn-outline-info" href="{{ route('emp.customer_edit', ['customerID'=>$cus->CusID]) }}">Detail</a>
-                        <a id="delete" name="delete" class="delete btn btn-outline-danger" href="{{ route('owens.customer_delete', ['customerID'=>$cus->CusID]) }}">Delete</a>
                     </td>
                     <td>{{ $cus->CusName }}</td>
                     <td>{{ $cus->CusPhone }}</td>

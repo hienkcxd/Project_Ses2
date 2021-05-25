@@ -17,9 +17,9 @@ class AuthenticationController extends Controller
         //validate request
         $request->validate([
             'EmployeeID'=>'required|unique:accounts',
-            'Account'=>'required|unique:accounts',
+            'Account'=>'required|unique:accounts|min:8|max:20',
             'Email'=>'required|email|unique:accounts',
-            'Password'=>'required|min:4|max:12',
+            'Password'=>'required|min:8|max:20',
             'Role'=>'required',
         ]);
 
@@ -42,8 +42,8 @@ class AuthenticationController extends Controller
         //validate request
         $request->validate([
 
-            'Account'=>'required',
-            'Password'=>'required|min:2|max:12',
+            'Account'=>'required|min:8|max:20',
+            'Password'=>'required|min:4|max:20',
         ]);
 
         $userInfor = account::where('Account', '=', $request->Account)->first();
