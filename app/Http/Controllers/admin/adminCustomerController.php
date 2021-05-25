@@ -43,12 +43,13 @@ class adminCustomerController extends Controller
             return view('dashboard_Owens.customer.blackList_View')->with(compact('blackList'));
         }
     }
+
     public function bList_emp(){
         $role = account::where('id','=', session('LoggedAdmin'))->first()->Role;
         $blackList = DB::table('black_lists')->get();
 
         if($role == '1'){
-            return view('dashboard_Employee.customer.black_Lists')->with(compact('blackList'));
+            return view('dashboard_Employee.customer.blackList_View')->with(compact('blackList'));
         }
         elseif($role == '2'){
             return redirect(route('owens.black_lists'))->with('fail', 'Bạn không thể truy cập vào trang nhân viên!!!');
@@ -129,9 +130,58 @@ class adminCustomerController extends Controller
         }
     }
 
-
-
     public function update(Request $request){
+        $CusID = $request->route()->parameter('customerID');
+        $data = $request->all();
+        $upd_Customer = DB::table('customers')
+            ->where('CusID', '=', $CusID)
+            ->update(
+                [
+                    'CusName' => $data['CusName'],
+                    'CusPhone' => $data['CusPhone'],
+                    'WorkName' => $data['WorkName'],
+                    'Address' => $data['Address'],
+                    'EmpID' => $data['EmpID'],
+                    'EmpName' => $data['EmpName'],
+                    'EmpPhone' => $data['EmpPhone'],
+                    'Price' => $data['Price'],
+                ],
+            );
+
+        $upd_Work = DB::table('work_lists')
+            ->where('CusID', '=', $CusID)
+            ->update(
+                [
+                    'WorkName' => $data['WorkName'],
+                    'Address' => $data['Address'],
+                    'EmpID' => $data['EmpID'],
+                ],
+            );
+
+        $upd_WorkDetail = DB::table('work_details')
+            ->where('CusID', '=', $CusID)
+            ->update(
+                [
+                    'CusPhone' => $data['CusPhone'],
+                    'Address' => $data['Address'],
+                    'EmpID' => $data['EmpID'],
+                    'EmpName' => $data['EmpName'],
+                    'EmpPhone' => $data['EmpPhone'],
+                    'Price_Int' => $data['Price'],
+                ],
+            );
+
+        if(isset($upd_Customer, $upd_Work,  $upd_WorkDetail )){
+            $thongbao = 'Update Thành Công!!!';
+            return redirect(route('owens.customer'))->with(compact('thongbao'));
+        }
+        else{
+            $thongbao = 'Update Thất Bại!!!';
+            return redirect(route('owens.customer'))->with(compact('thongbao'));
+        }
+    }
+
+    public function updateBCust(Request $request){
         $CusID = $request->route()->parameter('customerID');
         $data = $request->all();
         $upd_Customer = DB::table('customers')

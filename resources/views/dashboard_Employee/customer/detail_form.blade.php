@@ -2,7 +2,7 @@
     <div class='empContainer' style="margin-top: 100px">
         <div class='wrapper animated bounceInLeft'>
             <div class='contact'>
-                <form method="POST" action="{{ route('owens.customer_update',['customerID'=>$CusDetail->CusID]) }}">
+                <form method="POST" action="{{ route('customer_update',['customerID'=>$CusDetail->CusID]) }}">
                     @csrf
                     <div class="avata">
                         <img src="{{ asset('images\AboutUs\team_pic_1.jpg') }}" alt="">

@@ -158,7 +158,8 @@
             Route::get('/employee/black_list/edit/BlackCusID_{BlackCusID}', [adminCustomerController::class, 'editBCust_emp'])->name('emp.blackList_edit');
 
 
-            Route::post('/customerID_{customerID}', [adminCustomerController::class, 'update'])->name('owens.customer_update');
+            Route::post('/customerID_{customerID}', [adminCustomerController::class, 'update'])->name('customer_update');
+            Route::post('/Black_customerID_{customerID}', [adminCustomerController::class, 'update'])->name('Black_customer_update');
             Route::get('/delete/customerID_{customerID}', [adminCustomerController::class, ''])->name('owens.customer_delete');
 
             //  End Route Customer

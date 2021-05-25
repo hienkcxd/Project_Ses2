@@ -16,8 +16,8 @@ class accountSeeder extends Seeder
     {
         DB::table('accounts')->insert([
 
-            ['Account' => '123', 'Password' => '111','Email' => 'hien03kc@gmail.com', 'EmployeeID' => 'A08','Role' => '1'],
-            ['Account' => '1234', 'Password' => '1111','Email' => 'hien03kc@gmail.com', 'EmployeeID' => 'A01','Role' => '2'],
+            ['Account' => 'hienkcxd', 'Password' => '$2y$10$fE2Tk9eQ9Jc7IwrcpeI0C.HOMZOlytmZewu.Dt8RR2GX6NIYtzFXm','Email' => 'hien03kc@gmail.com', 'EmployeeID' => 'A01','Role' => '2'],
+            ['Account' => 'employ', 'Password' => '$2y$10$fE2Tk9eQ9Jc7IwrcpeI0C.HOMZOlytmZewu.Dt8RR2GX6NIYtzFXm','Email' => 'hien@gmail.com', 'EmployeeID' => 'A02','Role' => '1'],
 
         ]);
     }
