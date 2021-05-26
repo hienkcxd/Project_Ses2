@@ -158,11 +158,23 @@
             Route::get('/owens/black_list/edit/BlackCusID_{BlackCusID}', [adminCustomerController::class, 'editBCust_owens'])->name('owens.blackList_edit');
             Route::get('/employee/black_list/edit/BlackCusID_{BlackCusID}', [adminCustomerController::class, 'editBCust_emp'])->name('emp.blackList_edit');
 
+            Route::get('/owens/customer/create', [adminCustomerController::class, 'create_owens'])->name('owens.customer_create');
+            Route::get('/{any?}/customer/create', function ($any = null) {
+                return redirect(route('owens.customer_create'))->with('fail', 'Trang yêu cầu không tồn tại!!!');;
+            })->where('any', '.*');
+
+            Route::get('/owens/black_list/create', [adminCustomerController::class, 'createBcust_owens'])->name('owens.blackCust_create');
+            Route::get('/{any?}/black_list/create', function ($any = null) {
+                return redirect(route('owens.blackCust_create'))->with('fail', 'Trang yêu cầu không tồn tại!!!');;
+            })->where('any', '.*');
 
             Route::post('/customerID_{customerID}', [adminCustomerController::class, 'update'])->name('customer_update');
             Route::post('/BlackCustID_{BlackCustID}', [adminCustomerController::class, 'upd_BlackCust'])->name('BlackCust_update');
             Route::get('/delete/customerID_{customerID}', [adminCustomerController::class, ''])->name('owens.customer_delete');
 
+
+            Route::post('/createCustomer', [adminCustomerController::class, 'createCust'])->name('create.customer');
+            Route::post('/createBlackCust', [adminCustomerController::class, 'createBlackCust'])->name('create.BlackCust');
             //  End Route Customer
             // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
             //  Begin Route work
@@ -173,10 +185,10 @@
             Route::get('/owens/work_progress', [adminWorkController::class, 'progress_owens'])->name('owens.work_progress');
             Route::get('/employee/work_progress', [adminWorkController::class, 'progress_emp'])->name('emp.work_progress');
 
+
             Route::get('/owens/work_list/edit/WorkID_{WorkID}', [adminWorkController::class, 'edit_owens'])->name('owens.work_detail');
             Route::get('/employee/work_list/edit/WorkID_{WorkID}', [adminWorkController::class, 'edit_emp'])->name('emp.work_detail');
             Route::post('/WorkID_{WorkID}', [adminWorkController::class, 'update'])->name('admin.update_work');
-
 
             //  End Route work
             // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

@@ -246,4 +246,69 @@ class adminCustomerController extends Controller
         }
     }
 
+    public function create_owens(){
+
+            return view('dashboard_Owens.customer.insertCus_View');
+    }
+
+    public function createBcust_owens(){
+
+        return view('dashboard_Owens.customer.insertBlackCust_View');
+    }
+
+    public function createCust(Request $request){
+        $data = $request->all();
+        $request->validate([
+            'CusID'=>'required|unique:customers',
+            'CusName'=>'required|min:2',
+            'CusPhone'=>'required|min:9|max:12',
+            'WorkName'=>'required|min:9',
+            'Address'=>'required|min:9|unique:customers',
+            'EmpID'=>'required',
+            'EmpName'=>'required',
+            'EmpPhone'=>'required',
+            'Price'=>'required|integer|gt:0',
+        ]);
+
+        $upd_cust = DB::table('customers')->insert([
+            'CusID'=>$data['CusID'],
+            'CusName'=>$data['CusName'],
+            'CusPhone'=>$data['CusPhone'],
+            'WorkName'=>$data['WorkName'],
+            'Address'=>$data['Address'],
+            'EmpID'=>$data['EmpID'],
+            'EmpName'=>$data['EmpName'],
+            'EmpPhone'=>$data['EmpPhone'],
+            'Price'=>$data['Price'],
+        ]);
+        if(isset($upd_cust)){
+            return redirect(route('owens.customer'))->with('success', 'Thêm khách hàng mới thành công!!!');
+        }
+        else{
+            return redirect(route('owens.customer'))->with('fail', 'Thêm khách hàng mới thất bại!!!');
+        }
+
+    }
+
+    public function createBlackCust(Request $request){
+        $data = $request->all();
+        $request->validate([
+            'BlackCusName'=>'required|min:2',
+            'BlackCusPhone'=>'required|min:9|max:12|unique:black_lists',
+            'BlackCusDesc'=>'required|min:15',
+        ]);
+
+        $upd_blackCust = DB::table('black_lists')->insert([
+            'BlackCusName'=>$data['BlackCusName'],
+            'BlackCusPhone'=>$data['BlackCusPhone'],
+            'BlackCusDesc'=>$data['BlackCusDesc'],
+        ]);
+        if(isset($upd_blackCust)){
+            return redirect(route('owens.black_lists'))->with('success', 'Thêm danh sách đen thành công!!!');
+        }
+        else{
+            return redirect(route('owens.black_lists'))->with('fail', 'Thêm danh sách đen mới thất bại!!!');
+        }
+
+    }
 }

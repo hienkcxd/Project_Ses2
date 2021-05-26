@@ -102,12 +102,12 @@
 
                     <div class="empfirstRow">
                         <p>
-                            <label>Tên</label>
+                            <label>Tên:</label>
                             <input type="text" name='BlackCusName' min="0" value="{{ $blackCusDetail->BlackCusName }}">
                         </p>
 
                         <p>
-                            <label>ID:</label>
+                            <label>SĐT:</label>
                             <input type="text" name='BlackCusPhone' value="{{ $blackCusDetail->BlackCusPhone }}"
                                    readonly>
                         </p>
