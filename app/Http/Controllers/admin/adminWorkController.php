@@ -224,4 +224,11 @@ class adminWorkController extends Controller
         }
     }
 
+    function create_owens(){
+            return view('dashboard_Owens.work.insertWork_Form');
+    }
+    function create(Request $request){
+        $data = $request->all();
+        return view('dashboard_Owens.work.insertWork_Form');
+    }
 }

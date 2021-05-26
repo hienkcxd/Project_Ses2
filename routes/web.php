@@ -185,11 +185,15 @@
             Route::get('/owens/work_progress', [adminWorkController::class, 'progress_owens'])->name('owens.work_progress');
             Route::get('/employee/work_progress', [adminWorkController::class, 'progress_emp'])->name('emp.work_progress');
 
+            Route::get('/owens/work_list/create', [adminWorkController::class, 'create_owens'])->name('owens.create_work');
+            Route::get('/{any?}/work_list/create', function ($any = null) {
+                return redirect(route('owens.create_work'))->with('fail', 'Trang yêu cầu không tồn tại!!!');;
+            })->where('any', '.*');
 
             Route::get('/owens/work_list/edit/WorkID_{WorkID}', [adminWorkController::class, 'edit_owens'])->name('owens.work_detail');
             Route::get('/employee/work_list/edit/WorkID_{WorkID}', [adminWorkController::class, 'edit_emp'])->name('emp.work_detail');
             Route::post('/WorkID_{WorkID}', [adminWorkController::class, 'update'])->name('admin.update_work');
-
+            Route::post('/createWork', [adminWorkController::class, 'create'])->name('createWork');
             //  End Route work
             // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
             //  Begin Route Project
