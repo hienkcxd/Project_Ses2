@@ -103,7 +103,7 @@
                     <a href="{{ route('owens_Emp') }}"> <i class="menu-icon fa fa-address-card" style="color: #FAB702"></i>Danh Sách</a>
                 </li>
                 <li class="menu-item-has-children dropdown">
-                    <a href="{{ route('owens_register') }}"> <i class="menu-icon fa fa-user-secret" style="color: #FAB702"></i>Tài Khoản</a>
+                    <a href="{{ route('accLists') }}"> <i class="menu-icon fa fa-user-secret" style="color: #FAB702"></i>Tài Khoản</a>
                 </li>
                 {{--                Kết thúc phần công việc--}}
             </ul>

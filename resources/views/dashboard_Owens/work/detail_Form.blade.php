@@ -11,27 +11,31 @@
                         <div class="input-box">
                             <span class="details">Tên Công Việc:</span>
                             <input type="text" name="WorkName" value="{{ $workList->WorkName }}">
+                            <span class="text-danger">@error('WorkName') {{ $message }} @enderror</span>
                         </div>
 
                         <div class="input-box">
                             <span class="details">Địa Chỉ:</span>
                             <input type="text" name="Address" value="{{ $workList->Address }}">
+                            <span class="text-danger">@error('Address') {{ $message }} @enderror</span>
                         </div>
 
                         <div class="input-box">
                             <span class="details">Giá Dự Án:</span>
                             <input type="text" name="Price" value="{{ $customer->Price }}">
+                            <span class="text-danger">@error('Price') {{ $message }} @enderror</span>
                         </div>
 
                         <div class="input-box">
                             <span class="details">Thành Tiền:</span>
                             <input type="number" name="Price_Int" value="{{ $workDetail->Price_Int }}">
+                            <span class="text-danger">@error('Price_Int') {{ $message }} @enderror</span>
                         </div>
 
                         <div class="input-box">
                             <span class="details">Mô tả:</span>
                             <textarea name="WorkDesc" id="WorkDesc" style="resize: none;" cols="60" rows="3">{{ $workList->WorkDesc }}</textarea>
-{{--                            <input type="text" name="WorkDesc" value="{{ $workList->WorkDesc }}">--}}
+                            <span class="text-danger">@error('WorkDesc') {{ $message }} @enderror</span>
                         </div>
 
                     </div>
@@ -43,14 +47,17 @@
                         <div class="input-box">
                             <span class="details">Cust_ID:</span>
                             <input type="text" name="CusID" value="{{ $customer->CusID }}" readonly>
+                            <span class="text-danger">@error('CusID') {{ $message }} @enderror</span>
                         </div>
                         <div class="input-box">
                             <span class="details">Tên Khách Hàng:</span>
                             <input type="text" name="CusName" value="{{ $customer->CusName }}">
+                            <span class="text-danger">@error('CusName') {{ $message }} @enderror</span>
                         </div>
                         <div class="input-box">
                             <span class="details">SĐT Khách Hàng:</span>
                             <input type="text" name="CusPhone" value="{{ $customer->CusPhone}}">
+                            <span class="text-danger">@error('CusPhone') {{ $message }} @enderror</span>
                         </div>
                         <div class="input-box">
                             <span class="details">Số Dự Án:</span>
@@ -132,14 +139,15 @@
                             </div>
                         </div>
                     </div>
+
+                </div>
+                <div class="button">
+                    <button class="btn btn-warning" style="background-color: #00ACC1">Submit</button>
+                </div>
+                <div class="button">
+                    <button class="btn btn-warning" style="background-color: #00ACC1" type="reset">Reset</button>
                 </div>
 
-                    <div class="button">
-                        <button class="btn btn-warning" style="background-color: #00ACC1">Submit</button>
-                    </div>
-                    <div class="button">
-                        <button class="btn btn-warning" style="background-color: #00ACC1">Get Back</button>
-                    </div>
             </div>
 
         </form>

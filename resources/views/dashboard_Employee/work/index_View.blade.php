@@ -82,7 +82,7 @@
                     <tr>
                         <td>{{ $wk->WorkID  }}</td>
                         <td>
-                            <a id="edit" name="edit" class="edit btn btn-outline-info" href="{{ route('owens.work_detail',['WorkID'=>$wk->WorkID])}}">Detail</a>
+                            <a id="edit" name="edit" class="edit btn btn-outline-info" href="{{ route('emp.work_detail',['WorkID'=>$wk->WorkID])}}">Detail</a>
                         </td>
                         <td>{{ $wk->Address }}</td>
                         <td>{{ $wk->Price_Int}}</td>

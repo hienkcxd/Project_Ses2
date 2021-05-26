@@ -58,7 +58,7 @@
                 <tr>
                     <th>ID Nhân Viên</th>
                     <th>Tên Nhân Viên</th>
-                    <th>Số Điện Thoại</th>
+                    <th>SĐT Nhân Viên</th>
                     <th>Số Dự Án Phụ Trách</th>
                 </tr>
                 </thead>

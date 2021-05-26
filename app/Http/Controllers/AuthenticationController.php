@@ -12,7 +12,10 @@ class AuthenticationController extends Controller
     function register(){
         return view('dashboard_Owens.employee.register_view');
     }
-
+    function accLists(){
+        $accLists = DB::table('accounts')->get();
+        return view('dashboard_Owens.employee.accountLists_View')->with(compact('accLists'));
+    }
     function save(Request $request){
         //validate request
         $request->validate([
@@ -32,7 +35,7 @@ class AuthenticationController extends Controller
         $admin->Role = $request->Role;
         $save = $admin->save();
         if($save){
-            return back()->with('success','New account has been register successfully!!!');
+            return redirect(route('accLists'))->with('success','New account has been register successfully!!!');
         }else{
             return back()->with('fail', 'Something were wrong, try again later...');
         }

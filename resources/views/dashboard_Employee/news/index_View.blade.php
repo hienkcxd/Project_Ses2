@@ -16,7 +16,7 @@
                style="width:100%; text-align: left">
             <caption style="caption-side: top; font-size: 1.5rem; font-weight: bold; color: #039BE5">
                 DANH SÁCH BÀI VIẾT TRÊN TRANG
-                <a class="btn-insert btn btn-outline-info" href="#">Insert</a>
+                <a class="btn-insert btn btn-outline-info" href="{{ route('emp.createNews') }}">Insert</a>
             </caption>
             <thead>
             <tr>

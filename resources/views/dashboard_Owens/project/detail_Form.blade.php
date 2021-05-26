@@ -9,26 +9,32 @@
                 <div class="input-box">
                     <span class="details">Project ID:</span>
                     <input type="text"  name="ProjectID" value="{{ $projectDetail->	ProjectID }}" readonly>
+                    <span class="text-danger">@error('ProjectID') {{ $message }} @enderror</span>
                 </div>
                 <div class="input-box">
                     <span class="details">Project Name:</span>
                     <input type="text" name="ProjectName" value="{{ $projectList->ProjectName }}">
+                    <span class="text-danger">@error('ProjectName') {{ $message }} @enderror</span>
                 </div>
                 <div class="input-box">
                     <span class="details">Khách Hàng:</span>
                     <input type="text" name="Client" value="{{ $projectDetail->Client }}">
+                    <span class="text-danger">@error('Client') {{ $message }} @enderror</span>
                 </div>
                 <div class="input-box">
                     <span class="details">Location:</span>
                     <input type="text" name="Location" value="{{ $projectDetail->Location }}">
+                    <span class="text-danger">@error('Location') {{ $message }} @enderror</span>
                 </div>
                 <div class="input-box">
                     <span class="details">Ngày Hoàn Thành:</span>
                     <input type="text" name="DateFinish" value="{{ $projectDetail->DateFinish }}">
+                    <span class="text-danger">@error('DateFinish') {{ $message }} @enderror</span>
                 </div>
                 <div class="input-box">
                     <span class="details">Giá:</span>
                     <input type="text" name="Price" value="{{ $projectDetail->Price }}">
+                    <span class="text-danger">@error('Price') {{ $message }} @enderror</span>
                 </div>
                 <div class="input-box">
                     <span class="details" style="font-weight: bold">Tag Name:</span>
@@ -42,7 +48,7 @@
                 </div>
                 <div class="input-box">
                     <span class="details">Category:</span>
-                    <input type="text" name="tagName" id="category" value="{{ $projectDetail->tagName }}">
+                    <input type="text" name="tagName" id="category" value="{{ $projectDetail->tagName }}" readonly>
                 </div>
             </div>
 
@@ -51,22 +57,27 @@
                 <div class="input-box">
                     <span class="details">Image Background:</span>
                     <input type="text"  name="images" value="{{ $projectList->images }}">
+                    <span class="text-danger">@error('images') {{ $message }} @enderror</span>
                 </div>
                 <div class="input-box">
                     <span class="details">Image Top:</span>
                     <input type="text"  name="imageTop" value="{{ $projectDetail->imageTop }}">
+                    <span class="text-danger">@error('imageTop') {{ $message }} @enderror</span>
                 </div>
                 <div class="input-box">
                     <span class="details">Image Bot:</span>
                     <input type="text" name="imageBot" value="{{ $projectDetail->imageBot }}">
+                    <span class="text-danger">@error('imageBot') {{ $message }} @enderror</span>
                 </div>
                 <div class="input-box">
                     <span class="details">Content Top:</span>
                     <input type="text" name="contentTop" value="{{ $projectDetail->contentTop }}">
+                    <span class="text-danger">@error('contentTop') {{ $message }} @enderror</span>
                 </div>
                 <div class="input-box">
                     <span class="details">Content Bot:</span>
                     <input type="text" name="contentBot" value="{{ $projectDetail->contentBot }}">
+                    <span class="text-danger">@error('contentBot') {{ $message }} @enderror</span>
                 </div>
             </div>
             <div class="button">

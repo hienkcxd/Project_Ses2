@@ -59,6 +59,7 @@ class adminNewsController extends Controller
     }
 
     public  function update(Request $request){
+        $role = account::where('id','=', session('LoggedAdmin'))->first()->Role;
         $id_News = $request->route()->parameter('NewsID');
         $data = $request->all();
         $thongbao = "";
@@ -96,13 +97,26 @@ class adminNewsController extends Controller
                     'images' => $data['images'],
                 ],
             );
-        if(isset($upd_NewsDetail, $upd_NewsList)){
-            $thongbao = "Update Thành Công!!!";
-            return redirect(route('owens.news'))->with(compact('thongbao'));
+
+        if($role == '1'){
+            if(isset($upd_NewsDetail, $upd_NewsList)){
+                $thongbao = "Update Thành Công!!!";
+                return redirect(route('emp.news'))->with(compact('thongbao'));
+            }
+            else{
+                $thongbao = "Update Thất Bại!!!";
+                return redirect(route('emp.news'))->with(compact('thongbao'));
+            }
         }
-        else{
-            $thongbao = "Update Thất Bại!!!";
-            return redirect(route('owens.news'))->with(compact('thongbao'));
+        elseif($role == '2'){
+            if(isset($upd_NewsDetail, $upd_NewsList)){
+                $thongbao = "Update Thành Công!!!";
+                return redirect(route('owens.news'))->with(compact('thongbao'));
+            }
+            else{
+                $thongbao = "Update Thất Bại!!!";
+                return redirect(route('owens.news'))->with(compact('thongbao'));
+            }
         }
     }
 
@@ -169,4 +183,90 @@ class adminNewsController extends Controller
         echo json_encode($response);
         exit;
     }
+
+    function create_owens(){
+        $role = account::where('id','=', session('LoggedAdmin'))->first()->Role;
+        if($role == '1'){
+            return back()->with('fail', 'Bạn Không thể truy cập vào trang giám đốc!!!');
+        }
+        elseif($role == '2'){
+            return view('dashboard_Owens.news.insertNews_Form');
+        }
+    }
+
+    function create_Emp()
+    {
+        $role = account::where('id','=', session('LoggedAdmin'))->first()->Role;
+        if($role == '1'){
+            return view('dashboard_Employee.news.insert_Form');
+        }
+        elseif($role == '2'){
+            return back()->with('fail', 'Bạn Không thể truy cập vào trang nhân viên!!!');
+        }
+    }
+
+
+    function create_news(Request $request)
+    {
+        $role = account::where('id','=', session('LoggedAdmin'))->first()->Role;
+        $data = $request->all();
+        $request->validate([
+            'NewsID'=>'required|unique:news_details|unique:news_lists',
+        ]);
+
+        $create_NewsList = DB::table('news_lists')->insert([
+                            'NewsID' => $data['NewsID'],
+                            'NewsName' => $data['NewsName'],
+                            'NewsTagName' => $data['NewsTagName'],
+                            'Description' => $data['Description'],
+                            'Day' => $data['Day'],
+                            'Year' => $data['Year'],
+                            'images' => $data['images'],
+                        ]);
+
+        $create_NewsDetail = DB::table('news_details')->insert([
+                            'NewsDetailID' => $data['NewsID'],
+                            'NewsID' => $data['NewsID'],
+                            'NewsName' => $data['NewsName'],
+                            'NewsTagName' => $data['NewsTagName'],
+                            'Day' => $data['Day'],
+                            'Year' => $data['Year'],
+                            'images' => $data['images'],
+                            'contentTop' => $data['contentTop'],
+                            'image1' => $data['image1'],
+                            'image2' => $data['image2'],
+                            'image3' => $data['image3'],
+                            'contentMiddle' => $data['contentMiddle'],
+                            'image4' => $data['image1'],
+                            'image5' => $data['image2'],
+                            'image6' => $data['image3'],
+                            'contentBot' => $data['contentBot'],
+                            'image7' => $data['image1'],
+                            'image8' => $data['image2'],
+                            'image9' => $data['image3'],
+                        ]);
+
+        if($role == '1'){
+            if(isset($create_NewsList, $create_NewsDetail)){
+                $thongbao = "Taọ bài viết Thành Công!!!";
+                return redirect(route('emp.news'))->with(compact('thongbao'));
+            }
+            else{
+                $thongbao = "Taọ bài viết Thất Bại!!!";
+                return redirect(route('emp.news'))->with(compact('thongbao'));
+            }
+        }
+        elseif($role == '2'){
+            if(isset($create_NewsList, $create_NewsDetail)){
+                $thongbao = "Taọ bài viết Thành Công!!!";
+                return redirect(route('owens.news'))->with(compact('thongbao'));
+            }
+            else{
+                $thongbao = "Taọ bài viết Thất Bại!!!";
+                return redirect(route('owens.news'))->with(compact('thongbao'));
+            }
+        }
+    }
+
 }
+

@@ -1,4 +1,4 @@
-<div class="marketContainer">
+<div class="projectContainer">
     <table id="marketTable" class="display nowrap uk-table uk-table-hover uk-table-striped table-bordered"
            style="width:100%">
         <caption style="caption-side: top; font-size: 1.5rem; font-weight: bold; color: #039BE5">

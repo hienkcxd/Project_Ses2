@@ -21,6 +21,7 @@ class projectController extends Controller
         }
     }
 
+
     function index_Emp()
     {
         $role = account::where('id','=', session('LoggedAdmin'))->first()->Role;
@@ -143,9 +144,25 @@ class projectController extends Controller
     }
 
     public function update(Request $request){
+        $role = account::where('id','=', session('LoggedAdmin'))->first()->Role;
         $id_Project = $request->route()->parameter('ProjectID');
         $data =$request->all();
         $thongbao = "Update Thành Công!!!";
+
+        $request->validate([
+            'ProjectName'=>'required',
+            'Client'=>'required',
+            'Location'=>'required',
+            'DateFinish'=>'required',
+            'Price'=>'required',
+            'TagName'=>'required',
+            'tagName'=>'required',
+            'images'=>'required',
+            'imageTop'=>'required',
+            'imageBot'=>'required',
+            'contentTop'=>'required',
+            'contentBot'=>'required',
+        ]);
 
         $upd_ProList = DB::table('project_lists')
             ->where('ProjectID','=', $id_Project)
@@ -168,12 +185,105 @@ class projectController extends Controller
                 'contentTop'=>$data['contentTop'],
                 'contentBot'=>$data['contentBot'],
             ]);
-        if(isset($upd_ProList, $upd_ProDetail)){
-            return redirect(route('owens_project'))->with(compact('thongbao'));
+
+        if($role == '1'){
+            if(isset($upd_ProList, $upd_ProDetail)){
+                return redirect(route('emp.project'))->with(compact('thongbao'));
+            }
+            else{
+                $thongbao = "Update Thất Bại!!!";
+                return redirect(route('emp.project'))->with(compact('thongbao'));
+            }
         }
-        else{
-            $thongbao = "Update Thất Bại!!!";
-            return redirect(route('owens_project'))->with(compact('thongbao'));
+        elseif($role == '2'){
+            if(isset($upd_ProList, $upd_ProDetail)){
+                return redirect(route('owens_project'))->with(compact('thongbao'));
+            }
+            else{
+                $thongbao = "Update Thất Bại!!!";
+                return redirect(route('owens_project'))->with(compact('thongbao'));
+            }
+        }
+    }
+
+    function create_owens(){
+        $role = account::where('id','=', session('LoggedAdmin'))->first()->Role;
+        if($role == '1'){
+            return back()->with('fail', 'Bạn Không thể truy cập vào trang giám đốc!!!');
+        }
+        elseif($role == '2'){
+            return view('dashboard_Owens.project.insertProject_Form');
+        }
+    }
+
+    function create_emp(){
+        $role = account::where('id','=', session('LoggedAdmin'))->first()->Role;
+        if($role == '1'){
+            return view('dashboard_Owens.project.index_View');
+        }
+        elseif($role == '2'){
+            return back()->with('fail', 'Bạn Không thể truy cập vào trang nhân viên!!!');
+        }
+    }
+
+    public function create_project(Request $request){
+        $role = account::where('id','=', session('LoggedAdmin'))->first()->Role;
+        $thongbao = "Update Thành Công!!!";
+        $data = $request->all();
+        $request->validate([
+            'ProjectID'=>'required|unique:project_lists|unique:project_details',
+            'ProjectName'=>'required|min:8|max:50',
+            'Client'=>'required|min:4|max:50',
+            'Location'=>'required|min:8|max:50',
+            'DateFinish'=>'required|min:12|max:50',
+            'Price'=>'required|min:6|max:50',
+            'TagName'=>'required',
+            'tagName'=>'required',
+            'images'=>'required',
+            'imageTop'=>'required',
+            'imageBot'=>'required',
+            'contentTop'=>'required|min:30',
+            'contentBot'=>'required|min:30',
+        ]);
+
+        $create_ProLists = DB::table('project_lists')->insert([
+            'ProjectID' => $data['ProjectID'],
+            'ProjectName' => $data['ProjectName'],
+            'TagName' => $data['TagName'],
+            'images' => $data['images'],
+        ]);
+
+        $create_ProDetail = DB::table('project_details')->insert([
+            'ProDetailID' => $data['ProjectID'],
+            'ProjectID' => $data['ProjectID'],
+            'DateFinish' => $data['DateFinish'],
+            'Location' => $data['Location'],
+            'Price' => $data['Price'],
+            'Client' => $data['Client'],
+            'tagName' => $data['tagName'],
+            'imageTop' => $data['imageTop'],
+            'imageBot' => $data['imageBot'],
+            'contentTop' => $data['contentTop'],
+            'contentBot' => $data['contentBot'],
+        ]);
+
+        if($role == '1'){
+            if(isset($create_ProLists, $create_ProDetail)){
+                return redirect(route('emp.project'))->with(compact('thongbao'));
+            }
+            else{
+                $thongbao = "Tạo mới Thất Bại!!!";
+                return redirect(route('emp.project'))->with(compact('thongbao'));
+            }
+        }
+        elseif($role == '2'){
+            if(isset($create_ProLists, $create_ProDetail)){
+                return redirect(route('owens_project'))->with(compact('thongbao'));
+            }
+            else{
+                $thongbao = "Update Thất Bại!!!";
+                return redirect(route('owens_project'))->with(compact('thongbao'));
+            }
         }
     }
 }

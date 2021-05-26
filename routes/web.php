@@ -101,6 +101,7 @@
             // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
             //  Begin Route Employee: only owens
             Route::get('/owens/Employee/getEmployee', [adminEmployeeController::class, 'getEmployee'])->name('admin.allEmployee');
+            Route::get('/owens/Employee/Account_Lists', [AuthenticationController::class, 'accLists'])->name('accLists');
 
             Route::get('/owens/Employee', [adminEmployeeController::class, 'index'])->name('owens_Emp');
             Route::get('/{any?}/Employee', function ($any = null) {
@@ -159,7 +160,7 @@
 
 
             Route::post('/customerID_{customerID}', [adminCustomerController::class, 'update'])->name('customer_update');
-            Route::post('/Black_customerID_{customerID}', [adminCustomerController::class, 'update'])->name('Black_customer_update');
+            Route::post('/BlackCustID_{BlackCustID}', [adminCustomerController::class, 'upd_BlackCust'])->name('BlackCust_update');
             Route::get('/delete/customerID_{customerID}', [adminCustomerController::class, ''])->name('owens.customer_delete');
 
             //  End Route Customer
@@ -189,7 +190,11 @@
             Route::get('/owens/project/edit/ProjectID_{ProjectID}', [projectController::class, 'edit_owens'])->name('editProject_owens');
             Route::get('/employee/project/edit/ProjectID_{ProjectID}', [projectController::class, 'edit_emp'])->name('editProject_emp');
 
+            Route::get('/owens/project/create', [projectController::class, 'create_owens'])->name('createProject_owens');
+            Route::get('/employee/project/create', [projectController::class, 'create_emp'])->name('createProject_emp');
+
             Route::post('/ProjectID_{ProjectID}', [projectController::class, 'update'])->name('admin.update_Project');
+            Route::post('/CreateProject', [projectController::class, 'create_project'])->name('create_Project');
 
             //  End Route Project
             // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -202,9 +207,11 @@
 
             Route::get('/owens/news/edit/NewsID_{NewsID}', [adminNewsController::class, 'edit_owens'])->name('owens.editNews');
             Route::get('/employee/news/edit/NewsID_{NewsID}', [adminNewsController::class, 'edit_emp'])->name('emp.editNews');
+            Route::get('/owens/news/create', [adminNewsController::class, 'create_owens'])->name('owens.createNews');
+            Route::get('/employee/news/create', [adminNewsController::class, 'create_Emp'])->name('emp.createNews');
 
             Route::post('/NewsID_{NewsID}', [adminNewsController::class, 'update'])->name('admin.update_News');
-
+            Route::post('/Create', [adminNewsController::class, 'create_news'])->name('create_News');
             //        End Route Project
 
         });

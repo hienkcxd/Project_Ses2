@@ -27,7 +27,7 @@
                 <th>ID Nhân Viên</th>
                 <th>Tên Nhân Viên</th>
                 <th>ĐT Nhân Viên</th>
-                <th>Giá Hợp Đồng</th>
+                <th>Giá Hợp Đồng - (Triệu)</th>
             </tr>
             </thead>
             <tbody>
