@@ -103,6 +103,11 @@
             Route::get('/owens/Employee/getEmployee', [adminEmployeeController::class, 'getEmployee'])->name('admin.allEmployee');
             Route::get('/owens/Employee/Account_Lists', [AuthenticationController::class, 'accLists'])->name('accLists');
 
+            Route::get('/owens/Employee/create', [adminEmployeeController::class, 'create_owens'])->name('owens.create_Emp');
+            Route::get('/{any?}/Employee/create', function ($any = null) {
+                return redirect(route('admin.create_owens'))->with('fail', 'Trang yêu cầu không tồn tại!!!');;
+            })->where('any', '.*');;
+
             Route::get('/owens/Employee', [adminEmployeeController::class, 'index'])->name('owens_Emp');
             Route::get('/{any?}/Employee', function ($any = null) {
                 return redirect(route('owens_Emp'))->with('fail', 'Trang yêu cầu không tồn tại!!!');;
@@ -114,7 +119,7 @@
             })->where('any', '.*');;
 
             Route::post('/Employee_{EmployeeID}', [adminEmployeeController::class, 'update'])->name('owens.update_emp');
-
+            Route::post('/createEmployee', [adminEmployeeController::class, 'createEmp'])->name('createEmp');
             //  End Route Employee
             // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
             //  Begin Route market

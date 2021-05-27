@@ -195,49 +195,61 @@
             $thongbao = 'Update thành công!!!';
             $data = $request->all();
 
-            $request->validate([
-                'DistrictName'=>'required',
-                'WardName'=>'required',
-                'Year'=>'required',
-                'Thang_01'=>'required|integer|gt:0',
-                'Thang_02'=>'required|integer|gt:0',
-                'Thang_03'=>'required|integer|gt:0',
-                'Thang_04'=>'required|integer|gt:0',
-                'Thang_05'=>'required|integer|gt:0',
-                'Thang_06'=>'required|integer|gt:0',
-                'Thang_07'=>'required|integer|gt:0',
-                'Thang_08'=>'required|integer|gt:0',
-                'Thang_09'=>'required|integer|gt:0',
-                'Thang_10'=>'required|integer|gt:0',
-                'Thang_11'=>'required|integer|gt:0',
-                'Thang_12'=>'required|integer|gt:0',
-            ]);
+            $vali = DB::table('market_lists')
+                ->where([
+                    ['DistrictName', '=', $data['DistrictName']],
+                    ['WardName', '=', $data['WardName']],
+                    ['Year', '=', $data['Year']],
+                ])
+                ->get()->toArray();
 
-            $upd_market = DB::table('market_lists')->insert([
-                'DistrictName'=>$data['DistrictName'],
-                'WardName'=>$data['WardName'],
-                'Year'=>$data['Year'],
-                'Thang_01'=>$data['Thang_01'],
-                'Thang_02'=>$data['Thang_02'],
-                'Thang_03'=>$data['Thang_03'],
-                'Thang_04'=>$data['Thang_04'],
-                'Thang_05'=>$data['Thang_05'],
-                'Thang_06'=>$data['Thang_06'],
-                'Thang_07'=>$data['Thang_07'],
-                'Thang_08'=>$data['Thang_08'],
-                'Thang_09'=>$data['Thang_09'],
-                'Thang_10'=>$data['Thang_10'],
-                'Thang_11'=>$data['Thang_11'],
-                'Thang_12'=>$data['Thang_12'],
-            ]);
-
-            if(isset($upd_market)){
-                return redirect(route('admin_market'))->with(compact('thongbao'));
+            if($vali != null){
+                $thongbao = 'Dữ liệu Quận, Phường, Năm đã tồn tại!!!';
+                return redirect(route('admin_market.create'))->with(compact('thongbao'));
             }
             else{
-                $thongbao = 'Update thất bại!!!';
-                return redirect(route('admin_market'))->with(compact('thongbao'));
+                $request->validate([
+                    'Thang_01'=>'required|integer|gt:0',
+                    'Thang_02'=>'required|integer|gt:0',
+                    'Thang_03'=>'required|integer|gt:0',
+                    'Thang_04'=>'required|integer|gt:0',
+                    'Thang_05'=>'required|integer|gt:0',
+                    'Thang_06'=>'required|integer|gt:0',
+                    'Thang_07'=>'required|integer|gt:0',
+                    'Thang_08'=>'required|integer|gt:0',
+                    'Thang_09'=>'required|integer|gt:0',
+                    'Thang_10'=>'required|integer|gt:0',
+                    'Thang_11'=>'required|integer|gt:0',
+                    'Thang_12'=>'required|integer|gt:0',
+                ]);
+
+                $upd_market = DB::table('market_lists')->insert([
+                    'DistrictName'=>$data['DistrictName'],
+                    'WardName'=>$data['WardName'],
+                    'Year'=>$data['Year'],
+                    'Thang_01'=>$data['Thang_01'],
+                    'Thang_02'=>$data['Thang_02'],
+                    'Thang_03'=>$data['Thang_03'],
+                    'Thang_04'=>$data['Thang_04'],
+                    'Thang_05'=>$data['Thang_05'],
+                    'Thang_06'=>$data['Thang_06'],
+                    'Thang_07'=>$data['Thang_07'],
+                    'Thang_08'=>$data['Thang_08'],
+                    'Thang_09'=>$data['Thang_09'],
+                    'Thang_10'=>$data['Thang_10'],
+                    'Thang_11'=>$data['Thang_11'],
+                    'Thang_12'=>$data['Thang_12'],
+                ]);
+                if(isset($upd_market)){
+                    return redirect(route('admin_market'))->with(compact('thongbao'));
+                }
+                else{
+                    $thongbao = 'Update thất bại!!!';
+                    return redirect(route('admin_market'))->with(compact('thongbao'));
+                }
             }
+
+
         }
 
     }

@@ -135,4 +135,52 @@ class adminEmployeeController extends Controller
         echo json_encode($response);
         exit;
     }
+
+    public function create_owens(){
+
+        return view('dashboard_Owens.employee.insertEmp_View');
+    }
+
+    public function createEmp(Request $request){
+        $data = $request->all();
+        $request->validate([
+            "EmployeeID"=>"required|unique:employee_lists",
+            "EmpName"=>"required|min:4",
+            "describe"=>"required|min:10",
+            "position"=>"required|min:10",
+            "empName"=>"required|min:4",
+            "email"=>"required|email|unique:employee_details",
+            "phone"=>"required|min:9|max:11",
+            "facebook"=>"required|min:9",
+            "zalo"=>"required|min:9|max:11",
+            "images"=>"required|min:9",
+        ]);
+
+        $updEmp = DB::table('employee_lists')->insert([
+            "EmployeeID"=>$data['EmployeeID'],
+            "EmpName"=>$data['empName'],
+            "Position"=>$data['position'],
+        ]);
+
+        if(isset($updEmp)){
+            $updEmp_detail = DB::table('employee_details')->insert([
+                "EmployeeID"=>$data['EmployeeID'],
+                "empName"=>$data['empName'],
+                "position"=>$data['position'],
+                "describe"=>$data['describe'],
+                "email"=>$data['email'],
+                "facebook"=>$data['facebook'],
+                "phone"=>$data['phone'],
+                "zalo"=>$data['zalo'],
+                "images"=>$data['images'],
+            ]);
+            if(isset($updEmp_detail)){
+                return redirect(route('owens_Emp'))->with('success', 'Thêm nhân viên mới thành công!!!');
+            }
+            else{
+                return redirect(route('owens_Emp'))->with('fail', 'Thêm nhân viên mới thất bại!!!');
+            }
+        }
+
+    }
 }
