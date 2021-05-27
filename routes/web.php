@@ -124,7 +124,13 @@
             })->where('any', '.*');;
 
             Route::get('/owens/market/getMarket', [owensController::class, 'getMarket'])->name('admin_market.getMarket');
-            Route::get('/owens/market/insert', [owensController::class, 'create'])->name('admin_market.create');
+            Route::get('/owens/market/create', [owensController::class, 'create_owens'])->name('admin_market.create');
+            Route::get('/{any?}/market/create', function ($any = null) {
+                return redirect(route('admin_market.create'))->with('fail', 'Trang yêu cầu không tồn tại!!!');
+            })->where('any', '.*');;
+            Route::get('/owens/market/create/{DistrictName}', [owensController::class, 'getWard']);
+            Route::post('/createMarket', [owensController::class, 'createMark'])->name('create_Market');
+
 
             Route::prefix('/owens/market/edit')->group(function () {
                 Route::get('/MarketID_{MarketID}', [owensController::class, 'viewDetail'])->name('admin_market.detail_Market');

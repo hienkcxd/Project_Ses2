@@ -2,13 +2,26 @@
     max-width: 65rem;
     width: 98%;
     display: grid;
-    grid-template-columns: 49% 50%;
-    grid-gap: 1%;
+    grid-template-columns: 49% 49%;
+    grid-gap: 2%;
     border-radius: 15px;
     padding: 0;
     margin: 0 auto;
     margin-top: 15px;
 }
+.tableIndex {
+    max-width: 65rem;
+    width: 98%;
+    border-radius: 15px;
+    padding: 0;
+    margin: 0 auto;
+    margin-top: 15px;
+}
+.tableIndex div.dataTables_wrapper:nth-child(2){
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
 div.dataTables_wrapper div.dataTables_info {
     padding-top: 8px;
     word-wrap: break-word;
@@ -43,7 +56,6 @@ div.col-sm-12{
     padding: 0;
     margin: 0;
 }
-
 .tableInLine #wardTable{
     padding: 0;
     margin: 0;
@@ -124,8 +136,24 @@ caption .btn-insert {
         width: 98%;
     }
     .projectContainer {
-        max-width: 100rem;
+        max-width: 120rem;
         width: 98%;
     }
+    .tableIndex {
+        max-width:98rem;
+        width: 98%;
+        display: grid;
+        grid-template-columns: 49% 49%;
+        grid-gap: 2%;
+        border-radius: 15px;
+        padding: 0;
+        margin: 0 auto;
+        margin-top: 15px;
+    }
+    .tableIndex div.dataTables_wrapper:nth-child(2){
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+
 }
 

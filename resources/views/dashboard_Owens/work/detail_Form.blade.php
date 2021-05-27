@@ -2,9 +2,7 @@
     <div class="projectForm">
         <form method="POST" action="{{ route('admin.update_work', ['WorkID'=>$workList->WorkID]) }}">
             @csrf
-
             <div class="row">
-
                 <div class="block_1">
                     <div class="title">Thông Tin Công Việc:</div>
                     <div class="project-infor">
@@ -21,13 +19,13 @@
                         </div>
 
                         <div class="input-box">
-                            <span class="details">Giá Dự Án:</span>
+                            <span class="details">Giá Dự Kiến - (Triệu):</span>
                             <input type="text" name="Price" value="{{ $customer->Price }}">
                             <span class="text-danger">@error('Price') {{ $message }} @enderror</span>
                         </div>
 
                         <div class="input-box">
-                            <span class="details">Thành Tiền:</span>
+                            <span class="details">Thực Tế - (Triệu):</span>
                             <input type="number" name="Price_Int" value="{{ $workDetail->Price_Int }}">
                             <span class="text-danger">@error('Price_Int') {{ $message }} @enderror</span>
                         </div>

@@ -17,25 +17,25 @@
                         <div class="project-infor">
                             <div class="input-box">
                                 <span class="details">Tên Công Việc:</span>
-                                <input type="text" name="WorkName" >
+                                <input type="text" name="WorkName" placeholder="Nhập tên công việc...">
                                 <span class="text-danger">@error('WorkName') {{ $message }} @enderror</span>
                             </div>
 
                             <div class="input-box">
                                 <span class="details">Địa Chỉ:</span>
-                                <input type="text" name="Address" >
+                                <input type="text" name="Address" placeholder="Nhập địa chỉ dự án...">
                                 <span class="text-danger">@error('Address') {{ $message }} @enderror</span>
                             </div>
 
                             <div class="input-box">
-                                <span class="details">Giá Dự Án:</span>
-                                <input type="text" name="Price" >
+                                <span class="details">Giá Dự Kiến - (Triệu):</span>
+                                <input type="text" name="Price" placeholder="Nhập giá dự kiến...">
                                 <span class="text-danger">@error('Price') {{ $message }} @enderror</span>
                             </div>
 
                             <div class="input-box">
-                                <span class="details">Thành Tiền:</span>
-                                <input type="number" name="Price_Int" >
+                                <span class="details">Giá Thực Tế - (Triệu):</span>
+                                <input type="number" name="Price_Int" placeholder="Nhập giá thực tế...">
                                 <span class="text-danger">@error('Price_Int') {{ $message }} @enderror</span>
                             </div>
 
@@ -53,17 +53,17 @@
                         <div class="project-infor">
                             <div class="input-box">
                                 <span class="details">Cust_ID:</span>
-                                <input type="text" name="CusID" >
+                                <input type="text" name="CusID" placeholder="Tạo ID khách hàng...">
                                 <span class="text-danger">@error('CusID') {{ $message }} @enderror</span>
                             </div>
                             <div class="input-box">
                                 <span class="details">Tên Khách Hàng:</span>
-                                <input type="text" name="CusName" readonly>
+                                <input type="text" name="CusName" readonly placeholder="Nhập tên khách hàng...">
                                 <span class="text-danger">@error('CusName') {{ $message }} @enderror</span>
                             </div>
                             <div class="input-box">
                                 <span class="details">SĐT Khách Hàng:</span>
-                                <input type="text" name="CusPhone" readonly>
+                                <input type="text" name="CusPhone" readonly placeholder="Nhập số điện thoại...">
                                 <span class="text-danger">@error('CusPhone') {{ $message }} @enderror</span>
                             </div>
                         </div>
@@ -77,7 +77,7 @@
                         <div class="project-infor">
                             <div class="input-box">
                                 <span class="details">Emp_ID:</span>
-                                <input type="text" name="EmpID" >
+                                <input type="text" name="EmpID">
                             </div>
                             <div class="input-box">
                                 <span class="details">Tên Nhân Viên:</span>
@@ -100,22 +100,22 @@
 
                             <div class="input-box">
                                 <span class="details">Giấy Phép - Thiết Kế:</span>
-                                <input type="text" name="registration" >
+                                <input type="text" name="registration" placeholder="Tình trạng xin phép...">
                             </div>
 
                             <div class="input-box">
                                 <span class="details">Thi Công Thô:</span>
-                                <input type="text" name="construction" >
+                                <input type="text" name="construction" placeholder="Tiến độ phần thô...">
                             </div>
 
                             <div class="input-box">
                                 <span class="details">Thi Công Nội Thất:</span>
-                                <input type="text" name="Architecture" >
+                                <input type="text" name="Architecture" placeholder="Tiến độ thi công kiến trúc...">
                             </div>
 
                             <div class="input-box">
                                 <span class="details">Tổng Tiến Độ:</span>
-                                <input type="text" name="Progress" >
+                                <input type="text" name="Progress" placeholder="Tổng tiến độ...">
                             </div>
 
                         </div>

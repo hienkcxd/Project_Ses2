@@ -1,14 +1,4 @@
-.tableIndex {
-    max-width: 98rem;
-    width: 98%;
-    display: grid;
-    grid-template-columns: 49% 49%;
-    grid-gap: 2%;
-    border-radius: 15px;
-    padding: 0;
-    margin: 0 auto;
-    margin-top: 15px;
-}
+
 div.dataTables_wrapper div.dataTables_info {
     padding-top: 8px;
     word-wrap: break-word;
@@ -30,13 +20,15 @@ div.dataTables_wrapper div.dataTables_info {
 .tableIndex #cusList{
     width: 100%;
     padding: 0;
-    margin: 0;
+    margin-bottom: 15px;
 }
 
 .tableIndex #empList{
     padding: 0;
     margin: 0;
+    margin-top: 15px;
 }
+
 .main__container{
     max-width: 98rem;
     width: 98%;
@@ -103,7 +95,7 @@ div.dataTables_wrapper div.dataTables_info {
 }
 .card .text-primary-p{
     margin-top: 10px;
-    font-size: 25px;
+    font-size: 20px;
     color: black;
 }
 .card {
@@ -119,6 +111,10 @@ div.dataTables_wrapper div.dataTables_info {
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
 }
 
+.card i{
+    font-size: 20px;
+}
+
 .card_inner {
     display: flex;
     align-items: center;
@@ -129,7 +125,36 @@ div.dataTables_wrapper div.dataTables_info {
     font-size: 25px;
 }
 .card_inner .btn{
-    padding: 5px 20px 5px 20px;
+    padding: 2px 20px 2px 20px;
     border-radius: 5px;
-    font-size: 20px;
+    font-size: 18px;
+}
+@media only screen and (max-width: 480px) {
+    .navbar__left {
+        display: none;
+    }
+    .tableIndex {
+        max-width: 98rem;
+        width: 98%;
+    }
+}
+@media only screen and (max-width: 855px) {
+    .main__cards {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin-bottom: 0;
+    }
+    .main__cards .cardRow1{
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin-bottom: 0;
+    }
+    .main__cards .cardRow2{
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin-bottom: 0;
+    }
+    body{
+        background-image: none;
+    }
 }

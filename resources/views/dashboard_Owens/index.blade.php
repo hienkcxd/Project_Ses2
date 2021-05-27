@@ -16,7 +16,7 @@
 
             <div class="cardRow1">
                 <div class="card">
-                    <i class="fa fa-home fa-2x" aria-hidden="true"> - Tên Giám Đốc:</i>
+                    <i class="fa fa-home fa-2x" aria-hidden="true"> - Tên Quản Lý:</i>
                     <div class="card_inner">
                         <p class="text-primary-p">{{ $name->EmpName  }}
                         </p>
@@ -51,7 +51,7 @@
     </div>
 
     <div class="tableIndex">
-            <table id="cusList" class="display nowrap uk-table uk-table-hover uk-table-striped table-bordered" style="width: 100%">
+            <table id="cusList" class="display nowrap uk-table uk-table-hover uk-table-striped table-bordered" style="width: 100%;">
                 <caption style="caption-side: top; font-size: 1.5rem; font-weight: bold; color: #039BE5">DANH SÁCH NHÂN VIÊN - <a class="btn-insert btn btn-outline-info" href="{{ route('owens_Emp') }}">VIEW DETAIL</a>
                 </caption>
                 <thead>

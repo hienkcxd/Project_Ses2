@@ -68,8 +68,6 @@ class adminEmployeeController extends Controller
             );
 
 
-
-
         if(isset($upd_empDetail, $upd_empLists, $upd_empForCustomer, $upd_empForworkDetail )){
             $thongbao = 'Update Thành Công!!!';
             return redirect(route('owens_Emp'))->with(compact('thongbao'));
