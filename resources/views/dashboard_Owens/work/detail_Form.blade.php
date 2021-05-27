@@ -72,19 +72,24 @@
                     <div class="project-infor">
                         <div class="input-box">
                             <span class="details">Emp_ID:</span>
-                            <input type="text" name="EmpID" value="{{ $customer->EmpID }}" readonly>
+                            <select name="EmpID" id="EmpID" >
+                                <option value="{{ $customer->EmpID }}">---{{ $customer->EmpID }}---</option>
+                                @foreach ($empList as $item)
+                                    <option value="{{ $item->EmployeeID }}">{{ $item->EmployeeID }}</option>
+                                @endforeach
+                            </select>
                         </div>
                         <div class="input-box">
                             <span class="details">Tên Nhân Viên:</span>
-                            <input type="text" name="EmpName" value="{{ $workDetail->EmpName }}" readonly>
+                            <select name="EmpName" id="EmpName"></select>
                         </div>
                         <div class="input-box">
                             <span class="details">Số Điện Thoại:</span>
-                            <input type="text" name="EmpPhone" value="{{ $customer->EmpPhone }}" readonly>
+                            <select name="EmpPhone" id="EmpPhone"></select>
                         </div>
                         <div class="input-box">
                             <span class="details">Chức Vụ:</span>
-                            <input type="text" name="Position" value="{{ $Emp->Position }}" readonly>
+                            <select name="position" id="position"></select>
                         </div>
                     </div>
                 </div>
@@ -151,4 +156,53 @@
         </form>
     </div>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(function () {
+        let EmpID = $("#EmpID").val();
+        getData(EmpID)
+        $(document).ajaxComplete(function (empName) {
+            empName = $('select[name=EmpName] option:selected').val();
+            empPhone = $('select[name=EmpPhone] option:selected').val();
+            position = $('select[name=position] option:selected').val();
+        });
+
+        function getData(EmpID) {
+            url = "empDetail_" + EmpID;
+            console.log(EmpID)
+            $.get(url)
+                .done(function (data) {
+                    console.log("data: " + data);
+                    var EmpNameData = '';
+                    $.each(JSON.parse(data), function (index, row) {
+                        EmpNameData += `<option value= "${row.empName}" >${row.empName}</option><br>`
+                    })
+                    var EmpPhoneData = '';
+                    $.each(JSON.parse(data), function (index, row) {
+                        EmpPhoneData += `<option value= "${row.phone}" >${row.phone}</option><br>`
+                    })
+                    var positionData = '';
+                    $.each(JSON.parse(data), function (index, row) {
+                        positionData += `<option value= "${row.position}" >${row.position}</option><br>`
+                    })
+                    $("#EmpName").empty().append(EmpNameData);
+                    $("#EmpPhone").empty().append(EmpPhoneData);
+                    $("#position").empty().append(positionData);
+                });
+        }
+        $("#EmpID").change(function (e) {
+            e.preventDefault();
+            EmpID = $("#EmpID").val();
+            getData(EmpID)
+            $(document).ajaxComplete(function (empName) {
+                empName = $('select[name=EmpName] option:selected').val();
+                empPhone = $('select[name=EmpPhone] option:selected').val();
+                position = $('select[name=position] option:selected').val();
+                console.log(empName);
+                console.log(empPhone);
+            });
+        });
+
+    });
+</script>
 

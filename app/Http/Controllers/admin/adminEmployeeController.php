@@ -145,14 +145,13 @@ class adminEmployeeController extends Controller
         $data = $request->all();
         $request->validate([
             "EmployeeID"=>"required|unique:employee_lists",
-            "EmpName"=>"required|min:4",
+            "empName"=>"required|min:4",
             "describe"=>"required|min:10",
             "position"=>"required|min:10",
-            "empName"=>"required|min:4",
             "email"=>"required|email|unique:employee_details",
-            "phone"=>"required|min:9|max:11",
+            "phone"=>"required|min:9|max:11|unique:employee_details",
             "facebook"=>"required|min:9",
-            "zalo"=>"required|min:9|max:11",
+            "zalo"=>"required|min:9|max:11|unique:employee_details",
             "images"=>"required|min:9",
         ]);
 
@@ -178,9 +177,12 @@ class adminEmployeeController extends Controller
                 return redirect(route('owens_Emp'))->with('success', 'Thêm nhân viên mới thành công!!!');
             }
             else{
-                return redirect(route('owens_Emp'))->with('fail', 'Thêm nhân viên mới thất bại!!!');
+                return back()->with('fail', 'Thêm nhân viên mới thất bại!!!');
             }
+            }
+        else{
+            return back()->with('fail', 'Thêm nhân viên mới thất bại!!!');
+        }
         }
 
-    }
 }

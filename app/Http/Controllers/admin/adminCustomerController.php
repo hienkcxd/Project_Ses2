@@ -62,6 +62,7 @@ class adminCustomerController extends Controller
 
     public function editCus_owens(Request $request){
         $role = account::where('id','=', session('LoggedAdmin'))->first()->Role;
+        $empList = DB::table('employee_details')->get();
         $CusID = $request->route()->parameter('customerID');
         $BlackCusID = $request->route()->parameter('BlackCusID');
         $CusDetail = DB::table('customers')
@@ -75,12 +76,13 @@ class adminCustomerController extends Controller
             return back()->with('fail', 'Bạn không thể truy cập vào trang giám đốc!!!');
         }
         elseif($role == '2'){
-            return view('dashboard_Owens.customer.form_View')->with(compact('CusDetail','blackCusDetail'));
+            return view('dashboard_Owens.customer.form_View')->with(compact('CusDetail','blackCusDetail', 'empList'));
         }
     }
 
     public function editCus_emp(Request $request){
         $role = account::where('id','=', session('LoggedAdmin'))->first()->Role;
+        $empList = DB::table('employee_details')->get();
         $CusID = $request->route()->parameter('customerID');
         $BlackCusID = $request->route()->parameter('BlackCusID');
         $CusDetail = DB::table('customers')
@@ -90,7 +92,7 @@ class adminCustomerController extends Controller
             ->where('BlackCusID', '=', $BlackCusID)
             ->first();
         if($role == '1'){
-            return view('dashboard_Employee.customer.form_View')->with(compact('CusDetail','blackCusDetail'));
+            return view('dashboard_Employee.customer.form_View')->with(compact('CusDetail','blackCusDetail', 'empList'));
         }
         elseif($role == '2'){
             return back()->with('fail', 'Bạn không thể truy cập vào trang nhân viên.');
@@ -246,9 +248,17 @@ class adminCustomerController extends Controller
         }
     }
 
-    public function create_owens(){
+    public function empDetail(Request $request){
+        $empID = $request->route()->parameter('EmployeeID');
+        $empDetail = DB::table('employee_details')
+            ->where('EmployeeID', '=', $empID)
+            ->get();
+        echo json_encode($empDetail);
+    }
 
-            return view('dashboard_Owens.customer.insertCus_View');
+    public function create_owens(){
+            $empList = DB::table('employee_details')->get();
+            return view('dashboard_Owens.customer.insertCus_View')->with(compact('empList'));
     }
 
     public function createBcust_owens(){
@@ -264,9 +274,6 @@ class adminCustomerController extends Controller
             'CusPhone'=>'required|min:9|max:12',
             'WorkName'=>'required|min:9',
             'Address'=>'required|min:9|unique:customers',
-            'EmpID'=>'required',
-            'EmpName'=>'required',
-            'EmpPhone'=>'required',
             'Price'=>'required|integer|gt:0',
         ]);
 

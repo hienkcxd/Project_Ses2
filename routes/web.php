@@ -158,6 +158,9 @@
             //  end Route market
             // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
             //  Begin Route Customer
+            Route::get('/owens/customer/empDetail_{EmployeeID}', [adminCustomerController::class, 'empDetail']);
+            Route::get('/owens/customer/edit/empDetail_{EmployeeID}', [adminCustomerController::class, 'empDetail']);
+            Route::get('/employee/customer/edit/empDetail_{EmployeeID}', [adminCustomerController::class, 'empDetail']);
 
             Route::get('/owens/customer', [adminCustomerController::class, 'index_owens'])->name('owens.customer');
             Route::get('/employee/customer', [adminCustomerController::class, 'index_Emp'])->name('emp.customer');
@@ -189,6 +192,11 @@
             //  End Route Customer
             // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
             //  Begin Route work
+            Route::get('/owens/work_list/edit/empDetail_{EmployeeID}', [adminCustomerController::class, 'empDetail']);
+            Route::get('/employee/work_list/edit/empDetail_{EmployeeID}', [adminCustomerController::class, 'empDetail']);
+
+            Route::get('/owens/work_list/empDetail_{EmployeeID}', [adminWorkController::class, 'empDetail']);
+            Route::get('/owens/work_list/cusDetail_{CusID}', [adminWorkController::class, 'cusDetail']);
 
             Route::get('/owens/work_list', [adminWorkController::class, 'index_owens'])->name('owens.work');
             Route::get('/employee/work_list', [adminWorkController::class, 'index_Emp'])->name('emp.work');

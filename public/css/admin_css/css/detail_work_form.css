@@ -39,6 +39,7 @@
 .projectForm form .block_1 .input-box{
     width: 100%;
 }
+
 .projectForm form .block_1 .input-box:nth-child(3){
     width: 49%;
 }
@@ -71,4 +72,8 @@
     color: #880E4F;
     font-weight: bold;
     font-size: 14px;
+}
+.containerWork form select{
+    height: 45px;
+    margin: 0;
 }

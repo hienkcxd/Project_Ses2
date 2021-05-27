@@ -70,12 +70,15 @@ class adminWorkController extends Controller
     public function edit_owens(Request $request){
         $role = account::where('id','=', session('LoggedAdmin'))->first()->Role;
         $WorkID = $request->route()->parameter('WorkID');
+        $empList = DB::table('employee_details')->get();
         $workList = DB::table('work_lists')
             ->where('WorkID', '=', $WorkID)
             ->first();
+
         $workDetail = DB::table('work_details')
                 ->where('WorkID', '=', $WorkID)
                 ->first();
+
         $customer = DB::table('customers')
             ->where('CusID', '=', $workList->CusID )
             ->first();
@@ -100,6 +103,7 @@ class adminWorkController extends Controller
                     'customer',
                     'Emp',
                     'count',
+                    'empList'
                 ));
         }
 
@@ -108,6 +112,7 @@ class adminWorkController extends Controller
     public function edit_emp(Request $request){
         $role = account::where('id','=', session('LoggedAdmin'))->first()->Role;
         $WorkID = $request->route()->parameter('WorkID');
+        $empList = DB::table('employee_details')->get();
         $workList = DB::table('work_lists')
             ->where('WorkID', '=', $WorkID)
             ->first();
@@ -135,6 +140,7 @@ class adminWorkController extends Controller
                     'customer',
                     'Emp',
                     'count',
+                    'empList'
                 ));
         }
         elseif($role == '2'){
@@ -170,6 +176,7 @@ class adminWorkController extends Controller
                     'WorkName' => $data['WorkName'],
                     'Address' => $data['Address'],
                     'WorkDesc' => $data['WorkDesc'],
+                    'EmpID' => $data['EmpID'],
                 ],
             );
 
@@ -178,8 +185,9 @@ class adminWorkController extends Controller
             ->update(
                 [
                     'CusPhone' => $data['CusPhone'],
-                    'EmpPhone' => $data['EmpPhone'],
+                    'EmpID' => $data['EmpID'],
                     'EmpName' => $data['EmpName'],
+                    'EmpPhone' => $data['EmpPhone'],
                     'Address' => $data['Address'],
                     'Price_Int' => $data['Price_Int'],
                     'registration' => $data['registration'],
@@ -196,10 +204,11 @@ class adminWorkController extends Controller
                 [
                     'CusName' => $data['CusName'],
                     'CusPhone' => $data['CusPhone'],
-                    'EmpName' => $data['EmpName'],
-                    'EmpPhone' => $data['EmpPhone'],
                     'WorkName' => $data['WorkName'],
                     'Address' => $data['Address'],
+                    'EmpID' => $data['EmpID'],
+                    'EmpName' => $data['EmpName'],
+                    'EmpPhone' => $data['EmpPhone'],
                     'Price' => $data['Price'],
                 ],
             );
@@ -224,11 +233,75 @@ class adminWorkController extends Controller
         }
     }
 
-    function create_owens(){
-            return view('dashboard_Owens.work.insertWork_Form');
+    public function empDetail(Request $request){
+        $empID = $request->route()->parameter('EmployeeID');
+        $empDetail = DB::table('employee_details')
+            ->where('EmployeeID', '=', $empID)
+            ->get();
+        echo json_encode($empDetail);
     }
+
+    public function cusDetail(Request $request){
+        $cusID = $request->route()->parameter('CusID');
+        $cusDetail = DB::table('customers')
+            ->where('CusID', '=', $cusID)
+            ->get();
+        echo json_encode($cusDetail);
+    }
+
+    function create_owens(){
+            $cusWorkID = DB::table('work_lists')->pluck('CusID')->toArray();
+            $empList = DB::table('employee_details')->get();
+            $cusList = DB::table('customers')
+                ->whereNotIn('CusID',$cusWorkID )
+                ->get();
+            return view('dashboard_Owens.work.insertWork_Form')->with(compact('empList', 'cusList'));
+    }
+
     function create(Request $request){
+        $request->validate([
+            'WorkID'=>'required|min:4|unique:work_lists',
+            'Price_Int'=>'required|integer|gt:0',
+            'WorkDesc'=>'required|min:10',
+            'registration'=>'required',
+            'construction'=>'required',
+            'Architecture'=>'required',
+            'Progress'=>'required',
+        ]);
         $data = $request->all();
-        return view('dashboard_Owens.work.insertWork_Form');
+        $upd_WorkList = DB::table('work_lists')->insert([
+            "WorkID"=>$data['WorkID'],
+            "WorkName"=>$data['WorkName'],
+            "Address"=>$data['Address'],
+            "CusID"=>$data['CusID'],
+            "EmpID"=>$data['EmpID'],
+            "WorkDesc"=>$data['WorkDesc'],
+        ]);
+        if(isset($upd_WorkList)){
+            $upd_WorkDetail = DB::table('work_details')->insert([
+                "WorkID"=>$data['WorkID'],
+                "CusID"=>$data['CusID'],
+                "CusPhone"=>$data['CusPhone'],
+                "Address"=>$data['Address'],
+                "Price_Int"=>$data['Price_Int'],
+                "EmpID"=>$data['EmpID'],
+                "EmpName"=>$data['EmpName'],
+                "EmpPhone"=>$data['EmpPhone'],
+                "registration"=>$data['registration'],
+                "construction"=>$data['construction'],
+                "Architecture"=>$data['Architecture'],
+                "Progress"=>$data['Progress'],
+            ]);
+            if(isset($upd_WorkDetail)){
+                return redirect(route('owens.work'))->with('success','Thêm công việc mới thành công!!!');
+            }
+            else{
+                return back()->with('fail','Thêm công việc mới thất bại!!!');
+            }
+        }
+        else{
+            return back()->with('fail','Thêm công việc mới thất bại!!!');
+        }
+
     }
 }

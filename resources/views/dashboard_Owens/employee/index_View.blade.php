@@ -6,6 +6,11 @@
             {{ Session::get('fail') }}
         </div>
     @endif
+    @if(Session::get('success'))
+        <div class="alert alert-success">
+            {{ Session::get('success') }}
+        </div>
+    @endif
     @if(Session::get('thongbao'))
         <div class="alert alert-info">
             {{ Session::get('thongbao') }}

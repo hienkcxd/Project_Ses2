@@ -1,11 +1,6 @@
 @extends('Layout.Owens')
 
 @section('content')
-    @if(Session::get('fail'))
-        <div class="alert alert-danger">
-            {{ Session::get('fail') }}
-        </div>
-    @endif
     @if(Session::get('thongbao'))
         <div class="alert alert-info">
             {{ Session::get('thongbao') }}
@@ -27,7 +22,7 @@
                     <div class="empfirstRow">
                         <p>
                             <label>Tên</label>
-                            <input type="text" name='empName' min="0" value="{{ old('empName') }}" placeholder="Nhập tên nhân viên...">
+                            <input type="text" name='empName' value="{{ old('empName') }}" placeholder="Nhập tên nhân viên...">
                             <span class="text-danger">@error('empName') {{ $message }} @enderror</span>
                         </p>
 
@@ -41,13 +36,13 @@
                     <div class="emp2ndRow">
                         <p>
                             <label>Chức Vụ</label>
-                            <input type="text" name='position' min="0" value="{{ old('position') }}" placeholder="Nhập chức vụ...">
+                            <input type="text" name='position' value="{{ old('position') }}" placeholder="Nhập chức vụ...">
                             <span class="text-danger">@error('position') {{ $message }} @enderror</span>
                         </p>
 
                         <p>
                             <label>Mô Tả:</label>
-                            <input type="text" name='describe' min="0" value="{{ old('describe') }}" placeholder="Nhập mô tả...">
+                            <input type="text" name='describe' value="{{ old('describe') }}" placeholder="Nhập mô tả...">
                             <span class="text-danger">@error('describe') {{ $message }} @enderror</span>
                         </p>
 

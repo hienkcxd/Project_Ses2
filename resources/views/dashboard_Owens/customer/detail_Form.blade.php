@@ -58,18 +58,24 @@
                     <div class="emp2ndRow">
                         <p>
                             <label>ID Nhân Viên:</label>
-                            <input type="text" name='EmpID' min="0" value="{{ $CusDetail->EmpID }}" readonly>
+{{--                            <input type="text" name='EmpID' min="0" value="{{ $CusDetail->EmpID }}" readonly>--}}
+                            <select name="EmpID" id="EmpID" >
+                                @foreach ($empList as $item)
+                                    <option value="{{ $item->EmployeeID }}">{{ $item->EmployeeID }}</option>
+                                @endforeach
+                            </select>
                             <span class="text-danger">@error('EmpID') {{ $message }} @enderror</span>
                         </p>
 
                         <p>
                             <label>Tên Nhân Viên:</label>
-                            <input type="text" name='EmpName' value="{{ $CusDetail->EmpName }}" readonly>
+{{--                            <input type="text" name='EmpName' value="{{ $CusDetail->EmpName }}" readonly>--}}
+                            <select name="EmpName" id="EmpName"></select>
                             <span class="text-danger">@error('EmpName') {{ $message }} @enderror</span>
                         </p>
                         <p>
                             <label>Số Điện Thoại:</label>
-                            <input type="text" name='EmpPhone' min="0" value="{{ $CusDetail->EmpPhone }}" readonly>
+                            <select name="EmpPhone" id="EmpPhone"></select>
                             <span class="text-danger">@error('EmpPhone') {{ $message }} @enderror</span>
                         </p>
 
@@ -85,7 +91,48 @@
             </div>
         </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(function () {
+            let EmpID = $("#EmpID").val();
+            getData(EmpID)
+            $(document).ajaxComplete(function (empName) {
+                empName = $('select[name=EmpName] option:selected').val();
+                empPhone = $('select[name=EmpPhone] option:selected').val();
+            });
 
+            function getData(EmpID) {
+                url = "empDetail_" + EmpID;
+                console.log(EmpID)
+                $.get(url)
+                    .done(function (data) {
+                        console.log("data: " + data);
+                        var EmpNameData = '';
+                        $.each(JSON.parse(data), function (index, row) {
+                            EmpNameData += `<option value= "${row.empName}" >${row.empName}</option><br>`
+                        })
+                        var EmpPhoneData = '';
+                        $.each(JSON.parse(data), function (index, row) {
+                            EmpPhoneData += `<option value= "${row.phone}" >${row.phone}</option><br>`
+                        })
+                        $("#EmpName").empty().append(EmpNameData);
+                        $("#EmpPhone").empty().append(EmpPhoneData);
+                    });
+            }
+            $("#EmpID").change(function (e) {
+                e.preventDefault();
+                EmpID = $("#EmpID").val();
+                getData(EmpID)
+                $(document).ajaxComplete(function (empName) {
+                    empName = $('select[name=EmpName] option:selected').val();
+                    empPhone = $('select[name=EmpPhone] option:selected').val();
+                    console.log(empName);
+                    console.log(empPhone);
+                });
+            });
+
+        });
+    </script>
 @elseif ($blackCusDetail != null)
     <div class='empContainer' style="margin-top: 100px">
         <div class='wrapper animated bounceInLeft'>
