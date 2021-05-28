@@ -316,6 +316,30 @@ class adminCustomerController extends Controller
         else{
             return redirect(route('owens.black_lists'))->with('fail', 'Thêm danh sách đen mới thất bại!!!');
         }
+    }
+
+    public function delete_Bcust(Request $request){
+        $id = $request->route()->parameter('BlackCusID');
+        $del = DB::table('black_lists')->where('BlackCusID', '=', $id)->delete();
+        if(isset($del)){
+            return back()->with('success', 'Xóa Thành Công!!!');
+        }
+        else{
+            return back()->with('fail', 'Xóa Thất Bại!!!');
+        }
+    }
+    public function delete(Request $request){
+        $id = $request->route()->parameter('customerID');
+        $cus_in_WorkDetail = DB::table('work_details')->where('CusID', '=', $id)->delete();
+
+        if(isset($cus_in_WorkDetail)){
+            $cus_in_Work = DB::table('work_lists')->where('CusID', '=', $id)->delete();
+            $delCus = DB::table('customers')->where('CusID', '=', $id)->delete();
+            return back()->with('success', 'Xóa Thành Công!!!');
+        }
+        else{
+            return back()->with('fail', 'Xóa Thất Bại!!!');
+        }
 
     }
 }

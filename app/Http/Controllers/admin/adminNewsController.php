@@ -268,5 +268,28 @@ class adminNewsController extends Controller
         }
     }
 
+    public function delete(Request $request){
+        $role = account::where('id','=', session('LoggedAdmin'))->first()->Role;
+        $id = $request->route()->parameter('NewsID');
+        $del_NewsDetail = DB::table('news_details')->where('NewsID', '=', $id)->delete();
+        if(isset($del_NewsDetail)){
+            $del_NewsList = DB::table('news_lists')->where('NewsID', '=', $id)->delete();
+            if($role == 1){
+                return redirect(route('emp.news'))->with('success', 'Xoá thành công!!!');
+            }
+            if($role == 2){
+                return redirect(route('owens.news'))->with('success', 'Xoá thành công!!!');
+            }
+        }
+        else{
+            if($role == 1){
+                return redirect(route('emp.news'))->with('fail', 'Xoá thất bại!!!');
+            }
+            if($role == 2){
+                return redirect(route('owens.news'))->with('success', 'Xoá thất bại!!!');
+            }
+        }
+    }
+
 }
 

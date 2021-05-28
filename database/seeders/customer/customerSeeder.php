@@ -59,7 +59,37 @@ class customerSeeder extends Seeder
                 'Address'=>'44 Lê Thánh Tôn- Quận 1','EmpID'=>'A07', 'EmpName'=>'Võ Nhật Huy', 'EmpPhone'=>'0999132441', 'Price'=>650],
 
             ['CusID' => 'CS15', 'CusName' => 'Mr.Trường','CusPhone' => '345123122', 'WorkName'=>'Thi Công Nội Thất',
-                'Address'=>'70 Bùi Viện - Quận 1','EmpID'=>'A07', 'EmpName'=>'Võ Nhật Huy', 'EmpPhone'=>'0999132441', 'Price'=>950],
+                'Address'=>'70 Bùi Viện - Quận 1','EmpID'=>'A08', 'EmpName'=>'Võ Nhật Huy', 'EmpPhone'=>'0999132441', 'Price'=>950],
+
+            ['CusID' => 'CS16', 'CusName' => 'Mr.Tuấn','CusPhone' => '0931123322', 'WorkName'=>'Decor Căn Hộ',
+                'Address'=>'302 Lancer - Quận 2','EmpID'=>'A07', 'EmpName'=>'Võ Nhật Huy', 'EmpPhone'=>'0999132441', 'Price'=>810],
+
+            ['CusID' => 'CS17', 'CusName' => 'Mr.Linh','CusPhone' => '0168390213', 'WorkName'=>'Thiết Kế Biệt Thự',
+                'Address'=>'20 Hoàng Hoa Thám - Quận Bình Thạnh','EmpID'=>'A03', 'EmpName'=>'Nguyễn Hùng Vương', 'EmpPhone'=>'4132445512', 'Price'=>150],
+
+            ['CusID' => 'CS18', 'CusName' => 'Ms.Hương','CusPhone' => '0909113321', 'WorkName'=>'Thi Công Nội Thất',
+                'Address'=>'20 Bùi Viện - Quận 1','EmpID'=>'A02', 'EmpName'=>'Lưu Mộng Thúy', 'EmpPhone'=>'0103231132', 'Price'=>350],
+
+            ['CusID' => 'CS19', 'CusName' => 'Ms.Thắm','CusPhone' => '0908814414', 'WorkName'=>'Thi Công Nội Thất',
+                'Address'=>'40 Lê Duẫn - Quận 1','EmpID'=>'A04', 'EmpName'=>'Nguyễn Hoàng Duy', 'EmpPhone'=>'3356532132', 'Price'=>450],
+
+            ['CusID' => 'CS20', 'CusName' => 'Ms.Chấu','CusPhone' => '0909888345', 'WorkName'=>'Xây Nhà Phố',
+                'Address'=>'15 Lê Quang Định - Quận Bình Thạnh','EmpID'=>'A05', 'EmpName'=>'Phan Tấn Phát', 'EmpPhone'=>'0908476321', 'Price'=>1550],
+
+            ['CusID' => 'CS21', 'CusName' => 'Mr.Công','CusPhone' => '0163928832', 'WorkName'=>'Xây Nhà Tân Cổ',
+                'Address'=>'11 Nguyễn Văn Linh - Quận 7','EmpID'=>'A02', 'EmpName'=>'Lưu Mộng Thúy', 'EmpPhone'=>'0103231132', 'Price'=>5550],
+
+            ['CusID' => 'CS22', 'CusName' => 'Mr.Long','CusPhone' => '0909132212', 'WorkName'=>'Bảo Hành Biệt Thự',
+                'Address'=>'25 Lê Duẫn - Quận 1','EmpID'=>'A03', 'EmpName'=>'Nguyễn Hùng Vương', 'EmpPhone'=>'4132445512', 'Price'=>50],
+
+            ['CusID' => 'CS23', 'CusName' => 'Mr.Long','CusPhone' => '0913321998', 'WorkName'=>'Decor Căn Hộ',
+                'Address'=>'203 Poganic Nguyễn Thượng Hiền - Quận Bình Thạnh','EmpID'=>'A05', 'EmpName'=>'Phan Tấn Phát', 'EmpPhone'=>'0908476321', 'Price'=>650],
+
+            ['CusID' => 'CS24', 'CusName' => 'Mr.Thuận','CusPhone' => '0492333211', 'WorkName'=>'Decor Căn Hộ',
+                'Address'=>'155 Everich - Quận 5','EmpID'=>'A07', 'EmpName'=>'Võ Nhật Huy', 'EmpPhone'=>'0999132441', 'Price'=>850],
+
+            ['CusID' => 'CS25', 'CusName' => 'Mr.Thế','CusPhone' => '0913213213', 'WorkName'=>'Thi Công Nội Thất',
+                'Address'=>'43 Nguyễn Oanh - Quận Gò Vấp','EmpID'=>'A08', 'EmpName'=>'Trương Tam Phong', 'EmpPhone'=>'0132234132', 'Price'=>550],
 
         ]);
     }

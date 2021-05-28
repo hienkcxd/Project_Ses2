@@ -85,7 +85,14 @@
         public function delete(Request $request)
         {
             $id = $request->route()->parameter('MarketID');
-            return view('test')->with(compact('id'));
+            $del_market = DB::table('market_lists')->where('MarketID', '=', $id)->delete();
+            if(isset($del_market)){
+                return redirect(route('admin_market'))->with('success', 'Xóa Thành Công!!!');
+            }
+            else{
+                return redirect(route('admin_market'))->with('fail', 'Xóa Thất Bại!!!');
+            }
+
         }
 
 

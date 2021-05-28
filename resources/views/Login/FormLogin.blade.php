@@ -8,6 +8,11 @@
                 {{ Session::get('fail') }}
             </div>
         @endif
+            @if(Session::get('success'))
+                <div class="alert alert-success">
+                    {{ Session::get('success') }}
+                </div>
+            @endif
         @csrf
         <div class="field">
             <input type="text"  style="padding-left: 15px" name="Account" value="{{ old('Account') }}">

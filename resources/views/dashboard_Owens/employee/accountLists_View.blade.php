@@ -6,6 +6,11 @@
             {{ Session::get('success') }}
         </div>
     @endif
+    @if(Session::get('thongbao'))
+        <div class="alert alert-info">
+            {{ Session::get('thongbao') }}
+        </div>
+    @endif
     <div class="projectContainer">
         <table id="accTable" class="display nowrap uk-table uk-table-hover uk-table-striped table-bordered"
                style="width:100%">
@@ -20,6 +25,7 @@
                 <th>Password</th>
                 <th>Email</th>
                 <th>Role</th>
+                <th>Action</th>
             </tr>
             </thead>
             <tbody>
@@ -30,6 +36,10 @@
                     <td>{{ $acc->Password }}</td>
                     <td>{{ $acc->Email }}</td>
                     <td>{{ $acc->Role  }}</td>
+                    <td>
+                        <a id="edit" name="edit" class="edit btn btn-outline-info" href="{{ route('accDetail',['EmployeeID'=>$acc->EmployeeID])}}">Change</a>
+                        <a id="delete" name="delete" class="delete btn btn-outline-danger" href="{{ route('deleteAccount',['EmployeeID'=>$acc->EmployeeID])}}">Delete</a>
+                    </td>
                 </tr>
             @endforeach
             </tbody>

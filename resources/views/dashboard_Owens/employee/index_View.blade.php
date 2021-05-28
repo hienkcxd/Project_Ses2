@@ -21,7 +21,7 @@
                style="width:100%">
             <caption style="caption-side: top; font-size: 1.5rem; font-weight: bold; color: #039BE5">
                 DANH SÁCH NHÂN VIÊN
-                <a class="btn-insert btn btn-outline-info" href="{{ route('owens.create_Emp') }}">Insert</a>
+                <a class="btn-insert btn btn-outline-info" href="{{ route('owens.create_Emp') }}">Create New</a>
             </caption>
             <thead>
             <tr>
@@ -73,7 +73,7 @@
             $('#empTable tbody').on('click', '#delete', function getID() {
                 var $EmployeeID = table.row($(this).parents('tr')).data();
                 $('.delete').attr('href', function () {
-                    return document.location + "/edit/Employee_" + $EmployeeID['EmployeeID'];
+                    return document.location + "/delete/Employee_" + $EmployeeID['EmployeeID'];
                 });
             });
 

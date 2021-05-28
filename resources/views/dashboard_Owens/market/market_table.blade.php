@@ -39,7 +39,7 @@
                 {visible: false, targets: 0}
             ],
             "scrollX": true,
-            lengthMenu: [5, 10, 20, 50],
+            lengthMenu: [8, 15, 20, 50],
             processing: true,
             serverSide: true,
             ajax: {

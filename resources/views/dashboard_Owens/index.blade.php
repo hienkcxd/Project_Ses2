@@ -35,7 +35,7 @@
                 <div class="card" >
                     <i class="fa fa-calendar fa-2x " aria-hidden="true"> - Mật Khẩu:</i>
                     <div class="card_inner">
-                        <p class="text-primary-p"><a href="" class="btn btn-outline-danger">Change Password</a>
+                        <p class="text-primary-p"><a href="{{ route('accDetail', ['EmployeeID'=>$account->EmployeeID]) }}" class="btn btn-outline-danger">Change Password</a>
                         </p>
                     </div>
                 </div>

@@ -185,4 +185,24 @@ class adminEmployeeController extends Controller
         }
         }
 
+        public function delete(Request $request){
+            $empID = $request->route()->parameter('EmployeeID');
+            $empInCus = DB::table('customers')->where('EmpID', '=', $empID)->get()->toArray();
+            $empInWDetail = DB::table('work_details')->where('EmpID', '=', $empID)->get()->toArray();
+            $empInWList = DB::table('work_lists')->where('EmpID', '=', $empID)->get()->toArray();
+            if($empInCus == null && $empInCus == null && $empInCus == null){
+                $del_empDetail = DB::table('employee_details')->where('EmployeeID', '=', $empID)->delete();
+                $del_account = DB::table('accounts')->where('EmployeeID', '=', $empID)->delete();
+                if(isset($del_empDetail, $del_account)){
+                    $del_empList = DB::table('employee_lists')->where('EmployeeID', '=', $empID)->delete();
+                    return redirect(route('owens_Emp'))->with('success', 'Xóa Thành Công!!');
+                }
+                else{
+                    return redirect(route('owens_Emp'))->with('fail', 'Xóa Thất Bại!!');
+                }
+            }
+            else{
+                return redirect(route('owens_Emp'))->with('fail', 'Nhân viên này còn đang đảm nhận công việc, hãy chuyển giao trước khi xóa!!');
+            }
+        }
 }

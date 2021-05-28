@@ -128,15 +128,15 @@ caption .btn-insert {
 
 @media(min-width:1700px){
     .tableInLine {
-        max-width: 120rem;
+        max-width: 100rem;
         width: 98%;
     }
     .marketContainer {
-        max-width: 120rem;
+        max-width: 100rem;
         width: 98%;
     }
     .projectContainer {
-        max-width: 120rem;
+        max-width: 100rem;
         width: 98%;
     }
     .tableIndex {

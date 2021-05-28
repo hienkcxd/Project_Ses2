@@ -39,7 +39,7 @@
                     <td>{{ $cus->BlackCusDesc }}</td>
                     <td>
                         <a id="edit" name="edit" class="edit btn btn-outline-info" href="{{ route('owens.blackList_edit', ['BlackCusID'=>$cus->BlackCusID ]) }}">Detail</a>
-                        <a id="delete" name="delete" class="delete btn btn-outline-danger" href="{{ route('owens.blackList_edit', ['BlackCusID'=>$cus->BlackCusID ]) }}">Delete</a>
+                        <a id="delete" name="delete" class="delete btn btn-outline-danger" href="{{ route('delete.blackCust', ['BlackCusID'=>$cus->BlackCusID ]) }}">Delete</a>
                     </td>
 
                 </tr>

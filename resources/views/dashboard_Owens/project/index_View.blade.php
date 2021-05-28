@@ -1,9 +1,15 @@
 @extends('Layout.Owens')
 
 @section('content')
+
     @if(Session::get('fail'))
         <div class="alert alert-danger">
             {{ Session::get('fail') }}
+        </div>
+    @endif
+    @if(Session::get('success'))
+        <div class="alert alert-success">
+            {{ Session::get('success') }}
         </div>
     @endif
     @if(Session::get('thongbao'))
@@ -16,7 +22,7 @@
                style="width:100%">
             <caption style="caption-side: top; font-size: 1.5rem; font-weight: bold; color: #039BE5">
                DANH SÁCH DỰ ÁN HOÀN THÀNH
-                <a class="btn-insert btn btn-outline-info" href="{{ route('createProject_owens') }}">Insert</a>
+                <a class="btn-insert btn btn-outline-info" href="{{ route('createProject_owens') }}">Create New</a>
             </caption>
             <thead>
             <tr>
@@ -61,7 +67,7 @@
                     {
                         data: null,
                         defaultContent: '<a id="edit" name="edit"  class="edit btn btn-outline-info" href="">Edit</a> ' +
-                            '                     <a id="delete" name="delete" class="delete btn btn-outline-danger" href="">Delete</a>'
+                            '            <a id="delete" name="delete" class="delete btn btn-outline-danger" href="">Delete</a>'
                     },
                     {data: 'DateFinish'},
                     {data: 'Location'},

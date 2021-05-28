@@ -286,4 +286,27 @@ class projectController extends Controller
             }
         }
     }
+
+    public function delete(Request $request){
+        $role = account::where('id','=', session('LoggedAdmin'))->first()->Role;
+        $id = $request->route()->parameter('ProjectID');
+        $del_Pdetail = DB::table('project_details')->where('ProjectID', '=', $id)->delete();
+        if(isset($del_Pdetail)){
+            $del_PList = DB::table('project_lists')->where('ProjectID', '=', $id)->delete();
+            if($role == 1){
+                return redirect(route('emp.project'))->with('success', 'Xoá thành công!!!');
+            }
+            if($role == 2){
+                return redirect(route('owens_project'))->with('success', 'Xoá thành công!!!');
+            }
+        }
+        else{
+            if($role == 1){
+                return redirect(route('emp.project'))->with('fail', 'Xoá thất bại!!!');
+            }
+            if($role == 2){
+                return redirect(route('owens_project'))->with('success', 'Xoá thất bại!!!');
+            }
+        }
+    }
 }

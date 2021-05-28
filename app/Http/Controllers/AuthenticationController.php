@@ -9,11 +9,16 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthenticationController extends Controller
 {
+
     function register(){
-        return view('dashboard_Owens.employee.register_view');
+        $accList = DB::table('accounts')->pluck('EmployeeID')->toArray();
+        $empList = DB::table('employee_lists')
+            ->whereNotIn('EmployeeID', $accList)
+            ->get();
+        return view('dashboard_Owens.employee.register_view')->with(compact('empList'));
     }
     function accLists(){
-        $accLists = DB::table('accounts')->get();
+        $accLists = DB::table('accounts')->where('Role', '=', 1)->get();
         return view('dashboard_Owens.employee.accountLists_View')->with(compact('accLists'));
     }
     function save(Request $request){
@@ -119,6 +124,48 @@ class AuthenticationController extends Controller
         if(session()->has('LoggedAdmin')){
             session()->pull('LoggedAdmin');
             return redirect('/Admin');
+        }
+    }
+
+    public function deleteAccount(Request $request){
+        $idUsing = account::where('id','=', session('LoggedAdmin'))->first()->EmployeeID;
+        $empID = $request->route()->parameter('EmployeeID');
+        if($idUsing == $empID){
+            return back()->with('thongbao', 'Bạn đang đăng nhập bằng tài khoản này, không thể xóa!!!');
+        }
+        else{
+            $delAccount = DB::table('accounts')->where('EmployeeID', '=', $empID)->delete();
+            return back()->with('success', 'Xóa tài khoản thành công!!!');
+        }
+    }
+
+    public function accDetail(Request $request){
+        $empID = $request->route()->parameter('EmployeeID');
+        $accDetail = DB::table('accounts')->where('EmployeeID', '=', $empID)->first();
+        return view('dashboard_Owens.employee.account_detail')->with(compact('accDetail'));
+    }
+
+    public function updAccount(Request $request){
+        $empID = account::where('id','=', session('LoggedAdmin'))->first()->EmployeeID;
+        $data = $request->all();
+        $olDPass = account::where('EmployeeID', '=', $data['EmployeeID'])->first();
+        if(Hash::check($data['Password'], $olDPass->Password)){
+            $newsPass = Hash::make($data['New_Password']);
+            $updAccount = DB::table('accounts')
+                ->where('EmployeeID', '=', $data['EmployeeID'])
+                ->update([
+                    'Password' => $newsPass,
+                ]);
+            if($empID == $data['EmployeeID']){
+                session()->pull('LoggedAdmin');
+                return redirect('/Admin')->with('success', 'Bạn vừa thay đổi mật khẩu bản thân, vui lòng đăng nhập lại!!!');
+            }
+            else{
+                return redirect(route('accLists'))->with('success','Thay đổi mật khẩu thành công!!!');
+            }
+        }
+        else{
+            return back()->with('fail', 'Tài khoản đã nhập không chính xác');
         }
     }
 }

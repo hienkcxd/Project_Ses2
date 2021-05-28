@@ -6,6 +6,11 @@
             {{ Session::get('fail') }}
         </div>
     @endif
+    @if(Session::get('success'))
+        <div class="alert alert-success">
+            {{ Session::get('success') }}
+        </div>
+    @endif
     @if(Session::get('thongbao'))
         <div class="alert alert-info">
             {{ Session::get('thongbao') }}
@@ -17,7 +22,7 @@
                style="width:100%">
             <caption style="caption-side: top; font-size: 1.5rem; font-weight: bold; color: #039BE5">
                 DANH SÁCH DỰ ÁN HOÀN THÀNH
-                <a class="btn-insert btn btn-outline-info" href="#">Insert</a>
+                <a class="btn-insert btn btn-outline-info" href="#">Create New</a>
             </caption>
             <thead>
             <tr>

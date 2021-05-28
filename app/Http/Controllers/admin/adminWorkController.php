@@ -302,6 +302,21 @@ class adminWorkController extends Controller
         else{
             return back()->with('fail','Thêm công việc mới thất bại!!!');
         }
+    }
 
+    public function delete(Request $request){
+        $id = $request->route()->parameter('WorkID');
+        $del_Wdetail = DB::table('work_details')->where('WorkID', '=', $id)->delete();
+        if(isset($del_Wdetail)){
+            $del_WList = DB::table('work_lists')->where('WorkID', '=', $id)->delete();
+            if(isset($del_Wdetail)){
+                return back()->with('success', 'Xóa Thành Công!!!');
+            }
+            else{
+                return back()->with('fail', 'Xóa Thất bại!!!');
+            }
+        }else{
+            return back()->with('fail', 'Xóa Thất bại!!!');
+        }
     }
 }

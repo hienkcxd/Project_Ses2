@@ -42,7 +42,7 @@
                     <td>{{ $cus->CusID }}</td>
                     <td>
                         <a id="edit" name="edit" class="edit btn btn-outline-info" href="{{ route('owens.customer_edit', ['customerID'=>$cus->CusID]) }}">Detail</a>
-                        <a id="delete" name="delete" class="delete btn btn-outline-danger" href="{{ route('owens.customer_delete', ['customerID'=>$cus->CusID]) }}">Delete</a>
+                        <a id="delete" name="delete" class="delete btn btn-outline-danger" href="{{ route('delete.customer', ['customerID'=>$cus->CusID]) }}">Delete</a>
                     </td>
                     <td>{{ $cus->CusName }}</td>
                     <td>{{ $cus->CusPhone }}</td>

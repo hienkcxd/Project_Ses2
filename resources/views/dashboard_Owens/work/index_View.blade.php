@@ -40,7 +40,7 @@
                     <td>{{ $wk->WorkID  }}</td>
                     <td>
                         <a id="edit" name="edit" class="edit btn btn-outline-info" href="{{ route('owens.work_detail',['WorkID'=>$wk->WorkID])}}">Detail</a>
-                        <a id="delete" name="delete" class="delete btn btn-outline-danger" href="{{ route('owens.work_detail',['WorkID'=>$wk->WorkID])}}">Delete</a>
+                        <a id="delete" name="delete" class="delete btn btn-outline-danger" href="{{ route('deleteWork',['WorkID'=>$wk->WorkID])}}">Delete</a>
                     </td>
                     <td>{{ $wk->WorkName }}</td>
                     <td>{{ $wk->Address }}</td>
@@ -91,7 +91,7 @@
                         <td>{{ $wk->WorkID  }}</td>
                         <td>
                             <a id="edit" name="edit" class="edit btn btn-outline-info" href="{{ route('owens.work_detail',['WorkID'=>$wk->WorkID])}}">Detail</a>
-                            <a id="delete" name="delete" class="delete btn btn-outline-danger" href="{{ route('owens.work_detail',['WorkID'=>$wk->WorkID])}}">Delete</a>
+                            <a id="delete" name="delete" class="delete btn btn-outline-danger" href="{{ route('deleteWork',['WorkID'=>$wk->WorkID])}}">Delete</a>
                         </td>
                         <td>{{ $wk->Address }}</td>
                         <td>{{ $wk->Price_Int}}</td>

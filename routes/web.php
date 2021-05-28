@@ -92,49 +92,65 @@
 
         Route::group(['middleware'=>['AuthCheck']], function(){
             Route::get('/', [loginController::class, 'index'])->name('login');
-            Route::get('/owens/Employee/Register', [AuthenticationController::class, 'register'])->name('owens_register');
 
             Route::get('/employee', [AuthenticationController::class, 'dashboard_Emp'])->name('index.admin_employee');
             Route::get('/owens', [AuthenticationController::class, 'dashboard_Owens'])->name('index.admin_owens');
 
+
+
             //  End Route index admin
+            // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+            //  Begin Route account: only owens
+            Route::get('/owens/Employee/Account_Lists', [AuthenticationController::class, 'accLists'])->name('accLists');
+            Route::get('/owens/Employee/Register', [AuthenticationController::class, 'register'])->name('owens_register');
+            Route::get('/owens/Employee/Account/{EmployeeID}', [AuthenticationController::class, 'accDetail'])->name('accDetail');
+            Route::get('/{any?}/Employee/Account/{EmployeeID}', function ($any = null) {
+                return back()->with('fail', 'Trang yêu cầu không tồn tại!!!');
+            })->where('any', '.*');
+
+            Route::post('/updateAccount', [AuthenticationController::class, 'updAccount'])->name('updAccount');
+
+            Route::get('/deleteAccount_{EmployeeID}', [AuthenticationController::class, 'deleteAccount'])->name('deleteAccount');
+            //  End Route account
             // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
             //  Begin Route Employee: only owens
             Route::get('/owens/Employee/getEmployee', [adminEmployeeController::class, 'getEmployee'])->name('admin.allEmployee');
-            Route::get('/owens/Employee/Account_Lists', [AuthenticationController::class, 'accLists'])->name('accLists');
+            Route::get('/owens/Employee/empDetail_{EmployeeID}', [adminWorkController::class, 'empDetail']);
+
 
             Route::get('/owens/Employee/create', [adminEmployeeController::class, 'create_owens'])->name('owens.create_Emp');
             Route::get('/{any?}/Employee/create', function ($any = null) {
-                return redirect(route('admin.create_owens'))->with('fail', 'Trang yêu cầu không tồn tại!!!');;
-            })->where('any', '.*');;
+                return redirect(route('admin.create_owens'))->with('fail', 'Trang yêu cầu không tồn tại!!!');
+            })->where('any', '.*');
 
             Route::get('/owens/Employee', [adminEmployeeController::class, 'index'])->name('owens_Emp');
             Route::get('/{any?}/Employee', function ($any = null) {
-                return redirect(route('owens_Emp'))->with('fail', 'Trang yêu cầu không tồn tại!!!');;
-            })->where('any', '.*');;
+                return redirect(route('owens_Emp'))->with('fail', 'Trang yêu cầu không tồn tại!!!');
+            })->where('any', '.*');
 
             Route::get('/owens/Employee/edit/Employee_{EmployeeID}', [adminEmployeeController::class, 'edit'])->name('emp_edit');
             Route::get('/{any?}/Employee/edit/Employee_{EmployeeID}', function ($any = null) {
-                return back()->with('fail', 'Trang yêu cầu không tồn tại!!!');;;
-            })->where('any', '.*');;
+                return back()->with('fail', 'Trang yêu cầu không tồn tại!!!');
+            })->where('any', '.*');
 
             Route::post('/Employee_{EmployeeID}', [adminEmployeeController::class, 'update'])->name('owens.update_emp');
             Route::post('/createEmployee', [adminEmployeeController::class, 'createEmp'])->name('createEmp');
+            Route::get('/owens/Employee/delete/Employee_{EmployeeID}', [adminEmployeeController::class, 'delete'])->name('emp_delete');
             //  End Route Employee
             // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-            //  Begin Route market
+            //  Begin Route market: only owens
             Route::get('/owens/market', [owensController::class, 'market'])->name('admin_market');
             Route::get('/{any?}/market/', function ($any = null) {
                 return redirect(route('admin_market'))->with('fail', 'Trang yêu cầu không tồn tại!!!');
-            })->where('any', '.*');;
+            })->where('any', '.*');
 
             Route::get('/owens/market/getMarket', [owensController::class, 'getMarket'])->name('admin_market.getMarket');
             Route::get('/owens/market/create', [owensController::class, 'create_owens'])->name('admin_market.create');
             Route::get('/{any?}/market/create', function ($any = null) {
                 return redirect(route('admin_market.create'))->with('fail', 'Trang yêu cầu không tồn tại!!!');
-            })->where('any', '.*');;
+            })->where('any', '.*');
             Route::get('/owens/market/create/{DistrictName}', [owensController::class, 'getWard']);
-            Route::post('/createMarket', [owensController::class, 'createMark'])->name('create_Market');
+
 
 
             Route::prefix('/owens/market/edit')->group(function () {
@@ -145,15 +161,11 @@
                 Route::get('/DistrictID_{DistrictID}', [owensController::class, 'viewDetail'])->name('admin_market.detail_District');
             });
             Route::get('/{any?}/market/edit/{any2}', function ($any = null) {
-                return redirect(route('admin_market'))->with('fail', 'Trang yêu cầu không tồn tại!!!');;
+                return redirect(route('admin_market'))->with('fail', 'Trang yêu cầu không tồn tại!!!');
             })->where(['any', '.*'],['any2', '.*'] );
+            Route::post('/createMarket', [owensController::class, 'createMark'])->name('create_Market');
 
-
-            Route::prefix('/owens/market/delete')->group(function () {
-                Route::get('/MarketID_{MarketID}', [owensController::class, 'delete'])->name('admin_market.delete_Market');
-                Route::get('/WardID_{WardID}', [owensController::class, 'delete'])->name('admin_market.delete_Ward');
-                Route::get('/DistrictID_{DistrictID}', [owensController::class, 'delete'])->name('admin_market.delete_District');
-            });
+            Route::get('/owens/market/delete/MarketID_{MarketID}', [owensController::class, 'delete'])->name('admin_market.delete_Market');
 
             //  end Route market
             // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -174,12 +186,12 @@
 
             Route::get('/owens/customer/create', [adminCustomerController::class, 'create_owens'])->name('owens.customer_create');
             Route::get('/{any?}/customer/create', function ($any = null) {
-                return redirect(route('owens.customer_create'))->with('fail', 'Trang yêu cầu không tồn tại!!!');;
+                return redirect(route('owens.customer_create'))->with('fail', 'Trang yêu cầu không tồn tại!!!');
             })->where('any', '.*');
 
             Route::get('/owens/black_list/create', [adminCustomerController::class, 'createBcust_owens'])->name('owens.blackCust_create');
             Route::get('/{any?}/black_list/create', function ($any = null) {
-                return redirect(route('owens.blackCust_create'))->with('fail', 'Trang yêu cầu không tồn tại!!!');;
+                return redirect(route('owens.blackCust_create'))->with('fail', 'Trang yêu cầu không tồn tại!!!');
             })->where('any', '.*');
 
             Route::post('/customerID_{customerID}', [adminCustomerController::class, 'update'])->name('customer_update');
@@ -189,6 +201,8 @@
 
             Route::post('/createCustomer', [adminCustomerController::class, 'createCust'])->name('create.customer');
             Route::post('/createBlackCust', [adminCustomerController::class, 'createBlackCust'])->name('create.BlackCust');
+            Route::get('/deleteBlackCust_{BlackCusID}', [adminCustomerController::class, 'delete_Bcust'])->name('delete.blackCust');
+            Route::get('/deleteCustomer_{customerID}', [adminCustomerController::class, 'delete'])->name('delete.customer');
             //  End Route Customer
             // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
             //  Begin Route work
@@ -206,13 +220,14 @@
 
             Route::get('/owens/work_list/create', [adminWorkController::class, 'create_owens'])->name('owens.create_work');
             Route::get('/{any?}/work_list/create', function ($any = null) {
-                return redirect(route('owens.create_work'))->with('fail', 'Trang yêu cầu không tồn tại!!!');;
+                return redirect(route('owens.create_work'))->with('fail', 'Trang yêu cầu không tồn tại!!!');
             })->where('any', '.*');
 
             Route::get('/owens/work_list/edit/WorkID_{WorkID}', [adminWorkController::class, 'edit_owens'])->name('owens.work_detail');
             Route::get('/employee/work_list/edit/WorkID_{WorkID}', [adminWorkController::class, 'edit_emp'])->name('emp.work_detail');
             Route::post('/WorkID_{WorkID}', [adminWorkController::class, 'update'])->name('admin.update_work');
             Route::post('/createWork', [adminWorkController::class, 'create'])->name('createWork');
+            Route::get('/delete_{WorkID}', [adminWorkController::class, 'delete'])->name('deleteWork');
             //  End Route work
             // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
             //  Begin Route Project
@@ -230,6 +245,8 @@
 
             Route::post('/ProjectID_{ProjectID}', [projectController::class, 'update'])->name('admin.update_Project');
             Route::post('/CreateProject', [projectController::class, 'create_project'])->name('create_Project');
+            Route::get('/owens/project/delete/ProjectID_{ProjectID}', [projectController::class, 'delete'])->name('admin.delete_Project');
+            Route::get('/employee/project/delete/ProjectID_{ProjectID}', [projectController::class, 'delete'])->name('emp.delete_Project');
 
             //  End Route Project
             // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -247,6 +264,8 @@
 
             Route::post('/NewsID_{NewsID}', [adminNewsController::class, 'update'])->name('admin.update_News');
             Route::post('/Create', [adminNewsController::class, 'create_news'])->name('create_News');
+            Route::get('/owens/news/delete/NewsID_{NewsID}', [adminNewsController::class, 'delete'])->name('owens.editNews');
+            Route::get('/employee/news/delete/NewsID_{NewsID}', [adminNewsController::class, 'delete'])->name('emp.editNews');
             //        End Route Project
 
         });
