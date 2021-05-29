@@ -21,9 +21,11 @@
 
                             <input type="text" title="lớn hơn 8 ký tự" name="NewsName" id="titleNews" value="{{ $dataNews->NewsName }}" required pattern=".{8,}">
                             <input type="text" title="lớn hơn 10 ký tự" name="Description" id="describe" value="{{ $dataNews->Description }}" required pattern=".{10,}">
-                            <input type="text" title="Khong được để trống" name="images" id="images" value="{{ $dataNews->images }}" required>
 
 
+                            <input type="text" title="Không được để trống" name="images" id="images" value="{{ $dataNews->images }}" required>
+
+                            <label for=""></label><input type="file" name="images_inp" id="images" >
                             <select name="NewsTagName" id="tagName">
                                 <option value="{{ $dataNews->NewsTagName }}">---{{ $dataNews->NewsTagName }}---</option>
                                 <option value="PCKT">PCKT</option>
