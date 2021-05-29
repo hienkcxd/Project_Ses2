@@ -10,6 +10,7 @@
     use App\Http\Controllers\AuthenticationController;
     use App\Http\Controllers\user\about\AboutController;
     use App\Http\Controllers\user\homepage\homepageController;
+    use App\Http\Controllers\user\market\MarketController;
     use App\Http\Controllers\user\news\NewsController;
     use App\Http\Controllers\user\project\ProjectsController;
     use App\Http\Controllers\user\service\ServiceController;
@@ -58,15 +59,6 @@
 
     //Route for market compare
     Route::prefix('Market')->group(function () {
-    //Route for compare market page
-        Route::get('/Compare', function (){
-            $disList = DistrictList::all();
-            return view('Market.compare')->with(compact('disList'));
-        })->name('compare');
-        Route::get('/Compare/{name}', function ($name) {
-            $wards = DistrictList::find($name)->wards;
-            return json_encode($wards);
-        });
 
         //Route for index market page
         Route::get('/', function () {

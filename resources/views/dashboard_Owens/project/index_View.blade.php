@@ -48,10 +48,12 @@
     <script type="text/javascript">
         $(document).ready(function () {
             // DataTable
+
             var table = $('#projectTable').DataTable({
                 columnDefs: [
                     {orderable: false, targets: "_all"},
-                    {visible: false, targets: 0}
+                    {visible: false, targets: 0},
+                    // { width: "50px", targets: 7 }
                 ],
                 "scrollX": true,
                 lengthMenu: [6, 15, 25, 50],
@@ -74,12 +76,23 @@
                     {data: 'Price'},
                     {data: 'Client'},
                     {data: 'tagName'},
-                    {data: 'contentTop'},
-                    {data: 'contentBot'},
-                    {data: 'imageTop'},
-                    {data: 'imageBot'},
+                    {data: 'contentTop',
+                        render: function ( data, type, row ) {
+                            return data.substr( 0, 30 )+ "...";}} ,
+                    {data: 'contentBot',
+                        render: function ( data, type, row ) {
+                            return data.substr( 0, 30 )+ "...";}},
+                    {data: 'imageTop',
+                            "render": function (data, type, row, meta) {
+                            return '<img src="\\' + data + '" alt="' + data + '"height="100" width="100"/>';}
+                    },
+                    {data: 'imageBot',
+                            "render": function (data, type, row, meta) {
+                            return '<img src="\\' + data + '" alt="' + data + '"height="100" width="100"/>';}
+                    },
                 ]
             });
+
 
             $('#projectTable tbody').on('click', '#edit', function getID() {
                 var $ProjectID = table.row($(this).parents('tr')).data();

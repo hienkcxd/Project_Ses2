@@ -9,16 +9,16 @@ use Illuminate\Support\Facades\Schema;
 
 class MarketController extends Controller
 {
+    public function compare(){
+        $distLists = DB::table('district_lists')->get();
+        return view('Market.compare')->with(compact('distLists'));
+    }
 
     public function index()
     {
         return view('Market.index');
     }
 
-    public function compare()
-    {
-        return view('Market.compare');
-    }
 
     /**
      * Show the form for creating a new resource.

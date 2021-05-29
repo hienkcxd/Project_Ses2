@@ -47,11 +47,11 @@
             </div>
 
             <div class="card">
-                <i class="fa fa-search fa-2x text-green" aria-hidden="true"> - So Sánh: </i>
+                <i class="fa fa-search fa-2x text-green" aria-hidden="true"> - Reset: </i>
                 <div class="card_inner">
                     <p class="text-primary-p">
-                        <a href="{{ route('compare') }}">
-                            <button id="button">Access</button>
+                        <a href="{{ route('market') }}">
+                            <button id="button">Reset</button>
                         </a>
                     </p>
                 </div>
