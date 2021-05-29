@@ -59,22 +59,22 @@ class adminNewsController extends Controller
     }
 
     public  function update(Request $request){
-//        $request->validate([
-//          'image1'=> ''
-//           'image2'=>
-//          'image3'=>
-//          'image4'=>
-//          'image5'=>
-//          'image6'=>
-//          'image7'=>
-//          'image8'=>
-//          'image9'=>
-//        ])
         $role = account::where('id','=', session('LoggedAdmin'))->first()->Role;
         $id_News = $request->route()->parameter('NewsID');
         $data = $request->all();
         $thongbao = "";
-
+        $request->validate([
+            "images_inp"=>"image|mimes:jpg, png, jpeg, gif, svg",
+            "images1_inp"=>"image|mimes:jpg, png, jpeg, gif, svg",
+            "images2_inp"=>"image|mimes:jpg, png, jpeg, gif, svg",
+            "images3_inp"=>"image|mimes:jpg, png, jpeg, gif, svg",
+            "images4_inp"=>"image|mimes:jpg, png, jpeg, gif, svg",
+            "images5_inp"=>"image|mimes:jpg, png, jpeg, gif, svg",
+            "images6_inp"=>"image|mimes:jpg, png, jpeg, gif, svg",
+            "images7_inp"=>"image|mimes:jpg, png, jpeg, gif, svg",
+            "images8_inp"=>"image|mimes:jpg, png, jpeg, gif, svg",
+            "images9_inp"=>"image|mimes:jpg, png, jpeg, gif, svg",
+        ]);
         $upd_NewsDetail = DB::table('news_details')
             ->where('NewsID', '=', $id_News)
             ->update(
@@ -225,6 +225,16 @@ class adminNewsController extends Controller
         $data = $request->all();
         $request->validate([
             'NewsID'=>'required|unique:news_details|unique:news_lists',
+            "images_inp"=>"image|mimes:jpg, png, jpeg, gif, svg",
+            "images1_inp"=>"image|mimes:jpg, png, jpeg, gif, svg",
+            "images2_inp"=>"image|mimes:jpg, png, jpeg, gif, svg",
+            "images3_inp"=>"image|mimes:jpg, png, jpeg, gif, svg",
+            "images4_inp"=>"image|mimes:jpg, png, jpeg, gif, svg",
+            "images5_inp"=>"image|mimes:jpg, png, jpeg, gif, svg",
+            "images6_inp"=>"image|mimes:jpg, png, jpeg, gif, svg",
+            "images7_inp"=>"image|mimes:jpg, png, jpeg, gif, svg",
+            "images8_inp"=>"image|mimes:jpg, png, jpeg, gif, svg",
+            "images9_inp"=>"image|mimes:jpg, png, jpeg, gif, svg",
         ]);
 
         $create_NewsList = DB::table('news_lists')->insert([

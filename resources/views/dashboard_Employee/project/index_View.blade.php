@@ -22,7 +22,7 @@
                style="width:100%">
             <caption style="caption-side: top; font-size: 1.5rem; font-weight: bold; color: #039BE5">
                 DANH SÁCH DỰ ÁN HOÀN THÀNH
-                <a class="btn-insert btn btn-outline-info" href="#">Create New</a>
+                <a class="btn-insert btn btn-outline-info" href="{{ route('createProject_emp') }}">Create New</a>
             </caption>
             <thead>
             <tr>
@@ -73,10 +73,20 @@
                     {data: 'Price'},
                     {data: 'Client'},
                     {data: 'tagName'},
-                    {data: 'contentTop'},
-                    {data: 'contentBot'},
-                    {data: 'imageTop'},
-                    {data: 'imageBot'},
+                    {data: 'contentTop',
+                        render: function ( data, type, row ) {
+                            return data.substr( 0, 30 )+ "...";}} ,
+                    {data: 'contentBot',
+                        render: function ( data, type, row ) {
+                            return data.substr( 0, 30 )+ "...";}},
+                    {data: 'imageTop',
+                        "render": function (data, type, row, meta) {
+                            return '<img src="\\' + data + '" alt="' + data + '"height="100" width="100"/>';}
+                    },
+                    {data: 'imageBot',
+                        "render": function (data, type, row, meta) {
+                            return '<img src="\\' + data + '" alt="' + data + '"height="100" width="100"/>';}
+                    },
                 ]
             });
 

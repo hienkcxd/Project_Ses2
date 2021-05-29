@@ -222,7 +222,7 @@ class projectController extends Controller
     function create_emp(){
         $role = account::where('id','=', session('LoggedAdmin'))->first()->Role;
         if($role == '1'){
-            return view('dashboard_Owens.project.index_View');
+            return view('dashboard_Employee.project.insert_Form');
         }
         elseif($role == '2'){
             return back()->with('fail', 'Bạn Không thể truy cập vào trang nhân viên!!!');

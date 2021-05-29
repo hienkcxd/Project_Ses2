@@ -62,12 +62,20 @@
                         defaultContent: '<a id="edit" name="edit"  class="edit btn btn-outline-info" href="">Edit</a> ' +
                             '                     <a id="delete" name="delete" class="delete btn btn-outline-danger" href="">Delete</a>'
                     },
-                    {data: 'NewsName'},
+                    {data: 'NewsName',
+                        render: function ( data, type, row ) {
+                            return data.substr( 0, 30 )+ "...";}},
                     {data: 'NewsTagName'},
-                    {data: 'Description'},
+                    {data: 'Description',
+                        render: function ( data, type, row ) {
+                            return data.substr( 0, 50 )+ "...";}
+                    },
                     {data: 'Day'},
                     {data: 'Year'},
-                    {data: 'images'},
+                    {data: 'images',
+                        "render": function (data, type, row, meta) {
+                            return '<img src="\\' + data + '" alt="' + data + '"height="100" width="100"/>';}
+                    },
                 ]
             });
 
