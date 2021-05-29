@@ -2,7 +2,7 @@
 <div class="container">
 
     <div class="projectForm">
-        <form method="POST" action="{{ route('admin.update_Project', ['ProjectID'=>$projectDetail->	ProjectID]) }}">
+        <form method="POST" action="{{ route('admin.update_Project', ['ProjectID'=>$projectDetail->	ProjectID]) }}" enctype="multipart/form-data">
             @csrf
             <div class="title">Thông Tin Dự Án:</div>
             <div class="project-infor">
@@ -55,25 +55,55 @@
             <div class="title">Nội Dung Dự Án:</div>
             <div class="project-content">
                 <div class="input-box">
+                    <div>
                     <span class="details">Image Background:</span>
-                    <input type="text"  name="images" value="{{ $projectList->images }}">
-                    <span class="text-danger">@error('images') {{ $message }} @enderror</span>
+                    <input type="text"  name="images"  id="images" value="{{ $projectList->images }}" />
+                    </div>
+                    <div class="inpImage">
+                        <input type="file"  name="images_inp" id="images_inp" style="visibility: hidden;">
+                        <label for="images_inp" class="details">
+                            <i class="fas fa-camera-retro"></i>
+                        </label>
+                    </div>
+                    <span class="text-danger">@error('images_inp') {{ $message }} @enderror</span>
                 </div>
+
+{{--                input image top--}}
                 <div class="input-box">
+                    <div>
                     <span class="details">Image Top:</span>
-                    <input type="text"  name="imageTop" value="{{ $projectDetail->imageTop }}">
-                    <span class="text-danger">@error('imageTop') {{ $message }} @enderror</span>
+                    <input type="text"  name="imageTop" id="imageTop" value="{{ $projectDetail->imageTop }}" >
+                    </div>
+                    <div class="inpImage">
+                        <input type="file"  name="imageTop_inp" id="imageTop_inp" style="visibility:hidden;">
+                        <label for="imageTop_inp" class="details">
+                            <i class="fas fa-camera-retro"></i>
+                        </label>
+                    </div>
+                    <span class="text-danger">@error('imageTop_inp') {{ $message }} @enderror</span>
                 </div>
+
+                {{--                input image bot--}}
                 <div class="input-box">
+                    <div>
                     <span class="details">Image Bot:</span>
-                    <input type="text" name="imageBot" value="{{ $projectDetail->imageBot }}">
-                    <span class="text-danger">@error('imageBot') {{ $message }} @enderror</span>
+                    <input type="text" name="imageBot" id="imageBot" value="{{ $projectDetail->imageBot }}">
+                    </div>
+                    <div class="inpImage">
+                        <input type="file"  name="imageBot_inp" id="imageBot_inp" style="visibility:hidden;">
+                        <label for="imageBot_inp" class="details">
+                            <i class="fas fa-camera-retro"></i>
+                        </label>
+                    </div>
+                    <span class="text-danger">@error('imageBot_inp') {{ $message }} @enderror</span>
                 </div>
+
                 <div class="input-box">
                     <span class="details">Content Top:</span>
                     <input type="text" name="contentTop" value="{{ $projectDetail->contentTop }}">
                     <span class="text-danger">@error('contentTop') {{ $message }} @enderror</span>
                 </div>
+
                 <div class="input-box">
                     <span class="details">Content Bot:</span>
                     <input type="text" name="contentBot" value="{{ $projectDetail->contentBot }}">
@@ -85,8 +115,157 @@
             </div>
         </form>
     </div>
+
     <script>
+
         $(document).ready(function () {
+            let TagName = $('select[name=TagName] option:selected').val();
+            console.log(TagName)
+
+            let link_NP = "images\\Project\\nhapho";
+            let link_NP_Detail = "images\\Project\\nhapho\\Detail";
+
+            let link_DCH = "images\\Project\\canho";
+            let link_DCH_Detail = "images\\Project\\canho\\Detail";
+
+            let link_NTC = "images\\Project\\tanco";
+            let link_NTC_Detail = "images\\Project\\tanco\\Detail";
+
+            let link_BT = "images\\Project\\bietthu";
+            let link_BT_Detail = "images\\Project\\bietthu\\Detail";
+
+            $('#images_inp').change(function (e) {
+                let TagName = $('select[name=TagName] option:selected').val();
+                e.preventDefault();
+                let link = "";
+                //lấy tên hình ảnh
+                let imgBG = $('#images_inp').val();
+                //vị trí dấu "\" cuối cùng
+                let get_imgBG = imgBG.lastIndexOf("\\");
+                //tên hình ảnh
+                let bgName = imgBG.substr(get_imgBG);
+
+                if(TagName === 'NP'){
+                    link = link_NP;
+                    $("#images").val(function() {
+                        this.value = "";
+                        return this.value = link + bgName;
+                    });
+                }
+                else if(TagName === 'DCH'){
+                    link = link_DCH;
+                    link_Detail = link_DCH_Detail;
+                    $("#images").val(function() {
+                        this.value = "";
+                        return this.value = link + bgName;
+                    });
+                }
+                else if(TagName === 'NTC'){
+                    link = link_NTC;
+                    link_Detail = link_NTC_Detail;
+                    $("#images").val(function() {
+                        this.value = "";
+                        return this.value = link + bgName;
+                    });
+                }
+                else if (TagName === 'BT'){
+                    link = link_BT;
+                    link_Detail = link_BT_Detail;
+                    $("#images").val(function() {
+                        this.value = "";
+                        return this.value = link + bgName;
+                    });
+                }
+            });
+
+            $('#imageTop_inp').change(function (e) {
+                let TagName = $('select[name=TagName] option:selected').val();
+                e.preventDefault();
+                let link_Detail = "";
+                //lấy tên hình ảnh
+                let imgTop = $('#imageTop_inp').val();
+
+                //vị trí dấu "\" cuối cùng
+                let get_imgTop = imgTop.lastIndexOf("\\");
+
+
+                //tên hình ảnh
+                let imgTop_name = imgTop.substr(get_imgTop);
+
+                if(TagName === 'NP'){
+                    link_Detail = link_NP_Detail;
+                    $("#imageTop").val(function() {
+                        this.value = "";
+                        return this.value = link_Detail + imgTop_name;
+                    });
+                }
+                else if(TagName === 'DCH'){
+                    link_Detail = link_DCH_Detail;
+
+                    $("#imageTop").val(function() {
+                        this.value = "";
+                        return this.value = link_Detail + imgTop_name;
+                    });
+                }
+                else if(TagName === 'NTC'){
+                    link_Detail = link_NTC_Detail;
+                    $("#imageTop").val(function() {
+                        this.value = "";
+                        return this.value = link_Detail + imgTop_name;
+                    });
+                }
+                else if (TagName === 'BT'){
+                    link_Detail = link_BT_Detail;
+                    $("#imageTop").val(function() {
+                        this.value = "";
+                        return this.value = link_Detail + imgTop_name;
+                    });
+                }
+            });
+
+            $('#imageBot_inp').change(function (e) {
+                TagName = $('select[name=TagName] option:selected').val();
+                e.preventDefault();
+                let link_Detail = "";
+                //lấy tên hình ảnh
+                let imgBot = $('#imageBot_inp').val();
+                //vị trí dấu "\" cuối cùng
+                let get_imgBot = imgBot.lastIndexOf("\\");
+                //tên hình ảnh
+                let imgBot_name = imgBot.substr(get_imgBot);
+
+                if(TagName === 'NP'){
+                    link_Detail = link_NP_Detail;
+                    $("#imageBot").val(function() {
+                        this.value = "";
+                        return this.value = link_Detail + imgBot_name;
+                    });
+                }
+                else if(TagName === 'DCH'){
+                    link_Detail = link_DCH_Detail;
+                    $("#imageBot").val(function() {
+                        this.value = "";
+                        return this.value = link_Detail + imgBot_name;
+                    });
+                }
+                else if(TagName === 'NTC'){
+                    link_Detail = link_NTC_Detail;
+                    $("#imageBot").val(function() {
+                        this.value = "";
+                        return this.value = link_Detail + imgBot_name;
+                    });
+                }
+                else if (TagName === 'BT'){
+                    link_Detail = link_BT_Detail;
+                    $("#imageBot").val(function() {
+                        this.value = "";
+                        return this.value = link_Detail + imgBot_name;
+                    });
+                }
+
+            });
+
+
 
             $("#TagName").change(function (e) {
                 e.preventDefault();

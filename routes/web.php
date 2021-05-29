@@ -240,6 +240,7 @@
             Route::get('/owens/project/delete/ProjectID_{ProjectID}', [projectController::class, 'delete'])->name('admin.delete_Project');
             Route::get('/employee/project/delete/ProjectID_{ProjectID}', [projectController::class, 'delete'])->name('emp.delete_Project');
 
+
             //  End Route Project
             // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
             //  Begin Route News

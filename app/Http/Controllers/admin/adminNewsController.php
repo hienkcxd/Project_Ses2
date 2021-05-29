@@ -59,6 +59,17 @@ class adminNewsController extends Controller
     }
 
     public  function update(Request $request){
+//        $request->validate([
+//          'image1'=> ''
+//           'image2'=>
+//          'image3'=>
+//          'image4'=>
+//          'image5'=>
+//          'image6'=>
+//          'image7'=>
+//          'image8'=>
+//          'image9'=>
+//        ])
         $role = account::where('id','=', session('LoggedAdmin'))->first()->Role;
         $id_News = $request->route()->parameter('NewsID');
         $data = $request->all();
@@ -183,6 +194,8 @@ class adminNewsController extends Controller
         echo json_encode($response);
         exit;
     }
+
+
 
     function create_owens(){
         $role = account::where('id','=', session('LoggedAdmin'))->first()->Role;

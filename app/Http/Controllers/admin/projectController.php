@@ -151,6 +151,9 @@ class projectController extends Controller
 
         $request->validate([
             'ProjectName'=>'required',
+            'images_inp'=>'image|mimes:jpg, png, jpeg, gif, svg',
+            'imageTop_inp'=>'image|mimes:jpg, png, jpeg, gif, svg',
+            'imageBot_inp'=>'image|mimes:jpg, png, jpeg, gif, svg',
             'Client'=>'required',
             'Location'=>'required',
             'DateFinish'=>'required',
@@ -229,13 +232,16 @@ class projectController extends Controller
     public function create_project(Request $request){
         $role = account::where('id','=', session('LoggedAdmin'))->first()->Role;
         $thongbao = "Update Thành Công!!!";
-        $data = $request->all();
+        $id_Project = $request->route()->parameter('ProjectID');
+
+        $data =$request->all();
+        $thongbao = "Update Thành Công!!!";
         $request->validate([
             'ProjectID'=>'required|unique:project_lists|unique:project_details',
             'ProjectName'=>'required|min:8|max:50',
             'Client'=>'required|min:4|max:50',
             'Location'=>'required|min:8|max:50',
-            'DateFinish'=>'required|min:12|max:50',
+            'DateFinish'=>'required|min:8|max:50',
             'Price'=>'required|min:6|max:50',
             'TagName'=>'required',
             'tagName'=>'required',
@@ -244,6 +250,9 @@ class projectController extends Controller
             'imageBot'=>'required',
             'contentTop'=>'required|min:30',
             'contentBot'=>'required|min:30',
+            'images_inp'=>'required|image|mimes:jpg, png, jpeg, gif, svg',
+            'imageTop_inp'=>'required|image|mimes:jpg, png, jpeg, gif, svg',
+            'imageBot_inp'=>'required|image|mimes:jpg, png, jpeg, gif, svg',
         ]);
 
         $create_ProLists = DB::table('project_lists')->insert([
