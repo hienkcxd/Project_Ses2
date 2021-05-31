@@ -56,10 +56,10 @@
                         <li><a href="{{ route('pro') }}">Dự Án</a></li>
                         <li><a href="{{ route('Service') }}">Dịch VỤ</a>
                             <ul>
-                                <li><a href="#">Nhà Phố</a></li>
-                                <li><a href="#">Decor Căn Hộ</a></li>
-                                <li><a href="#">Nhà Tân Cổ</a></li>
-                                <li><a href="#">Biệt Thự</a></li>
+                                <li><a href="{{ route('Service_nhapho') }}">Nhà Phố</a></li>
+                                <li><a href="{{ route('Service_canho') }}">Decor Căn Hộ</a></li>
+                                <li><a href="{{ route('Service_NTC') }}">Nhà Tân Cổ</a></li>
+                                <li><a href="{{ route('Service_BT') }}">Biệt Thự</a></li>
                             </ul>
                         </li>
                         <li><a href="{{ route('news') }}">Tin Tức</a></li>

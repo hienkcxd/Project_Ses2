@@ -49,7 +49,10 @@
 
     Route::prefix('Service')->group(function () {
         Route::get('/', [ServiceController::class, 'index'])->name('Service');
-        Route::get('/detail', [ServiceController::class, 'detail'])->name('Service_detail');
+        Route::get('/nha-pho', [ServiceController::class, 'nhapho'])->name('Service_nhapho');
+        Route::get('/can-ho', [ServiceController::class, 'canho'])->name('Service_canho');
+        Route::get('/nha-tan-co', [ServiceController::class, 'nhaTC'])->name('Service_NTC');
+        Route::get('/biet-thu', [ServiceController::class, 'bietthu'])->name('Service_BT');
     });
 
     Route::prefix('Project')->group(function () {

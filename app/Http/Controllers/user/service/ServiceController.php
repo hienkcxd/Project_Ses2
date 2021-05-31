@@ -16,10 +16,22 @@ class ServiceController extends Controller
     {
         return view('Service.Service');
     }
-
-    public function detail()
+    public function canho()
     {
-        return view('Service.ServiceDetail');
+        return view('Service.canho_Detail');
+    }
+    public function nhaTC()
+    {
+        return view('Service.NTC_Detail');
+    }
+    public function bietthu()
+    {
+        return view('Service.BT_Detail');
+    }
+
+    public function nhapho()
+    {
+        return view('Service.nhapho_Detail');
     }
 
     /**
