@@ -198,6 +198,7 @@
             Route::post('/createBlackCust', [adminCustomerController::class, 'createBlackCust'])->name('create.BlackCust');
             Route::get('/deleteBlackCust_{BlackCusID}', [adminCustomerController::class, 'delete_Bcust'])->name('delete.blackCust');
             Route::get('/deleteCustomer_{customerID}', [adminCustomerController::class, 'delete'])->name('delete.customer');
+
             //  End Route Customer
             // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
             //  Begin Route work

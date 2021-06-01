@@ -65,7 +65,7 @@
                             <i class="fas fa-camera-retro"></i>
                         </label>
                     </div>
-                    <span class="text-danger">@error('images_inp') {{ $message }} @enderror</span>
+                    <span class="text-danger">@error('images') {{ $message }} @enderror</span>
                 </div>
 
 {{--                input image top--}}
@@ -80,7 +80,7 @@
                             <i class="fas fa-camera-retro"></i>
                         </label>
                     </div>
-                    <span class="text-danger">@error('imageTop_inp') {{ $message }} @enderror</span>
+                    <span class="text-danger">@error('imageTop') {{ $message }} @enderror</span>
                 </div>
 
                 {{--                input image bot--}}
@@ -95,7 +95,7 @@
                             <i class="fas fa-camera-retro"></i>
                         </label>
                     </div>
-                    <span class="text-danger">@error('imageBot_inp') {{ $message }} @enderror</span>
+                    <span class="text-danger">@error('imageBot') {{ $message }} @enderror</span>
                 </div>
 
                 <div class="input-box">

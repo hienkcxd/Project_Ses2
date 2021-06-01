@@ -250,9 +250,9 @@ class projectController extends Controller
             'imageBot'=>'required',
             'contentTop'=>'required|min:30',
             'contentBot'=>'required|min:30',
-            'images_inp'=>'required|image|mimes:jpg, png, jpeg, gif, svg',
-            'imageTop_inp'=>'required|image|mimes:jpg, png, jpeg, gif, svg',
-            'imageBot_inp'=>'required|image|mimes:jpg, png, jpeg, gif, svg',
+            'images_inp'=>'image|mimes:jpg, png, jpeg, gif, svg',
+            'imageTop_inp'=>'image|mimes:jpg, png, jpeg, gif, svg',
+            'imageBot_inp'=>'image|mimes:jpg, png, jpeg, gif, svg',
         ]);
 
         $create_ProLists = DB::table('project_lists')->insert([
