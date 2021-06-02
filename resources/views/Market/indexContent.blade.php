@@ -202,14 +202,15 @@
             let Dname = $('select[name=districts] option:selected').text();
             let year = $('select[name=Year] option:selected').text();
             let Wname = $('select[name=wardList] option:selected').text();
+
             $(document).ajaxComplete(function (Wname) {
                 //insert name ward in first load district.
                 Wname = $('select[name=wardList] option:selected').text();
-                $('#wardName').empty();
-                $('#wardName').append(Wname);
             });
             $('#titleChartCompare').empty();
             $('#titleChartCompare').append("Trung Bình", Dname, " Và ", Wname,);
+            $('#wardName').empty();
+            $('#wardName').append(Wname);
 
             $('#wardPrice').empty();
             chartWard(Dname, Wname, year);
