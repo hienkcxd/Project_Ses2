@@ -15,10 +15,9 @@
             {{ Session::get('thongbao') }}
         </div>
     @endif
-
     <div class="projectContainer">
         <table id="newsTable" class="display nowrap uk-table uk-table-hover uk-table-striped table-bordered"
-               style="width:100%; text-align: left">
+               style="width:100%">
             <caption style="caption-side: top; font-size: 1.5rem; font-weight: bold; color: #039BE5">
                 DANH SÁCH BÀI VIẾT TRÊN TRANG
                 <a class="btn-insert btn btn-outline-info" href="{{ route('emp.createNews') }}">Create New</a>
@@ -33,7 +32,6 @@
                 <th>Ngày Viết</th>
                 <th>Năm</th>
                 <th>Background</th>
-
             </tr>
             </thead>
             <tbody>
@@ -74,7 +72,7 @@
                     {data: 'Year'},
                     {data: 'images',
                         "render": function (data, type, row, meta) {
-                            return '<img src="\\' + data + '" alt="' + data + '"height="100" width="100"/>';}
+                            return '<img src="' + data + '" alt="' + data + '"height="100" width="100"/>';}
                     },
                 ]
             });
@@ -98,4 +96,4 @@
     </script>
 @endsection
 
-@section('title', 'Employee_News')
+@section('title', 'Owens_News')

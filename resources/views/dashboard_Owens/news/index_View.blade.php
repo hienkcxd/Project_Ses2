@@ -32,7 +32,6 @@
             <th>Ngày Viết</th>
             <th>Năm</th>
             <th>Background</th>
-
         </tr>
         </thead>
         <tbody>
@@ -73,7 +72,7 @@
                 {data: 'Year'},
                 {data: 'images',
                        "render": function (data, type, row, meta) {
-                        return '<img src="\\' + data + '" alt="' + data + '"height="100" width="100"/>';}
+                        return '<img src="' + data + '" alt="' + data + '"height="100" width="100"/>';}
                 },
             ]
         });

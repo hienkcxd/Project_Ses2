@@ -37,11 +37,13 @@ class adminNewsController extends Controller
         $NewsID = $request->route()->parameter('NewsID');
         $dataNews = DB::table('news_lists')->where('NewsID', '=', $NewsID)->first();
         $newsDetail = DB::table('news_details')->where('NewsID', '=', $NewsID)->first();
+        $getday = str_replace('/', '-', $dataNews->Day.'-'.$dataNews->Year);
+        $cvDate = date('Y-m-d', strtotime($getday));
         if($role == '1'){
             return back()->with('fail', 'Bạn Không thể truy cập vào trang giám đốc!!!');
         }
         elseif($role == '2'){
-            return view('dashboard_Owens.news.form_View')->with(compact('dataNews', 'newsDetail'));
+            return view('dashboard_Owens.news.form_View')->with(compact('dataNews', 'newsDetail', 'cvDate'));
         }
     }
 
@@ -50,8 +52,10 @@ class adminNewsController extends Controller
         $NewsID = $request->route()->parameter('NewsID');
         $dataNews = DB::table('news_lists')->where('NewsID', '=', $NewsID)->first();
         $newsDetail = DB::table('news_details')->where('NewsID', '=', $NewsID)->first();
+        $getday = str_replace('/', '-', $dataNews->Day.'-'.$dataNews->Year);
+        $cvDate = date('Y-m-d', strtotime($getday));
         if($role == '1'){
-            return view('dashboard_Employee.news.form_View')->with(compact('dataNews', 'newsDetail'));
+            return view('dashboard_Employee.news.form_View')->with(compact('dataNews', 'newsDetail', 'cvDate'));
         }
         elseif($role == '2'){
             return back()->with('fail', 'Bạn Không thể truy cập vào trang nhân viên!!!');
@@ -64,53 +68,34 @@ class adminNewsController extends Controller
         $data = $request->all();
         $thongbao = "";
         $request->validate([
-            "images_inp"=>"image|mimes:jpg, png, jpeg, gif, svg",
-            "images1_inp"=>"image|mimes:jpg, png, jpeg, gif, svg",
-            "images2_inp"=>"image|mimes:jpg, png, jpeg, gif, svg",
-            "images3_inp"=>"image|mimes:jpg, png, jpeg, gif, svg",
-            "images4_inp"=>"image|mimes:jpg, png, jpeg, gif, svg",
-            "images5_inp"=>"image|mimes:jpg, png, jpeg, gif, svg",
-            "images6_inp"=>"image|mimes:jpg, png, jpeg, gif, svg",
-            "images7_inp"=>"image|mimes:jpg, png, jpeg, gif, svg",
-            "images8_inp"=>"image|mimes:jpg, png, jpeg, gif, svg",
-            "images9_inp"=>"image|mimes:jpg, png, jpeg, gif, svg",
+            'NewsName'=>'required|min:6',
+            'NewsTagName'=>'required',
+            'Description'=>'required|min:6',
+            'content'=>'required',
         ]);
-        $upd_NewsDetail = DB::table('news_details')
-            ->where('NewsID', '=', $id_News)
-            ->update(
-                [   'NewsName' => $data['NewsName'],
-                    'NewsTagName' => $data['NewsTagName'],
-                    'Day' => $data['Day'],
-                    'Year' => $data['Year'],
-                    'images' => $data['images'],
-                    'contentTop' => $data['contentTop'],
-                    'image1' => $data['image1'],
-                    'image2' => $data['image2'],
-                    'image3' => $data['image3'],
-                    'contentMiddle' => $data['contentMiddle'],
-                    'image4' => $data['image4'],
-                    'image5' => $data['image5'],
-                    'image6' => $data['image6'],
-                    'contentBot' => $data['contentBot'],
-                    'image7' => $data['image7'],
-                    'image8' => $data['image8'],
-                    'image9' => $data['image9'],
-                ],
-            );
-        $upd_NewsList = DB::table('news_lists')
+        $dateValue = strtotime($data['date']);
+        $date = date("d/m", $dateValue);
+        $year = date("Y", $dateValue);
+        preg_match('/(http|https):\/\/[^ ]+(\.gif|\.jpg|\.jpeg|\.png)/',$data['images'], $urlImage);
+
+        $NewsList = DB::table('news_lists')
                     ->where('NewsID', '=', $id_News)
-                    ->update(
-                [   'NewsName' => $data['NewsName'],
-                    'NewsTagName' => $data['NewsTagName'],
-                    'Description' => $data['Description'],
-                    'Day' => $data['Day'],
-                    'Year' => $data['Year'],
-                    'images' => $data['images'],
-                ],
-            );
+                    ->update([
+                        'NewsName' => $data['NewsName'],
+                        'NewsTagName' => $data['NewsTagName'],
+                        'Description' => $data['Description'],
+                        'Day' => $date,
+                        'Year' => $year,
+                        'images' => $urlImage[0],
+                    ]);
+        $NewsDetail = DB::table('news_details')
+            ->where('NewsID', '=', $id_News)
+            ->update([
+                'content' => $data['content'],
+            ]);
 
         if($role == '1'){
-            if(isset($upd_NewsDetail, $upd_NewsList)){
+            if(isset($NewsList, $NewsDetail)){
                 $thongbao = "Update Thành Công!!!";
                 return redirect(route('emp.news'))->with(compact('thongbao'));
             }
@@ -120,7 +105,7 @@ class adminNewsController extends Controller
             }
         }
         elseif($role == '2'){
-            if(isset($upd_NewsDetail, $upd_NewsList)){
+            if(isset($NewsList, $NewsDetail)){
                 $thongbao = "Update Thành Công!!!";
                 return redirect(route('owens.news'))->with(compact('thongbao'));
             }
@@ -203,19 +188,10 @@ class adminNewsController extends Controller
             return back()->with('fail', 'Bạn Không thể truy cập vào trang giám đốc!!!');
         }
         elseif($role == '2'){
-            return view('dashboard_Owens.news.insertNews_Form');
+            return view('dashboard_Owens.news.insert_Form');
         }
     }
 
-    function create2()
-    {
-        return view('dashboard_Owens.news.create_news');
-    }
-
-    function viewtest(){
-        $view = DB::table('ckeditor_news')->get();
-        return view('test')->with(compact('view'));
-    }
 
     function create_Emp()
     {
@@ -228,7 +204,7 @@ class adminNewsController extends Controller
         }
     }
 
-    function create_news2(Request $request){
+    function create_news(Request $request){
         $role = account::where('id','=', session('LoggedAdmin'))->first()->Role;
         $data = $request->all();
         $request->validate([
@@ -254,7 +230,7 @@ class adminNewsController extends Controller
         ]);
 
         if(isset($NewsList)){
-            $NewsDetail = DB::table('ckeditor_news')->insert([
+            $NewsDetail = DB::table('news_details')->insert([
                 'NewsID' => $data['NewsID'],
                 'content' => $data['content'],
             ]);
@@ -288,7 +264,7 @@ class adminNewsController extends Controller
     }
 
 
-    function create_news(Request $request)
+    function create_news2(Request $request)
     {
         $role = account::where('id','=', session('LoggedAdmin'))->first()->Role;
         $data = $request->all();

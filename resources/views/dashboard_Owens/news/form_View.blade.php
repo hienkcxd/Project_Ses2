@@ -5,7 +5,7 @@
             {{ Session::get('fail') }}
         </div>
     @endif
-@include('dashboard_Owens.news.detail_Form')
+@include('form.update_news_form')
 
 @endsection
 

@@ -24,11 +24,11 @@
 
     <!------ datatable CDN---------->
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-    <script language="JavaScript" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js" ></script>
-    <script language="JavaScript" src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js" ></script>
-    <link rel="stylesheet"  href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.2/css/uikit.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.uikit.min.css">
+    <script language="JavaScript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js" ></script>
+    <script language="JavaScript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js" ></script>
+    <link rel="stylesheet" charset="utf8" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" charset="utf8" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.2/css/uikit.min.css">
+    <link rel="stylesheet" charset="utf8" href="https://cdn.datatables.net/1.10.24/css/dataTables.uikit.min.css">
 </head>
 
 <body style="background-image: url({{ asset('images/bg.jpg') }});  background-repeat: no-repeat;

@@ -1,4 +1,4 @@
-@extends('Layout.Owens')
+@extends('Layout.employee')
 
 @section('content')
     @if(Session::get('fail'))

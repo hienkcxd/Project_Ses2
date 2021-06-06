@@ -43,5 +43,7 @@ class DatabaseSeeder extends Seeder
         $this->call(WorkDetailSeeder::class);
         $this->call(roleSeeder::class);
         $this->call(accountSeeder::class);
+//        $this->call(NewsDetailsTableSeeder::class);
+//        $this->call(CkeditorNewsTableSeeder::class);
     }
 }

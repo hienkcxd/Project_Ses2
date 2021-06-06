@@ -14,25 +14,9 @@ class CreateNewsDetailsTable extends Migration
     public function up()
     {
         Schema::create('news_details', function (Blueprint $table) {
-            $table->string('NewsDetailID')->primary();
+            $table->increments('id');
             $table->string('NewsID');
-            $table->string('NewsName');
-            $table->string('NewsTagName');
-            $table->string('Day');
-            $table->string('Year');
-            $table->string('images');
-            $table->text('contentTop');
-            $table->string('image1');
-            $table->string('image2');
-            $table->string('image3');
-            $table->text('contentMiddle');
-            $table->string('image4');
-            $table->string('image5');
-            $table->string('image6');
-            $table->text('contentBot');
-            $table->string('image7');
-            $table->string('image8');
-            $table->string('image9');
+            $table->text('content');
             $table->foreign('NewsID')->references('NewsID')->on('news_lists');
             $table->timestamps();
         });
