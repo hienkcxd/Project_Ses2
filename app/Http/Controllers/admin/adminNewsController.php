@@ -207,6 +207,16 @@ class adminNewsController extends Controller
         }
     }
 
+    function create2()
+    {
+        return view('dashboard_Owens.news.create_news');
+    }
+
+    function viewtest(){
+        $view = DB::table('ckeditor_news')->get();
+        return view('test')->with(compact('view'));
+    }
+
     function create_Emp()
     {
         $role = account::where('id','=', session('LoggedAdmin'))->first()->Role;
@@ -216,6 +226,65 @@ class adminNewsController extends Controller
         elseif($role == '2'){
             return back()->with('fail', 'Bạn Không thể truy cập vào trang nhân viên!!!');
         }
+    }
+
+    function create_news2(Request $request){
+        $role = account::where('id','=', session('LoggedAdmin'))->first()->Role;
+        $data = $request->all();
+        $request->validate([
+            'NewsID'=>'required|unique:news_details|unique:news_lists',
+            'NewsName'=>'required|min:6',
+            'NewsTagName'=>'required',
+            'Description'=>'required|min:6',
+            'content'=>'required',
+        ]);
+        $dateValue = strtotime($data['date']);
+        $date = date("d/m", $dateValue);
+        $year = date("Y", $dateValue);
+        preg_match('/(http|https):\/\/[^ ]+(\.gif|\.jpg|\.jpeg|\.png)/',$data['images'], $urlImage);
+
+        $NewsList = DB::table('news_lists')->insert([
+            'NewsID' => $data['NewsID'],
+            'NewsName' => $data['NewsName'],
+            'NewsTagName' => $data['NewsTagName'],
+            'Description' => $data['Description'],
+            'Day' => $date,
+            'Year' => $year,
+            'images' => $urlImage[0],
+        ]);
+
+        if(isset($NewsList)){
+            $NewsDetail = DB::table('ckeditor_news')->insert([
+                'NewsID' => $data['NewsID'],
+                'content' => $data['content'],
+            ]);
+
+            if($role == '1'){
+                if(isset($NewsDetail)){
+                    $thongbao = "Taọ bài viết Thành Công!!!";
+                    return redirect(route('emp.news'))->with(compact('thongbao'));
+                }
+                else{
+                    $thongbao = "Taọ bài viết Thất Bại!!!";
+                    return redirect(route('emp.news'))->with(compact('thongbao'));
+                }
+            }
+            elseif($role == '2'){
+                if(isset($NewsDetail)){
+                    $thongbao = "Taọ bài viết Thành Công!!!";
+                    return redirect(route('owens.news'))->with(compact('thongbao'));
+                }
+                else{
+                    $thongbao = "Taọ bài viết Thất Bại!!!";
+                    return redirect(route('owens.news'))->with(compact('thongbao'));
+                }
+            }
+        }
+
+        else{
+            return back()->with('fail', "Taọ bài viết Thất Bại!!!");
+        }
+
     }
 
 

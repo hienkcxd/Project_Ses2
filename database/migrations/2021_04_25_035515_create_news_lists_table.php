@@ -14,7 +14,8 @@ class CreateNewsListsTable extends Migration
     public function up()
     {
         Schema::create('news_lists', function (Blueprint $table) {
-            $table->string('NewsID')->primary();
+            $table->increments('id');
+            $table->string('NewsID')->unique();
             $table->string('NewsName');
             $table->string('NewsTagName');
             $table->text('Description');

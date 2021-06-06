@@ -8,6 +8,7 @@
     use App\Http\Controllers\admin\owensController;
     use App\Http\Controllers\admin\projectController;
     use App\Http\Controllers\AuthenticationController;
+    use App\Http\Controllers\CKEditorController;
     use App\Http\Controllers\user\about\AboutController;
     use App\Http\Controllers\user\homepage\homepageController;
     use App\Http\Controllers\user\market\MarketController;
@@ -85,6 +86,7 @@
         Route::post('/auth/check', [AuthenticationController::class, 'check'])->name('auth.check');
         Route::get('/auth/logout', [AuthenticationController::class, 'logout'])->name('auth.logout');
 
+        Route::post('ckeditor/image_upload', [CKEditorController::class, 'upload'])->name('upload');
         Route::group(['middleware'=>['AuthCheck']], function(){
             Route::get('/', [loginController::class, 'index'])->name('login');
 
@@ -256,15 +258,17 @@
 
             Route::get('/owens/news/edit/NewsID_{NewsID}', [adminNewsController::class, 'edit_owens'])->name('owens.editNews');
             Route::get('/employee/news/edit/NewsID_{NewsID}', [adminNewsController::class, 'edit_emp'])->name('emp.editNews');
-            Route::get('/owens/news/create', [adminNewsController::class, 'create_owens'])->name('owens.createNews');
+            Route::get('/owens/news/create', [adminNewsController::class, 'create_owens']);
+            Route::get('/owens/news/create2', [adminNewsController::class, 'create2'])->name('owens.createNews');
             Route::get('/employee/news/create', [adminNewsController::class, 'create_Emp'])->name('emp.createNews');
 
             Route::post('/NewsID_{NewsID}', [adminNewsController::class, 'update'])->name('admin.update_News');
             Route::post('/Create', [adminNewsController::class, 'create_news'])->name('create_News');
+            Route::post('/Create2', [adminNewsController::class, 'create_news2'])->name('create_News2');
             Route::get('/owens/news/delete/NewsID_{NewsID}', [adminNewsController::class, 'delete'])->name('owens.editNews');
             Route::get('/employee/news/delete/NewsID_{NewsID}', [adminNewsController::class, 'delete'])->name('emp.editNews');
             //        End Route Project
-
+            Route::get('/viewtest', [adminNewsController::class, 'viewtest']);
         });
 
 });

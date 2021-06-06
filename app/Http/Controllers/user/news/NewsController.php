@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 class NewsController extends Controller
 {
     public function index(){
-        $data = DB::table('news_lists')->paginate(3);
+        $data = DB::table('news_lists')->orderBy('id', 'desc')->paginate(3);
         return view('News.News', compact('data'));
     }
 
@@ -17,7 +17,7 @@ class NewsController extends Controller
     {
         if($request->ajax())
         {
-            $data = DB::table('news_lists')->paginate(3);
+            $data = DB::table('news_lists')->orderBy('id', 'desc')->paginate(3);
             return view('News.ListNews', compact('data'))->render();
         }
     }
