@@ -144,13 +144,16 @@
                                 <span class="count bg-danger">0</span>
                             @endif
                         </button>
-                        <div class="dropdown-menu" aria-labelledby="notification">
-                            <p class="red" style="width: 12rem">You have {{ $dataNoti->notifications->count() }} notification</p>
+                        <div class="dropdown-menu" aria-labelledby="notification" style="background: #0b2e13">
+                            <p class="red" style="width: auto">You have {{ $dataNoti->notifications->count() }} notification</p>
                             @foreach($dataNoti->notifications as $noti)
-                                <a class="dropdown-item media bg-flat-color-1" href="#">
+                                <div class="bg-flat-color-3" style="width: 14rem">
+                                <a class="dropdown-item media " href="#">
                                     <i class="fa fa-check"></i>
-                                    <p>{{$noti->data['EmpName']}} {{$noti->data['Status']}}: {{$noti->data['ContentID']}}</p>
+                                    <p> - Mark As Read</p>
                                 </a>
+                                <p>{{$noti->data['EmpName']}} {{$noti->data['Status']}}: {{$noti->data['ContentID']}}</p>
+                                </div>
                             @endforeach
                         </div>
                     </div>

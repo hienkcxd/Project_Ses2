@@ -58,7 +58,7 @@
                     {
                         data: null,
                         defaultContent: '<a id="edit" name="edit"  class="edit btn btn-outline-info" href="">Edit</a> ' +
-                            '                     <a id="delete" name="delete" class="delete btn btn-outline-danger" href="">Delete</a>'
+                                        '<a id="delete" name="delete" class="delete btn btn-outline-danger" href="">Delete</a>'
                     },
                     {data: 'NewsName',
                         render: function ( data, type, row ) {
