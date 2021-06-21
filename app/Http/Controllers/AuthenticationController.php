@@ -11,15 +11,17 @@ class AuthenticationController extends Controller
 {
 
     function register(){
+        $dataNoti = (new NotificationController)->renderNotification();
         $accList = DB::table('accounts')->pluck('EmployeeID')->toArray();
         $empList = DB::table('employee_lists')
             ->whereNotIn('EmployeeID', $accList)
             ->get();
-        return view('dashboard_Owens.employee.register_view')->with(compact('empList'));
+        return view('dashboard_Owens.employee.register_view')->with(compact('empList', 'dataNoti'));
     }
     function accLists(){
+        $dataNoti = (new NotificationController)->renderNotification();
         $accLists = DB::table('accounts')->where('Role', '=', 1)->get();
-        return view('dashboard_Owens.employee.accountLists_View')->with(compact('accLists'));
+        return view('dashboard_Owens.employee.accountLists_View')->with(compact('accLists', 'dataNoti'));
     }
     function save(Request $request){
         //validate request
@@ -71,6 +73,8 @@ class AuthenticationController extends Controller
     }
 
     function dashboard_owens(){
+        $dataNoti = (new NotificationController)->renderNotification();
+
         $role = account::where('id','=', session('LoggedAdmin'))->first()->Role;
         $account = account::where('id','=', session('LoggedAdmin'))->first();
         $name = DB::table('employee_lists')
@@ -91,7 +95,7 @@ class AuthenticationController extends Controller
             return redirect(route('index.admin_employee'));
         }
         elseif($role == '2'){
-            return view('dashboard_Owens.index')->with(compact('empList', 'cusList','account', 'name'));
+            return view('dashboard_Owens.index')->with(compact('empList', 'cusList','account', 'name', 'dataNoti'));
         }
     }
 

@@ -138,40 +138,44 @@
                         <button class="btn btn-secondary dropdown-toggle" type="button" id="notification"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fa fa-bell"></i>
-                            <span class="count bg-danger">1</span>
+                            @if($dataNoti->notifications->count() != 0)
+                                <span class="count bg-danger">{{ $dataNoti->notifications->count() }}</span>
+                            @else
+                                <span class="count bg-danger">0</span>
+                            @endif
                         </button>
                         <div class="dropdown-menu" aria-labelledby="notification">
-                            <p class="red">You have 3 Notification</p>
-
-                            <a class="dropdown-item media bg-flat-color-1" href="#">
-                                <i class="fa fa-check"></i>
-                                <p>Server #1 overloaded.</p>
-                            </a>
-
+                            <p class="red" style="width: 12rem">You have {{ $dataNoti->notifications->count() }} notification</p>
+                            @foreach($dataNoti->notifications as $noti)
+                                <a class="dropdown-item media bg-flat-color-1" href="#">
+                                    <i class="fa fa-check"></i>
+                                    <p>{{$noti->data['EmpName']}} {{$noti->data['Status']}}: {{$noti->data['ContentID']}}</p>
+                                </a>
+                            @endforeach
                         </div>
                     </div>
 
                     {{-- Messeage icon --}}
-                    <div class="dropdown for-message">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="message"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="ti-email"></i>
-                            <span class="count bg-primary">1</span>
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="message">
-                            <p class="red">You have 4 Mails</p>
+{{--                    <div class="dropdown for-message">--}}
+{{--                        <button class="btn btn-secondary dropdown-toggle" type="button" id="message"--}}
+{{--                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--}}
+{{--                            <i class="ti-email"></i>--}}
+{{--                            <span class="count bg-primary">1</span>--}}
+{{--                        </button>--}}
+{{--                        <div class="dropdown-menu" aria-labelledby="message">--}}
+{{--                            <p class="red">You have 4 Mails</p>--}}
 
-                            <a class="dropdown-item media bg-flat-color-1" href="#">
-                                <span class="photo media-left"><img alt="avatar" src=""></span>
-                                <span class="message media-body">
-                                        <span class="name float-left">Jonathan Smith</span>
-                                        <span class="time float-right">Just now</span>
-                                        <p>Hello, this is an example msg</p>
-                                    </span>
-                            </a>
+{{--                            <a class="dropdown-item media bg-flat-color-1" href="#">--}}
+{{--                                <span class="photo media-left"><img alt="avatar" src=""></span>--}}
+{{--                                <span class="message media-body">--}}
+{{--                                        <span class="name float-left">Jonathan Smith</span>--}}
+{{--                                        <span class="time float-right">Just now</span>--}}
+{{--                                        <p>Hello, this is an example msg</p>--}}
+{{--                                    </span>--}}
+{{--                            </a>--}}
 
-                        </div>
-                    </div>
+{{--                        </div>--}}
+{{--                    </div>--}}
                 </div>
             </div>
 

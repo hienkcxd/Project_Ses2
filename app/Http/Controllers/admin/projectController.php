@@ -3,21 +3,27 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\NotificationController;
+use App\Models\AboutUs\EmployeeList;
 use App\Models\admin\account;
 use App\Models\Project\ProjectDetail;
+use App\Notifications\MessNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Notification;
 
 class projectController extends Controller
 {
 
     function index_owens(){
+        $dataNoti = (new NotificationController)->renderNotification();
+
         $role = account::where('id','=', session('LoggedAdmin'))->first()->Role;
         if($role == '1'){
             return redirect(route('emp.project'))->with('fail', 'Bạn Không thể truy cập vào trang giám đốc!!!');
         }
         elseif($role == '2'){
-            return view('dashboard_Owens.project.index_View');
+            return view('dashboard_Owens.project.index_View', compact('dataNoti'));
         }
     }
 
@@ -36,6 +42,10 @@ class projectController extends Controller
     public function edit_owens(Request $request){
         $role = account::where('id','=', session('LoggedAdmin'))->first()->Role;
         $ProjectID = $request->route()->parameter('ProjectID');
+
+        //Send Notification to owen in project
+        $dataNoti = (new NotificationController)->renderNotification();
+
         $projectList = DB::table('project_lists')
             ->where('ProjectID','=', $ProjectID)
             ->first();
@@ -46,7 +56,7 @@ class projectController extends Controller
                 return back()->with('fail', 'Bạn Không thể truy cập vào trang giám đốc!!!');
             }
             else{
-                return view('dashboard_Owens.project.form_View')->with(compact('projectList', 'projectDetail'));
+                return view('dashboard_Owens.project.form_View')->with(compact('projectList', 'projectDetail', 'dataNoti'));
             }
     }
 
@@ -191,6 +201,7 @@ class projectController extends Controller
 
         if($role == '1'){
             if(isset($upd_ProList, $upd_ProDetail)){
+                (new NotificationController)->sendNotification('update project with id', $id_Project, $data['ProjectName']);
                 return redirect(route('emp.project'))->with(compact('thongbao'));
             }
             else{
@@ -200,6 +211,7 @@ class projectController extends Controller
         }
         elseif($role == '2'){
             if(isset($upd_ProList, $upd_ProDetail)){
+                (new NotificationController)->sendNotification('update project with id', $id_Project, $data['ProjectName']);
                 return redirect(route('owens_project'))->with(compact('thongbao'));
             }
             else{
@@ -210,12 +222,13 @@ class projectController extends Controller
     }
 
     function create_owens(){
+        $dataNoti = (new NotificationController)->renderNotification();
         $role = account::where('id','=', session('LoggedAdmin'))->first()->Role;
         if($role == '1'){
             return back()->with('fail', 'Bạn Không thể truy cập vào trang giám đốc!!!');
         }
         elseif($role == '2'){
-            return view('dashboard_Owens.project.insertProject_Form');
+            return view('dashboard_Owens.project.insertProject_Form', compact('dataNoti'));
         }
     }
 
@@ -278,6 +291,7 @@ class projectController extends Controller
 
         if($role == '1'){
             if(isset($create_ProLists, $create_ProDetail)){
+                (new NotificationController)->sendNotification('create new project with id', $data['ProjectID'], $data['ProjectName']);
                 return redirect(route('emp.project'))->with(compact('thongbao'));
             }
             else{
@@ -287,6 +301,7 @@ class projectController extends Controller
         }
         elseif($role == '2'){
             if(isset($create_ProLists, $create_ProDetail)){
+                (new NotificationController)->sendNotification('create new project with id', $data['ProjectID'], $data['ProjectName']);
                 return redirect(route('owens_project'))->with(compact('thongbao'));
             }
             else{
@@ -300,12 +315,15 @@ class projectController extends Controller
         $role = account::where('id','=', session('LoggedAdmin'))->first()->Role;
         $id = $request->route()->parameter('ProjectID');
         $del_Pdetail = DB::table('project_details')->where('ProjectID', '=', $id)->delete();
+
         if(isset($del_Pdetail)){
             $del_PList = DB::table('project_lists')->where('ProjectID', '=', $id)->delete();
             if($role == 1){
+                (new NotificationController)->sendNotification('Delete project with id', $id, "");
                 return redirect(route('emp.project'))->with('success', 'Xoá thành công!!!');
             }
             if($role == 2){
+                (new NotificationController)->sendNotification('Delete project with id', $id, "");
                 return redirect(route('owens_project'))->with('success', 'Xoá thành công!!!');
             }
         }
