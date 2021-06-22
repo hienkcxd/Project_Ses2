@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Notification;
 
 class NotificationController extends Controller
 {
+    //$empID giúp chỉ lấy các đối tượng notification của đối tượng đang đăng nhập.
+    //Khoa chinh cua doi tương nhan notification duoc dung lam notifiable_id cua bảng notifications
     public function sendNotification($status, $ContentID, $ContentName){
         $dataNoti = account::where('Role', '=', 2)->get();
         $empID = account::where('id','=', session('LoggedAdmin'))->first()->EmployeeID;
@@ -25,6 +27,7 @@ class NotificationController extends Controller
     }
 
     public function renderNotification(){
+
         $empID = account::where('id','=', session('LoggedAdmin'))->first()->EmployeeID;
         $dataNoti = account::where('EmployeeID', '=', $empID)->first();
         return $dataNoti;
@@ -48,4 +51,5 @@ class NotificationController extends Controller
         $dataNoti->unreadNotifications->markAsRead();
         return redirect()->back();
     }
+
 }

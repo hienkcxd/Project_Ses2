@@ -146,7 +146,9 @@
                         </button>
                         <div class="dropdown-menu bg-flat-color-3 scroll-bar" aria-labelledby="notification" style="padding: 0; margin-top: 0; min-width: 20rem">
                             @if($dataNoti->unreadNotifications->count() == 0)
-                                <p class="red">{{ $dataNoti->unreadNotifications->count() }} notification</p>
+                                <p class="red" style="width: auto; color: #0D47A1;">
+                                    <i class="far fa-bell"></i> - {{ $dataNoti->unreadNotifications->count() }} notification
+                                </p>
                                 <hr style="margin: 0">
                             @else
                                 <a class="markReadAll" href="{{ route('markReadAll') }}">
