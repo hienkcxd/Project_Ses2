@@ -9,6 +9,7 @@
     use App\Http\Controllers\admin\projectController;
     use App\Http\Controllers\AuthenticationController;
     use App\Http\Controllers\CKEditorController;
+    use App\Http\Controllers\NotificationController;
     use App\Http\Controllers\user\about\AboutController;
     use App\Http\Controllers\user\homepage\homepageController;
     use App\Http\Controllers\user\market\MarketController;
@@ -82,6 +83,8 @@
 
 //        Route index admin
     Route::prefix('Admin')->group(function () {
+        Route::get('/markReadAll', [NotificationController::class, 'markReadAll'])->name('markReadAll');
+        Route::get('/markAsRead - {ID}', [NotificationController::class, 'markAsRead'])->name('markAsRead');
         Route::post('/auth/save', [AuthenticationController::class, 'save'])->name('auth.save');
         Route::post('/auth/check', [AuthenticationController::class, 'check'])->name('auth.check');
         Route::get('/auth/logout', [AuthenticationController::class, 'logout'])->name('auth.logout');

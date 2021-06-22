@@ -138,27 +138,27 @@
                         <button class="btn btn-secondary dropdown-toggle" type="button" id="notification"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fa fa-bell"></i>
-                            @if($dataNoti->notifications->count() != 0)
-                                <span class="count bg-danger">{{ $dataNoti->notifications->count() }}</span>
+                            @if($dataNoti->unreadNotifications->count() != 0)
+                                <span class="count bg-danger">{{ $dataNoti->unreadNotifications->count() }}</span>
                             @else
                                 <span class="count bg-danger">0</span>
                             @endif
                         </button>
-                        <div class="dropdown-menu bg-flat-color-3 scroll-bar" aria-labelledby="notification" style="padding: 0; margin-top: 0">
-                            @if($dataNoti->notifications->count() == 0)
-                                <p class="red" style="width: auto">{{ $dataNoti->notifications->count() }} notification</p>
+                        <div class="dropdown-menu bg-flat-color-3 scroll-bar" aria-labelledby="notification" style="padding: 0; margin-top: 0; min-width: 20rem">
+                            @if($dataNoti->unreadNotifications->count() == 0)
+                                <p class="red">{{ $dataNoti->unreadNotifications->count() }} notification</p>
                                 <hr style="margin: 0">
                             @else
-                                <a class="markReadAll" href="#">
+                                <a class="markReadAll" href="{{ route('markReadAll') }}">
                                     <p class="red" style="width: auto; color: #0D47A1;">
-                                        <i class="far fa-bell"></i> - {{ $dataNoti->notifications->count() }} notification  - Mark Read All
+                                        <i class="far fa-bell"></i> - {{ $dataNoti->unreadNotifications->count() }} notification  - Mark Read All
                                     </p>
                                 </a>
                                 <hr style="margin: 0">
                             @endif
-                            @foreach($dataNoti->notifications as $noti)
+                            @foreach($dataNoti->unreadNotifications as $noti)
                                 <div class="" style="width: 22rem;">
-                                    <a class="dropdown-item media markRead" href="#" style="color: #0D47A1">
+                                    <a class="dropdown-item media markRead" href="{{ route('markAsRead', ['ID'=>$noti->id]) }}" style="color: #0D47A1">
                                         <i class="fa fa-check"></i>
                                         <p style="color: #0D47A1"> Mark As Read:</p>
                                     </a>

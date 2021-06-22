@@ -14,19 +14,38 @@ class NotificationController extends Controller
         $dataNoti = account::where('Role', '=', 2)->get();
         $empID = account::where('id','=', session('LoggedAdmin'))->first()->EmployeeID;
         $empName = EmployeeList::where('EmployeeID', '=', $empID)->first()->EmpName;
-        $Project_Notification = [
+        $Detail = [
             'EmpID' => $empID,
             'EmpName' => $empName,
             'Status' => $status,
             'ContentID' => $ContentID,
             'ContentName' => $ContentName,
         ];
-        Notification::send($dataNoti, new MessNotification($Project_Notification));
+        Notification::send($dataNoti, new MessNotification($Detail));
     }
 
     public function renderNotification(){
         $empID = account::where('id','=', session('LoggedAdmin'))->first()->EmployeeID;
         $dataNoti = account::where('EmployeeID', '=', $empID)->first();
         return $dataNoti;
+    }
+
+    public function markAsRead(Request $request){
+        $Notification_ID = $request->route()->parameter('ID');
+        $empID = account::where('id','=', session('LoggedAdmin'))->first()->EmployeeID;
+        $dataNoti = account::where('EmployeeID', '=', $empID)->first();
+        foreach ($dataNoti->unreadNotifications as $value){
+            if($Notification_ID == $value->id){
+                $value->markAsRead();
+            }
+        }
+        return redirect()->back();
+    }
+
+    public function markReadAll(){
+        $empID = account::where('id','=', session('LoggedAdmin'))->first()->EmployeeID;
+        $dataNoti = account::where('EmployeeID', '=', $empID)->first();
+        $dataNoti->unreadNotifications->markAsRead();
+        return redirect()->back();
     }
 }

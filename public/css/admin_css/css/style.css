@@ -930,7 +930,8 @@
 
 .scroll-bar{
     /*background: #0b2e13 !important;*/
-    height: 400px;
+    min-height: 2rem;
+    max-height: 30rem;
     overflow-y: scroll;
 }
 
