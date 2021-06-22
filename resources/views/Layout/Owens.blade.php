@@ -152,7 +152,7 @@
                                     <i class="fa fa-check"></i>
                                     <p> - Mark As Read</p>
                                 </a>
-                                <p>{{$noti->data['EmpName']}} {{$noti->data['Status']}}: {{$noti->data['ContentID']}}</p>
+                                <p>{{$noti->data['EmpName']}} {{$noti->data['Status']}} {{$noti->data['ContentID']}}</p>
                                 </div>
                             @endforeach
                         </div>

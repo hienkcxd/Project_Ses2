@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\NotificationController;
 use App\Models\admin\account;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -12,12 +13,13 @@ class adminCustomerController extends Controller
 
     function index_owens(){
         $cusList = DB::table('customers')->get();
+        $dataNoti = (new NotificationController)->renderNotification();
         $role = account::where('id','=', session('LoggedAdmin'))->first()->Role;
         if($role == '1'){
             return redirect(route('emp.customer'))->with('fail', 'Bạn không thể truy cập vào trang giám đốc!!!');
         }
         elseif($role == '2'){
-            return view('dashboard_Owens.customer.index_View')->with(compact('cusList'));
+            return view('dashboard_Owens.customer.index_View')->with(compact('cusList', 'dataNoti'));
         }
     }
 
@@ -38,12 +40,13 @@ class adminCustomerController extends Controller
 
     public function bList_owens(){
         $role = account::where('id','=', session('LoggedAdmin'))->first()->Role;
+        $dataNoti = (new NotificationController)->renderNotification();
         $blackList = DB::table('black_lists')->get();
         if($role == '1'){
             return redirect(route('emp.black_lists'))->with('fail', 'Bạn không thể truy cập vào trang giám đốc!!!');
         }
         elseif($role == '2'){
-            return view('dashboard_Owens.customer.blackList_View')->with(compact('blackList'));
+            return view('dashboard_Owens.customer.blackList_View')->with(compact('blackList', 'dataNoti'));
         }
     }
 
@@ -61,6 +64,7 @@ class adminCustomerController extends Controller
 
 
     public function editCus_owens(Request $request){
+        $dataNoti = (new NotificationController)->renderNotification();
         $role = account::where('id','=', session('LoggedAdmin'))->first()->Role;
         $empList = DB::table('employee_details')->get();
         $CusID = $request->route()->parameter('customerID');
@@ -76,7 +80,7 @@ class adminCustomerController extends Controller
             return back()->with('fail', 'Bạn không thể truy cập vào trang giám đốc!!!');
         }
         elseif($role == '2'){
-            return view('dashboard_Owens.customer.form_View')->with(compact('CusDetail','blackCusDetail', 'empList'));
+            return view('dashboard_Owens.customer.form_View')->with(compact('CusDetail','blackCusDetail', 'empList', 'dataNoti'));
         }
     }
 
@@ -103,6 +107,7 @@ class adminCustomerController extends Controller
         $role = account::where('id','=', session('LoggedAdmin'))->first()->Role;
         $CusID = $request->route()->parameter('customerID');
         $BlackCusID = $request->route()->parameter('BlackCusID');
+        $dataNoti = (new NotificationController)->renderNotification();
         $CusDetail = DB::table('customers')
             ->where('CusID', '=', $CusID)
             ->first();
@@ -113,7 +118,7 @@ class adminCustomerController extends Controller
             return back()->with('fail', 'Bạn không thể truy cập vào trang giám đốc!!!');
         }
         elseif($role == '2'){
-            return view('dashboard_Owens.customer.form_View')->with(compact('CusDetail','blackCusDetail'));
+            return view('dashboard_Owens.customer.form_View')->with(compact('CusDetail','blackCusDetail', 'dataNoti'));
         }
     }
 
@@ -191,6 +196,7 @@ class adminCustomerController extends Controller
 
         if($role == '1'){
             if(isset($upd_Customer, $upd_Work,  $upd_WorkDetail )){
+                (new NotificationController)->sendNotification('update customer with id', $CusID, $data['CusName']);
                 $thongbao = 'Update Thành Công!!!';
                 return redirect(route('emp.customer'))->with(compact('thongbao'));
             }
@@ -201,6 +207,7 @@ class adminCustomerController extends Controller
         }
         elseif($role == '2'){
             if(isset($upd_Customer, $upd_Work,  $upd_WorkDetail )){
+                (new NotificationController)->sendNotification('update customer with id', $CusID, $data['CusName']);
                 $thongbao = 'Update Thành Công!!!';
                 return redirect(route('owens.customer'))->with(compact('thongbao'));
             }
@@ -229,6 +236,7 @@ class adminCustomerController extends Controller
         if($role == '1'){
             if(isset($upd_bCust)){
                 $thongbao = 'Update Thành Công!!!';
+                (new NotificationController)->sendNotification('update black customer with id', $CusID, $data['BlackCusName']);
                 return redirect(route('emp.black_lists'))->with(compact('thongbao'));
             }
             else{
@@ -239,6 +247,7 @@ class adminCustomerController extends Controller
         elseif($role == '2'){
             if(isset($upd_bCust)){
                 $thongbao = 'Update Thành Công!!!';
+                (new NotificationController)->sendNotification('update black customer with id', $CusID, $data['BlackCusName']);
                 return redirect(route('owens.black_lists'))->with(compact('thongbao'));
             }
             else{
@@ -257,13 +266,15 @@ class adminCustomerController extends Controller
     }
 
     public function create_owens(){
-            $empList = DB::table('employee_details')->get();
-            return view('dashboard_Owens.customer.insertCus_View')->with(compact('empList'));
+        $dataNoti = (new NotificationController)->renderNotification();
+        $empList = DB::table('employee_details')->get();
+            return view('dashboard_Owens.customer.insertCus_View')->with(compact('empList', 'dataNoti'));
     }
 
     public function createBcust_owens(){
+        $dataNoti = (new NotificationController)->renderNotification();
 
-        return view('dashboard_Owens.customer.insertBlackCust_View');
+        return view('dashboard_Owens.customer.insertBlackCust_View', compact('dataNoti'));
     }
 
     public function createCust(Request $request){
@@ -289,6 +300,7 @@ class adminCustomerController extends Controller
             'Price'=>$data['Price'],
         ]);
         if(isset($upd_cust)){
+            (new NotificationController)->sendNotification('create customer with id', $data['CusID'], $data['CusName']);
             return redirect(route('owens.customer'))->with('success', 'Thêm khách hàng mới thành công!!!');
         }
         else{
@@ -311,6 +323,7 @@ class adminCustomerController extends Controller
             'BlackCusDesc'=>$data['BlackCusDesc'],
         ]);
         if(isset($upd_blackCust)){
+            (new NotificationController)->sendNotification('create black customer have phone', $data['BlackCusPhone'], $data['BlackCusName']);
             return redirect(route('owens.black_lists'))->with('success', 'Thêm danh sách đen thành công!!!');
         }
         else{
@@ -322,6 +335,7 @@ class adminCustomerController extends Controller
         $id = $request->route()->parameter('BlackCusID');
         $del = DB::table('black_lists')->where('BlackCusID', '=', $id)->delete();
         if(isset($del)){
+            (new NotificationController)->sendNotification('delete black customer with', $id, "");
             return back()->with('success', 'Xóa Thành Công!!!');
         }
         else{
@@ -335,6 +349,7 @@ class adminCustomerController extends Controller
         if(isset($cus_in_WorkDetail)){
             $cus_in_Work = DB::table('work_lists')->where('CusID', '=', $id)->delete();
             $delCus = DB::table('customers')->where('CusID', '=', $id)->delete();
+            (new NotificationController)->sendNotification('delete customer with id', $id, "");
             return back()->with('success', 'Xóa Thành Công!!!');
         }
         else{
