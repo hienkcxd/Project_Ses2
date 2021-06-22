@@ -3,6 +3,7 @@
     namespace App\Http\Controllers\admin;
 
     use App\Http\Controllers\Controller;
+    use App\Http\Controllers\NotificationController;
     use App\Models\admin\account;
     use App\Models\Market\DistrictList;
     use App\Models\Market\MarketList;
@@ -23,6 +24,7 @@
 
         public function viewDetail(Request $request)
         {
+            $dataNoti = (new NotificationController)->renderNotification();
             //Get ID from ward, dist and market
             $id_Market = $request->route()->parameter('MarketID');
             $id_Ward = $request->route()->parameter('WardID');
@@ -47,6 +49,7 @@
                     'wardDetail',
                     'distDetail',
                     'disList',
+                    'dataNoti',
                 ));
         }
 
@@ -73,6 +76,7 @@
             $MarketLists->save();
             if(isset($MarketLists)){
                 $thongbao = "Update Thành Công!!!";
+                (new NotificationController)->sendNotification('update marked with id', $id_Market, $data['districts']."-".$data['wardList']."-".$data['Year']);
                 return redirect(route('admin_market'))->with(compact('thongbao'));
             }
             else{
@@ -87,6 +91,7 @@
             $id = $request->route()->parameter('MarketID');
             $del_market = DB::table('market_lists')->where('MarketID', '=', $id)->delete();
             if(isset($del_market)){
+                (new NotificationController)->sendNotification('delete marked with id', $id, "");
                 return redirect(route('admin_market'))->with('success', 'Xóa Thành Công!!!');
             }
             else{
@@ -101,9 +106,11 @@
         {
             $distList = DB::table('district_lists')->get();
             $wardList = DB::table('ward_lists')->get();
+            $dataNoti = (new NotificationController)->renderNotification();
             return view('dashboard_Owens.market.admin_market')->with(compact(
                 'distList',
                 'wardList',
+                'dataNoti',
             ));
         }
 
@@ -194,7 +201,8 @@
         public function create_owens()
         {
             $distList = DB::table('district_lists')->get();
-            return view('dashboard_Owens.market.insertMark_View')->with(compact('distList'));
+            $dataNoti = (new NotificationController)->renderNotification();
+            return view('dashboard_Owens.market.insertMark_View')->with(compact('distList', 'dataNoti'));
         }
 
         public function createMark(Request $request)
@@ -248,6 +256,7 @@
                     'Thang_12'=>$data['Thang_12'],
                 ]);
                 if(isset($upd_market)){
+                    (new NotificationController)->sendNotification('create new marked', "", $data['DistrictName']."-".$data['WardName']."-".$data['Year']);
                     return redirect(route('admin_market'))->with(compact('thongbao'));
                 }
                 else{

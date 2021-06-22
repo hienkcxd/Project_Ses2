@@ -15,7 +15,6 @@
                style="width:100%">
             <caption style="caption-side: top; font-size: 1.5rem; font-weight: bold; color: #039BE5">
                 BLACK LIST
-                <a class="btn-insert btn btn-outline-info" href="#">CREATE NEW</a>
             </caption>
             <thead>
             <tr>

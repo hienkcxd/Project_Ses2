@@ -928,6 +928,39 @@
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease; }
 
+.scroll-bar{
+    /*background: #0b2e13 !important;*/
+    height: 400px;
+    overflow-y: scroll;
+}
+
+.scroll-bar::-webkit-scrollbar {
+    width: 7px;
+    height: 6px;
+}
+.scroll-bar::-webkit-scrollbar-thumb {
+    background: #FAB702;
+    border-radius: 10px;
+}
+.scroll-bar::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px #a5aaad;
+    border-radius: 10px;
+}
+.dropdown-menu .markRead:hover p{
+    color: #FAB702 !important;
+}
+.dropdown-menu .markRead:hover{
+    color: #FAB702 !important;
+}
+.dropdown-menu .markReadAll{
+    text-decoration: none;
+
+}
+.dropdown-menu .markReadAll:hover p{
+    color: #FAB702 !important;
+    transition-delay: 100ms;
+}
+
 body {
   background: #f1f2f7;
   display: table;

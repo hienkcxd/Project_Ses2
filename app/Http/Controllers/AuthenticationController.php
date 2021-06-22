@@ -42,6 +42,7 @@ class AuthenticationController extends Controller
         $admin->Role = $request->Role;
         $save = $admin->save();
         if($save){
+            (new NotificationController)->sendNotification('create account with id', $request->EmployeeID, "");
             return redirect(route('accLists'))->with('success','New account has been register successfully!!!');
         }else{
             return back()->with('fail', 'Something were wrong, try again later...');
@@ -138,15 +139,17 @@ class AuthenticationController extends Controller
             return back()->with('thongbao', 'Bạn đang đăng nhập bằng tài khoản này, không thể xóa!!!');
         }
         else{
+            (new NotificationController)->sendNotification('delete account with id', $empID, "");
             $delAccount = DB::table('accounts')->where('EmployeeID', '=', $empID)->delete();
             return back()->with('success', 'Xóa tài khoản thành công!!!');
         }
     }
 
     public function accDetail(Request $request){
+        $dataNoti = (new NotificationController)->renderNotification();
         $empID = $request->route()->parameter('EmployeeID');
         $accDetail = DB::table('accounts')->where('EmployeeID', '=', $empID)->first();
-        return view('dashboard_Owens.employee.account_detail')->with(compact('accDetail'));
+        return view('dashboard_Owens.employee.account_detail')->with(compact('accDetail', 'dataNoti'));
     }
 
     public function updAccount(Request $request){
@@ -154,6 +157,7 @@ class AuthenticationController extends Controller
         $data = $request->all();
         $olDPass = account::where('EmployeeID', '=', $data['EmployeeID'])->first();
         if(Hash::check($data['Password'], $olDPass->Password)){
+            (new NotificationController)->sendNotification('update account with id', $data['EmployeeID'], "");
             $newsPass = Hash::make($data['New_Password']);
             $updAccount = DB::table('accounts')
                 ->where('EmployeeID', '=', $data['EmployeeID'])
@@ -162,6 +166,7 @@ class AuthenticationController extends Controller
                 ]);
             if($empID == $data['EmployeeID']){
                 session()->pull('LoggedAdmin');
+                (new NotificationController)->sendNotification('update account with id', $empID, "");
                 return redirect('/Admin')->with('success', 'Bạn vừa thay đổi mật khẩu bản thân, vui lòng đăng nhập lại!!!');
             }
             else{

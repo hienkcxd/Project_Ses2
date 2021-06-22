@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\NotificationController;
 use App\Models\AboutUs\EmployeeDetail;
 use App\Models\AboutUs\EmployeeList;
 use App\Models\admin\account;
@@ -12,17 +13,18 @@ use Illuminate\Support\Facades\DB;
 class adminEmployeeController extends Controller
 {
     public function index(){
-
-        return view('dashboard_Owens.employee.index_View');
+        $dataNoti = (new NotificationController)->renderNotification();
+        return view('dashboard_Owens.employee.index_View', compact('dataNoti'));
     }
 
 
     public function edit(Request $request){
         $EmpID = $request->route()->parameter('EmployeeID');
+        $dataNoti = (new NotificationController)->renderNotification();
         $empDetail = DB::table('employee_details')
                     ->where('EmployeeID', '=', $EmpID)
                     ->first();
-        return view('dashboard_Owens.employee.form_View')->with(compact('empDetail'));
+        return view('dashboard_Owens.employee.form_View')->with(compact('empDetail', 'dataNoti'));
     }
 
 
@@ -70,6 +72,7 @@ class adminEmployeeController extends Controller
 
         if(isset($upd_empDetail, $upd_empLists, $upd_empForCustomer, $upd_empForworkDetail )){
             $thongbao = 'Update Thành Công!!!';
+            (new NotificationController)->sendNotification('update information employee with id', $id_Emp, $data['empName']);
             return redirect(route('owens_Emp'))->with(compact('thongbao'));
         }
         else{
@@ -137,8 +140,8 @@ class adminEmployeeController extends Controller
     }
 
     public function create_owens(){
-
-        return view('dashboard_Owens.employee.insertEmp_View');
+        $dataNoti = (new NotificationController)->renderNotification();
+        return view('dashboard_Owens.employee.insertEmp_View', compact('dataNoti'));
     }
 
     public function createEmp(Request $request){
@@ -174,6 +177,7 @@ class adminEmployeeController extends Controller
                 "images"=>$data['images'],
             ]);
             if(isset($updEmp_detail)){
+                (new NotificationController)->sendNotification('create new employee with id', $data['EmployeeID'], $data['empName']);
                 return redirect(route('owens_Emp'))->with('success', 'Thêm nhân viên mới thành công!!!');
             }
             else{
@@ -195,6 +199,7 @@ class adminEmployeeController extends Controller
                 $del_account = DB::table('accounts')->where('EmployeeID', '=', $empID)->delete();
                 if(isset($del_empDetail, $del_account)){
                     $del_empList = DB::table('employee_lists')->where('EmployeeID', '=', $empID)->delete();
+                    (new NotificationController)->sendNotification('delete employee with id', $empID, "");
                     return redirect(route('owens_Emp'))->with('success', 'Xóa Thành Công!!');
                 }
                 else{

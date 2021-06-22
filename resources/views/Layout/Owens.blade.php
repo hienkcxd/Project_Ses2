@@ -144,15 +144,28 @@
                                 <span class="count bg-danger">0</span>
                             @endif
                         </button>
-                        <div class="dropdown-menu" aria-labelledby="notification" style="background: #0b2e13">
-                            <p class="red" style="width: auto">You have {{ $dataNoti->notifications->count() }} notification</p>
-                            @foreach($dataNoti->notifications as $noti)
-                                <div class="bg-flat-color-3" style="width: 14rem">
-                                <a class="dropdown-item media " href="#">
-                                    <i class="fa fa-check"></i>
-                                    <p> - Mark As Read</p>
+                        <div class="dropdown-menu bg-flat-color-3 scroll-bar" aria-labelledby="notification" style="padding: 0; margin-top: 0">
+                            @if($dataNoti->notifications->count() == 0)
+                                <p class="red" style="width: auto">{{ $dataNoti->notifications->count() }} notification</p>
+                                <hr style="margin: 0">
+                            @else
+                                <a class="markReadAll" href="#">
+                                    <p class="red" style="width: auto; color: #0D47A1;">
+                                        <i class="far fa-bell"></i> - {{ $dataNoti->notifications->count() }} notification  - Mark Read All
+                                    </p>
                                 </a>
-                                <p>{{$noti->data['EmpName']}} {{$noti->data['Status']}} {{$noti->data['ContentID']}}</p>
+                                <hr style="margin: 0">
+                            @endif
+                            @foreach($dataNoti->notifications as $noti)
+                                <div class="" style="width: 22rem;">
+                                    <a class="dropdown-item media markRead" href="#" style="color: #0D47A1">
+                                        <i class="fa fa-check"></i>
+                                        <p style="color: #0D47A1"> Mark As Read:</p>
+                                    </a>
+
+                                    <p>{{$noti->data['EmpName']}} {{$noti->data['Status']}} {{$noti->data['ContentID']}}</p>
+                                    <p style="color: #E65100; font-size: 14px"><i class="far fa-clock"></i> {{$noti->created_at}}</p>
+                                    <hr style="margin: 0">
                                 </div>
                             @endforeach
                         </div>

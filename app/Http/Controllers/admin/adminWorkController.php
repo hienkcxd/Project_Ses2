@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\NotificationController;
 use App\Models\admin\account;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -14,11 +15,12 @@ class adminWorkController extends Controller
         $workProgress = null;
         $workList = DB::table('work_lists')->get();
         $role = account::where('id','=', session('LoggedAdmin'))->first()->Role;
+        $dataNoti = (new NotificationController)->renderNotification();
         if($role == '1'){
             return redirect(route('emp.work'))->with('fail', 'Bạn không thể truy cập vào trang giám đốc!!!');
         }
         elseif($role == '2'){
-            return view('dashboard_Owens.work.index_View')->with(compact( 'workList', 'workProgress'));
+            return view('dashboard_Owens.work.index_View')->with(compact( 'workList', 'workProgress', 'dataNoti'));
         }
     }
 
@@ -43,11 +45,12 @@ class adminWorkController extends Controller
         $role = account::where('id','=', session('LoggedAdmin'))->first()->Role;
         $workList = null;
         $workProgress = DB::table('work_details')->get();
+        $dataNoti = (new NotificationController)->renderNotification();
         if($role == '1'){
             return redirect(route('emp.work_progress'))->with('fail', 'Bạn không thể truy cập vào trang giám đốc!!!');;
         }
         elseif($role == '2'){
-            return view('dashboard_Owens.work.index_View')->with(compact('workProgress', 'workList'));
+            return view('dashboard_Owens.work.index_View')->with(compact('workProgress', 'workList', 'dataNoti'));
         }
     }
 
@@ -68,6 +71,7 @@ class adminWorkController extends Controller
     }
 
     public function edit_owens(Request $request){
+        $dataNoti = (new NotificationController)->renderNotification();
         $role = account::where('id','=', session('LoggedAdmin'))->first()->Role;
         $WorkID = $request->route()->parameter('WorkID');
         $empList = DB::table('employee_details')->get();
@@ -103,7 +107,8 @@ class adminWorkController extends Controller
                     'customer',
                     'Emp',
                     'count',
-                    'empList'
+                    'empList',
+                    'dataNoti'
                 ));
         }
 
@@ -159,7 +164,7 @@ class adminWorkController extends Controller
             'Address'=>'required|min:4|max:50',
             'Price'=>'required|min:1|max:50',
             'Price_Int'=>'required|min:1|max:50',
-            'WorkDesc'=>'required|min:10|max:50',
+            'WorkDesc'=>'required|min:10',
             'CusName'=>'required|min:2|max:50',
             'CusPhone'=>'required|min:9|max:50',
             'registration'=>'required',
@@ -215,6 +220,7 @@ class adminWorkController extends Controller
 
         if($role == '1'){
             if(isset($upd_custDetail, $upd_workDetail, $upd_workLists)){
+                (new NotificationController)->sendNotification('update work with id', $WorkID, $data['WorkName']);
                 return redirect(route('emp.work'))->with(compact('thongbao'));
             }
             else{
@@ -224,6 +230,7 @@ class adminWorkController extends Controller
         }
         elseif($role == '2'){
             if(isset($upd_custDetail, $upd_workDetail, $upd_workLists)){
+                (new NotificationController)->sendNotification('update work with id', $WorkID, $data['WorkName']);
                 return redirect(route('owens.work'))->with(compact('thongbao'));
             }
             else{
@@ -255,7 +262,8 @@ class adminWorkController extends Controller
             $cusList = DB::table('customers')
                 ->whereNotIn('CusID',$cusWorkID )
                 ->get();
-            return view('dashboard_Owens.work.insertWork_Form')->with(compact('empList', 'cusList'));
+            $dataNoti = (new NotificationController)->renderNotification();
+            return view('dashboard_Owens.work.insertWork_Form')->with(compact('empList', 'cusList', 'dataNoti'));
     }
 
     function create(Request $request){
@@ -293,6 +301,7 @@ class adminWorkController extends Controller
                 "Progress"=>$data['Progress'],
             ]);
             if(isset($upd_WorkDetail)){
+                (new NotificationController)->sendNotification('create work with id', $data['WorkID'], $data['WorkName']);
                 return redirect(route('owens.work'))->with('success','Thêm công việc mới thành công!!!');
             }
             else{
@@ -310,6 +319,7 @@ class adminWorkController extends Controller
         if(isset($del_Wdetail)){
             $del_WList = DB::table('work_lists')->where('WorkID', '=', $id)->delete();
             if(isset($del_Wdetail)){
+                (new NotificationController)->sendNotification('delete work with id', $id, "");
                 return back()->with('success', 'Xóa Thành Công!!!');
             }
             else{
