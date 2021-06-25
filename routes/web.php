@@ -117,7 +117,6 @@
             Route::get('/owens/Employee/getEmployee', [adminEmployeeController::class, 'getEmployee'])->name('admin.allEmployee');
             Route::get('/owens/Employee/empDetail_{EmployeeID}', [adminWorkController::class, 'empDetail']);
 
-
             Route::get('/owens/Employee/create', [adminEmployeeController::class, 'create_owens'])->name('owens.create_Emp');
             Route::get('/{any?}/Employee/create', function ($any = null) {
                 return redirect(route('admin.create_owens'))->with('fail', 'Trang yêu cầu không tồn tại!!!');

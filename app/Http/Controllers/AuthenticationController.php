@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\changePasswordMail;
+use App\Mail\CreateCustomerMail;
 use App\Models\admin\account;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 
 class AuthenticationController extends Controller
 {
@@ -18,6 +21,21 @@ class AuthenticationController extends Controller
             ->get();
         return view('dashboard_Owens.employee.register_view')->with(compact('empList', 'dataNoti'));
     }
+    public function sendCreateMail($acc, $pass, $mailTo){
+        $Detail = [
+            'account'=>$acc,
+            'password'=>$pass,
+        ];
+        Mail::to($mailTo)->send(new CreateCustomerMail($Detail));
+    }
+
+    public function sendChangeMail($newPass, $mailTo){
+        $Detail = [
+            'password'=>$newPass,
+        ];
+        Mail::to($mailTo)->send(new changePasswordMail($Detail));
+    }
+
     function accLists(){
         $dataNoti = (new NotificationController)->renderNotification();
         $accLists = DB::table('accounts')->where('Role', '=', 1)->get();
@@ -42,6 +60,7 @@ class AuthenticationController extends Controller
         $admin->Role = $request->Role;
         $save = $admin->save();
         if($save){
+            $this->sendCreateMail($request->Account, $request->Password, $request->Email);
             (new NotificationController)->sendNotification('create account with id', $request->EmployeeID, "");
             return redirect(route('accLists'))->with('success','New account has been register successfully!!!');
         }else{
@@ -167,9 +186,11 @@ class AuthenticationController extends Controller
             if($empID == $data['EmployeeID']){
                 session()->pull('LoggedAdmin');
                 (new NotificationController)->sendNotification('update account with id', $empID, "");
+                $this->sendChangeMail($request->New_Password, $request->Email);
                 return redirect('/Admin')->with('success', 'Bạn vừa thay đổi mật khẩu bản thân, vui lòng đăng nhập lại!!!');
             }
             else{
+                $this->sendChangeMail($request->New_Password, $request->Email);
                 return redirect(route('accLists'))->with('success','Thay đổi mật khẩu thành công!!!');
             }
         }
