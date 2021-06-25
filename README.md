@@ -1,13 +1,14 @@
-@author: Đặng Thế Hiển.
-@phone: 0981815414
+#@author: Đặng Thế Hiển.
+#@phone: 0981815414
 
 # Xin chào mọi người!
 Đây là 1 trong số các project mình đã làm bằng php và laravel framework.
-Project có 1 số chức năng:
-+ Phía người xem:
+#Project có 1 số chức năng:
+# Phía người xem:
 - Các trang tin tức, dự án.
 - Trang thị trường: thống kê và so sánh số liệu đất đai quận, phường tại TP.HCM.
-+ Phía admin:
+- 
+# Phía admin:
 - Phân quyền đăng nhập gồm: giám đốc và nhân viên.
 - Chức năng nhân viên:
 * CRUD dự án, tin tức.
